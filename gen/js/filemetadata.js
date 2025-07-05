@@ -72,12 +72,15 @@ proto.file.v1.FileMetadata.prototype.toObject = function(opt_includeInstance) {
 proto.file.v1.FileMetadata.toObject = function(includeInstance, msg) {
   var f, obj = {
 id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-name: jspb.Message.getFieldWithDefault(msg, 2, ""),
-contentType: jspb.Message.getFieldWithDefault(msg, 3, ""),
-size: jspb.Message.getFieldWithDefault(msg, 4, 0),
+ownerId: jspb.Message.getFieldWithDefault(msg, 2, ""),
+name: jspb.Message.getFieldWithDefault(msg, 3, ""),
+contentType: jspb.Message.getFieldWithDefault(msg, 4, ""),
+size: jspb.Message.getFieldWithDefault(msg, 5, 0),
+isPublic: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
+shareId: jspb.Message.getFieldWithDefault(msg, 7, ""),
 createdAt: (f = msg.getCreatedAt()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f),
 updatedAt: (f = msg.getUpdatedAt()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f),
-isPublic: jspb.Message.getBooleanFieldWithDefault(msg, 7, false)
+deletedAt: (f = msg.getDeletedAt()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -120,29 +123,42 @@ proto.file.v1.FileMetadata.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
+      msg.setOwnerId(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setContentType(value);
+      msg.setName(value);
       break;
     case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setContentType(value);
+      break;
+    case 5:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setSize(value);
       break;
-    case 5:
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsPublic(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setShareId(value);
+      break;
+    case 8:
       var value = new proto.google.protobuf.Timestamp;
       reader.readMessage(value,proto.google.protobuf.Timestamp.deserializeBinaryFromReader);
       msg.setCreatedAt(value);
       break;
-    case 6:
+    case 9:
       var value = new proto.google.protobuf.Timestamp;
       reader.readMessage(value,proto.google.protobuf.Timestamp.deserializeBinaryFromReader);
       msg.setUpdatedAt(value);
       break;
-    case 7:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setIsPublic(value);
+    case 10:
+      var value = new proto.google.protobuf.Timestamp;
+      reader.readMessage(value,proto.google.protobuf.Timestamp.deserializeBinaryFromReader);
+      msg.setDeletedAt(value);
       break;
     default:
       reader.skipField();
@@ -180,31 +196,52 @@ proto.file.v1.FileMetadata.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getName();
+  f = message.getOwnerId();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = message.getContentType();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
+  f = message.getContentType();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
   f = message.getSize();
   if (f !== 0) {
     writer.writeInt64(
-      4,
+      5,
+      f
+    );
+  }
+  f = message.getIsPublic();
+  if (f) {
+    writer.writeBool(
+      6,
+      f
+    );
+  }
+  f = message.getShareId();
+  if (f.length > 0) {
+    writer.writeString(
+      7,
       f
     );
   }
   f = message.getCreatedAt();
   if (f != null) {
     writer.writeMessage(
-      5,
+      8,
       f,
       proto.google.protobuf.Timestamp.serializeBinaryToWriter
     );
@@ -212,16 +249,17 @@ proto.file.v1.FileMetadata.serializeBinaryToWriter = function(message, writer) {
   f = message.getUpdatedAt();
   if (f != null) {
     writer.writeMessage(
-      6,
+      9,
       f,
       proto.google.protobuf.Timestamp.serializeBinaryToWriter
     );
   }
-  f = message.getIsPublic();
-  if (f) {
-    writer.writeBool(
-      7,
-      f
+  f = message.getDeletedAt();
+  if (f != null) {
+    writer.writeMessage(
+      10,
+      f,
+      proto.google.protobuf.Timestamp.serializeBinaryToWriter
     );
   }
 };
@@ -246,10 +284,10 @@ proto.file.v1.FileMetadata.prototype.setId = function(value) {
 
 
 /**
- * optional string name = 2;
+ * optional string owner_id = 2;
  * @return {string}
  */
-proto.file.v1.FileMetadata.prototype.getName = function() {
+proto.file.v1.FileMetadata.prototype.getOwnerId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -258,16 +296,16 @@ proto.file.v1.FileMetadata.prototype.getName = function() {
  * @param {string} value
  * @return {!proto.file.v1.FileMetadata} returns this
  */
-proto.file.v1.FileMetadata.prototype.setName = function(value) {
+proto.file.v1.FileMetadata.prototype.setOwnerId = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * optional string content_type = 3;
+ * optional string name = 3;
  * @return {string}
  */
-proto.file.v1.FileMetadata.prototype.getContentType = function() {
+proto.file.v1.FileMetadata.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -276,17 +314,35 @@ proto.file.v1.FileMetadata.prototype.getContentType = function() {
  * @param {string} value
  * @return {!proto.file.v1.FileMetadata} returns this
  */
-proto.file.v1.FileMetadata.prototype.setContentType = function(value) {
+proto.file.v1.FileMetadata.prototype.setName = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional int64 size = 4;
+ * optional string content_type = 4;
+ * @return {string}
+ */
+proto.file.v1.FileMetadata.prototype.getContentType = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.file.v1.FileMetadata} returns this
+ */
+proto.file.v1.FileMetadata.prototype.setContentType = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional int64 size = 5;
  * @return {number}
  */
 proto.file.v1.FileMetadata.prototype.getSize = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
@@ -295,17 +351,53 @@ proto.file.v1.FileMetadata.prototype.getSize = function() {
  * @return {!proto.file.v1.FileMetadata} returns this
  */
 proto.file.v1.FileMetadata.prototype.setSize = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
 /**
- * optional google.protobuf.Timestamp created_at = 5;
+ * optional bool is_public = 6;
+ * @return {boolean}
+ */
+proto.file.v1.FileMetadata.prototype.getIsPublic = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.file.v1.FileMetadata} returns this
+ */
+proto.file.v1.FileMetadata.prototype.setIsPublic = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 6, value);
+};
+
+
+/**
+ * optional string share_id = 7;
+ * @return {string}
+ */
+proto.file.v1.FileMetadata.prototype.getShareId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.file.v1.FileMetadata} returns this
+ */
+proto.file.v1.FileMetadata.prototype.setShareId = function(value) {
+  return jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional google.protobuf.Timestamp created_at = 8;
  * @return {?proto.google.protobuf.Timestamp}
  */
 proto.file.v1.FileMetadata.prototype.getCreatedAt = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, proto.google.protobuf.Timestamp, 5));
+    jspb.Message.getWrapperField(this, proto.google.protobuf.Timestamp, 8));
 };
 
 
@@ -314,7 +406,7 @@ proto.file.v1.FileMetadata.prototype.getCreatedAt = function() {
  * @return {!proto.file.v1.FileMetadata} returns this
 */
 proto.file.v1.FileMetadata.prototype.setCreatedAt = function(value) {
-  return jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 8, value);
 };
 
 
@@ -332,17 +424,17 @@ proto.file.v1.FileMetadata.prototype.clearCreatedAt = function() {
  * @return {boolean}
  */
 proto.file.v1.FileMetadata.prototype.hasCreatedAt = function() {
-  return jspb.Message.getField(this, 5) != null;
+  return jspb.Message.getField(this, 8) != null;
 };
 
 
 /**
- * optional google.protobuf.Timestamp updated_at = 6;
+ * optional google.protobuf.Timestamp updated_at = 9;
  * @return {?proto.google.protobuf.Timestamp}
  */
 proto.file.v1.FileMetadata.prototype.getUpdatedAt = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, proto.google.protobuf.Timestamp, 6));
+    jspb.Message.getWrapperField(this, proto.google.protobuf.Timestamp, 9));
 };
 
 
@@ -351,7 +443,7 @@ proto.file.v1.FileMetadata.prototype.getUpdatedAt = function() {
  * @return {!proto.file.v1.FileMetadata} returns this
 */
 proto.file.v1.FileMetadata.prototype.setUpdatedAt = function(value) {
-  return jspb.Message.setWrapperField(this, 6, value);
+  return jspb.Message.setWrapperField(this, 9, value);
 };
 
 
@@ -369,25 +461,44 @@ proto.file.v1.FileMetadata.prototype.clearUpdatedAt = function() {
  * @return {boolean}
  */
 proto.file.v1.FileMetadata.prototype.hasUpdatedAt = function() {
-  return jspb.Message.getField(this, 6) != null;
+  return jspb.Message.getField(this, 9) != null;
 };
 
 
 /**
- * optional bool is_public = 7;
- * @return {boolean}
+ * optional google.protobuf.Timestamp deleted_at = 10;
+ * @return {?proto.google.protobuf.Timestamp}
  */
-proto.file.v1.FileMetadata.prototype.getIsPublic = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 7, false));
+proto.file.v1.FileMetadata.prototype.getDeletedAt = function() {
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
+    jspb.Message.getWrapperField(this, proto.google.protobuf.Timestamp, 10));
 };
 
 
 /**
- * @param {boolean} value
+ * @param {?proto.google.protobuf.Timestamp|undefined} value
+ * @return {!proto.file.v1.FileMetadata} returns this
+*/
+proto.file.v1.FileMetadata.prototype.setDeletedAt = function(value) {
+  return jspb.Message.setWrapperField(this, 10, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
  * @return {!proto.file.v1.FileMetadata} returns this
  */
-proto.file.v1.FileMetadata.prototype.setIsPublic = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 7, value);
+proto.file.v1.FileMetadata.prototype.clearDeletedAt = function() {
+  return this.setDeletedAt(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.file.v1.FileMetadata.prototype.hasDeletedAt = function() {
+  return jspb.Message.getField(this, 10) != null;
 };
 
 

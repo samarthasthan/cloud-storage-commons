@@ -2,162 +2,95 @@ syntax = "proto3";
 
 package file.v1;
 
-import "buf/validate/validate.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
-option go_package = "github.com/samarthasthan/cloud-storage-commons/gen/go/auth/v1;filev1";
+option go_package = "github.com/samarthasthan/cloud-storage-commons/gen/go/file/v1;filev1";
 
+// ---------------------------------------------------------------------------
+//  Service: only the multipart-upload life-cycle endpoints you requested.
+// ---------------------------------------------------------------------------
 service FileService {
-  // Upload: returns a presigned URL for file upload
-  rpc GetUploadURL(GetUploadURLRequest) returns (GetUploadURLResponse);
+  // STEP 1 ────────────────────────────────────────────────────────────────
+  // Register a new file, start an S3 multipart upload, and hand back
+  // the IDs the client needs for the next steps.
+  rpc InitiateMultipartUpload (InitiateMultipartUploadRequest)
+      returns (InitiateMultipartUploadResponse);
 
-  // List all files uploaded by current user
-  rpc ListFiles(ListFilesRequest) returns (ListFilesResponse);
+  // STEP 2 (repeat per part) ──────────────────────────────────────────────
+  rpc GetPresignedUploadPartURL (GetPresignedUploadPartURLRequest)
+      returns (GetPresignedUploadPartURLResponse);
 
-  // Get file metadata
-  rpc GetFile(GetFileRequest) returns (GetFileResponse);
+  // STEP 3 ────────────────────────────────────────────────────────────────
+  rpc CompleteMultipartUpload (CompleteMultipartUploadRequest)
+      returns (CompleteMultipartUploadResponse);
 
-  // Update file metadata
-  rpc UpdateFile(UpdateFileRequest) returns (UpdateFileResponse);
-
-  // Delete file
-  rpc DeleteFile(DeleteFileRequest) returns (DeleteFileResponse);
-
-  // Get presigned download URL
-  rpc GetDownloadURL(GetDownloadURLRequest) returns (GetDownloadURLResponse);
-
-  // Public sharing
-  rpc ShareFile(ShareFileRequest) returns (ShareFileResponse);
-  rpc RevokePublicShare(RevokePublicShareRequest) returns (RevokePublicShareResponse);
-
-  // Access public file metadata and download
-  rpc GetPublicFile(GetPublicFileRequest) returns (GetPublicFileResponse);
-  rpc GetPublicDownloadURL(GetPublicDownloadURLRequest) returns (GetPublicDownloadURLResponse);
-
-  // Access control (private sharing)
-  rpc ShareWithUser(ShareWithUserRequest) returns (ShareWithUserResponse);
-  rpc ListFilePermissions(ListFilePermissionsRequest) returns (ListFilePermissionsResponse);
-  rpc RevokeUserAccess(RevokeUserAccessRequest) returns (RevokeUserAccessResponse);
+  // Optional clean-up ─────────────────────────────────────────────────────
+  rpc AbortMultipartUpload (AbortMultipartUploadRequest)
+      returns (AbortMultipartUploadResponse);
 }
 
-// === Messages ===
+// ---------------------------------------------------------------------------
+//  Messages
+// ---------------------------------------------------------------------------
 
+// ===== 1. Initiate =========================================================
+message InitiateMultipartUploadRequest {
+  string name         = 1 [(buf.validate.field).string.min_len = 1];
+  string content_type = 2;                                              // optional
+  int64  size         = 3 [(buf.validate.field).int64.gt = 0];          // bytes
+}
+
+message InitiateMultipartUploadResponse {
+  string file_id   = 1;   // UUID – primary key in Files table
+  string upload_id = 2;   // S3 multipart UploadID
+  string key       = 3;   // S3 object key chosen by the server
+}
+
+// ===== 2. Presign part =====================================================
+message GetPresignedUploadPartURLRequest {
+  string file_id       = 1 [(buf.validate.field).string.min_len = 1];
+  int32  part_number   = 2 [(buf.validate.field).int32.gt = 0];
+  int32  expires_secs  = 3 [(buf.validate.field).int32.gt = 0]; // e.g. 900 = 15 min
+}
+
+message GetPresignedUploadPartURLResponse {
+  string presigned_url = 1;
+}
+
+// ===== 3. Complete upload ==================================================
+message CompleteMultipartUploadRequest {
+  string file_id = 1 [(buf.validate.field).string.min_len = 1];
+  repeated CompletedPart parts = 2 [(buf.validate.field).repeated.min_items = 1];
+}
+
+message CompletedPart {
+  int32  part_number = 1 [(buf.validate.field).int32.gt = 0];
+  string etag        = 2 [(buf.validate.field).string.min_len = 1];
+}
+
+message CompleteMultipartUploadResponse {
+  FileMetadata file = 1;   // fully populated metadata row
+}
+
+// ===== Abort upload ========================================================
+message AbortMultipartUploadRequest {
+  string file_id = 1 [(buf.validate.field).string.min_len = 1];
+}
+message AbortMultipartUploadResponse {}   // empty on success
+
+// ---------------------------------------------------------------------------
+//  DTO mirroring the Files table (handy for future RPCs too)
+// ---------------------------------------------------------------------------
 message FileMetadata {
-  string id = 1;
-  string name = 2;
-  string content_type = 3;
-  int64 size = 4;
-  google.protobuf.Timestamp created_at = 5;
-  google.protobuf.Timestamp updated_at = 6;
-  bool is_public = 7;
+  string id           = 1;  // Files.Id
+  string owner_id     = 2;  // Files.Owner_Id
+  string name         = 3;
+  string content_type = 4;
+  int64  size         = 5;
+  bool   is_public    = 6;
+  string share_id     = 7;  // nullable UUID – present only if public
+  google.protobuf.Timestamp created_at = 8;
+  google.protobuf.Timestamp updated_at = 9;
+  google.protobuf.Timestamp deleted_at = 10; // optional
 }
-
-message GetUploadURLRequest {
-  string file_name = 1 [(buf.validate.field).string.min_len = 1];
-  string content_type = 2;
-  int64 size = 3 [(buf.validate.field).int64.gt = 0];
-}
-
-message GetUploadURLResponse {
-  string upload_url = 1;
-  string file_id = 2;
-}
-
-message ListFilesRequest {}
-
-message ListFilesResponse {
-  repeated FileMetadata files = 1;
-}
-
-message GetFileRequest {
-  string id = 1 [(buf.validate.field).string.min_len = 1];
-}
-
-message GetFileResponse {
-  FileMetadata file = 1;
-}
-
-message UpdateFileRequest {
-  string id = 1 [(buf.validate.field).string.min_len = 1];
-  string new_name = 2 [(buf.validate.field).string.min_len = 1];
-}
-
-message UpdateFileResponse {
-  FileMetadata file = 1;
-}
-
-message DeleteFileRequest {
-  string id = 1 [(buf.validate.field).string.min_len = 1];
-}
-
-message DeleteFileResponse {}
-
-message GetDownloadURLRequest {
-  string id = 1 [(buf.validate.field).string.min_len = 1];
-}
-
-message GetDownloadURLResponse {
-  string download_url = 1;
-}
-
-// === Public Sharing ===
-
-message ShareFileRequest {
-  string id = 1 [(buf.validate.field).string.min_len = 1];
-}
-
-message ShareFileResponse {
-  string share_id = 1;
-  string public_url = 2;
-}
-
-message RevokePublicShareRequest {
-  string id = 1 [(buf.validate.field).string.min_len = 1];
-}
-
-message RevokePublicShareResponse {}
-
-message GetPublicFileRequest {
-  string share_id = 1 [(buf.validate.field).string.min_len = 1];
-}
-
-message GetPublicFileResponse {
-  FileMetadata file = 1;
-}
-
-message GetPublicDownloadURLRequest {
-  string share_id = 1 [(buf.validate.field).string.min_len = 1];
-}
-
-message GetPublicDownloadURLResponse {
-  string download_url = 1;
-}
-
-// === Private Sharing (Access Control) ===
-
-message ShareWithUserRequest {
-  string id = 1 [(buf.validate.field).string.min_len = 1];
-  string email = 2 [(buf.validate.field).string.email = true];
-}
-
-message ShareWithUserResponse {}
-
-message ListFilePermissionsRequest {
-  string id = 1 [(buf.validate.field).string.min_len = 1];
-}
-
-message ListFilePermissionsResponse {
-  repeated FileAccessEntry access_list = 1;
-}
-
-message FileAccessEntry {
-  string user_id = 1;
-  string email = 2;
-}
-
-message RevokeUserAccessRequest {
-  string id = 1 [(buf.validate.field).string.min_len = 1];
-  string user_id = 2 [(buf.validate.field).string.min_len = 1];
-}
-
-message RevokeUserAccessResponse {}

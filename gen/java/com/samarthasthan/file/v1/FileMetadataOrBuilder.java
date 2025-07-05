@@ -10,11 +10,19 @@ public interface FileMetadataOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * Files.Id
+   * </pre>
+   *
    * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
+   * <pre>
+   * Files.Id
+   * </pre>
+   *
    * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
@@ -22,68 +30,135 @@ public interface FileMetadataOrBuilder extends
       getIdBytes();
 
   /**
-   * <code>string name = 2 [json_name = "name"];</code>
+   * <pre>
+   * Files.Owner_Id
+   * </pre>
+   *
+   * <code>string owner_id = 2 [json_name = "ownerId"];</code>
+   * @return The ownerId.
+   */
+  java.lang.String getOwnerId();
+  /**
+   * <pre>
+   * Files.Owner_Id
+   * </pre>
+   *
+   * <code>string owner_id = 2 [json_name = "ownerId"];</code>
+   * @return The bytes for ownerId.
+   */
+  com.google.protobuf.ByteString
+      getOwnerIdBytes();
+
+  /**
+   * <code>string name = 3 [json_name = "name"];</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 2 [json_name = "name"];</code>
+   * <code>string name = 3 [json_name = "name"];</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>string content_type = 3 [json_name = "contentType"];</code>
+   * <code>string content_type = 4 [json_name = "contentType"];</code>
    * @return The contentType.
    */
   java.lang.String getContentType();
   /**
-   * <code>string content_type = 3 [json_name = "contentType"];</code>
+   * <code>string content_type = 4 [json_name = "contentType"];</code>
    * @return The bytes for contentType.
    */
   com.google.protobuf.ByteString
       getContentTypeBytes();
 
   /**
-   * <code>int64 size = 4 [json_name = "size"];</code>
+   * <code>int64 size = 5 [json_name = "size"];</code>
    * @return The size.
    */
   long getSize();
 
   /**
-   * <code>.google.protobuf.Timestamp created_at = 5 [json_name = "createdAt"];</code>
+   * <code>bool is_public = 6 [json_name = "isPublic"];</code>
+   * @return The isPublic.
+   */
+  boolean getIsPublic();
+
+  /**
+   * <pre>
+   * nullable UUID – present only if public
+   * </pre>
+   *
+   * <code>string share_id = 7 [json_name = "shareId"];</code>
+   * @return The shareId.
+   */
+  java.lang.String getShareId();
+  /**
+   * <pre>
+   * nullable UUID – present only if public
+   * </pre>
+   *
+   * <code>string share_id = 7 [json_name = "shareId"];</code>
+   * @return The bytes for shareId.
+   */
+  com.google.protobuf.ByteString
+      getShareIdBytes();
+
+  /**
+   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
-   * <code>.google.protobuf.Timestamp created_at = 5 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
-   * <code>.google.protobuf.Timestamp created_at = 5 [json_name = "createdAt"];</code>
+   * <code>.google.protobuf.Timestamp created_at = 8 [json_name = "createdAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 6 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
    * @return Whether the updatedAt field is set.
    */
   boolean hasUpdatedAt();
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 6 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
    * @return The updatedAt.
    */
   com.google.protobuf.Timestamp getUpdatedAt();
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 6 [json_name = "updatedAt"];</code>
+   * <code>.google.protobuf.Timestamp updated_at = 9 [json_name = "updatedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 
   /**
-   * <code>bool is_public = 7 [json_name = "isPublic"];</code>
-   * @return The isPublic.
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
+   * @return Whether the deletedAt field is set.
    */
-  boolean getIsPublic();
+  boolean hasDeletedAt();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
+   * @return The deletedAt.
+   */
+  com.google.protobuf.Timestamp getDeletedAt();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getDeletedAtOrBuilder();
 }

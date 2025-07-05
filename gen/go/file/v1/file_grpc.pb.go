@@ -19,47 +19,32 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	FileService_GetUploadURL_FullMethodName         = "/file.v1.FileService/GetUploadURL"
-	FileService_ListFiles_FullMethodName            = "/file.v1.FileService/ListFiles"
-	FileService_GetFile_FullMethodName              = "/file.v1.FileService/GetFile"
-	FileService_UpdateFile_FullMethodName           = "/file.v1.FileService/UpdateFile"
-	FileService_DeleteFile_FullMethodName           = "/file.v1.FileService/DeleteFile"
-	FileService_GetDownloadURL_FullMethodName       = "/file.v1.FileService/GetDownloadURL"
-	FileService_ShareFile_FullMethodName            = "/file.v1.FileService/ShareFile"
-	FileService_RevokePublicShare_FullMethodName    = "/file.v1.FileService/RevokePublicShare"
-	FileService_GetPublicFile_FullMethodName        = "/file.v1.FileService/GetPublicFile"
-	FileService_GetPublicDownloadURL_FullMethodName = "/file.v1.FileService/GetPublicDownloadURL"
-	FileService_ShareWithUser_FullMethodName        = "/file.v1.FileService/ShareWithUser"
-	FileService_ListFilePermissions_FullMethodName  = "/file.v1.FileService/ListFilePermissions"
-	FileService_RevokeUserAccess_FullMethodName     = "/file.v1.FileService/RevokeUserAccess"
+	FileService_InitiateMultipartUpload_FullMethodName   = "/file.v1.FileService/InitiateMultipartUpload"
+	FileService_GetPresignedUploadPartURL_FullMethodName = "/file.v1.FileService/GetPresignedUploadPartURL"
+	FileService_CompleteMultipartUpload_FullMethodName   = "/file.v1.FileService/CompleteMultipartUpload"
+	FileService_AbortMultipartUpload_FullMethodName      = "/file.v1.FileService/AbortMultipartUpload"
 )
 
 // FileServiceClient is the client API for FileService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+//
+// ---------------------------------------------------------------------------
+//
+//	Service: only the multipart-upload life-cycle endpoints you requested.
+//
+// ---------------------------------------------------------------------------
 type FileServiceClient interface {
-	// Upload: returns a presigned URL for file upload
-	GetUploadURL(ctx context.Context, in *GetUploadURLRequest, opts ...grpc.CallOption) (*GetUploadURLResponse, error)
-	// List all files uploaded by current user
-	ListFiles(ctx context.Context, in *ListFilesRequest, opts ...grpc.CallOption) (*ListFilesResponse, error)
-	// Get file metadata
-	GetFile(ctx context.Context, in *GetFileRequest, opts ...grpc.CallOption) (*GetFileResponse, error)
-	// Update file metadata
-	UpdateFile(ctx context.Context, in *UpdateFileRequest, opts ...grpc.CallOption) (*UpdateFileResponse, error)
-	// Delete file
-	DeleteFile(ctx context.Context, in *DeleteFileRequest, opts ...grpc.CallOption) (*DeleteFileResponse, error)
-	// Get presigned download URL
-	GetDownloadURL(ctx context.Context, in *GetDownloadURLRequest, opts ...grpc.CallOption) (*GetDownloadURLResponse, error)
-	// Public sharing
-	ShareFile(ctx context.Context, in *ShareFileRequest, opts ...grpc.CallOption) (*ShareFileResponse, error)
-	RevokePublicShare(ctx context.Context, in *RevokePublicShareRequest, opts ...grpc.CallOption) (*RevokePublicShareResponse, error)
-	// Access public file metadata and download
-	GetPublicFile(ctx context.Context, in *GetPublicFileRequest, opts ...grpc.CallOption) (*GetPublicFileResponse, error)
-	GetPublicDownloadURL(ctx context.Context, in *GetPublicDownloadURLRequest, opts ...grpc.CallOption) (*GetPublicDownloadURLResponse, error)
-	// Access control (private sharing)
-	ShareWithUser(ctx context.Context, in *ShareWithUserRequest, opts ...grpc.CallOption) (*ShareWithUserResponse, error)
-	ListFilePermissions(ctx context.Context, in *ListFilePermissionsRequest, opts ...grpc.CallOption) (*ListFilePermissionsResponse, error)
-	RevokeUserAccess(ctx context.Context, in *RevokeUserAccessRequest, opts ...grpc.CallOption) (*RevokeUserAccessResponse, error)
+	// STEP 1 ────────────────────────────────────────────────────────────────
+	// Register a new file, start an S3 multipart upload, and hand back
+	// the IDs the client needs for the next steps.
+	InitiateMultipartUpload(ctx context.Context, in *InitiateMultipartUploadRequest, opts ...grpc.CallOption) (*InitiateMultipartUploadResponse, error)
+	// STEP 2 (repeat per part) ──────────────────────────────────────────────
+	GetPresignedUploadPartURL(ctx context.Context, in *GetPresignedUploadPartURLRequest, opts ...grpc.CallOption) (*GetPresignedUploadPartURLResponse, error)
+	// STEP 3 ────────────────────────────────────────────────────────────────
+	CompleteMultipartUpload(ctx context.Context, in *CompleteMultipartUploadRequest, opts ...grpc.CallOption) (*CompleteMultipartUploadResponse, error)
+	// Optional clean-up ─────────────────────────────────────────────────────
+	AbortMultipartUpload(ctx context.Context, in *AbortMultipartUploadRequest, opts ...grpc.CallOption) (*AbortMultipartUploadResponse, error)
 }
 
 type fileServiceClient struct {
@@ -70,130 +55,40 @@ func NewFileServiceClient(cc grpc.ClientConnInterface) FileServiceClient {
 	return &fileServiceClient{cc}
 }
 
-func (c *fileServiceClient) GetUploadURL(ctx context.Context, in *GetUploadURLRequest, opts ...grpc.CallOption) (*GetUploadURLResponse, error) {
+func (c *fileServiceClient) InitiateMultipartUpload(ctx context.Context, in *InitiateMultipartUploadRequest, opts ...grpc.CallOption) (*InitiateMultipartUploadResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUploadURLResponse)
-	err := c.cc.Invoke(ctx, FileService_GetUploadURL_FullMethodName, in, out, cOpts...)
+	out := new(InitiateMultipartUploadResponse)
+	err := c.cc.Invoke(ctx, FileService_InitiateMultipartUpload_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *fileServiceClient) ListFiles(ctx context.Context, in *ListFilesRequest, opts ...grpc.CallOption) (*ListFilesResponse, error) {
+func (c *fileServiceClient) GetPresignedUploadPartURL(ctx context.Context, in *GetPresignedUploadPartURLRequest, opts ...grpc.CallOption) (*GetPresignedUploadPartURLResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListFilesResponse)
-	err := c.cc.Invoke(ctx, FileService_ListFiles_FullMethodName, in, out, cOpts...)
+	out := new(GetPresignedUploadPartURLResponse)
+	err := c.cc.Invoke(ctx, FileService_GetPresignedUploadPartURL_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *fileServiceClient) GetFile(ctx context.Context, in *GetFileRequest, opts ...grpc.CallOption) (*GetFileResponse, error) {
+func (c *fileServiceClient) CompleteMultipartUpload(ctx context.Context, in *CompleteMultipartUploadRequest, opts ...grpc.CallOption) (*CompleteMultipartUploadResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFileResponse)
-	err := c.cc.Invoke(ctx, FileService_GetFile_FullMethodName, in, out, cOpts...)
+	out := new(CompleteMultipartUploadResponse)
+	err := c.cc.Invoke(ctx, FileService_CompleteMultipartUpload_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *fileServiceClient) UpdateFile(ctx context.Context, in *UpdateFileRequest, opts ...grpc.CallOption) (*UpdateFileResponse, error) {
+func (c *fileServiceClient) AbortMultipartUpload(ctx context.Context, in *AbortMultipartUploadRequest, opts ...grpc.CallOption) (*AbortMultipartUploadResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateFileResponse)
-	err := c.cc.Invoke(ctx, FileService_UpdateFile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileServiceClient) DeleteFile(ctx context.Context, in *DeleteFileRequest, opts ...grpc.CallOption) (*DeleteFileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteFileResponse)
-	err := c.cc.Invoke(ctx, FileService_DeleteFile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileServiceClient) GetDownloadURL(ctx context.Context, in *GetDownloadURLRequest, opts ...grpc.CallOption) (*GetDownloadURLResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDownloadURLResponse)
-	err := c.cc.Invoke(ctx, FileService_GetDownloadURL_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileServiceClient) ShareFile(ctx context.Context, in *ShareFileRequest, opts ...grpc.CallOption) (*ShareFileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ShareFileResponse)
-	err := c.cc.Invoke(ctx, FileService_ShareFile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileServiceClient) RevokePublicShare(ctx context.Context, in *RevokePublicShareRequest, opts ...grpc.CallOption) (*RevokePublicShareResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RevokePublicShareResponse)
-	err := c.cc.Invoke(ctx, FileService_RevokePublicShare_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileServiceClient) GetPublicFile(ctx context.Context, in *GetPublicFileRequest, opts ...grpc.CallOption) (*GetPublicFileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPublicFileResponse)
-	err := c.cc.Invoke(ctx, FileService_GetPublicFile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileServiceClient) GetPublicDownloadURL(ctx context.Context, in *GetPublicDownloadURLRequest, opts ...grpc.CallOption) (*GetPublicDownloadURLResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPublicDownloadURLResponse)
-	err := c.cc.Invoke(ctx, FileService_GetPublicDownloadURL_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileServiceClient) ShareWithUser(ctx context.Context, in *ShareWithUserRequest, opts ...grpc.CallOption) (*ShareWithUserResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ShareWithUserResponse)
-	err := c.cc.Invoke(ctx, FileService_ShareWithUser_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileServiceClient) ListFilePermissions(ctx context.Context, in *ListFilePermissionsRequest, opts ...grpc.CallOption) (*ListFilePermissionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListFilePermissionsResponse)
-	err := c.cc.Invoke(ctx, FileService_ListFilePermissions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fileServiceClient) RevokeUserAccess(ctx context.Context, in *RevokeUserAccessRequest, opts ...grpc.CallOption) (*RevokeUserAccessResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RevokeUserAccessResponse)
-	err := c.cc.Invoke(ctx, FileService_RevokeUserAccess_FullMethodName, in, out, cOpts...)
+	out := new(AbortMultipartUploadResponse)
+	err := c.cc.Invoke(ctx, FileService_AbortMultipartUpload_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -203,29 +98,23 @@ func (c *fileServiceClient) RevokeUserAccess(ctx context.Context, in *RevokeUser
 // FileServiceServer is the server API for FileService service.
 // All implementations must embed UnimplementedFileServiceServer
 // for forward compatibility.
+//
+// ---------------------------------------------------------------------------
+//
+//	Service: only the multipart-upload life-cycle endpoints you requested.
+//
+// ---------------------------------------------------------------------------
 type FileServiceServer interface {
-	// Upload: returns a presigned URL for file upload
-	GetUploadURL(context.Context, *GetUploadURLRequest) (*GetUploadURLResponse, error)
-	// List all files uploaded by current user
-	ListFiles(context.Context, *ListFilesRequest) (*ListFilesResponse, error)
-	// Get file metadata
-	GetFile(context.Context, *GetFileRequest) (*GetFileResponse, error)
-	// Update file metadata
-	UpdateFile(context.Context, *UpdateFileRequest) (*UpdateFileResponse, error)
-	// Delete file
-	DeleteFile(context.Context, *DeleteFileRequest) (*DeleteFileResponse, error)
-	// Get presigned download URL
-	GetDownloadURL(context.Context, *GetDownloadURLRequest) (*GetDownloadURLResponse, error)
-	// Public sharing
-	ShareFile(context.Context, *ShareFileRequest) (*ShareFileResponse, error)
-	RevokePublicShare(context.Context, *RevokePublicShareRequest) (*RevokePublicShareResponse, error)
-	// Access public file metadata and download
-	GetPublicFile(context.Context, *GetPublicFileRequest) (*GetPublicFileResponse, error)
-	GetPublicDownloadURL(context.Context, *GetPublicDownloadURLRequest) (*GetPublicDownloadURLResponse, error)
-	// Access control (private sharing)
-	ShareWithUser(context.Context, *ShareWithUserRequest) (*ShareWithUserResponse, error)
-	ListFilePermissions(context.Context, *ListFilePermissionsRequest) (*ListFilePermissionsResponse, error)
-	RevokeUserAccess(context.Context, *RevokeUserAccessRequest) (*RevokeUserAccessResponse, error)
+	// STEP 1 ────────────────────────────────────────────────────────────────
+	// Register a new file, start an S3 multipart upload, and hand back
+	// the IDs the client needs for the next steps.
+	InitiateMultipartUpload(context.Context, *InitiateMultipartUploadRequest) (*InitiateMultipartUploadResponse, error)
+	// STEP 2 (repeat per part) ──────────────────────────────────────────────
+	GetPresignedUploadPartURL(context.Context, *GetPresignedUploadPartURLRequest) (*GetPresignedUploadPartURLResponse, error)
+	// STEP 3 ────────────────────────────────────────────────────────────────
+	CompleteMultipartUpload(context.Context, *CompleteMultipartUploadRequest) (*CompleteMultipartUploadResponse, error)
+	// Optional clean-up ─────────────────────────────────────────────────────
+	AbortMultipartUpload(context.Context, *AbortMultipartUploadRequest) (*AbortMultipartUploadResponse, error)
 	mustEmbedUnimplementedFileServiceServer()
 }
 
@@ -236,44 +125,17 @@ type FileServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedFileServiceServer struct{}
 
-func (UnimplementedFileServiceServer) GetUploadURL(context.Context, *GetUploadURLRequest) (*GetUploadURLResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUploadURL not implemented")
+func (UnimplementedFileServiceServer) InitiateMultipartUpload(context.Context, *InitiateMultipartUploadRequest) (*InitiateMultipartUploadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateMultipartUpload not implemented")
 }
-func (UnimplementedFileServiceServer) ListFiles(context.Context, *ListFilesRequest) (*ListFilesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListFiles not implemented")
+func (UnimplementedFileServiceServer) GetPresignedUploadPartURL(context.Context, *GetPresignedUploadPartURLRequest) (*GetPresignedUploadPartURLResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPresignedUploadPartURL not implemented")
 }
-func (UnimplementedFileServiceServer) GetFile(context.Context, *GetFileRequest) (*GetFileResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetFile not implemented")
+func (UnimplementedFileServiceServer) CompleteMultipartUpload(context.Context, *CompleteMultipartUploadRequest) (*CompleteMultipartUploadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CompleteMultipartUpload not implemented")
 }
-func (UnimplementedFileServiceServer) UpdateFile(context.Context, *UpdateFileRequest) (*UpdateFileResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateFile not implemented")
-}
-func (UnimplementedFileServiceServer) DeleteFile(context.Context, *DeleteFileRequest) (*DeleteFileResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteFile not implemented")
-}
-func (UnimplementedFileServiceServer) GetDownloadURL(context.Context, *GetDownloadURLRequest) (*GetDownloadURLResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetDownloadURL not implemented")
-}
-func (UnimplementedFileServiceServer) ShareFile(context.Context, *ShareFileRequest) (*ShareFileResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ShareFile not implemented")
-}
-func (UnimplementedFileServiceServer) RevokePublicShare(context.Context, *RevokePublicShareRequest) (*RevokePublicShareResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RevokePublicShare not implemented")
-}
-func (UnimplementedFileServiceServer) GetPublicFile(context.Context, *GetPublicFileRequest) (*GetPublicFileResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetPublicFile not implemented")
-}
-func (UnimplementedFileServiceServer) GetPublicDownloadURL(context.Context, *GetPublicDownloadURLRequest) (*GetPublicDownloadURLResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetPublicDownloadURL not implemented")
-}
-func (UnimplementedFileServiceServer) ShareWithUser(context.Context, *ShareWithUserRequest) (*ShareWithUserResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ShareWithUser not implemented")
-}
-func (UnimplementedFileServiceServer) ListFilePermissions(context.Context, *ListFilePermissionsRequest) (*ListFilePermissionsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListFilePermissions not implemented")
-}
-func (UnimplementedFileServiceServer) RevokeUserAccess(context.Context, *RevokeUserAccessRequest) (*RevokeUserAccessResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RevokeUserAccess not implemented")
+func (UnimplementedFileServiceServer) AbortMultipartUpload(context.Context, *AbortMultipartUploadRequest) (*AbortMultipartUploadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AbortMultipartUpload not implemented")
 }
 func (UnimplementedFileServiceServer) mustEmbedUnimplementedFileServiceServer() {}
 func (UnimplementedFileServiceServer) testEmbeddedByValue()                     {}
@@ -296,236 +158,74 @@ func RegisterFileServiceServer(s grpc.ServiceRegistrar, srv FileServiceServer) {
 	s.RegisterService(&FileService_ServiceDesc, srv)
 }
 
-func _FileService_GetUploadURL_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUploadURLRequest)
+func _FileService_InitiateMultipartUpload_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InitiateMultipartUploadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FileServiceServer).GetUploadURL(ctx, in)
+		return srv.(FileServiceServer).InitiateMultipartUpload(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: FileService_GetUploadURL_FullMethodName,
+		FullMethod: FileService_InitiateMultipartUpload_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).GetUploadURL(ctx, req.(*GetUploadURLRequest))
+		return srv.(FileServiceServer).InitiateMultipartUpload(ctx, req.(*InitiateMultipartUploadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FileService_ListFiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListFilesRequest)
+func _FileService_GetPresignedUploadPartURL_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPresignedUploadPartURLRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FileServiceServer).ListFiles(ctx, in)
+		return srv.(FileServiceServer).GetPresignedUploadPartURL(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: FileService_ListFiles_FullMethodName,
+		FullMethod: FileService_GetPresignedUploadPartURL_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).ListFiles(ctx, req.(*ListFilesRequest))
+		return srv.(FileServiceServer).GetPresignedUploadPartURL(ctx, req.(*GetPresignedUploadPartURLRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FileService_GetFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFileRequest)
+func _FileService_CompleteMultipartUpload_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompleteMultipartUploadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FileServiceServer).GetFile(ctx, in)
+		return srv.(FileServiceServer).CompleteMultipartUpload(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: FileService_GetFile_FullMethodName,
+		FullMethod: FileService_CompleteMultipartUpload_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).GetFile(ctx, req.(*GetFileRequest))
+		return srv.(FileServiceServer).CompleteMultipartUpload(ctx, req.(*CompleteMultipartUploadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FileService_UpdateFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateFileRequest)
+func _FileService_AbortMultipartUpload_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbortMultipartUploadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FileServiceServer).UpdateFile(ctx, in)
+		return srv.(FileServiceServer).AbortMultipartUpload(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: FileService_UpdateFile_FullMethodName,
+		FullMethod: FileService_AbortMultipartUpload_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).UpdateFile(ctx, req.(*UpdateFileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileService_DeleteFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteFileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileServiceServer).DeleteFile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileService_DeleteFile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).DeleteFile(ctx, req.(*DeleteFileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileService_GetDownloadURL_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDownloadURLRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileServiceServer).GetDownloadURL(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileService_GetDownloadURL_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).GetDownloadURL(ctx, req.(*GetDownloadURLRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileService_ShareFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShareFileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileServiceServer).ShareFile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileService_ShareFile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).ShareFile(ctx, req.(*ShareFileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileService_RevokePublicShare_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RevokePublicShareRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileServiceServer).RevokePublicShare(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileService_RevokePublicShare_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).RevokePublicShare(ctx, req.(*RevokePublicShareRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileService_GetPublicFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPublicFileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileServiceServer).GetPublicFile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileService_GetPublicFile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).GetPublicFile(ctx, req.(*GetPublicFileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileService_GetPublicDownloadURL_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPublicDownloadURLRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileServiceServer).GetPublicDownloadURL(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileService_GetPublicDownloadURL_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).GetPublicDownloadURL(ctx, req.(*GetPublicDownloadURLRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileService_ShareWithUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShareWithUserRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileServiceServer).ShareWithUser(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileService_ShareWithUser_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).ShareWithUser(ctx, req.(*ShareWithUserRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileService_ListFilePermissions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListFilePermissionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileServiceServer).ListFilePermissions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileService_ListFilePermissions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).ListFilePermissions(ctx, req.(*ListFilePermissionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FileService_RevokeUserAccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RevokeUserAccessRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FileServiceServer).RevokeUserAccess(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FileService_RevokeUserAccess_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).RevokeUserAccess(ctx, req.(*RevokeUserAccessRequest))
+		return srv.(FileServiceServer).AbortMultipartUpload(ctx, req.(*AbortMultipartUploadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -538,56 +238,20 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*FileServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetUploadURL",
-			Handler:    _FileService_GetUploadURL_Handler,
+			MethodName: "InitiateMultipartUpload",
+			Handler:    _FileService_InitiateMultipartUpload_Handler,
 		},
 		{
-			MethodName: "ListFiles",
-			Handler:    _FileService_ListFiles_Handler,
+			MethodName: "GetPresignedUploadPartURL",
+			Handler:    _FileService_GetPresignedUploadPartURL_Handler,
 		},
 		{
-			MethodName: "GetFile",
-			Handler:    _FileService_GetFile_Handler,
+			MethodName: "CompleteMultipartUpload",
+			Handler:    _FileService_CompleteMultipartUpload_Handler,
 		},
 		{
-			MethodName: "UpdateFile",
-			Handler:    _FileService_UpdateFile_Handler,
-		},
-		{
-			MethodName: "DeleteFile",
-			Handler:    _FileService_DeleteFile_Handler,
-		},
-		{
-			MethodName: "GetDownloadURL",
-			Handler:    _FileService_GetDownloadURL_Handler,
-		},
-		{
-			MethodName: "ShareFile",
-			Handler:    _FileService_ShareFile_Handler,
-		},
-		{
-			MethodName: "RevokePublicShare",
-			Handler:    _FileService_RevokePublicShare_Handler,
-		},
-		{
-			MethodName: "GetPublicFile",
-			Handler:    _FileService_GetPublicFile_Handler,
-		},
-		{
-			MethodName: "GetPublicDownloadURL",
-			Handler:    _FileService_GetPublicDownloadURL_Handler,
-		},
-		{
-			MethodName: "ShareWithUser",
-			Handler:    _FileService_ShareWithUser_Handler,
-		},
-		{
-			MethodName: "ListFilePermissions",
-			Handler:    _FileService_ListFilePermissions_Handler,
-		},
-		{
-			MethodName: "RevokeUserAccess",
-			Handler:    _FileService_RevokeUserAccess_Handler,
+			MethodName: "AbortMultipartUpload",
+			Handler:    _FileService_AbortMultipartUpload_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
