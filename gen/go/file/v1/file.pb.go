@@ -252,7 +252,7 @@ func (x *GetPresignedUploadPartURLResponse) GetPresignedUrl() string {
 // ===== 3. Complete upload ==================================================
 type CompleteMultipartUploadRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	FileId        string                 `protobuf:"bytes,1,opt,name=file_id,json=fileId,proto3" json:"file_id,omitempty"`
+	UploadId      string                 `protobuf:"bytes,1,opt,name=upload_id,json=uploadId,proto3" json:"upload_id,omitempty"`
 	Parts         []*CompletedPart       `protobuf:"bytes,2,rep,name=parts,proto3" json:"parts,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -288,9 +288,9 @@ func (*CompleteMultipartUploadRequest) Descriptor() ([]byte, []int) {
 	return file_file_v1_file_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *CompleteMultipartUploadRequest) GetFileId() string {
+func (x *CompleteMultipartUploadRequest) GetUploadId() string {
 	if x != nil {
-		return x.FileId
+		return x.UploadId
 	}
 	return ""
 }
@@ -619,9 +619,9 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"partNumber\x12*\n" +
 	"\fexpires_secs\x18\x03 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\vexpiresSecs\"H\n" +
 	"!GetPresignedUploadPartURLResponse\x12#\n" +
-	"\rpresigned_url\x18\x01 \x01(\tR\fpresignedUrl\"z\n" +
-	"\x1eCompleteMultipartUploadRequest\x12 \n" +
-	"\afile_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x06fileId\x126\n" +
+	"\rpresigned_url\x18\x01 \x01(\tR\fpresignedUrl\"~\n" +
+	"\x1eCompleteMultipartUploadRequest\x12$\n" +
+	"\tupload_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\buploadId\x126\n" +
 	"\x05parts\x18\x02 \x03(\v2\x16.file.v1.CompletedPartB\b\xbaH\x05\x92\x01\x02\b\x01R\x05parts\"V\n" +
 	"\rCompletedPart\x12(\n" +
 	"\vpart_number\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\n" +

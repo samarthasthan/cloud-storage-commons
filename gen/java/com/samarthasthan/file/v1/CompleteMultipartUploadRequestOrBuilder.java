@@ -10,16 +10,16 @@ public interface CompleteMultipartUploadRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string file_id = 1 [json_name = "fileId", (.buf.validate.field) = { ... }</code>
-   * @return The fileId.
+   * <code>string upload_id = 1 [json_name = "uploadId", (.buf.validate.field) = { ... }</code>
+   * @return The uploadId.
    */
-  java.lang.String getFileId();
+  java.lang.String getUploadId();
   /**
-   * <code>string file_id = 1 [json_name = "fileId", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for fileId.
+   * <code>string upload_id = 1 [json_name = "uploadId", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for uploadId.
    */
   com.google.protobuf.ByteString
-      getFileIdBytes();
+      getUploadIdBytes();
 
   /**
    * <code>repeated .file.v1.CompletedPart parts = 2 [json_name = "parts", (.buf.validate.field) = { ... }</code>

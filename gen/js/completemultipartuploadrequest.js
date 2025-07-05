@@ -78,7 +78,7 @@ proto.file.v1.CompleteMultipartUploadRequest.prototype.toObject = function(opt_i
  */
 proto.file.v1.CompleteMultipartUploadRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-fileId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+uploadId: jspb.Message.getFieldWithDefault(msg, 1, ""),
 partsList: jspb.Message.toObjectList(msg.getPartsList(),
     proto.file.v1.CompletedPart.toObject, includeInstance)
   };
@@ -119,7 +119,7 @@ proto.file.v1.CompleteMultipartUploadRequest.deserializeBinaryFromReader = funct
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setFileId(value);
+      msg.setUploadId(value);
       break;
     case 2:
       var value = new proto.file.v1.CompletedPart;
@@ -155,7 +155,7 @@ proto.file.v1.CompleteMultipartUploadRequest.prototype.serializeBinary = functio
  */
 proto.file.v1.CompleteMultipartUploadRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getFileId();
+  f = message.getUploadId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -174,10 +174,10 @@ proto.file.v1.CompleteMultipartUploadRequest.serializeBinaryToWriter = function(
 
 
 /**
- * optional string file_id = 1;
+ * optional string upload_id = 1;
  * @return {string}
  */
-proto.file.v1.CompleteMultipartUploadRequest.prototype.getFileId = function() {
+proto.file.v1.CompleteMultipartUploadRequest.prototype.getUploadId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -186,7 +186,7 @@ proto.file.v1.CompleteMultipartUploadRequest.prototype.getFileId = function() {
  * @param {string} value
  * @return {!proto.file.v1.CompleteMultipartUploadRequest} returns this
  */
-proto.file.v1.CompleteMultipartUploadRequest.prototype.setFileId = function(value) {
+proto.file.v1.CompleteMultipartUploadRequest.prototype.setUploadId = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 

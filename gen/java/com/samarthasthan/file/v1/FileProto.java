@@ -98,41 +98,41 @@ public final class FileProto {
       "er\022*\n\014expires_secs\030\003 \001(\005B\007\272H\004\032\002 \000R\013expir" +
       "esSecs\"H\n!GetPresignedUploadPartURLRespo" +
       "nse\022#\n\rpresigned_url\030\001 \001(\tR\014presignedUrl" +
-      "\"z\n\036CompleteMultipartUploadRequest\022 \n\007fi" +
-      "le_id\030\001 \001(\tB\007\272H\004r\002\020\001R\006fileId\0226\n\005parts\030\002 " +
-      "\003(\0132\026.file.v1.CompletedPartB\010\272H\005\222\001\002\010\001R\005p" +
-      "arts\"V\n\rCompletedPart\022(\n\013part_number\030\001 \001" +
-      "(\005B\007\272H\004\032\002 \000R\npartNumber\022\033\n\004etag\030\002 \001(\tB\007\272" +
-      "H\004r\002\020\001R\004etag\"L\n\037CompleteMultipartUploadR" +
-      "esponse\022)\n\004file\030\001 \001(\0132\025.file.v1.FileMeta" +
-      "dataR\004file\"?\n\033AbortMultipartUploadReques" +
-      "t\022 \n\007file_id\030\001 \001(\tB\007\272H\004r\002\020\001R\006fileId\"\036\n\034A" +
-      "bortMultipartUploadResponse\"\355\002\n\014FileMeta" +
-      "data\022\016\n\002id\030\001 \001(\tR\002id\022\031\n\010owner_id\030\002 \001(\tR\007" +
-      "ownerId\022\022\n\004name\030\003 \001(\tR\004name\022!\n\014content_t" +
-      "ype\030\004 \001(\tR\013contentType\022\022\n\004size\030\005 \001(\003R\004si" +
-      "ze\022\033\n\tis_public\030\006 \001(\010R\010isPublic\022\031\n\010share" +
-      "_id\030\007 \001(\tR\007shareId\0229\n\ncreated_at\030\010 \001(\0132\032" +
-      ".google.protobuf.TimestampR\tcreatedAt\0229\n" +
-      "\nupdated_at\030\t \001(\0132\032.google.protobuf.Time" +
-      "stampR\tupdatedAt\0229\n\ndeleted_at\030\n \001(\0132\032.g" +
-      "oogle.protobuf.TimestampR\tdeletedAt2\302\003\n\013" +
-      "FileService\022l\n\027InitiateMultipartUpload\022\'" +
-      ".file.v1.InitiateMultipartUploadRequest\032" +
-      "(.file.v1.InitiateMultipartUploadRespons" +
-      "e\022r\n\031GetPresignedUploadPartURL\022).file.v1" +
-      ".GetPresignedUploadPartURLRequest\032*.file" +
-      ".v1.GetPresignedUploadPartURLResponse\022l\n" +
-      "\027CompleteMultipartUpload\022\'.file.v1.Compl" +
-      "eteMultipartUploadRequest\032(.file.v1.Comp" +
-      "leteMultipartUploadResponse\022c\n\024AbortMult" +
-      "ipartUpload\022$.file.v1.AbortMultipartUplo" +
-      "adRequest\032%.file.v1.AbortMultipartUpload" +
-      "ResponseB\251\001\n\031com.samarthasthan.file.v1B\t" +
-      "FileProtoP\001ZDgithub.com/samarthasthan/cl" +
-      "oud-storage-commons/gen/go/file/v1;filev" +
-      "1\242\002\003FXX\252\002\007File.V1\312\002\007File\\V1\342\002\023File\\V1\\GP" +
-      "BMetadata\352\002\010File::V1b\006proto3"
+      "\"~\n\036CompleteMultipartUploadRequest\022$\n\tup" +
+      "load_id\030\001 \001(\tB\007\272H\004r\002\020\001R\010uploadId\0226\n\005part" +
+      "s\030\002 \003(\0132\026.file.v1.CompletedPartB\010\272H\005\222\001\002\010" +
+      "\001R\005parts\"V\n\rCompletedPart\022(\n\013part_number" +
+      "\030\001 \001(\005B\007\272H\004\032\002 \000R\npartNumber\022\033\n\004etag\030\002 \001(" +
+      "\tB\007\272H\004r\002\020\001R\004etag\"L\n\037CompleteMultipartUpl" +
+      "oadResponse\022)\n\004file\030\001 \001(\0132\025.file.v1.File" +
+      "MetadataR\004file\"?\n\033AbortMultipartUploadRe" +
+      "quest\022 \n\007file_id\030\001 \001(\tB\007\272H\004r\002\020\001R\006fileId\"" +
+      "\036\n\034AbortMultipartUploadResponse\"\355\002\n\014File" +
+      "Metadata\022\016\n\002id\030\001 \001(\tR\002id\022\031\n\010owner_id\030\002 \001" +
+      "(\tR\007ownerId\022\022\n\004name\030\003 \001(\tR\004name\022!\n\014conte" +
+      "nt_type\030\004 \001(\tR\013contentType\022\022\n\004size\030\005 \001(\003" +
+      "R\004size\022\033\n\tis_public\030\006 \001(\010R\010isPublic\022\031\n\010s" +
+      "hare_id\030\007 \001(\tR\007shareId\0229\n\ncreated_at\030\010 \001" +
+      "(\0132\032.google.protobuf.TimestampR\tcreatedA" +
+      "t\0229\n\nupdated_at\030\t \001(\0132\032.google.protobuf." +
+      "TimestampR\tupdatedAt\0229\n\ndeleted_at\030\n \001(\013" +
+      "2\032.google.protobuf.TimestampR\tdeletedAt2" +
+      "\302\003\n\013FileService\022l\n\027InitiateMultipartUplo" +
+      "ad\022\'.file.v1.InitiateMultipartUploadRequ" +
+      "est\032(.file.v1.InitiateMultipartUploadRes" +
+      "ponse\022r\n\031GetPresignedUploadPartURL\022).fil" +
+      "e.v1.GetPresignedUploadPartURLRequest\032*." +
+      "file.v1.GetPresignedUploadPartURLRespons" +
+      "e\022l\n\027CompleteMultipartUpload\022\'.file.v1.C" +
+      "ompleteMultipartUploadRequest\032(.file.v1." +
+      "CompleteMultipartUploadResponse\022c\n\024Abort" +
+      "MultipartUpload\022$.file.v1.AbortMultipart" +
+      "UploadRequest\032%.file.v1.AbortMultipartUp" +
+      "loadResponseB\251\001\n\031com.samarthasthan.file." +
+      "v1B\tFileProtoP\001ZDgithub.com/samarthastha" +
+      "n/cloud-storage-commons/gen/go/file/v1;f" +
+      "ilev1\242\002\003FXX\252\002\007File.V1\312\002\007File\\V1\342\002\023File\\V" +
+      "1\\GPBMetadata\352\002\010File::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -169,7 +169,7 @@ public final class FileProto {
     internal_static_file_v1_CompleteMultipartUploadRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_CompleteMultipartUploadRequest_descriptor,
-        new java.lang.String[] { "FileId", "Parts", });
+        new java.lang.String[] { "UploadId", "Parts", });
     internal_static_file_v1_CompletedPart_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_file_v1_CompletedPart_fieldAccessorTable = new
