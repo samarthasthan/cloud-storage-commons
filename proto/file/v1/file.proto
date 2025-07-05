@@ -49,7 +49,7 @@ message InitiateMultipartUploadResponse {
 
 // ===== 2. Presign part =====================================================
 message GetPresignedUploadPartURLRequest {
-  string file_id       = 1 [(buf.validate.field).string.min_len = 1];
+  string upload_id       = 1 [(buf.validate.field).string.min_len = 1];
   int32  part_number   = 2 [(buf.validate.field).int32.gt = 0];
   int32  expires_secs  = 3 [(buf.validate.field).int32.gt = 0]; // e.g. 900 = 15 min
 }

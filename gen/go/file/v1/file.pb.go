@@ -147,7 +147,7 @@ func (x *InitiateMultipartUploadResponse) GetKey() string {
 // ===== 2. Presign part =====================================================
 type GetPresignedUploadPartURLRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	FileId        string                 `protobuf:"bytes,1,opt,name=file_id,json=fileId,proto3" json:"file_id,omitempty"`
+	UploadId      string                 `protobuf:"bytes,1,opt,name=upload_id,json=uploadId,proto3" json:"upload_id,omitempty"`
 	PartNumber    int32                  `protobuf:"varint,2,opt,name=part_number,json=partNumber,proto3" json:"part_number,omitempty"`
 	ExpiresSecs   int32                  `protobuf:"varint,3,opt,name=expires_secs,json=expiresSecs,proto3" json:"expires_secs,omitempty"` // e.g. 900 = 15 min
 	unknownFields protoimpl.UnknownFields
@@ -184,9 +184,9 @@ func (*GetPresignedUploadPartURLRequest) Descriptor() ([]byte, []int) {
 	return file_file_v1_file_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *GetPresignedUploadPartURLRequest) GetFileId() string {
+func (x *GetPresignedUploadPartURLRequest) GetUploadId() string {
 	if x != nil {
-		return x.FileId
+		return x.UploadId
 	}
 	return ""
 }
@@ -612,9 +612,9 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x1fInitiateMultipartUploadResponse\x12\x17\n" +
 	"\afile_id\x18\x01 \x01(\tR\x06fileId\x12\x1b\n" +
 	"\tupload_id\x18\x02 \x01(\tR\buploadId\x12\x10\n" +
-	"\x03key\x18\x03 \x01(\tR\x03key\"\x9a\x01\n" +
-	" GetPresignedUploadPartURLRequest\x12 \n" +
-	"\afile_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x06fileId\x12(\n" +
+	"\x03key\x18\x03 \x01(\tR\x03key\"\x9e\x01\n" +
+	" GetPresignedUploadPartURLRequest\x12$\n" +
+	"\tupload_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\buploadId\x12(\n" +
 	"\vpart_number\x18\x02 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\n" +
 	"partNumber\x12*\n" +
 	"\fexpires_secs\x18\x03 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\vexpiresSecs\"H\n" +

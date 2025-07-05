@@ -70,7 +70,7 @@ proto.file.v1.GetPresignedUploadPartURLRequest.prototype.toObject = function(opt
  */
 proto.file.v1.GetPresignedUploadPartURLRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-fileId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+uploadId: jspb.Message.getFieldWithDefault(msg, 1, ""),
 partNumber: jspb.Message.getFieldWithDefault(msg, 2, 0),
 expiresSecs: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
@@ -111,7 +111,7 @@ proto.file.v1.GetPresignedUploadPartURLRequest.deserializeBinaryFromReader = fun
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setFileId(value);
+      msg.setUploadId(value);
       break;
     case 2:
       var value = /** @type {number} */ (reader.readInt32());
@@ -150,7 +150,7 @@ proto.file.v1.GetPresignedUploadPartURLRequest.prototype.serializeBinary = funct
  */
 proto.file.v1.GetPresignedUploadPartURLRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getFileId();
+  f = message.getUploadId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -175,10 +175,10 @@ proto.file.v1.GetPresignedUploadPartURLRequest.serializeBinaryToWriter = functio
 
 
 /**
- * optional string file_id = 1;
+ * optional string upload_id = 1;
  * @return {string}
  */
-proto.file.v1.GetPresignedUploadPartURLRequest.prototype.getFileId = function() {
+proto.file.v1.GetPresignedUploadPartURLRequest.prototype.getUploadId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -187,7 +187,7 @@ proto.file.v1.GetPresignedUploadPartURLRequest.prototype.getFileId = function() 
  * @param {string} value
  * @return {!proto.file.v1.GetPresignedUploadPartURLRequest} returns this
  */
-proto.file.v1.GetPresignedUploadPartURLRequest.prototype.setFileId = function(value) {
+proto.file.v1.GetPresignedUploadPartURLRequest.prototype.setUploadId = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
