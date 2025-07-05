@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private AbortMultipartUploadRequest() {
-    fileId_ = "";
+    uploadId_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -47,39 +47,39 @@ private static final long serialVersionUID = 0L;
             com.samarthasthan.file.v1.AbortMultipartUploadRequest.class, com.samarthasthan.file.v1.AbortMultipartUploadRequest.Builder.class);
   }
 
-  public static final int FILE_ID_FIELD_NUMBER = 1;
+  public static final int UPLOAD_ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object fileId_ = "";
+  private volatile java.lang.Object uploadId_ = "";
   /**
-   * <code>string file_id = 1 [json_name = "fileId", (.buf.validate.field) = { ... }</code>
-   * @return The fileId.
+   * <code>string upload_id = 1 [json_name = "uploadId", (.buf.validate.field) = { ... }</code>
+   * @return The uploadId.
    */
   @java.lang.Override
-  public java.lang.String getFileId() {
-    java.lang.Object ref = fileId_;
+  public java.lang.String getUploadId() {
+    java.lang.Object ref = uploadId_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      fileId_ = s;
+      uploadId_ = s;
       return s;
     }
   }
   /**
-   * <code>string file_id = 1 [json_name = "fileId", (.buf.validate.field) = { ... }</code>
-   * @return The bytes for fileId.
+   * <code>string upload_id = 1 [json_name = "uploadId", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for uploadId.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getFileIdBytes() {
-    java.lang.Object ref = fileId_;
+      getUploadIdBytes() {
+    java.lang.Object ref = uploadId_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      fileId_ = b;
+      uploadId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -100,8 +100,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(fileId_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 1, fileId_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(uploadId_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 1, uploadId_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -112,8 +112,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(fileId_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, fileId_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(uploadId_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, uploadId_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -130,8 +130,8 @@ private static final long serialVersionUID = 0L;
     }
     com.samarthasthan.file.v1.AbortMultipartUploadRequest other = (com.samarthasthan.file.v1.AbortMultipartUploadRequest) obj;
 
-    if (!getFileId()
-        .equals(other.getFileId())) return false;
+    if (!getUploadId()
+        .equals(other.getUploadId())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -143,8 +143,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + FILE_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getFileId().hashCode();
+    hash = (37 * hash) + UPLOAD_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getUploadId().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -280,7 +280,7 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      fileId_ = "";
+      uploadId_ = "";
       return this;
     }
 
@@ -315,7 +315,7 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.samarthasthan.file.v1.AbortMultipartUploadRequest result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.fileId_ = fileId_;
+        result.uploadId_ = uploadId_;
       }
     }
 
@@ -331,8 +331,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.samarthasthan.file.v1.AbortMultipartUploadRequest other) {
       if (other == com.samarthasthan.file.v1.AbortMultipartUploadRequest.getDefaultInstance()) return this;
-      if (!other.getFileId().isEmpty()) {
-        fileId_ = other.fileId_;
+      if (!other.getUploadId().isEmpty()) {
+        uploadId_ = other.uploadId_;
         bitField0_ |= 0x00000001;
         onChanged();
       }
@@ -363,7 +363,7 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              fileId_ = input.readStringRequireUtf8();
+              uploadId_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
             } // case 10
@@ -384,73 +384,73 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object fileId_ = "";
+    private java.lang.Object uploadId_ = "";
     /**
-     * <code>string file_id = 1 [json_name = "fileId", (.buf.validate.field) = { ... }</code>
-     * @return The fileId.
+     * <code>string upload_id = 1 [json_name = "uploadId", (.buf.validate.field) = { ... }</code>
+     * @return The uploadId.
      */
-    public java.lang.String getFileId() {
-      java.lang.Object ref = fileId_;
+    public java.lang.String getUploadId() {
+      java.lang.Object ref = uploadId_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        fileId_ = s;
+        uploadId_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string file_id = 1 [json_name = "fileId", (.buf.validate.field) = { ... }</code>
-     * @return The bytes for fileId.
+     * <code>string upload_id = 1 [json_name = "uploadId", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for uploadId.
      */
     public com.google.protobuf.ByteString
-        getFileIdBytes() {
-      java.lang.Object ref = fileId_;
+        getUploadIdBytes() {
+      java.lang.Object ref = uploadId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        fileId_ = b;
+        uploadId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string file_id = 1 [json_name = "fileId", (.buf.validate.field) = { ... }</code>
-     * @param value The fileId to set.
+     * <code>string upload_id = 1 [json_name = "uploadId", (.buf.validate.field) = { ... }</code>
+     * @param value The uploadId to set.
      * @return This builder for chaining.
      */
-    public Builder setFileId(
+    public Builder setUploadId(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      fileId_ = value;
+      uploadId_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>string file_id = 1 [json_name = "fileId", (.buf.validate.field) = { ... }</code>
+     * <code>string upload_id = 1 [json_name = "uploadId", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */
-    public Builder clearFileId() {
-      fileId_ = getDefaultInstance().getFileId();
+    public Builder clearUploadId() {
+      uploadId_ = getDefaultInstance().getUploadId();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
-     * <code>string file_id = 1 [json_name = "fileId", (.buf.validate.field) = { ... }</code>
-     * @param value The bytes for fileId to set.
+     * <code>string upload_id = 1 [json_name = "uploadId", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for uploadId to set.
      * @return This builder for chaining.
      */
-    public Builder setFileIdBytes(
+    public Builder setUploadIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      fileId_ = value;
+      uploadId_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;

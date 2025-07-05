@@ -75,7 +75,7 @@ message CompleteMultipartUploadResponse {
 
 // ===== Abort upload ========================================================
 message AbortMultipartUploadRequest {
-  string file_id = 1 [(buf.validate.field).string.min_len = 1];
+  string upload_id = 1 [(buf.validate.field).string.min_len = 1];
 }
 message AbortMultipartUploadResponse {}   // empty on success
 

@@ -401,7 +401,7 @@ func (x *CompleteMultipartUploadResponse) GetFile() *FileMetadata {
 // ===== Abort upload ========================================================
 type AbortMultipartUploadRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	FileId        string                 `protobuf:"bytes,1,opt,name=file_id,json=fileId,proto3" json:"file_id,omitempty"`
+	UploadId      string                 `protobuf:"bytes,1,opt,name=upload_id,json=uploadId,proto3" json:"upload_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -436,9 +436,9 @@ func (*AbortMultipartUploadRequest) Descriptor() ([]byte, []int) {
 	return file_file_v1_file_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *AbortMultipartUploadRequest) GetFileId() string {
+func (x *AbortMultipartUploadRequest) GetUploadId() string {
 	if x != nil {
-		return x.FileId
+		return x.UploadId
 	}
 	return ""
 }
@@ -628,9 +628,9 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"partNumber\x12\x1b\n" +
 	"\x04etag\x18\x02 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x04etag\"L\n" +
 	"\x1fCompleteMultipartUploadResponse\x12)\n" +
-	"\x04file\x18\x01 \x01(\v2\x15.file.v1.FileMetadataR\x04file\"?\n" +
-	"\x1bAbortMultipartUploadRequest\x12 \n" +
-	"\afile_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x06fileId\"\x1e\n" +
+	"\x04file\x18\x01 \x01(\v2\x15.file.v1.FileMetadataR\x04file\"C\n" +
+	"\x1bAbortMultipartUploadRequest\x12$\n" +
+	"\tupload_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\buploadId\"\x1e\n" +
 	"\x1cAbortMultipartUploadResponse\"\xed\x02\n" +
 	"\fFileMetadata\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x19\n" +

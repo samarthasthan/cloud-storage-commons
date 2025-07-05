@@ -105,34 +105,34 @@ public final class FileProto {
       "\030\001 \001(\005B\007\272H\004\032\002 \000R\npartNumber\022\033\n\004etag\030\002 \001(" +
       "\tB\007\272H\004r\002\020\001R\004etag\"L\n\037CompleteMultipartUpl" +
       "oadResponse\022)\n\004file\030\001 \001(\0132\025.file.v1.File" +
-      "MetadataR\004file\"?\n\033AbortMultipartUploadRe" +
-      "quest\022 \n\007file_id\030\001 \001(\tB\007\272H\004r\002\020\001R\006fileId\"" +
-      "\036\n\034AbortMultipartUploadResponse\"\355\002\n\014File" +
-      "Metadata\022\016\n\002id\030\001 \001(\tR\002id\022\031\n\010owner_id\030\002 \001" +
-      "(\tR\007ownerId\022\022\n\004name\030\003 \001(\tR\004name\022!\n\014conte" +
-      "nt_type\030\004 \001(\tR\013contentType\022\022\n\004size\030\005 \001(\003" +
-      "R\004size\022\033\n\tis_public\030\006 \001(\010R\010isPublic\022\031\n\010s" +
-      "hare_id\030\007 \001(\tR\007shareId\0229\n\ncreated_at\030\010 \001" +
-      "(\0132\032.google.protobuf.TimestampR\tcreatedA" +
-      "t\0229\n\nupdated_at\030\t \001(\0132\032.google.protobuf." +
-      "TimestampR\tupdatedAt\0229\n\ndeleted_at\030\n \001(\013" +
-      "2\032.google.protobuf.TimestampR\tdeletedAt2" +
-      "\302\003\n\013FileService\022l\n\027InitiateMultipartUplo" +
-      "ad\022\'.file.v1.InitiateMultipartUploadRequ" +
-      "est\032(.file.v1.InitiateMultipartUploadRes" +
-      "ponse\022r\n\031GetPresignedUploadPartURL\022).fil" +
-      "e.v1.GetPresignedUploadPartURLRequest\032*." +
-      "file.v1.GetPresignedUploadPartURLRespons" +
-      "e\022l\n\027CompleteMultipartUpload\022\'.file.v1.C" +
-      "ompleteMultipartUploadRequest\032(.file.v1." +
-      "CompleteMultipartUploadResponse\022c\n\024Abort" +
-      "MultipartUpload\022$.file.v1.AbortMultipart" +
-      "UploadRequest\032%.file.v1.AbortMultipartUp" +
-      "loadResponseB\251\001\n\031com.samarthasthan.file." +
-      "v1B\tFileProtoP\001ZDgithub.com/samarthastha" +
-      "n/cloud-storage-commons/gen/go/file/v1;f" +
-      "ilev1\242\002\003FXX\252\002\007File.V1\312\002\007File\\V1\342\002\023File\\V" +
-      "1\\GPBMetadata\352\002\010File::V1b\006proto3"
+      "MetadataR\004file\"C\n\033AbortMultipartUploadRe" +
+      "quest\022$\n\tupload_id\030\001 \001(\tB\007\272H\004r\002\020\001R\010uploa" +
+      "dId\"\036\n\034AbortMultipartUploadResponse\"\355\002\n\014" +
+      "FileMetadata\022\016\n\002id\030\001 \001(\tR\002id\022\031\n\010owner_id" +
+      "\030\002 \001(\tR\007ownerId\022\022\n\004name\030\003 \001(\tR\004name\022!\n\014c" +
+      "ontent_type\030\004 \001(\tR\013contentType\022\022\n\004size\030\005" +
+      " \001(\003R\004size\022\033\n\tis_public\030\006 \001(\010R\010isPublic\022" +
+      "\031\n\010share_id\030\007 \001(\tR\007shareId\0229\n\ncreated_at" +
+      "\030\010 \001(\0132\032.google.protobuf.TimestampR\tcrea" +
+      "tedAt\0229\n\nupdated_at\030\t \001(\0132\032.google.proto" +
+      "buf.TimestampR\tupdatedAt\0229\n\ndeleted_at\030\n" +
+      " \001(\0132\032.google.protobuf.TimestampR\tdelete" +
+      "dAt2\302\003\n\013FileService\022l\n\027InitiateMultipart" +
+      "Upload\022\'.file.v1.InitiateMultipartUpload" +
+      "Request\032(.file.v1.InitiateMultipartUploa" +
+      "dResponse\022r\n\031GetPresignedUploadPartURL\022)" +
+      ".file.v1.GetPresignedUploadPartURLReques" +
+      "t\032*.file.v1.GetPresignedUploadPartURLRes" +
+      "ponse\022l\n\027CompleteMultipartUpload\022\'.file." +
+      "v1.CompleteMultipartUploadRequest\032(.file" +
+      ".v1.CompleteMultipartUploadResponse\022c\n\024A" +
+      "bortMultipartUpload\022$.file.v1.AbortMulti" +
+      "partUploadRequest\032%.file.v1.AbortMultipa" +
+      "rtUploadResponseB\251\001\n\031com.samarthasthan.f" +
+      "ile.v1B\tFileProtoP\001ZDgithub.com/samartha" +
+      "sthan/cloud-storage-commons/gen/go/file/" +
+      "v1;filev1\242\002\003FXX\252\002\007File.V1\312\002\007File\\V1\342\002\023Fi" +
+      "le\\V1\\GPBMetadata\352\002\010File::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -187,7 +187,7 @@ public final class FileProto {
     internal_static_file_v1_AbortMultipartUploadRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_AbortMultipartUploadRequest_descriptor,
-        new java.lang.String[] { "FileId", });
+        new java.lang.String[] { "UploadId", });
     internal_static_file_v1_AbortMultipartUploadResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_file_v1_AbortMultipartUploadResponse_fieldAccessorTable = new

@@ -70,7 +70,7 @@ proto.file.v1.AbortMultipartUploadRequest.prototype.toObject = function(opt_incl
  */
 proto.file.v1.AbortMultipartUploadRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-fileId: jspb.Message.getFieldWithDefault(msg, 1, "")
+uploadId: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -109,7 +109,7 @@ proto.file.v1.AbortMultipartUploadRequest.deserializeBinaryFromReader = function
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setFileId(value);
+      msg.setUploadId(value);
       break;
     default:
       reader.skipField();
@@ -140,7 +140,7 @@ proto.file.v1.AbortMultipartUploadRequest.prototype.serializeBinary = function()
  */
 proto.file.v1.AbortMultipartUploadRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getFileId();
+  f = message.getUploadId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -151,10 +151,10 @@ proto.file.v1.AbortMultipartUploadRequest.serializeBinaryToWriter = function(mes
 
 
 /**
- * optional string file_id = 1;
+ * optional string upload_id = 1;
  * @return {string}
  */
-proto.file.v1.AbortMultipartUploadRequest.prototype.getFileId = function() {
+proto.file.v1.AbortMultipartUploadRequest.prototype.getUploadId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -163,7 +163,7 @@ proto.file.v1.AbortMultipartUploadRequest.prototype.getFileId = function() {
  * @param {string} value
  * @return {!proto.file.v1.AbortMultipartUploadRequest} returns this
  */
-proto.file.v1.AbortMultipartUploadRequest.prototype.setFileId = function(value) {
+proto.file.v1.AbortMultipartUploadRequest.prototype.setUploadId = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
