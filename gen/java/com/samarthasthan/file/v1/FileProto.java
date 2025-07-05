@@ -86,13 +86,13 @@ public final class FileProto {
     java.lang.String[] descriptorData = {
       "\n\022file/v1/file.proto\022\007file.v1\032\037google/pr" +
       "otobuf/timestamp.proto\032\033buf/validate/val" +
-      "idate.proto\"}\n\036InitiateMultipartUploadRe" +
-      "quest\022\033\n\004name\030\001 \001(\tB\007\272H\004r\002\020\001R\004name\022!\n\014co" +
-      "ntent_type\030\002 \001(\tR\013contentType\022\033\n\004size\030\003 " +
-      "\001(\003B\007\272H\004\"\002 \000R\004size\"\206\001\n\037InitiateMultipart" +
-      "UploadResponse\022\027\n\007file_id\030\001 \001(\tR\006fileId\022" +
-      "\033\n\tupload_id\030\002 \001(\tR\010uploadId\022\020\n\003key\030\003 \001(" +
-      "\tR\003key\022\033\n\tparent_id\030\004 \001(\tR\010parentId\"\236\001\n " +
+      "idate.proto\"\232\001\n\036InitiateMultipartUploadR" +
+      "equest\022\033\n\004name\030\001 \001(\tB\007\272H\004r\002\020\001R\004name\022!\n\014c" +
+      "ontent_type\030\002 \001(\tR\013contentType\022\033\n\004size\030\003" +
+      " \001(\003B\007\272H\004\"\002 \000R\004size\022\033\n\tparent_id\030\004 \001(\tR\010" +
+      "parentId\"i\n\037InitiateMultipartUploadRespo" +
+      "nse\022\027\n\007file_id\030\001 \001(\tR\006fileId\022\033\n\tupload_i" +
+      "d\030\002 \001(\tR\010uploadId\022\020\n\003key\030\003 \001(\tR\003key\"\236\001\n " +
       "GetPresignedUploadPartURLRequest\022$\n\tuplo" +
       "ad_id\030\001 \001(\tB\007\272H\004r\002\020\001R\010uploadId\022(\n\013part_n" +
       "umber\030\002 \001(\005B\007\272H\004\032\002 \000R\npartNumber\022*\n\014expi" +
@@ -147,13 +147,13 @@ public final class FileProto {
     internal_static_file_v1_InitiateMultipartUploadRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_InitiateMultipartUploadRequest_descriptor,
-        new java.lang.String[] { "Name", "ContentType", "Size", });
+        new java.lang.String[] { "Name", "ContentType", "Size", "ParentId", });
     internal_static_file_v1_InitiateMultipartUploadResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_file_v1_InitiateMultipartUploadResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_InitiateMultipartUploadResponse_descriptor,
-        new java.lang.String[] { "FileId", "UploadId", "Key", "ParentId", });
+        new java.lang.String[] { "FileId", "UploadId", "Key", });
     internal_static_file_v1_GetPresignedUploadPartURLRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_file_v1_GetPresignedUploadPartURLRequest_fieldAccessorTable = new

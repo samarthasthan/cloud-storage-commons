@@ -38,4 +38,16 @@ public interface InitiateMultipartUploadRequestOrBuilder extends
    * @return The size.
    */
   long getSize();
+
+  /**
+   * <code>string parent_id = 4 [json_name = "parentId"];</code>
+   * @return The parentId.
+   */
+  java.lang.String getParentId();
+  /**
+   * <code>string parent_id = 4 [json_name = "parentId"];</code>
+   * @return The bytes for parentId.
+   */
+  com.google.protobuf.ByteString
+      getParentIdBytes();
 }

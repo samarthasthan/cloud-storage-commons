@@ -18,13 +18,13 @@ message InitiateMultipartUploadRequest {
   string name         = 1 [(buf.validate.field).string.min_len = 1];
   string content_type = 2;
   int64  size         = 3 [(buf.validate.field).int64.gt = 0];
+  string parent_id    = 4;
 }
 
 message InitiateMultipartUploadResponse {
   string file_id   = 1;
   string upload_id = 2;
   string key       = 3;
-  string parent_id    = 4;
 }
 
 message GetPresignedUploadPartURLRequest {

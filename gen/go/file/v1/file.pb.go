@@ -28,6 +28,7 @@ type InitiateMultipartUploadRequest struct {
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	ContentType   string                 `protobuf:"bytes,2,opt,name=content_type,json=contentType,proto3" json:"content_type,omitempty"`
 	Size          int64                  `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
+	ParentId      string                 `protobuf:"bytes,4,opt,name=parent_id,json=parentId,proto3" json:"parent_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -83,12 +84,18 @@ func (x *InitiateMultipartUploadRequest) GetSize() int64 {
 	return 0
 }
 
+func (x *InitiateMultipartUploadRequest) GetParentId() string {
+	if x != nil {
+		return x.ParentId
+	}
+	return ""
+}
+
 type InitiateMultipartUploadResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	FileId        string                 `protobuf:"bytes,1,opt,name=file_id,json=fileId,proto3" json:"file_id,omitempty"`
 	UploadId      string                 `protobuf:"bytes,2,opt,name=upload_id,json=uploadId,proto3" json:"upload_id,omitempty"`
 	Key           string                 `protobuf:"bytes,3,opt,name=key,proto3" json:"key,omitempty"`
-	ParentId      string                 `protobuf:"bytes,4,opt,name=parent_id,json=parentId,proto3" json:"parent_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -140,13 +147,6 @@ func (x *InitiateMultipartUploadResponse) GetUploadId() string {
 func (x *InitiateMultipartUploadResponse) GetKey() string {
 	if x != nil {
 		return x.Key
-	}
-	return ""
-}
-
-func (x *InitiateMultipartUploadResponse) GetParentId() string {
-	if x != nil {
-		return x.ParentId
 	}
 	return ""
 }
@@ -619,16 +619,16 @@ var File_file_v1_file_proto protoreflect.FileDescriptor
 
 const file_file_v1_file_proto_rawDesc = "" +
 	"\n" +
-	"\x12file/v1/file.proto\x12\afile.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bbuf/validate/validate.proto\"}\n" +
+	"\x12file/v1/file.proto\x12\afile.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bbuf/validate/validate.proto\"\x9a\x01\n" +
 	"\x1eInitiateMultipartUploadRequest\x12\x1b\n" +
 	"\x04name\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x04name\x12!\n" +
 	"\fcontent_type\x18\x02 \x01(\tR\vcontentType\x12\x1b\n" +
-	"\x04size\x18\x03 \x01(\x03B\a\xbaH\x04\"\x02 \x00R\x04size\"\x86\x01\n" +
+	"\x04size\x18\x03 \x01(\x03B\a\xbaH\x04\"\x02 \x00R\x04size\x12\x1b\n" +
+	"\tparent_id\x18\x04 \x01(\tR\bparentId\"i\n" +
 	"\x1fInitiateMultipartUploadResponse\x12\x17\n" +
 	"\afile_id\x18\x01 \x01(\tR\x06fileId\x12\x1b\n" +
 	"\tupload_id\x18\x02 \x01(\tR\buploadId\x12\x10\n" +
-	"\x03key\x18\x03 \x01(\tR\x03key\x12\x1b\n" +
-	"\tparent_id\x18\x04 \x01(\tR\bparentId\"\x9e\x01\n" +
+	"\x03key\x18\x03 \x01(\tR\x03key\"\x9e\x01\n" +
 	" GetPresignedUploadPartURLRequest\x12$\n" +
 	"\tupload_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\buploadId\x12(\n" +
 	"\vpart_number\x18\x02 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\n" +
