@@ -12,6 +12,16 @@ service FileService {
   rpc GetPresignedUploadPartURL (GetPresignedUploadPartURLRequest) returns (GetPresignedUploadPartURLResponse);
   rpc CompleteMultipartUpload (CompleteMultipartUploadRequest) returns (CompleteMultipartUploadResponse);
   rpc AbortMultipartUpload (AbortMultipartUploadRequest) returns (AbortMultipartUploadResponse);
+  rpc CreateFolder(CreateFolderRequest) returns (CreateFolderResponse);
+}
+
+message CreateFolderRequest {
+  string name = 1 [(buf.validate.field).string.min_len = 1];
+  string parent_id = 2; // optional
+}
+
+message CreateFolderResponse {
+  FileMetadata folder = 1;
 }
 
 message InitiateMultipartUploadRequest {

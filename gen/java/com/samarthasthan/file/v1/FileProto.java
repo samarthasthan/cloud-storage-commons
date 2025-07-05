@@ -26,6 +26,16 @@ public final class FileProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_file_v1_CreateFolderRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_file_v1_CreateFolderRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_file_v1_CreateFolderResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_file_v1_CreateFolderResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_file_v1_InitiateMultipartUploadRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -86,55 +96,61 @@ public final class FileProto {
     java.lang.String[] descriptorData = {
       "\n\022file/v1/file.proto\022\007file.v1\032\037google/pr" +
       "otobuf/timestamp.proto\032\033buf/validate/val" +
-      "idate.proto\"\232\001\n\036InitiateMultipartUploadR" +
-      "equest\022\033\n\004name\030\001 \001(\tB\007\272H\004r\002\020\001R\004name\022!\n\014c" +
-      "ontent_type\030\002 \001(\tR\013contentType\022\033\n\004size\030\003" +
-      " \001(\003B\007\272H\004\"\002 \000R\004size\022\033\n\tparent_id\030\004 \001(\tR\010" +
-      "parentId\"i\n\037InitiateMultipartUploadRespo" +
-      "nse\022\027\n\007file_id\030\001 \001(\tR\006fileId\022\033\n\tupload_i" +
-      "d\030\002 \001(\tR\010uploadId\022\020\n\003key\030\003 \001(\tR\003key\"\236\001\n " +
-      "GetPresignedUploadPartURLRequest\022$\n\tuplo" +
-      "ad_id\030\001 \001(\tB\007\272H\004r\002\020\001R\010uploadId\022(\n\013part_n" +
-      "umber\030\002 \001(\005B\007\272H\004\032\002 \000R\npartNumber\022*\n\014expi" +
-      "res_secs\030\003 \001(\005B\007\272H\004\032\002 \000R\013expiresSecs\"H\n!" +
-      "GetPresignedUploadPartURLResponse\022#\n\rpre" +
-      "signed_url\030\001 \001(\tR\014presignedUrl\"~\n\036Comple" +
-      "teMultipartUploadRequest\022$\n\tupload_id\030\001 " +
-      "\001(\tB\007\272H\004r\002\020\001R\010uploadId\0226\n\005parts\030\002 \003(\0132\026." +
-      "file.v1.CompletedPartB\010\272H\005\222\001\002\010\001R\005parts\"V" +
-      "\n\rCompletedPart\022(\n\013part_number\030\001 \001(\005B\007\272H" +
-      "\004\032\002 \000R\npartNumber\022\033\n\004etag\030\002 \001(\tB\007\272H\004r\002\020\001" +
-      "R\004etag\"L\n\037CompleteMultipartUploadRespons" +
-      "e\022)\n\004file\030\001 \001(\0132\025.file.v1.FileMetadataR\004" +
-      "file\"C\n\033AbortMultipartUploadRequest\022$\n\tu" +
-      "pload_id\030\001 \001(\tB\007\272H\004r\002\020\001R\010uploadId\"\036\n\034Abo" +
-      "rtMultipartUploadResponse\"\236\003\n\014FileMetada" +
-      "ta\022\016\n\002id\030\001 \001(\tR\002id\022\031\n\010owner_id\030\002 \001(\tR\007ow" +
-      "nerId\022\022\n\004name\030\003 \001(\tR\004name\022!\n\014content_typ" +
-      "e\030\004 \001(\tR\013contentType\022\022\n\004size\030\005 \001(\003R\004size" +
-      "\022\033\n\tis_public\030\006 \001(\010R\010isPublic\022\031\n\010share_i" +
-      "d\030\007 \001(\tR\007shareId\0229\n\ncreated_at\030\010 \001(\0132\032.g" +
-      "oogle.protobuf.TimestampR\tcreatedAt\0229\n\nu" +
-      "pdated_at\030\t \001(\0132\032.google.protobuf.Timest" +
-      "ampR\tupdatedAt\0229\n\ndeleted_at\030\n \001(\0132\032.goo" +
-      "gle.protobuf.TimestampR\tdeletedAt\022\022\n\004typ" +
-      "e\030\013 \001(\tR\004type\022\033\n\tparent_id\030\014 \001(\tR\010parent" +
-      "Id2\302\003\n\013FileService\022l\n\027InitiateMultipartU" +
-      "pload\022\'.file.v1.InitiateMultipartUploadR" +
-      "equest\032(.file.v1.InitiateMultipartUpload" +
-      "Response\022r\n\031GetPresignedUploadPartURL\022)." +
-      "file.v1.GetPresignedUploadPartURLRequest" +
-      "\032*.file.v1.GetPresignedUploadPartURLResp" +
-      "onse\022l\n\027CompleteMultipartUpload\022\'.file.v" +
-      "1.CompleteMultipartUploadRequest\032(.file." +
-      "v1.CompleteMultipartUploadResponse\022c\n\024Ab" +
-      "ortMultipartUpload\022$.file.v1.AbortMultip" +
-      "artUploadRequest\032%.file.v1.AbortMultipar" +
-      "tUploadResponseB\251\001\n\031com.samarthasthan.fi" +
-      "le.v1B\tFileProtoP\001ZDgithub.com/samarthas" +
-      "than/cloud-storage-commons/gen/go/file/v" +
-      "1;filev1\242\002\003FXX\252\002\007File.V1\312\002\007File\\V1\342\002\023Fil" +
-      "e\\V1\\GPBMetadata\352\002\010File::V1b\006proto3"
+      "idate.proto\"O\n\023CreateFolderRequest\022\033\n\004na" +
+      "me\030\001 \001(\tB\007\272H\004r\002\020\001R\004name\022\033\n\tparent_id\030\002 \001" +
+      "(\tR\010parentId\"E\n\024CreateFolderResponse\022-\n\006" +
+      "folder\030\001 \001(\0132\025.file.v1.FileMetadataR\006fol" +
+      "der\"\232\001\n\036InitiateMultipartUploadRequest\022\033" +
+      "\n\004name\030\001 \001(\tB\007\272H\004r\002\020\001R\004name\022!\n\014content_t" +
+      "ype\030\002 \001(\tR\013contentType\022\033\n\004size\030\003 \001(\003B\007\272H" +
+      "\004\"\002 \000R\004size\022\033\n\tparent_id\030\004 \001(\tR\010parentId" +
+      "\"i\n\037InitiateMultipartUploadResponse\022\027\n\007f" +
+      "ile_id\030\001 \001(\tR\006fileId\022\033\n\tupload_id\030\002 \001(\tR" +
+      "\010uploadId\022\020\n\003key\030\003 \001(\tR\003key\"\236\001\n GetPresi" +
+      "gnedUploadPartURLRequest\022$\n\tupload_id\030\001 " +
+      "\001(\tB\007\272H\004r\002\020\001R\010uploadId\022(\n\013part_number\030\002 " +
+      "\001(\005B\007\272H\004\032\002 \000R\npartNumber\022*\n\014expires_secs" +
+      "\030\003 \001(\005B\007\272H\004\032\002 \000R\013expiresSecs\"H\n!GetPresi" +
+      "gnedUploadPartURLResponse\022#\n\rpresigned_u" +
+      "rl\030\001 \001(\tR\014presignedUrl\"~\n\036CompleteMultip" +
+      "artUploadRequest\022$\n\tupload_id\030\001 \001(\tB\007\272H\004" +
+      "r\002\020\001R\010uploadId\0226\n\005parts\030\002 \003(\0132\026.file.v1." +
+      "CompletedPartB\010\272H\005\222\001\002\010\001R\005parts\"V\n\rComple" +
+      "tedPart\022(\n\013part_number\030\001 \001(\005B\007\272H\004\032\002 \000R\np" +
+      "artNumber\022\033\n\004etag\030\002 \001(\tB\007\272H\004r\002\020\001R\004etag\"L" +
+      "\n\037CompleteMultipartUploadResponse\022)\n\004fil" +
+      "e\030\001 \001(\0132\025.file.v1.FileMetadataR\004file\"C\n\033" +
+      "AbortMultipartUploadRequest\022$\n\tupload_id" +
+      "\030\001 \001(\tB\007\272H\004r\002\020\001R\010uploadId\"\036\n\034AbortMultip" +
+      "artUploadResponse\"\236\003\n\014FileMetadata\022\016\n\002id" +
+      "\030\001 \001(\tR\002id\022\031\n\010owner_id\030\002 \001(\tR\007ownerId\022\022\n" +
+      "\004name\030\003 \001(\tR\004name\022!\n\014content_type\030\004 \001(\tR" +
+      "\013contentType\022\022\n\004size\030\005 \001(\003R\004size\022\033\n\tis_p" +
+      "ublic\030\006 \001(\010R\010isPublic\022\031\n\010share_id\030\007 \001(\tR" +
+      "\007shareId\0229\n\ncreated_at\030\010 \001(\0132\032.google.pr" +
+      "otobuf.TimestampR\tcreatedAt\0229\n\nupdated_a" +
+      "t\030\t \001(\0132\032.google.protobuf.TimestampR\tupd" +
+      "atedAt\0229\n\ndeleted_at\030\n \001(\0132\032.google.prot" +
+      "obuf.TimestampR\tdeletedAt\022\022\n\004type\030\013 \001(\tR" +
+      "\004type\022\033\n\tparent_id\030\014 \001(\tR\010parentId2\217\004\n\013F" +
+      "ileService\022l\n\027InitiateMultipartUpload\022\'." +
+      "file.v1.InitiateMultipartUploadRequest\032(" +
+      ".file.v1.InitiateMultipartUploadResponse" +
+      "\022r\n\031GetPresignedUploadPartURL\022).file.v1." +
+      "GetPresignedUploadPartURLRequest\032*.file." +
+      "v1.GetPresignedUploadPartURLResponse\022l\n\027" +
+      "CompleteMultipartUpload\022\'.file.v1.Comple" +
+      "teMultipartUploadRequest\032(.file.v1.Compl" +
+      "eteMultipartUploadResponse\022c\n\024AbortMulti" +
+      "partUpload\022$.file.v1.AbortMultipartUploa" +
+      "dRequest\032%.file.v1.AbortMultipartUploadR" +
+      "esponse\022K\n\014CreateFolder\022\034.file.v1.Create" +
+      "FolderRequest\032\035.file.v1.CreateFolderResp" +
+      "onseB\251\001\n\031com.samarthasthan.file.v1B\tFile" +
+      "ProtoP\001ZDgithub.com/samarthasthan/cloud-" +
+      "storage-commons/gen/go/file/v1;filev1\242\002\003" +
+      "FXX\252\002\007File.V1\312\002\007File\\V1\342\002\023File\\V1\\GPBMet" +
+      "adata\352\002\010File::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -142,62 +158,74 @@ public final class FileProto {
           com.google.protobuf.TimestampProto.getDescriptor(),
           build.buf.validate.ValidateProto.getDescriptor(),
         });
-    internal_static_file_v1_InitiateMultipartUploadRequest_descriptor =
+    internal_static_file_v1_CreateFolderRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_file_v1_CreateFolderRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_file_v1_CreateFolderRequest_descriptor,
+        new java.lang.String[] { "Name", "ParentId", });
+    internal_static_file_v1_CreateFolderResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_file_v1_CreateFolderResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_file_v1_CreateFolderResponse_descriptor,
+        new java.lang.String[] { "Folder", });
+    internal_static_file_v1_InitiateMultipartUploadRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_file_v1_InitiateMultipartUploadRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_InitiateMultipartUploadRequest_descriptor,
         new java.lang.String[] { "Name", "ContentType", "Size", "ParentId", });
     internal_static_file_v1_InitiateMultipartUploadResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_file_v1_InitiateMultipartUploadResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_InitiateMultipartUploadResponse_descriptor,
         new java.lang.String[] { "FileId", "UploadId", "Key", });
     internal_static_file_v1_GetPresignedUploadPartURLRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_file_v1_GetPresignedUploadPartURLRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_GetPresignedUploadPartURLRequest_descriptor,
         new java.lang.String[] { "UploadId", "PartNumber", "ExpiresSecs", });
     internal_static_file_v1_GetPresignedUploadPartURLResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_file_v1_GetPresignedUploadPartURLResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_GetPresignedUploadPartURLResponse_descriptor,
         new java.lang.String[] { "PresignedUrl", });
     internal_static_file_v1_CompleteMultipartUploadRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_file_v1_CompleteMultipartUploadRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_CompleteMultipartUploadRequest_descriptor,
         new java.lang.String[] { "UploadId", "Parts", });
     internal_static_file_v1_CompletedPart_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_file_v1_CompletedPart_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_CompletedPart_descriptor,
         new java.lang.String[] { "PartNumber", "Etag", });
     internal_static_file_v1_CompleteMultipartUploadResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_file_v1_CompleteMultipartUploadResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_CompleteMultipartUploadResponse_descriptor,
         new java.lang.String[] { "File", });
     internal_static_file_v1_AbortMultipartUploadRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_file_v1_AbortMultipartUploadRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_AbortMultipartUploadRequest_descriptor,
         new java.lang.String[] { "UploadId", });
     internal_static_file_v1_AbortMultipartUploadResponse_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_file_v1_AbortMultipartUploadResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_AbortMultipartUploadResponse_descriptor,
         new java.lang.String[] { });
     internal_static_file_v1_FileMetadata_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_file_v1_FileMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_FileMetadata_descriptor,

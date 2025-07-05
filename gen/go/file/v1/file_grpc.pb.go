@@ -23,6 +23,7 @@ const (
 	FileService_GetPresignedUploadPartURL_FullMethodName = "/file.v1.FileService/GetPresignedUploadPartURL"
 	FileService_CompleteMultipartUpload_FullMethodName   = "/file.v1.FileService/CompleteMultipartUpload"
 	FileService_AbortMultipartUpload_FullMethodName      = "/file.v1.FileService/AbortMultipartUpload"
+	FileService_CreateFolder_FullMethodName              = "/file.v1.FileService/CreateFolder"
 )
 
 // FileServiceClient is the client API for FileService service.
@@ -33,6 +34,7 @@ type FileServiceClient interface {
 	GetPresignedUploadPartURL(ctx context.Context, in *GetPresignedUploadPartURLRequest, opts ...grpc.CallOption) (*GetPresignedUploadPartURLResponse, error)
 	CompleteMultipartUpload(ctx context.Context, in *CompleteMultipartUploadRequest, opts ...grpc.CallOption) (*CompleteMultipartUploadResponse, error)
 	AbortMultipartUpload(ctx context.Context, in *AbortMultipartUploadRequest, opts ...grpc.CallOption) (*AbortMultipartUploadResponse, error)
+	CreateFolder(ctx context.Context, in *CreateFolderRequest, opts ...grpc.CallOption) (*CreateFolderResponse, error)
 }
 
 type fileServiceClient struct {
@@ -83,6 +85,16 @@ func (c *fileServiceClient) AbortMultipartUpload(ctx context.Context, in *AbortM
 	return out, nil
 }
 
+func (c *fileServiceClient) CreateFolder(ctx context.Context, in *CreateFolderRequest, opts ...grpc.CallOption) (*CreateFolderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateFolderResponse)
+	err := c.cc.Invoke(ctx, FileService_CreateFolder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileServiceServer is the server API for FileService service.
 // All implementations must embed UnimplementedFileServiceServer
 // for forward compatibility.
@@ -91,6 +103,7 @@ type FileServiceServer interface {
 	GetPresignedUploadPartURL(context.Context, *GetPresignedUploadPartURLRequest) (*GetPresignedUploadPartURLResponse, error)
 	CompleteMultipartUpload(context.Context, *CompleteMultipartUploadRequest) (*CompleteMultipartUploadResponse, error)
 	AbortMultipartUpload(context.Context, *AbortMultipartUploadRequest) (*AbortMultipartUploadResponse, error)
+	CreateFolder(context.Context, *CreateFolderRequest) (*CreateFolderResponse, error)
 	mustEmbedUnimplementedFileServiceServer()
 }
 
@@ -112,6 +125,9 @@ func (UnimplementedFileServiceServer) CompleteMultipartUpload(context.Context, *
 }
 func (UnimplementedFileServiceServer) AbortMultipartUpload(context.Context, *AbortMultipartUploadRequest) (*AbortMultipartUploadResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AbortMultipartUpload not implemented")
+}
+func (UnimplementedFileServiceServer) CreateFolder(context.Context, *CreateFolderRequest) (*CreateFolderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateFolder not implemented")
 }
 func (UnimplementedFileServiceServer) mustEmbedUnimplementedFileServiceServer() {}
 func (UnimplementedFileServiceServer) testEmbeddedByValue()                     {}
@@ -206,6 +222,24 @@ func _FileService_AbortMultipartUpload_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_CreateFolder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateFolderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).CreateFolder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_CreateFolder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).CreateFolder(ctx, req.(*CreateFolderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FileService_ServiceDesc is the grpc.ServiceDesc for FileService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -228,6 +262,10 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AbortMultipartUpload",
 			Handler:    _FileService_AbortMultipartUpload_Handler,
+		},
+		{
+			MethodName: "CreateFolder",
+			Handler:    _FileService_CreateFolder_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
