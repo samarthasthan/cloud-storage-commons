@@ -171,6 +171,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object contentType_ = "";
   /**
+   * <pre>
+   * empty for folders
+   * </pre>
+   *
    * <code>string content_type = 4 [json_name = "contentType"];</code>
    * @return The contentType.
    */
@@ -188,6 +192,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * empty for folders
+   * </pre>
+   *
    * <code>string content_type = 4 [json_name = "contentType"];</code>
    * @return The bytes for contentType.
    */
@@ -209,6 +217,10 @@ private static final long serialVersionUID = 0L;
   public static final int SIZE_FIELD_NUMBER = 5;
   private long size_ = 0L;
   /**
+   * <pre>
+   * 0 for folders
+   * </pre>
+   *
    * <code>int64 size = 5 [json_name = "size"];</code>
    * @return The size.
    */
@@ -397,7 +409,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object parentId_ = "";
   /**
    * <pre>
-   * null = root
+   * blank / "" = root
    * </pre>
    *
    * <code>string parent_id = 12 [json_name = "parentId"];</code>
@@ -418,7 +430,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * null = root
+   * blank / "" = root
    * </pre>
    *
    * <code>string parent_id = 12 [json_name = "parentId"];</code>
@@ -1264,6 +1276,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object contentType_ = "";
     /**
+     * <pre>
+     * empty for folders
+     * </pre>
+     *
      * <code>string content_type = 4 [json_name = "contentType"];</code>
      * @return The contentType.
      */
@@ -1280,6 +1296,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * empty for folders
+     * </pre>
+     *
      * <code>string content_type = 4 [json_name = "contentType"];</code>
      * @return The bytes for contentType.
      */
@@ -1297,6 +1317,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * empty for folders
+     * </pre>
+     *
      * <code>string content_type = 4 [json_name = "contentType"];</code>
      * @param value The contentType to set.
      * @return This builder for chaining.
@@ -1310,6 +1334,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * empty for folders
+     * </pre>
+     *
      * <code>string content_type = 4 [json_name = "contentType"];</code>
      * @return This builder for chaining.
      */
@@ -1320,6 +1348,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * empty for folders
+     * </pre>
+     *
      * <code>string content_type = 4 [json_name = "contentType"];</code>
      * @param value The bytes for contentType to set.
      * @return This builder for chaining.
@@ -1336,6 +1368,10 @@ private static final long serialVersionUID = 0L;
 
     private long size_ ;
     /**
+     * <pre>
+     * 0 for folders
+     * </pre>
+     *
      * <code>int64 size = 5 [json_name = "size"];</code>
      * @return The size.
      */
@@ -1344,6 +1380,10 @@ private static final long serialVersionUID = 0L;
       return size_;
     }
     /**
+     * <pre>
+     * 0 for folders
+     * </pre>
+     *
      * <code>int64 size = 5 [json_name = "size"];</code>
      * @param value The size to set.
      * @return This builder for chaining.
@@ -1356,6 +1396,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 0 for folders
+     * </pre>
+     *
      * <code>int64 size = 5 [json_name = "size"];</code>
      * @return This builder for chaining.
      */
@@ -1928,7 +1972,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object parentId_ = "";
     /**
      * <pre>
-     * null = root
+     * blank / "" = root
      * </pre>
      *
      * <code>string parent_id = 12 [json_name = "parentId"];</code>
@@ -1948,7 +1992,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null = root
+     * blank / "" = root
      * </pre>
      *
      * <code>string parent_id = 12 [json_name = "parentId"];</code>
@@ -1969,7 +2013,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null = root
+     * blank / "" = root
      * </pre>
      *
      * <code>string parent_id = 12 [json_name = "parentId"];</code>
@@ -1986,7 +2030,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null = root
+     * blank / "" = root
      * </pre>
      *
      * <code>string parent_id = 12 [json_name = "parentId"];</code>
@@ -2000,7 +2044,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null = root
+     * blank / "" = root
      * </pre>
      *
      * <code>string parent_id = 12 [json_name = "parentId"];</code>

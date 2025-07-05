@@ -46,11 +46,19 @@ public interface FileMetadataOrBuilder extends
       getNameBytes();
 
   /**
+   * <pre>
+   * empty for folders
+   * </pre>
+   *
    * <code>string content_type = 4 [json_name = "contentType"];</code>
    * @return The contentType.
    */
   java.lang.String getContentType();
   /**
+   * <pre>
+   * empty for folders
+   * </pre>
+   *
    * <code>string content_type = 4 [json_name = "contentType"];</code>
    * @return The bytes for contentType.
    */
@@ -58,6 +66,10 @@ public interface FileMetadataOrBuilder extends
       getContentTypeBytes();
 
   /**
+   * <pre>
+   * 0 for folders
+   * </pre>
+   *
    * <code>int64 size = 5 [json_name = "size"];</code>
    * @return The size.
    */
@@ -148,7 +160,7 @@ public interface FileMetadataOrBuilder extends
 
   /**
    * <pre>
-   * null = root
+   * blank / "" = root
    * </pre>
    *
    * <code>string parent_id = 12 [json_name = "parentId"];</code>
@@ -157,7 +169,7 @@ public interface FileMetadataOrBuilder extends
   java.lang.String getParentId();
   /**
    * <pre>
-   * null = root
+   * blank / "" = root
    * </pre>
    *
    * <code>string parent_id = 12 [json_name = "parentId"];</code>
