@@ -27,7 +27,9 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ListFilesByParentResponse() {
+    path_ = java.util.Collections.emptyList();
     files_ = java.util.Collections.emptyList();
+    nextPageToken_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -43,18 +45,59 @@ private static final long serialVersionUID = 0L;
             com.samarthasthan.file.v1.ListFilesByParentResponse.class, com.samarthasthan.file.v1.ListFilesByParentResponse.Builder.class);
   }
 
-  public static final int FILES_FIELD_NUMBER = 1;
+  public static final int PATH_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
+  private java.util.List<com.samarthasthan.file.v1.PathSegment> path_;
+  /**
+   * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.samarthasthan.file.v1.PathSegment> getPathList() {
+    return path_;
+  }
+  /**
+   * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.samarthasthan.file.v1.PathSegmentOrBuilder> 
+      getPathOrBuilderList() {
+    return path_;
+  }
+  /**
+   * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+   */
+  @java.lang.Override
+  public int getPathCount() {
+    return path_.size();
+  }
+  /**
+   * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+   */
+  @java.lang.Override
+  public com.samarthasthan.file.v1.PathSegment getPath(int index) {
+    return path_.get(index);
+  }
+  /**
+   * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+   */
+  @java.lang.Override
+  public com.samarthasthan.file.v1.PathSegmentOrBuilder getPathOrBuilder(
+      int index) {
+    return path_.get(index);
+  }
+
+  public static final int FILES_FIELD_NUMBER = 2;
   @SuppressWarnings("serial")
   private java.util.List<com.samarthasthan.file.v1.FileMetadata> files_;
   /**
-   * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+   * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
    */
   @java.lang.Override
   public java.util.List<com.samarthasthan.file.v1.FileMetadata> getFilesList() {
     return files_;
   }
   /**
-   * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+   * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.samarthasthan.file.v1.FileMetadataOrBuilder> 
@@ -62,26 +105,73 @@ private static final long serialVersionUID = 0L;
     return files_;
   }
   /**
-   * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+   * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
    */
   @java.lang.Override
   public int getFilesCount() {
     return files_.size();
   }
   /**
-   * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+   * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
    */
   @java.lang.Override
   public com.samarthasthan.file.v1.FileMetadata getFiles(int index) {
     return files_.get(index);
   }
   /**
-   * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+   * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
    */
   @java.lang.Override
   public com.samarthasthan.file.v1.FileMetadataOrBuilder getFilesOrBuilder(
       int index) {
     return files_.get(index);
+  }
+
+  public static final int NEXT_PAGE_TOKEN_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextPageToken_ = "";
+  /**
+   * <pre>
+   * "" when no more
+   * </pre>
+   *
+   * <code>string next_page_token = 3 [json_name = "nextPageToken"];</code>
+   * @return The nextPageToken.
+   */
+  @java.lang.Override
+  public java.lang.String getNextPageToken() {
+    java.lang.Object ref = nextPageToken_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      nextPageToken_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * "" when no more
+   * </pre>
+   *
+   * <code>string next_page_token = 3 [json_name = "nextPageToken"];</code>
+   * @return The bytes for nextPageToken.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getNextPageTokenBytes() {
+    java.lang.Object ref = nextPageToken_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      nextPageToken_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -98,8 +188,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    for (int i = 0; i < path_.size(); i++) {
+      output.writeMessage(1, path_.get(i));
+    }
     for (int i = 0; i < files_.size(); i++) {
-      output.writeMessage(1, files_.get(i));
+      output.writeMessage(2, files_.get(i));
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(nextPageToken_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 3, nextPageToken_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -110,9 +206,16 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    for (int i = 0; i < path_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, path_.get(i));
+    }
     for (int i = 0; i < files_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, files_.get(i));
+        .computeMessageSize(2, files_.get(i));
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(nextPageToken_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(3, nextPageToken_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -129,8 +232,12 @@ private static final long serialVersionUID = 0L;
     }
     com.samarthasthan.file.v1.ListFilesByParentResponse other = (com.samarthasthan.file.v1.ListFilesByParentResponse) obj;
 
+    if (!getPathList()
+        .equals(other.getPathList())) return false;
     if (!getFilesList()
         .equals(other.getFilesList())) return false;
+    if (!getNextPageToken()
+        .equals(other.getNextPageToken())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -142,10 +249,16 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (getPathCount() > 0) {
+      hash = (37 * hash) + PATH_FIELD_NUMBER;
+      hash = (53 * hash) + getPathList().hashCode();
+    }
     if (getFilesCount() > 0) {
       hash = (37 * hash) + FILES_FIELD_NUMBER;
       hash = (53 * hash) + getFilesList().hashCode();
     }
+    hash = (37 * hash) + NEXT_PAGE_TOKEN_FIELD_NUMBER;
+    hash = (53 * hash) + getNextPageToken().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -277,13 +390,21 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
+      if (pathBuilder_ == null) {
+        path_ = java.util.Collections.emptyList();
+      } else {
+        path_ = null;
+        pathBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (filesBuilder_ == null) {
         files_ = java.util.Collections.emptyList();
       } else {
         files_ = null;
         filesBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
+      nextPageToken_ = "";
       return this;
     }
 
@@ -317,10 +438,19 @@ private static final long serialVersionUID = 0L;
     }
 
     private void buildPartialRepeatedFields(com.samarthasthan.file.v1.ListFilesByParentResponse result) {
-      if (filesBuilder_ == null) {
+      if (pathBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
-          files_ = java.util.Collections.unmodifiableList(files_);
+          path_ = java.util.Collections.unmodifiableList(path_);
           bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.path_ = path_;
+      } else {
+        result.path_ = pathBuilder_.build();
+      }
+      if (filesBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          files_ = java.util.Collections.unmodifiableList(files_);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.files_ = files_;
       } else {
@@ -330,6 +460,9 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial0(com.samarthasthan.file.v1.ListFilesByParentResponse result) {
       int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.nextPageToken_ = nextPageToken_;
+      }
     }
 
     @java.lang.Override
@@ -344,11 +477,37 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.samarthasthan.file.v1.ListFilesByParentResponse other) {
       if (other == com.samarthasthan.file.v1.ListFilesByParentResponse.getDefaultInstance()) return this;
+      if (pathBuilder_ == null) {
+        if (!other.path_.isEmpty()) {
+          if (path_.isEmpty()) {
+            path_ = other.path_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensurePathIsMutable();
+            path_.addAll(other.path_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.path_.isEmpty()) {
+          if (pathBuilder_.isEmpty()) {
+            pathBuilder_.dispose();
+            pathBuilder_ = null;
+            path_ = other.path_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            pathBuilder_ = 
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 getPathFieldBuilder() : null;
+          } else {
+            pathBuilder_.addAllMessages(other.path_);
+          }
+        }
+      }
       if (filesBuilder_ == null) {
         if (!other.files_.isEmpty()) {
           if (files_.isEmpty()) {
             files_ = other.files_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureFilesIsMutable();
             files_.addAll(other.files_);
@@ -361,7 +520,7 @@ private static final long serialVersionUID = 0L;
             filesBuilder_.dispose();
             filesBuilder_ = null;
             files_ = other.files_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             filesBuilder_ = 
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  getFilesFieldBuilder() : null;
@@ -369,6 +528,11 @@ private static final long serialVersionUID = 0L;
             filesBuilder_.addAllMessages(other.files_);
           }
         }
+      }
+      if (!other.getNextPageToken().isEmpty()) {
+        nextPageToken_ = other.nextPageToken_;
+        bitField0_ |= 0x00000004;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -397,6 +561,19 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
+              com.samarthasthan.file.v1.PathSegment m =
+                  input.readMessage(
+                      com.samarthasthan.file.v1.PathSegment.parser(),
+                      extensionRegistry);
+              if (pathBuilder_ == null) {
+                ensurePathIsMutable();
+                path_.add(m);
+              } else {
+                pathBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
               com.samarthasthan.file.v1.FileMetadata m =
                   input.readMessage(
                       com.samarthasthan.file.v1.FileMetadata.parser(),
@@ -408,7 +585,12 @@ private static final long serialVersionUID = 0L;
                 filesBuilder_.addMessage(m);
               }
               break;
-            } // case 10
+            } // case 18
+            case 26: {
+              nextPageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -426,12 +608,252 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private java.util.List<com.samarthasthan.file.v1.PathSegment> path_ =
+      java.util.Collections.emptyList();
+    private void ensurePathIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        path_ = new java.util.ArrayList<com.samarthasthan.file.v1.PathSegment>(path_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.samarthasthan.file.v1.PathSegment, com.samarthasthan.file.v1.PathSegment.Builder, com.samarthasthan.file.v1.PathSegmentOrBuilder> pathBuilder_;
+
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public java.util.List<com.samarthasthan.file.v1.PathSegment> getPathList() {
+      if (pathBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(path_);
+      } else {
+        return pathBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public int getPathCount() {
+      if (pathBuilder_ == null) {
+        return path_.size();
+      } else {
+        return pathBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public com.samarthasthan.file.v1.PathSegment getPath(int index) {
+      if (pathBuilder_ == null) {
+        return path_.get(index);
+      } else {
+        return pathBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public Builder setPath(
+        int index, com.samarthasthan.file.v1.PathSegment value) {
+      if (pathBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePathIsMutable();
+        path_.set(index, value);
+        onChanged();
+      } else {
+        pathBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public Builder setPath(
+        int index, com.samarthasthan.file.v1.PathSegment.Builder builderForValue) {
+      if (pathBuilder_ == null) {
+        ensurePathIsMutable();
+        path_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        pathBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public Builder addPath(com.samarthasthan.file.v1.PathSegment value) {
+      if (pathBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePathIsMutable();
+        path_.add(value);
+        onChanged();
+      } else {
+        pathBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public Builder addPath(
+        int index, com.samarthasthan.file.v1.PathSegment value) {
+      if (pathBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePathIsMutable();
+        path_.add(index, value);
+        onChanged();
+      } else {
+        pathBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public Builder addPath(
+        com.samarthasthan.file.v1.PathSegment.Builder builderForValue) {
+      if (pathBuilder_ == null) {
+        ensurePathIsMutable();
+        path_.add(builderForValue.build());
+        onChanged();
+      } else {
+        pathBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public Builder addPath(
+        int index, com.samarthasthan.file.v1.PathSegment.Builder builderForValue) {
+      if (pathBuilder_ == null) {
+        ensurePathIsMutable();
+        path_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        pathBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public Builder addAllPath(
+        java.lang.Iterable<? extends com.samarthasthan.file.v1.PathSegment> values) {
+      if (pathBuilder_ == null) {
+        ensurePathIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, path_);
+        onChanged();
+      } else {
+        pathBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public Builder clearPath() {
+      if (pathBuilder_ == null) {
+        path_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        pathBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public Builder removePath(int index) {
+      if (pathBuilder_ == null) {
+        ensurePathIsMutable();
+        path_.remove(index);
+        onChanged();
+      } else {
+        pathBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public com.samarthasthan.file.v1.PathSegment.Builder getPathBuilder(
+        int index) {
+      return getPathFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public com.samarthasthan.file.v1.PathSegmentOrBuilder getPathOrBuilder(
+        int index) {
+      if (pathBuilder_ == null) {
+        return path_.get(index);  } else {
+        return pathBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public java.util.List<? extends com.samarthasthan.file.v1.PathSegmentOrBuilder> 
+         getPathOrBuilderList() {
+      if (pathBuilder_ != null) {
+        return pathBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(path_);
+      }
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public com.samarthasthan.file.v1.PathSegment.Builder addPathBuilder() {
+      return getPathFieldBuilder().addBuilder(
+          com.samarthasthan.file.v1.PathSegment.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public com.samarthasthan.file.v1.PathSegment.Builder addPathBuilder(
+        int index) {
+      return getPathFieldBuilder().addBuilder(
+          index, com.samarthasthan.file.v1.PathSegment.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+     */
+    public java.util.List<com.samarthasthan.file.v1.PathSegment.Builder> 
+         getPathBuilderList() {
+      return getPathFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.samarthasthan.file.v1.PathSegment, com.samarthasthan.file.v1.PathSegment.Builder, com.samarthasthan.file.v1.PathSegmentOrBuilder> 
+        getPathFieldBuilder() {
+      if (pathBuilder_ == null) {
+        pathBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.samarthasthan.file.v1.PathSegment, com.samarthasthan.file.v1.PathSegment.Builder, com.samarthasthan.file.v1.PathSegmentOrBuilder>(
+                path_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        path_ = null;
+      }
+      return pathBuilder_;
+    }
+
     private java.util.List<com.samarthasthan.file.v1.FileMetadata> files_ =
       java.util.Collections.emptyList();
     private void ensureFilesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         files_ = new java.util.ArrayList<com.samarthasthan.file.v1.FileMetadata>(files_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -439,7 +861,7 @@ private static final long serialVersionUID = 0L;
         com.samarthasthan.file.v1.FileMetadata, com.samarthasthan.file.v1.FileMetadata.Builder, com.samarthasthan.file.v1.FileMetadataOrBuilder> filesBuilder_;
 
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public java.util.List<com.samarthasthan.file.v1.FileMetadata> getFilesList() {
       if (filesBuilder_ == null) {
@@ -449,7 +871,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public int getFilesCount() {
       if (filesBuilder_ == null) {
@@ -459,7 +881,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public com.samarthasthan.file.v1.FileMetadata getFiles(int index) {
       if (filesBuilder_ == null) {
@@ -469,7 +891,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public Builder setFiles(
         int index, com.samarthasthan.file.v1.FileMetadata value) {
@@ -486,7 +908,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public Builder setFiles(
         int index, com.samarthasthan.file.v1.FileMetadata.Builder builderForValue) {
@@ -500,7 +922,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public Builder addFiles(com.samarthasthan.file.v1.FileMetadata value) {
       if (filesBuilder_ == null) {
@@ -516,7 +938,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public Builder addFiles(
         int index, com.samarthasthan.file.v1.FileMetadata value) {
@@ -533,7 +955,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public Builder addFiles(
         com.samarthasthan.file.v1.FileMetadata.Builder builderForValue) {
@@ -547,7 +969,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public Builder addFiles(
         int index, com.samarthasthan.file.v1.FileMetadata.Builder builderForValue) {
@@ -561,7 +983,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public Builder addAllFiles(
         java.lang.Iterable<? extends com.samarthasthan.file.v1.FileMetadata> values) {
@@ -576,12 +998,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public Builder clearFiles() {
       if (filesBuilder_ == null) {
         files_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         filesBuilder_.clear();
@@ -589,7 +1011,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public Builder removeFiles(int index) {
       if (filesBuilder_ == null) {
@@ -602,14 +1024,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public com.samarthasthan.file.v1.FileMetadata.Builder getFilesBuilder(
         int index) {
       return getFilesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public com.samarthasthan.file.v1.FileMetadataOrBuilder getFilesOrBuilder(
         int index) {
@@ -619,7 +1041,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public java.util.List<? extends com.samarthasthan.file.v1.FileMetadataOrBuilder> 
          getFilesOrBuilderList() {
@@ -630,14 +1052,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public com.samarthasthan.file.v1.FileMetadata.Builder addFilesBuilder() {
       return getFilesFieldBuilder().addBuilder(
           com.samarthasthan.file.v1.FileMetadata.getDefaultInstance());
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public com.samarthasthan.file.v1.FileMetadata.Builder addFilesBuilder(
         int index) {
@@ -645,7 +1067,7 @@ private static final long serialVersionUID = 0L;
           index, com.samarthasthan.file.v1.FileMetadata.getDefaultInstance());
     }
     /**
-     * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+     * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
      */
     public java.util.List<com.samarthasthan.file.v1.FileMetadata.Builder> 
          getFilesBuilderList() {
@@ -658,12 +1080,104 @@ private static final long serialVersionUID = 0L;
         filesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
             com.samarthasthan.file.v1.FileMetadata, com.samarthasthan.file.v1.FileMetadata.Builder, com.samarthasthan.file.v1.FileMetadataOrBuilder>(
                 files_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         files_ = null;
       }
       return filesBuilder_;
+    }
+
+    private java.lang.Object nextPageToken_ = "";
+    /**
+     * <pre>
+     * "" when no more
+     * </pre>
+     *
+     * <code>string next_page_token = 3 [json_name = "nextPageToken"];</code>
+     * @return The nextPageToken.
+     */
+    public java.lang.String getNextPageToken() {
+      java.lang.Object ref = nextPageToken_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        nextPageToken_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * "" when no more
+     * </pre>
+     *
+     * <code>string next_page_token = 3 [json_name = "nextPageToken"];</code>
+     * @return The bytes for nextPageToken.
+     */
+    public com.google.protobuf.ByteString
+        getNextPageTokenBytes() {
+      java.lang.Object ref = nextPageToken_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        nextPageToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * "" when no more
+     * </pre>
+     *
+     * <code>string next_page_token = 3 [json_name = "nextPageToken"];</code>
+     * @param value The nextPageToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNextPageToken(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      nextPageToken_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * "" when no more
+     * </pre>
+     *
+     * <code>string next_page_token = 3 [json_name = "nextPageToken"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNextPageToken() {
+      nextPageToken_ = getDefaultInstance().getNextPageToken();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * "" when no more
+     * </pre>
+     *
+     * <code>string next_page_token = 3 [json_name = "nextPageToken"];</code>
+     * @param value The bytes for nextPageToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNextPageTokenBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      nextPageToken_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:file.v1.ListFilesByParentResponse)

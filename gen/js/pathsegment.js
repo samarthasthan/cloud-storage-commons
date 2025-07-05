@@ -11,7 +11,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-goog.provide('proto.file.v1.ListFilesByParentRequest');
+goog.provide('proto.file.v1.PathSegment');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -27,16 +27,16 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.file.v1.ListFilesByParentRequest = function(opt_data) {
+proto.file.v1.PathSegment = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.file.v1.ListFilesByParentRequest, jspb.Message);
+goog.inherits(proto.file.v1.PathSegment, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.file.v1.ListFilesByParentRequest.displayName = 'proto.file.v1.ListFilesByParentRequest';
+  proto.file.v1.PathSegment.displayName = 'proto.file.v1.PathSegment';
 }
 
 
@@ -54,8 +54,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.file.v1.ListFilesByParentRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.file.v1.ListFilesByParentRequest.toObject(opt_includeInstance, this);
+proto.file.v1.PathSegment.prototype.toObject = function(opt_includeInstance) {
+  return proto.file.v1.PathSegment.toObject(opt_includeInstance, this);
 };
 
 
@@ -64,15 +64,14 @@ proto.file.v1.ListFilesByParentRequest.prototype.toObject = function(opt_include
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.file.v1.ListFilesByParentRequest} msg The msg instance to transform.
+ * @param {!proto.file.v1.PathSegment} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.file.v1.ListFilesByParentRequest.toObject = function(includeInstance, msg) {
+proto.file.v1.PathSegment.toObject = function(includeInstance, msg) {
   var f, obj = {
-parentId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-pageSize: jspb.Message.getFieldWithDefault(msg, 2, 0),
-pageToken: jspb.Message.getFieldWithDefault(msg, 3, "")
+id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+name: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -86,23 +85,23 @@ pageToken: jspb.Message.getFieldWithDefault(msg, 3, "")
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.file.v1.ListFilesByParentRequest}
+ * @return {!proto.file.v1.PathSegment}
  */
-proto.file.v1.ListFilesByParentRequest.deserializeBinary = function(bytes) {
+proto.file.v1.PathSegment.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.file.v1.ListFilesByParentRequest;
-  return proto.file.v1.ListFilesByParentRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.file.v1.PathSegment;
+  return proto.file.v1.PathSegment.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.file.v1.ListFilesByParentRequest} msg The message object to deserialize into.
+ * @param {!proto.file.v1.PathSegment} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.file.v1.ListFilesByParentRequest}
+ * @return {!proto.file.v1.PathSegment}
  */
-proto.file.v1.ListFilesByParentRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.file.v1.PathSegment.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -111,15 +110,11 @@ proto.file.v1.ListFilesByParentRequest.deserializeBinaryFromReader = function(ms
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setParentId(value);
+      msg.setId(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setPageSize(value);
-      break;
-    case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setPageToken(value);
+      msg.setName(value);
       break;
     default:
       reader.skipField();
@@ -134,9 +129,9 @@ proto.file.v1.ListFilesByParentRequest.deserializeBinaryFromReader = function(ms
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.file.v1.ListFilesByParentRequest.prototype.serializeBinary = function() {
+proto.file.v1.PathSegment.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.file.v1.ListFilesByParentRequest.serializeBinaryToWriter(this, writer);
+  proto.file.v1.PathSegment.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -144,30 +139,23 @@ proto.file.v1.ListFilesByParentRequest.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.file.v1.ListFilesByParentRequest} message
+ * @param {!proto.file.v1.PathSegment} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.file.v1.ListFilesByParentRequest.serializeBinaryToWriter = function(message, writer) {
+proto.file.v1.PathSegment.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getParentId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getPageSize();
-  if (f !== 0) {
-    writer.writeInt32(
-      2,
-      f
-    );
-  }
-  f = message.getPageToken();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
-      3,
+      2,
       f
     );
   }
@@ -175,56 +163,38 @@ proto.file.v1.ListFilesByParentRequest.serializeBinaryToWriter = function(messag
 
 
 /**
- * optional string parent_id = 1;
+ * optional string id = 1;
  * @return {string}
  */
-proto.file.v1.ListFilesByParentRequest.prototype.getParentId = function() {
+proto.file.v1.PathSegment.prototype.getId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.file.v1.ListFilesByParentRequest} returns this
+ * @return {!proto.file.v1.PathSegment} returns this
  */
-proto.file.v1.ListFilesByParentRequest.prototype.setParentId = function(value) {
+proto.file.v1.PathSegment.prototype.setId = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional int32 page_size = 2;
- * @return {number}
- */
-proto.file.v1.ListFilesByParentRequest.prototype.getPageSize = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.file.v1.ListFilesByParentRequest} returns this
- */
-proto.file.v1.ListFilesByParentRequest.prototype.setPageSize = function(value) {
-  return jspb.Message.setProto3IntField(this, 2, value);
-};
-
-
-/**
- * optional string page_token = 3;
+ * optional string name = 2;
  * @return {string}
  */
-proto.file.v1.ListFilesByParentRequest.prototype.getPageToken = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+proto.file.v1.PathSegment.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.file.v1.ListFilesByParentRequest} returns this
+ * @return {!proto.file.v1.PathSegment} returns this
  */
-proto.file.v1.ListFilesByParentRequest.prototype.setPageToken = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
+proto.file.v1.PathSegment.prototype.setName = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

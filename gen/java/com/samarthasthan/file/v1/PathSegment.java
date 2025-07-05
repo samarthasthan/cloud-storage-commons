@@ -6,12 +6,12 @@
 package com.samarthasthan.file.v1;
 
 /**
- * Protobuf type {@code file.v1.ListFilesByParentRequest}
+ * Protobuf type {@code file.v1.PathSegment}
  */
-public final class ListFilesByParentRequest extends
+public final class PathSegment extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:file.v1.ListFilesByParentRequest)
-    ListFilesByParentRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:file.v1.PathSegment)
+    PathSegmentOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
@@ -20,133 +20,110 @@ private static final long serialVersionUID = 0L;
       /* minor= */ 29,
       /* patch= */ 3,
       /* suffix= */ "",
-      ListFilesByParentRequest.class.getName());
+      PathSegment.class.getName());
   }
-  // Use ListFilesByParentRequest.newBuilder() to construct.
-  private ListFilesByParentRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  // Use PathSegment.newBuilder() to construct.
+  private PathSegment(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
-  private ListFilesByParentRequest() {
-    parentId_ = "";
-    pageToken_ = "";
+  private PathSegment() {
+    id_ = "";
+    name_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.samarthasthan.file.v1.FileProto.internal_static_file_v1_ListFilesByParentRequest_descriptor;
+    return com.samarthasthan.file.v1.FileProto.internal_static_file_v1_PathSegment_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.samarthasthan.file.v1.FileProto.internal_static_file_v1_ListFilesByParentRequest_fieldAccessorTable
+    return com.samarthasthan.file.v1.FileProto.internal_static_file_v1_PathSegment_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.samarthasthan.file.v1.ListFilesByParentRequest.class, com.samarthasthan.file.v1.ListFilesByParentRequest.Builder.class);
+            com.samarthasthan.file.v1.PathSegment.class, com.samarthasthan.file.v1.PathSegment.Builder.class);
   }
 
-  public static final int PARENT_ID_FIELD_NUMBER = 1;
+  public static final int ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object parentId_ = "";
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
-   * "" = root
+   * "" for root
    * </pre>
    *
-   * <code>string parent_id = 1 [json_name = "parentId"];</code>
-   * @return The parentId.
+   * <code>string id = 1 [json_name = "id"];</code>
+   * @return The id.
    */
   @java.lang.Override
-  public java.lang.String getParentId() {
-    java.lang.Object ref = parentId_;
+  public java.lang.String getId() {
+    java.lang.Object ref = id_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      parentId_ = s;
+      id_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * "" = root
+   * "" for root
    * </pre>
    *
-   * <code>string parent_id = 1 [json_name = "parentId"];</code>
-   * @return The bytes for parentId.
+   * <code>string id = 1 [json_name = "id"];</code>
+   * @return The bytes for id.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getParentIdBytes() {
-    java.lang.Object ref = parentId_;
+      getIdBytes() {
+    java.lang.Object ref = id_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      parentId_ = b;
+      id_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int PAGE_SIZE_FIELD_NUMBER = 2;
-  private int pageSize_ = 0;
-  /**
-   * <pre>
-   * optional, default 50, max 100
-   * </pre>
-   *
-   * <code>int32 page_size = 2 [json_name = "pageSize"];</code>
-   * @return The pageSize.
-   */
-  @java.lang.Override
-  public int getPageSize() {
-    return pageSize_;
-  }
-
-  public static final int PAGE_TOKEN_FIELD_NUMBER = 3;
+  public static final int NAME_FIELD_NUMBER = 2;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object pageToken_ = "";
+  private volatile java.lang.Object name_ = "";
   /**
-   * <pre>
-   * opaque offset (base-10 string)
-   * </pre>
-   *
-   * <code>string page_token = 3 [json_name = "pageToken"];</code>
-   * @return The pageToken.
+   * <code>string name = 2 [json_name = "name"];</code>
+   * @return The name.
    */
   @java.lang.Override
-  public java.lang.String getPageToken() {
-    java.lang.Object ref = pageToken_;
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      pageToken_ = s;
+      name_ = s;
       return s;
     }
   }
   /**
-   * <pre>
-   * opaque offset (base-10 string)
-   * </pre>
-   *
-   * <code>string page_token = 3 [json_name = "pageToken"];</code>
-   * @return The bytes for pageToken.
+   * <code>string name = 2 [json_name = "name"];</code>
+   * @return The bytes for name.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getPageTokenBytes() {
-    java.lang.Object ref = pageToken_;
+      getNameBytes() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      pageToken_ = b;
+      name_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -167,14 +144,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(parentId_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 1, parentId_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
     }
-    if (pageSize_ != 0) {
-      output.writeInt32(2, pageSize_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(pageToken_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 3, pageToken_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(name_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 2, name_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -185,15 +159,11 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(parentId_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, parentId_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
     }
-    if (pageSize_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, pageSize_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(pageToken_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(3, pageToken_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(name_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, name_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -205,17 +175,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.samarthasthan.file.v1.ListFilesByParentRequest)) {
+    if (!(obj instanceof com.samarthasthan.file.v1.PathSegment)) {
       return super.equals(obj);
     }
-    com.samarthasthan.file.v1.ListFilesByParentRequest other = (com.samarthasthan.file.v1.ListFilesByParentRequest) obj;
+    com.samarthasthan.file.v1.PathSegment other = (com.samarthasthan.file.v1.PathSegment) obj;
 
-    if (!getParentId()
-        .equals(other.getParentId())) return false;
-    if (getPageSize()
-        != other.getPageSize()) return false;
-    if (!getPageToken()
-        .equals(other.getPageToken())) return false;
+    if (!getId()
+        .equals(other.getId())) return false;
+    if (!getName()
+        .equals(other.getName())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -227,55 +195,53 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PARENT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getParentId().hashCode();
-    hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
-    hash = (53 * hash) + getPageSize();
-    hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
-    hash = (53 * hash) + getPageToken().hashCode();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId().hashCode();
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest parseFrom(
+  public static com.samarthasthan.file.v1.PathSegment parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest parseFrom(
+  public static com.samarthasthan.file.v1.PathSegment parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest parseFrom(
+  public static com.samarthasthan.file.v1.PathSegment parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest parseFrom(
+  public static com.samarthasthan.file.v1.PathSegment parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest parseFrom(byte[] data)
+  public static com.samarthasthan.file.v1.PathSegment parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest parseFrom(
+  public static com.samarthasthan.file.v1.PathSegment parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest parseFrom(java.io.InputStream input)
+  public static com.samarthasthan.file.v1.PathSegment parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest parseFrom(
+  public static com.samarthasthan.file.v1.PathSegment parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -283,26 +249,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.samarthasthan.file.v1.PathSegment parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest parseDelimitedFrom(
+  public static com.samarthasthan.file.v1.PathSegment parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest parseFrom(
+  public static com.samarthasthan.file.v1.PathSegment parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest parseFrom(
+  public static com.samarthasthan.file.v1.PathSegment parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -315,7 +281,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.samarthasthan.file.v1.ListFilesByParentRequest prototype) {
+  public static Builder newBuilder(com.samarthasthan.file.v1.PathSegment prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -331,26 +297,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code file.v1.ListFilesByParentRequest}
+   * Protobuf type {@code file.v1.PathSegment}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:file.v1.ListFilesByParentRequest)
-      com.samarthasthan.file.v1.ListFilesByParentRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:file.v1.PathSegment)
+      com.samarthasthan.file.v1.PathSegmentOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.samarthasthan.file.v1.FileProto.internal_static_file_v1_ListFilesByParentRequest_descriptor;
+      return com.samarthasthan.file.v1.FileProto.internal_static_file_v1_PathSegment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.samarthasthan.file.v1.FileProto.internal_static_file_v1_ListFilesByParentRequest_fieldAccessorTable
+      return com.samarthasthan.file.v1.FileProto.internal_static_file_v1_PathSegment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.samarthasthan.file.v1.ListFilesByParentRequest.class, com.samarthasthan.file.v1.ListFilesByParentRequest.Builder.class);
+              com.samarthasthan.file.v1.PathSegment.class, com.samarthasthan.file.v1.PathSegment.Builder.class);
     }
 
-    // Construct using com.samarthasthan.file.v1.ListFilesByParentRequest.newBuilder()
+    // Construct using com.samarthasthan.file.v1.PathSegment.newBuilder()
     private Builder() {
 
     }
@@ -364,26 +330,25 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      parentId_ = "";
-      pageSize_ = 0;
-      pageToken_ = "";
+      id_ = "";
+      name_ = "";
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.samarthasthan.file.v1.FileProto.internal_static_file_v1_ListFilesByParentRequest_descriptor;
+      return com.samarthasthan.file.v1.FileProto.internal_static_file_v1_PathSegment_descriptor;
     }
 
     @java.lang.Override
-    public com.samarthasthan.file.v1.ListFilesByParentRequest getDefaultInstanceForType() {
-      return com.samarthasthan.file.v1.ListFilesByParentRequest.getDefaultInstance();
+    public com.samarthasthan.file.v1.PathSegment getDefaultInstanceForType() {
+      return com.samarthasthan.file.v1.PathSegment.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.samarthasthan.file.v1.ListFilesByParentRequest build() {
-      com.samarthasthan.file.v1.ListFilesByParentRequest result = buildPartial();
+    public com.samarthasthan.file.v1.PathSegment build() {
+      com.samarthasthan.file.v1.PathSegment result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -391,49 +356,43 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.samarthasthan.file.v1.ListFilesByParentRequest buildPartial() {
-      com.samarthasthan.file.v1.ListFilesByParentRequest result = new com.samarthasthan.file.v1.ListFilesByParentRequest(this);
+    public com.samarthasthan.file.v1.PathSegment buildPartial() {
+      com.samarthasthan.file.v1.PathSegment result = new com.samarthasthan.file.v1.PathSegment(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.samarthasthan.file.v1.ListFilesByParentRequest result) {
+    private void buildPartial0(com.samarthasthan.file.v1.PathSegment result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.parentId_ = parentId_;
+        result.id_ = id_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.pageSize_ = pageSize_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.pageToken_ = pageToken_;
+        result.name_ = name_;
       }
     }
 
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.samarthasthan.file.v1.ListFilesByParentRequest) {
-        return mergeFrom((com.samarthasthan.file.v1.ListFilesByParentRequest)other);
+      if (other instanceof com.samarthasthan.file.v1.PathSegment) {
+        return mergeFrom((com.samarthasthan.file.v1.PathSegment)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.samarthasthan.file.v1.ListFilesByParentRequest other) {
-      if (other == com.samarthasthan.file.v1.ListFilesByParentRequest.getDefaultInstance()) return this;
-      if (!other.getParentId().isEmpty()) {
-        parentId_ = other.parentId_;
+    public Builder mergeFrom(com.samarthasthan.file.v1.PathSegment other) {
+      if (other == com.samarthasthan.file.v1.PathSegment.getDefaultInstance()) return this;
+      if (!other.getId().isEmpty()) {
+        id_ = other.id_;
         bitField0_ |= 0x00000001;
         onChanged();
       }
-      if (other.getPageSize() != 0) {
-        setPageSize(other.getPageSize());
-      }
-      if (!other.getPageToken().isEmpty()) {
-        pageToken_ = other.pageToken_;
-        bitField0_ |= 0x00000004;
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -463,20 +422,15 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              parentId_ = input.readStringRequireUtf8();
+              id_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
             } // case 10
-            case 16: {
-              pageSize_ = input.readInt32();
+            case 18: {
+              name_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000002;
               break;
-            } // case 16
-            case 26: {
-              pageToken_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 26
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -494,22 +448,22 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object parentId_ = "";
+    private java.lang.Object id_ = "";
     /**
      * <pre>
-     * "" = root
+     * "" for root
      * </pre>
      *
-     * <code>string parent_id = 1 [json_name = "parentId"];</code>
-     * @return The parentId.
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
      */
-    public java.lang.String getParentId() {
-      java.lang.Object ref = parentId_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        parentId_ = s;
+        id_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -517,20 +471,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "" = root
+     * "" for root
      * </pre>
      *
-     * <code>string parent_id = 1 [json_name = "parentId"];</code>
-     * @return The bytes for parentId.
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
-        getParentIdBytes() {
-      java.lang.Object ref = parentId_;
+        getIdBytes() {
+      java.lang.Object ref = id_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        parentId_ = b;
+        id_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -538,207 +492,143 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * "" = root
+     * "" for root
      * </pre>
      *
-     * <code>string parent_id = 1 [json_name = "parentId"];</code>
-     * @param value The parentId to set.
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @param value The id to set.
      * @return This builder for chaining.
      */
-    public Builder setParentId(
+    public Builder setId(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      parentId_ = value;
+      id_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * "" = root
+     * "" for root
      * </pre>
      *
-     * <code>string parent_id = 1 [json_name = "parentId"];</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearParentId() {
-      parentId_ = getDefaultInstance().getParentId();
+    public Builder clearId() {
+      id_ = getDefaultInstance().getId();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * "" = root
+     * "" for root
      * </pre>
      *
-     * <code>string parent_id = 1 [json_name = "parentId"];</code>
-     * @param value The bytes for parentId to set.
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
-    public Builder setParentIdBytes(
+    public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      parentId_ = value;
+      id_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
-    private int pageSize_ ;
+    private java.lang.Object name_ = "";
     /**
-     * <pre>
-     * optional, default 50, max 100
-     * </pre>
-     *
-     * <code>int32 page_size = 2 [json_name = "pageSize"];</code>
-     * @return The pageSize.
+     * <code>string name = 2 [json_name = "name"];</code>
+     * @return The name.
      */
-    @java.lang.Override
-    public int getPageSize() {
-      return pageSize_;
-    }
-    /**
-     * <pre>
-     * optional, default 50, max 100
-     * </pre>
-     *
-     * <code>int32 page_size = 2 [json_name = "pageSize"];</code>
-     * @param value The pageSize to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPageSize(int value) {
-
-      pageSize_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * optional, default 50, max 100
-     * </pre>
-     *
-     * <code>int32 page_size = 2 [json_name = "pageSize"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPageSize() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      pageSize_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object pageToken_ = "";
-    /**
-     * <pre>
-     * opaque offset (base-10 string)
-     * </pre>
-     *
-     * <code>string page_token = 3 [json_name = "pageToken"];</code>
-     * @return The pageToken.
-     */
-    public java.lang.String getPageToken() {
-      java.lang.Object ref = pageToken_;
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        pageToken_ = s;
+        name_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <pre>
-     * opaque offset (base-10 string)
-     * </pre>
-     *
-     * <code>string page_token = 3 [json_name = "pageToken"];</code>
-     * @return The bytes for pageToken.
+     * <code>string name = 2 [json_name = "name"];</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
-        getPageTokenBytes() {
-      java.lang.Object ref = pageToken_;
+        getNameBytes() {
+      java.lang.Object ref = name_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        pageToken_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <pre>
-     * opaque offset (base-10 string)
-     * </pre>
-     *
-     * <code>string page_token = 3 [json_name = "pageToken"];</code>
-     * @param value The pageToken to set.
+     * <code>string name = 2 [json_name = "name"];</code>
+     * @param value The name to set.
      * @return This builder for chaining.
      */
-    public Builder setPageToken(
+    public Builder setName(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      pageToken_ = value;
-      bitField0_ |= 0x00000004;
+      name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     * opaque offset (base-10 string)
-     * </pre>
-     *
-     * <code>string page_token = 3 [json_name = "pageToken"];</code>
+     * <code>string name = 2 [json_name = "name"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearPageToken() {
-      pageToken_ = getDefaultInstance().getPageToken();
-      bitField0_ = (bitField0_ & ~0x00000004);
+    public Builder clearName() {
+      name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     * opaque offset (base-10 string)
-     * </pre>
-     *
-     * <code>string page_token = 3 [json_name = "pageToken"];</code>
-     * @param value The bytes for pageToken to set.
+     * <code>string name = 2 [json_name = "name"];</code>
+     * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
-    public Builder setPageTokenBytes(
+    public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      pageToken_ = value;
-      bitField0_ |= 0x00000004;
+      name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:file.v1.ListFilesByParentRequest)
+    // @@protoc_insertion_point(builder_scope:file.v1.PathSegment)
   }
 
-  // @@protoc_insertion_point(class_scope:file.v1.ListFilesByParentRequest)
-  private static final com.samarthasthan.file.v1.ListFilesByParentRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:file.v1.PathSegment)
+  private static final com.samarthasthan.file.v1.PathSegment DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.samarthasthan.file.v1.ListFilesByParentRequest();
+    DEFAULT_INSTANCE = new com.samarthasthan.file.v1.PathSegment();
   }
 
-  public static com.samarthasthan.file.v1.ListFilesByParentRequest getDefaultInstance() {
+  public static com.samarthasthan.file.v1.PathSegment getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ListFilesByParentRequest>
-      PARSER = new com.google.protobuf.AbstractParser<ListFilesByParentRequest>() {
+  private static final com.google.protobuf.Parser<PathSegment>
+      PARSER = new com.google.protobuf.AbstractParser<PathSegment>() {
     @java.lang.Override
-    public ListFilesByParentRequest parsePartialFrom(
+    public PathSegment parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -757,17 +647,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<ListFilesByParentRequest> parser() {
+  public static com.google.protobuf.Parser<PathSegment> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ListFilesByParentRequest> getParserForType() {
+  public com.google.protobuf.Parser<PathSegment> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.samarthasthan.file.v1.ListFilesByParentRequest getDefaultInstanceForType() {
+  public com.samarthasthan.file.v1.PathSegment getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

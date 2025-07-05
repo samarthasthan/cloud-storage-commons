@@ -10,26 +10,70 @@ public interface ListFilesByParentResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+   * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+   */
+  java.util.List<com.samarthasthan.file.v1.PathSegment> 
+      getPathList();
+  /**
+   * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+   */
+  com.samarthasthan.file.v1.PathSegment getPath(int index);
+  /**
+   * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+   */
+  int getPathCount();
+  /**
+   * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+   */
+  java.util.List<? extends com.samarthasthan.file.v1.PathSegmentOrBuilder> 
+      getPathOrBuilderList();
+  /**
+   * <code>repeated .file.v1.PathSegment path = 1 [json_name = "path"];</code>
+   */
+  com.samarthasthan.file.v1.PathSegmentOrBuilder getPathOrBuilder(
+      int index);
+
+  /**
+   * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
    */
   java.util.List<com.samarthasthan.file.v1.FileMetadata> 
       getFilesList();
   /**
-   * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+   * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
    */
   com.samarthasthan.file.v1.FileMetadata getFiles(int index);
   /**
-   * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+   * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
    */
   int getFilesCount();
   /**
-   * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+   * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
    */
   java.util.List<? extends com.samarthasthan.file.v1.FileMetadataOrBuilder> 
       getFilesOrBuilderList();
   /**
-   * <code>repeated .file.v1.FileMetadata files = 1 [json_name = "files"];</code>
+   * <code>repeated .file.v1.FileMetadata files = 2 [json_name = "files"];</code>
    */
   com.samarthasthan.file.v1.FileMetadataOrBuilder getFilesOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * "" when no more
+   * </pre>
+   *
+   * <code>string next_page_token = 3 [json_name = "nextPageToken"];</code>
+   * @return The nextPageToken.
+   */
+  java.lang.String getNextPageToken();
+  /**
+   * <pre>
+   * "" when no more
+   * </pre>
+   *
+   * <code>string next_page_token = 3 [json_name = "nextPageToken"];</code>
+   * @return The bytes for nextPageToken.
+   */
+  com.google.protobuf.ByteString
+      getNextPageTokenBytes();
 }

@@ -11,7 +11,7 @@ public interface ListFilesByParentRequestOrBuilder extends
 
   /**
    * <pre>
-   * optional, empty string = root
+   * "" = root
    * </pre>
    *
    * <code>string parent_id = 1 [json_name = "parentId"];</code>
@@ -20,7 +20,7 @@ public interface ListFilesByParentRequestOrBuilder extends
   java.lang.String getParentId();
   /**
    * <pre>
-   * optional, empty string = root
+   * "" = root
    * </pre>
    *
    * <code>string parent_id = 1 [json_name = "parentId"];</code>
@@ -28,4 +28,34 @@ public interface ListFilesByParentRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getParentIdBytes();
+
+  /**
+   * <pre>
+   * optional, default 50, max 100
+   * </pre>
+   *
+   * <code>int32 page_size = 2 [json_name = "pageSize"];</code>
+   * @return The pageSize.
+   */
+  int getPageSize();
+
+  /**
+   * <pre>
+   * opaque offset (base-10 string)
+   * </pre>
+   *
+   * <code>string page_token = 3 [json_name = "pageToken"];</code>
+   * @return The pageToken.
+   */
+  java.lang.String getPageToken();
+  /**
+   * <pre>
+   * opaque offset (base-10 string)
+   * </pre>
+   *
+   * <code>string page_token = 3 [json_name = "pageToken"];</code>
+   * @return The bytes for pageToken.
+   */
+  com.google.protobuf.ByteString
+      getPageTokenBytes();
 }
