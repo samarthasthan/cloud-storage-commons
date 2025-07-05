@@ -30,6 +30,7 @@ private static final long serialVersionUID = 0L;
     fileId_ = "";
     uploadId_ = "";
     key_ = "";
+    parentId_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -49,10 +50,6 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object fileId_ = "";
   /**
-   * <pre>
-   * UUID – primary key in Files table
-   * </pre>
-   *
    * <code>string file_id = 1 [json_name = "fileId"];</code>
    * @return The fileId.
    */
@@ -70,10 +67,6 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   * UUID – primary key in Files table
-   * </pre>
-   *
    * <code>string file_id = 1 [json_name = "fileId"];</code>
    * @return The bytes for fileId.
    */
@@ -96,10 +89,6 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object uploadId_ = "";
   /**
-   * <pre>
-   * S3 multipart UploadID
-   * </pre>
-   *
    * <code>string upload_id = 2 [json_name = "uploadId"];</code>
    * @return The uploadId.
    */
@@ -117,10 +106,6 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   * S3 multipart UploadID
-   * </pre>
-   *
    * <code>string upload_id = 2 [json_name = "uploadId"];</code>
    * @return The bytes for uploadId.
    */
@@ -143,10 +128,6 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object key_ = "";
   /**
-   * <pre>
-   * S3 object key chosen by the server
-   * </pre>
-   *
    * <code>string key = 3 [json_name = "key"];</code>
    * @return The key.
    */
@@ -164,10 +145,6 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   * S3 object key chosen by the server
-   * </pre>
-   *
    * <code>string key = 3 [json_name = "key"];</code>
    * @return The bytes for key.
    */
@@ -180,6 +157,45 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       key_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PARENT_ID_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parentId_ = "";
+  /**
+   * <code>string parent_id = 4 [json_name = "parentId"];</code>
+   * @return The parentId.
+   */
+  @java.lang.Override
+  public java.lang.String getParentId() {
+    java.lang.Object ref = parentId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      parentId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string parent_id = 4 [json_name = "parentId"];</code>
+   * @return The bytes for parentId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getParentIdBytes() {
+    java.lang.Object ref = parentId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      parentId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -209,6 +225,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(key_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 3, key_);
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(parentId_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 4, parentId_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -226,6 +245,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(key_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(3, key_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(parentId_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(4, parentId_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -248,6 +270,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUploadId())) return false;
     if (!getKey()
         .equals(other.getKey())) return false;
+    if (!getParentId()
+        .equals(other.getParentId())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -265,6 +289,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUploadId().hashCode();
     hash = (37 * hash) + KEY_FIELD_NUMBER;
     hash = (53 * hash) + getKey().hashCode();
+    hash = (37 * hash) + PARENT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getParentId().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -399,6 +425,7 @@ private static final long serialVersionUID = 0L;
       fileId_ = "";
       uploadId_ = "";
       key_ = "";
+      parentId_ = "";
       return this;
     }
 
@@ -441,6 +468,9 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.key_ = key_;
       }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.parentId_ = parentId_;
+      }
     }
 
     @java.lang.Override
@@ -468,6 +498,11 @@ private static final long serialVersionUID = 0L;
       if (!other.getKey().isEmpty()) {
         key_ = other.key_;
         bitField0_ |= 0x00000004;
+        onChanged();
+      }
+      if (!other.getParentId().isEmpty()) {
+        parentId_ = other.parentId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -511,6 +546,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 26
+            case 34: {
+              parentId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -530,10 +570,6 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object fileId_ = "";
     /**
-     * <pre>
-     * UUID – primary key in Files table
-     * </pre>
-     *
      * <code>string file_id = 1 [json_name = "fileId"];</code>
      * @return The fileId.
      */
@@ -550,10 +586,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * UUID – primary key in Files table
-     * </pre>
-     *
      * <code>string file_id = 1 [json_name = "fileId"];</code>
      * @return The bytes for fileId.
      */
@@ -571,10 +603,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * UUID – primary key in Files table
-     * </pre>
-     *
      * <code>string file_id = 1 [json_name = "fileId"];</code>
      * @param value The fileId to set.
      * @return This builder for chaining.
@@ -588,10 +616,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * UUID – primary key in Files table
-     * </pre>
-     *
      * <code>string file_id = 1 [json_name = "fileId"];</code>
      * @return This builder for chaining.
      */
@@ -602,10 +626,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * UUID – primary key in Files table
-     * </pre>
-     *
      * <code>string file_id = 1 [json_name = "fileId"];</code>
      * @param value The bytes for fileId to set.
      * @return This builder for chaining.
@@ -622,10 +642,6 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object uploadId_ = "";
     /**
-     * <pre>
-     * S3 multipart UploadID
-     * </pre>
-     *
      * <code>string upload_id = 2 [json_name = "uploadId"];</code>
      * @return The uploadId.
      */
@@ -642,10 +658,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * S3 multipart UploadID
-     * </pre>
-     *
      * <code>string upload_id = 2 [json_name = "uploadId"];</code>
      * @return The bytes for uploadId.
      */
@@ -663,10 +675,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * S3 multipart UploadID
-     * </pre>
-     *
      * <code>string upload_id = 2 [json_name = "uploadId"];</code>
      * @param value The uploadId to set.
      * @return This builder for chaining.
@@ -680,10 +688,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * S3 multipart UploadID
-     * </pre>
-     *
      * <code>string upload_id = 2 [json_name = "uploadId"];</code>
      * @return This builder for chaining.
      */
@@ -694,10 +698,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * S3 multipart UploadID
-     * </pre>
-     *
      * <code>string upload_id = 2 [json_name = "uploadId"];</code>
      * @param value The bytes for uploadId to set.
      * @return This builder for chaining.
@@ -714,10 +714,6 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object key_ = "";
     /**
-     * <pre>
-     * S3 object key chosen by the server
-     * </pre>
-     *
      * <code>string key = 3 [json_name = "key"];</code>
      * @return The key.
      */
@@ -734,10 +730,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * S3 object key chosen by the server
-     * </pre>
-     *
      * <code>string key = 3 [json_name = "key"];</code>
      * @return The bytes for key.
      */
@@ -755,10 +747,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * S3 object key chosen by the server
-     * </pre>
-     *
      * <code>string key = 3 [json_name = "key"];</code>
      * @param value The key to set.
      * @return This builder for chaining.
@@ -772,10 +760,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * S3 object key chosen by the server
-     * </pre>
-     *
      * <code>string key = 3 [json_name = "key"];</code>
      * @return This builder for chaining.
      */
@@ -786,10 +770,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * S3 object key chosen by the server
-     * </pre>
-     *
      * <code>string key = 3 [json_name = "key"];</code>
      * @param value The bytes for key to set.
      * @return This builder for chaining.
@@ -800,6 +780,78 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       key_ = value;
       bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object parentId_ = "";
+    /**
+     * <code>string parent_id = 4 [json_name = "parentId"];</code>
+     * @return The parentId.
+     */
+    public java.lang.String getParentId() {
+      java.lang.Object ref = parentId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        parentId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string parent_id = 4 [json_name = "parentId"];</code>
+     * @return The bytes for parentId.
+     */
+    public com.google.protobuf.ByteString
+        getParentIdBytes() {
+      java.lang.Object ref = parentId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        parentId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string parent_id = 4 [json_name = "parentId"];</code>
+     * @param value The parentId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setParentId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      parentId_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string parent_id = 4 [json_name = "parentId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearParentId() {
+      parentId_ = getDefaultInstance().getParentId();
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string parent_id = 4 [json_name = "parentId"];</code>
+     * @param value The bytes for parentId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setParentIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      parentId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }

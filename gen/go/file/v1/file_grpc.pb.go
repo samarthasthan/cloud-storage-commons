@@ -28,22 +28,10 @@ const (
 // FileServiceClient is the client API for FileService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-//
-// ---------------------------------------------------------------------------
-//
-//	Service: only the multipart-upload life-cycle endpoints you requested.
-//
-// ---------------------------------------------------------------------------
 type FileServiceClient interface {
-	// STEP 1 ────────────────────────────────────────────────────────────────
-	// Register a new file, start an S3 multipart upload, and hand back
-	// the IDs the client needs for the next steps.
 	InitiateMultipartUpload(ctx context.Context, in *InitiateMultipartUploadRequest, opts ...grpc.CallOption) (*InitiateMultipartUploadResponse, error)
-	// STEP 2 (repeat per part) ──────────────────────────────────────────────
 	GetPresignedUploadPartURL(ctx context.Context, in *GetPresignedUploadPartURLRequest, opts ...grpc.CallOption) (*GetPresignedUploadPartURLResponse, error)
-	// STEP 3 ────────────────────────────────────────────────────────────────
 	CompleteMultipartUpload(ctx context.Context, in *CompleteMultipartUploadRequest, opts ...grpc.CallOption) (*CompleteMultipartUploadResponse, error)
-	// Optional clean-up ─────────────────────────────────────────────────────
 	AbortMultipartUpload(ctx context.Context, in *AbortMultipartUploadRequest, opts ...grpc.CallOption) (*AbortMultipartUploadResponse, error)
 }
 
@@ -98,22 +86,10 @@ func (c *fileServiceClient) AbortMultipartUpload(ctx context.Context, in *AbortM
 // FileServiceServer is the server API for FileService service.
 // All implementations must embed UnimplementedFileServiceServer
 // for forward compatibility.
-//
-// ---------------------------------------------------------------------------
-//
-//	Service: only the multipart-upload life-cycle endpoints you requested.
-//
-// ---------------------------------------------------------------------------
 type FileServiceServer interface {
-	// STEP 1 ────────────────────────────────────────────────────────────────
-	// Register a new file, start an S3 multipart upload, and hand back
-	// the IDs the client needs for the next steps.
 	InitiateMultipartUpload(context.Context, *InitiateMultipartUploadRequest) (*InitiateMultipartUploadResponse, error)
-	// STEP 2 (repeat per part) ──────────────────────────────────────────────
 	GetPresignedUploadPartURL(context.Context, *GetPresignedUploadPartURLRequest) (*GetPresignedUploadPartURLResponse, error)
-	// STEP 3 ────────────────────────────────────────────────────────────────
 	CompleteMultipartUpload(context.Context, *CompleteMultipartUploadRequest) (*CompleteMultipartUploadResponse, error)
-	// Optional clean-up ─────────────────────────────────────────────────────
 	AbortMultipartUpload(context.Context, *AbortMultipartUploadRequest) (*AbortMultipartUploadResponse, error)
 	mustEmbedUnimplementedFileServiceServer()
 }

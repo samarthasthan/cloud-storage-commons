@@ -10,19 +10,11 @@ public interface FileMetadataOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <pre>
-   * Files.Id
-   * </pre>
-   *
    * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
-   * <pre>
-   * Files.Id
-   * </pre>
-   *
    * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
@@ -30,19 +22,11 @@ public interface FileMetadataOrBuilder extends
       getIdBytes();
 
   /**
-   * <pre>
-   * Files.Owner_Id
-   * </pre>
-   *
    * <code>string owner_id = 2 [json_name = "ownerId"];</code>
    * @return The ownerId.
    */
   java.lang.String getOwnerId();
   /**
-   * <pre>
-   * Files.Owner_Id
-   * </pre>
-   *
    * <code>string owner_id = 2 [json_name = "ownerId"];</code>
    * @return The bytes for ownerId.
    */
@@ -86,19 +70,11 @@ public interface FileMetadataOrBuilder extends
   boolean getIsPublic();
 
   /**
-   * <pre>
-   * nullable UUID – present only if public
-   * </pre>
-   *
    * <code>string share_id = 7 [json_name = "shareId"];</code>
    * @return The shareId.
    */
   java.lang.String getShareId();
   /**
-   * <pre>
-   * nullable UUID – present only if public
-   * </pre>
-   *
    * <code>string share_id = 7 [json_name = "shareId"];</code>
    * @return The bytes for shareId.
    */
@@ -136,29 +112,57 @@ public interface FileMetadataOrBuilder extends
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 
   /**
-   * <pre>
-   * optional
-   * </pre>
-   *
    * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
    * @return Whether the deletedAt field is set.
    */
   boolean hasDeletedAt();
   /**
-   * <pre>
-   * optional
-   * </pre>
-   *
    * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
    * @return The deletedAt.
    */
   com.google.protobuf.Timestamp getDeletedAt();
   /**
-   * <pre>
-   * optional
-   * </pre>
-   *
    * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getDeletedAtOrBuilder();
+
+  /**
+   * <pre>
+   * "file" or "folder"
+   * </pre>
+   *
+   * <code>string type = 11 [json_name = "type"];</code>
+   * @return The type.
+   */
+  java.lang.String getType();
+  /**
+   * <pre>
+   * "file" or "folder"
+   * </pre>
+   *
+   * <code>string type = 11 [json_name = "type"];</code>
+   * @return The bytes for type.
+   */
+  com.google.protobuf.ByteString
+      getTypeBytes();
+
+  /**
+   * <pre>
+   * null = root
+   * </pre>
+   *
+   * <code>string parent_id = 12 [json_name = "parentId"];</code>
+   * @return The parentId.
+   */
+  java.lang.String getParentId();
+  /**
+   * <pre>
+   * null = root
+   * </pre>
+   *
+   * <code>string parent_id = 12 [json_name = "parentId"];</code>
+   * @return The bytes for parentId.
+   */
+  com.google.protobuf.ByteString
+      getParentIdBytes();
 }

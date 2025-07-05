@@ -23,12 +23,11 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// ===== 1. Initiate =========================================================
 type InitiateMultipartUploadRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	ContentType   string                 `protobuf:"bytes,2,opt,name=content_type,json=contentType,proto3" json:"content_type,omitempty"` // optional
-	Size          int64                  `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`                                 // bytes
+	ContentType   string                 `protobuf:"bytes,2,opt,name=content_type,json=contentType,proto3" json:"content_type,omitempty"`
+	Size          int64                  `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -86,9 +85,10 @@ func (x *InitiateMultipartUploadRequest) GetSize() int64 {
 
 type InitiateMultipartUploadResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	FileId        string                 `protobuf:"bytes,1,opt,name=file_id,json=fileId,proto3" json:"file_id,omitempty"`       // UUID – primary key in Files table
-	UploadId      string                 `protobuf:"bytes,2,opt,name=upload_id,json=uploadId,proto3" json:"upload_id,omitempty"` // S3 multipart UploadID
-	Key           string                 `protobuf:"bytes,3,opt,name=key,proto3" json:"key,omitempty"`                           // S3 object key chosen by the server
+	FileId        string                 `protobuf:"bytes,1,opt,name=file_id,json=fileId,proto3" json:"file_id,omitempty"`
+	UploadId      string                 `protobuf:"bytes,2,opt,name=upload_id,json=uploadId,proto3" json:"upload_id,omitempty"`
+	Key           string                 `protobuf:"bytes,3,opt,name=key,proto3" json:"key,omitempty"`
+	ParentId      string                 `protobuf:"bytes,4,opt,name=parent_id,json=parentId,proto3" json:"parent_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -144,12 +144,18 @@ func (x *InitiateMultipartUploadResponse) GetKey() string {
 	return ""
 }
 
-// ===== 2. Presign part =====================================================
+func (x *InitiateMultipartUploadResponse) GetParentId() string {
+	if x != nil {
+		return x.ParentId
+	}
+	return ""
+}
+
 type GetPresignedUploadPartURLRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UploadId      string                 `protobuf:"bytes,1,opt,name=upload_id,json=uploadId,proto3" json:"upload_id,omitempty"`
 	PartNumber    int32                  `protobuf:"varint,2,opt,name=part_number,json=partNumber,proto3" json:"part_number,omitempty"`
-	ExpiresSecs   int32                  `protobuf:"varint,3,opt,name=expires_secs,json=expiresSecs,proto3" json:"expires_secs,omitempty"` // e.g. 900 = 15 min
+	ExpiresSecs   int32                  `protobuf:"varint,3,opt,name=expires_secs,json=expiresSecs,proto3" json:"expires_secs,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -249,7 +255,6 @@ func (x *GetPresignedUploadPartURLResponse) GetPresignedUrl() string {
 	return ""
 }
 
-// ===== 3. Complete upload ==================================================
 type CompleteMultipartUploadRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UploadId      string                 `protobuf:"bytes,1,opt,name=upload_id,json=uploadId,proto3" json:"upload_id,omitempty"`
@@ -356,7 +361,7 @@ func (x *CompletedPart) GetEtag() string {
 
 type CompleteMultipartUploadResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	File          *FileMetadata          `protobuf:"bytes,1,opt,name=file,proto3" json:"file,omitempty"` // fully populated metadata row
+	File          *FileMetadata          `protobuf:"bytes,1,opt,name=file,proto3" json:"file,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -398,7 +403,6 @@ func (x *CompleteMultipartUploadResponse) GetFile() *FileMetadata {
 	return nil
 }
 
-// ===== Abort upload ========================================================
 type AbortMultipartUploadRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UploadId      string                 `protobuf:"bytes,1,opt,name=upload_id,json=uploadId,proto3" json:"upload_id,omitempty"`
@@ -479,23 +483,20 @@ func (*AbortMultipartUploadResponse) Descriptor() ([]byte, []int) {
 	return file_file_v1_file_proto_rawDescGZIP(), []int{8}
 }
 
-// ---------------------------------------------------------------------------
-//
-//	DTO mirroring the Files table (handy for future RPCs too)
-//
-// ---------------------------------------------------------------------------
 type FileMetadata struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`                          // Files.Id
-	OwnerId       string                 `protobuf:"bytes,2,opt,name=owner_id,json=ownerId,proto3" json:"owner_id,omitempty"` // Files.Owner_Id
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	OwnerId       string                 `protobuf:"bytes,2,opt,name=owner_id,json=ownerId,proto3" json:"owner_id,omitempty"`
 	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	ContentType   string                 `protobuf:"bytes,4,opt,name=content_type,json=contentType,proto3" json:"content_type,omitempty"`
 	Size          int64                  `protobuf:"varint,5,opt,name=size,proto3" json:"size,omitempty"`
 	IsPublic      bool                   `protobuf:"varint,6,opt,name=is_public,json=isPublic,proto3" json:"is_public,omitempty"`
-	ShareId       string                 `protobuf:"bytes,7,opt,name=share_id,json=shareId,proto3" json:"share_id,omitempty"` // nullable UUID – present only if public
+	ShareId       string                 `protobuf:"bytes,7,opt,name=share_id,json=shareId,proto3" json:"share_id,omitempty"`
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	DeletedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"` // optional
+	DeletedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
+	Type          string                 `protobuf:"bytes,11,opt,name=type,proto3" json:"type,omitempty"`                         // "file" or "folder"
+	ParentId      string                 `protobuf:"bytes,12,opt,name=parent_id,json=parentId,proto3" json:"parent_id,omitempty"` // null = root
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -600,6 +601,20 @@ func (x *FileMetadata) GetDeletedAt() *timestamppb.Timestamp {
 	return nil
 }
 
+func (x *FileMetadata) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+func (x *FileMetadata) GetParentId() string {
+	if x != nil {
+		return x.ParentId
+	}
+	return ""
+}
+
 var File_file_v1_file_proto protoreflect.FileDescriptor
 
 const file_file_v1_file_proto_rawDesc = "" +
@@ -608,11 +623,12 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x1eInitiateMultipartUploadRequest\x12\x1b\n" +
 	"\x04name\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x04name\x12!\n" +
 	"\fcontent_type\x18\x02 \x01(\tR\vcontentType\x12\x1b\n" +
-	"\x04size\x18\x03 \x01(\x03B\a\xbaH\x04\"\x02 \x00R\x04size\"i\n" +
+	"\x04size\x18\x03 \x01(\x03B\a\xbaH\x04\"\x02 \x00R\x04size\"\x86\x01\n" +
 	"\x1fInitiateMultipartUploadResponse\x12\x17\n" +
 	"\afile_id\x18\x01 \x01(\tR\x06fileId\x12\x1b\n" +
 	"\tupload_id\x18\x02 \x01(\tR\buploadId\x12\x10\n" +
-	"\x03key\x18\x03 \x01(\tR\x03key\"\x9e\x01\n" +
+	"\x03key\x18\x03 \x01(\tR\x03key\x12\x1b\n" +
+	"\tparent_id\x18\x04 \x01(\tR\bparentId\"\x9e\x01\n" +
 	" GetPresignedUploadPartURLRequest\x12$\n" +
 	"\tupload_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\buploadId\x12(\n" +
 	"\vpart_number\x18\x02 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\n" +
@@ -631,7 +647,7 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x04file\x18\x01 \x01(\v2\x15.file.v1.FileMetadataR\x04file\"C\n" +
 	"\x1bAbortMultipartUploadRequest\x12$\n" +
 	"\tupload_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\buploadId\"\x1e\n" +
-	"\x1cAbortMultipartUploadResponse\"\xed\x02\n" +
+	"\x1cAbortMultipartUploadResponse\"\x9e\x03\n" +
 	"\fFileMetadata\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x19\n" +
 	"\bowner_id\x18\x02 \x01(\tR\aownerId\x12\x12\n" +
@@ -646,7 +662,9 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"updated_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x129\n" +
 	"\n" +
 	"deleted_at\x18\n" +
-	" \x01(\v2\x1a.google.protobuf.TimestampR\tdeletedAt2\xc2\x03\n" +
+	" \x01(\v2\x1a.google.protobuf.TimestampR\tdeletedAt\x12\x12\n" +
+	"\x04type\x18\v \x01(\tR\x04type\x12\x1b\n" +
+	"\tparent_id\x18\f \x01(\tR\bparentId2\xc2\x03\n" +
 	"\vFileService\x12l\n" +
 	"\x17InitiateMultipartUpload\x12'.file.v1.InitiateMultipartUploadRequest\x1a(.file.v1.InitiateMultipartUploadResponse\x12r\n" +
 	"\x19GetPresignedUploadPartURL\x12).file.v1.GetPresignedUploadPartURLRequest\x1a*.file.v1.GetPresignedUploadPartURLResponse\x12l\n" +

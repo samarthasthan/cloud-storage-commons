@@ -6,10 +6,6 @@
 package com.samarthasthan.file.v1;
 
 /**
- * <pre>
- * ===== 1. Initiate =========================================================
- * </pre>
- *
  * Protobuf type {@code file.v1.InitiateMultipartUploadRequest}
  */
 public final class InitiateMultipartUploadRequest extends
@@ -91,10 +87,6 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object contentType_ = "";
   /**
-   * <pre>
-   * optional
-   * </pre>
-   *
    * <code>string content_type = 2 [json_name = "contentType"];</code>
    * @return The contentType.
    */
@@ -112,10 +104,6 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   * optional
-   * </pre>
-   *
    * <code>string content_type = 2 [json_name = "contentType"];</code>
    * @return The bytes for contentType.
    */
@@ -137,10 +125,6 @@ private static final long serialVersionUID = 0L;
   public static final int SIZE_FIELD_NUMBER = 3;
   private long size_ = 0L;
   /**
-   * <pre>
-   * bytes
-   * </pre>
-   *
    * <code>int64 size = 3 [json_name = "size", (.buf.validate.field) = { ... }</code>
    * @return The size.
    */
@@ -328,10 +312,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * ===== 1. Initiate =========================================================
-   * </pre>
-   *
    * Protobuf type {@code file.v1.InitiateMultipartUploadRequest}
    */
   public static final class Builder extends
@@ -569,10 +549,6 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object contentType_ = "";
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>string content_type = 2 [json_name = "contentType"];</code>
      * @return The contentType.
      */
@@ -589,10 +565,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>string content_type = 2 [json_name = "contentType"];</code>
      * @return The bytes for contentType.
      */
@@ -610,10 +582,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>string content_type = 2 [json_name = "contentType"];</code>
      * @param value The contentType to set.
      * @return This builder for chaining.
@@ -627,10 +595,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>string content_type = 2 [json_name = "contentType"];</code>
      * @return This builder for chaining.
      */
@@ -641,10 +605,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>string content_type = 2 [json_name = "contentType"];</code>
      * @param value The bytes for contentType to set.
      * @return This builder for chaining.
@@ -661,10 +621,6 @@ private static final long serialVersionUID = 0L;
 
     private long size_ ;
     /**
-     * <pre>
-     * bytes
-     * </pre>
-     *
      * <code>int64 size = 3 [json_name = "size", (.buf.validate.field) = { ... }</code>
      * @return The size.
      */
@@ -673,10 +629,6 @@ private static final long serialVersionUID = 0L;
       return size_;
     }
     /**
-     * <pre>
-     * bytes
-     * </pre>
-     *
      * <code>int64 size = 3 [json_name = "size", (.buf.validate.field) = { ... }</code>
      * @param value The size to set.
      * @return This builder for chaining.
@@ -689,10 +641,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * bytes
-     * </pre>
-     *
      * <code>int64 size = 3 [json_name = "size", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */

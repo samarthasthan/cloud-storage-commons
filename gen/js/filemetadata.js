@@ -80,7 +80,9 @@ isPublic: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
 shareId: jspb.Message.getFieldWithDefault(msg, 7, ""),
 createdAt: (f = msg.getCreatedAt()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f),
 updatedAt: (f = msg.getUpdatedAt()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f),
-deletedAt: (f = msg.getDeletedAt()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f)
+deletedAt: (f = msg.getDeletedAt()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f),
+type: jspb.Message.getFieldWithDefault(msg, 11, ""),
+parentId: jspb.Message.getFieldWithDefault(msg, 12, "")
   };
 
   if (includeInstance) {
@@ -159,6 +161,14 @@ proto.file.v1.FileMetadata.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.google.protobuf.Timestamp;
       reader.readMessage(value,proto.google.protobuf.Timestamp.deserializeBinaryFromReader);
       msg.setDeletedAt(value);
+      break;
+    case 11:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setType(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setParentId(value);
       break;
     default:
       reader.skipField();
@@ -260,6 +270,20 @@ proto.file.v1.FileMetadata.serializeBinaryToWriter = function(message, writer) {
       10,
       f,
       proto.google.protobuf.Timestamp.serializeBinaryToWriter
+    );
+  }
+  f = message.getType();
+  if (f.length > 0) {
+    writer.writeString(
+      11,
+      f
+    );
+  }
+  f = message.getParentId();
+  if (f.length > 0) {
+    writer.writeString(
+      12,
+      f
     );
   }
 };
@@ -499,6 +523,42 @@ proto.file.v1.FileMetadata.prototype.clearDeletedAt = function() {
  */
 proto.file.v1.FileMetadata.prototype.hasDeletedAt = function() {
   return jspb.Message.getField(this, 10) != null;
+};
+
+
+/**
+ * optional string type = 11;
+ * @return {string}
+ */
+proto.file.v1.FileMetadata.prototype.getType = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.file.v1.FileMetadata} returns this
+ */
+proto.file.v1.FileMetadata.prototype.setType = function(value) {
+  return jspb.Message.setProto3StringField(this, 11, value);
+};
+
+
+/**
+ * optional string parent_id = 12;
+ * @return {string}
+ */
+proto.file.v1.FileMetadata.prototype.getParentId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.file.v1.FileMetadata} returns this
+ */
+proto.file.v1.FileMetadata.prototype.setParentId = function(value) {
+  return jspb.Message.setProto3StringField(this, 12, value);
 };
 
 

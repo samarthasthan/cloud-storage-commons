@@ -6,10 +6,6 @@
 package com.samarthasthan.file.v1;
 
 /**
- * <pre>
- * ===== Abort upload ========================================================
- * </pre>
- *
  * Protobuf type {@code file.v1.AbortMultipartUploadRequest}
  */
 public final class AbortMultipartUploadRequest extends
@@ -243,10 +239,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * ===== Abort upload ========================================================
-   * </pre>
-   *
    * Protobuf type {@code file.v1.AbortMultipartUploadRequest}
    */
   public static final class Builder extends

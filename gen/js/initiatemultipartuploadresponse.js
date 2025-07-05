@@ -72,7 +72,8 @@ proto.file.v1.InitiateMultipartUploadResponse.toObject = function(includeInstanc
   var f, obj = {
 fileId: jspb.Message.getFieldWithDefault(msg, 1, ""),
 uploadId: jspb.Message.getFieldWithDefault(msg, 2, ""),
-key: jspb.Message.getFieldWithDefault(msg, 3, "")
+key: jspb.Message.getFieldWithDefault(msg, 3, ""),
+parentId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -121,6 +122,10 @@ proto.file.v1.InitiateMultipartUploadResponse.deserializeBinaryFromReader = func
       var value = /** @type {string} */ (reader.readString());
       msg.setKey(value);
       break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setParentId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -168,6 +173,13 @@ proto.file.v1.InitiateMultipartUploadResponse.serializeBinaryToWriter = function
   if (f.length > 0) {
     writer.writeString(
       3,
+      f
+    );
+  }
+  f = message.getParentId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
       f
     );
   }
@@ -225,6 +237,24 @@ proto.file.v1.InitiateMultipartUploadResponse.prototype.getKey = function() {
  */
 proto.file.v1.InitiateMultipartUploadResponse.prototype.setKey = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string parent_id = 4;
+ * @return {string}
+ */
+proto.file.v1.InitiateMultipartUploadResponse.prototype.getParentId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.file.v1.InitiateMultipartUploadResponse} returns this
+ */
+proto.file.v1.InitiateMultipartUploadResponse.prototype.setParentId = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 

@@ -28,10 +28,6 @@ public interface GetPresignedUploadPartURLRequestOrBuilder extends
   int getPartNumber();
 
   /**
-   * <pre>
-   * e.g. 900 = 15 min
-   * </pre>
-   *
    * <code>int32 expires_secs = 3 [json_name = "expiresSecs", (.buf.validate.field) = { ... }</code>
    * @return The expiresSecs.
    */

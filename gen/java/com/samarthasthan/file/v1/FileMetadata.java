@@ -6,12 +6,6 @@
 package com.samarthasthan.file.v1;
 
 /**
- * <pre>
- * ---------------------------------------------------------------------------
- * DTO mirroring the Files table (handy for future RPCs too)
- * ---------------------------------------------------------------------------
- * </pre>
- *
  * Protobuf type {@code file.v1.FileMetadata}
  */
 public final class FileMetadata extends
@@ -38,6 +32,8 @@ private static final long serialVersionUID = 0L;
     name_ = "";
     contentType_ = "";
     shareId_ = "";
+    type_ = "";
+    parentId_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -58,10 +54,6 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object id_ = "";
   /**
-   * <pre>
-   * Files.Id
-   * </pre>
-   *
    * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
@@ -79,10 +71,6 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   * Files.Id
-   * </pre>
-   *
    * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
@@ -105,10 +93,6 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object ownerId_ = "";
   /**
-   * <pre>
-   * Files.Owner_Id
-   * </pre>
-   *
    * <code>string owner_id = 2 [json_name = "ownerId"];</code>
    * @return The ownerId.
    */
@@ -126,10 +110,6 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   * Files.Owner_Id
-   * </pre>
-   *
    * <code>string owner_id = 2 [json_name = "ownerId"];</code>
    * @return The bytes for ownerId.
    */
@@ -252,10 +232,6 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object shareId_ = "";
   /**
-   * <pre>
-   * nullable UUID – present only if public
-   * </pre>
-   *
    * <code>string share_id = 7 [json_name = "shareId"];</code>
    * @return The shareId.
    */
@@ -273,10 +249,6 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   * nullable UUID – present only if public
-   * </pre>
-   *
    * <code>string share_id = 7 [json_name = "shareId"];</code>
    * @return The bytes for shareId.
    */
@@ -350,10 +322,6 @@ private static final long serialVersionUID = 0L;
   public static final int DELETED_AT_FIELD_NUMBER = 10;
   private com.google.protobuf.Timestamp deletedAt_;
   /**
-   * <pre>
-   * optional
-   * </pre>
-   *
    * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
    * @return Whether the deletedAt field is set.
    */
@@ -362,10 +330,6 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000004) != 0);
   }
   /**
-   * <pre>
-   * optional
-   * </pre>
-   *
    * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
    * @return The deletedAt.
    */
@@ -374,15 +338,105 @@ private static final long serialVersionUID = 0L;
     return deletedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deletedAt_;
   }
   /**
-   * <pre>
-   * optional
-   * </pre>
-   *
    * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getDeletedAtOrBuilder() {
     return deletedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deletedAt_;
+  }
+
+  public static final int TYPE_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
+  /**
+   * <pre>
+   * "file" or "folder"
+   * </pre>
+   *
+   * <code>string type = 11 [json_name = "type"];</code>
+   * @return The type.
+   */
+  @java.lang.Override
+  public java.lang.String getType() {
+    java.lang.Object ref = type_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      type_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * "file" or "folder"
+   * </pre>
+   *
+   * <code>string type = 11 [json_name = "type"];</code>
+   * @return The bytes for type.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTypeBytes() {
+    java.lang.Object ref = type_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      type_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PARENT_ID_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parentId_ = "";
+  /**
+   * <pre>
+   * null = root
+   * </pre>
+   *
+   * <code>string parent_id = 12 [json_name = "parentId"];</code>
+   * @return The parentId.
+   */
+  @java.lang.Override
+  public java.lang.String getParentId() {
+    java.lang.Object ref = parentId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      parentId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * null = root
+   * </pre>
+   *
+   * <code>string parent_id = 12 [json_name = "parentId"];</code>
+   * @return The bytes for parentId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getParentIdBytes() {
+    java.lang.Object ref = parentId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      parentId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -429,6 +483,12 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeMessage(10, getDeletedAt());
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(type_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 11, type_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(parentId_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 12, parentId_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -472,6 +532,12 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getDeletedAt());
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(type_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(11, type_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(parentId_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(12, parentId_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -517,6 +583,10 @@ private static final long serialVersionUID = 0L;
       if (!getDeletedAt()
           .equals(other.getDeletedAt())) return false;
     }
+    if (!getType()
+        .equals(other.getType())) return false;
+    if (!getParentId()
+        .equals(other.getParentId())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -556,6 +626,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DELETED_AT_FIELD_NUMBER;
       hash = (53 * hash) + getDeletedAt().hashCode();
     }
+    hash = (37 * hash) + TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getType().hashCode();
+    hash = (37 * hash) + PARENT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getParentId().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -654,12 +728,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * ---------------------------------------------------------------------------
-   * DTO mirroring the Files table (handy for future RPCs too)
-   * ---------------------------------------------------------------------------
-   * </pre>
-   *
    * Protobuf type {@code file.v1.FileMetadata}
    */
   public static final class Builder extends
@@ -723,6 +791,8 @@ private static final long serialVersionUID = 0L;
         deletedAtBuilder_.dispose();
         deletedAtBuilder_ = null;
       }
+      type_ = "";
+      parentId_ = "";
       return this;
     }
 
@@ -796,6 +866,12 @@ private static final long serialVersionUID = 0L;
             : deletedAtBuilder_.build();
         to_bitField0_ |= 0x00000004;
       }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.parentId_ = parentId_;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -850,6 +926,16 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasDeletedAt()) {
         mergeDeletedAt(other.getDeletedAt());
+      }
+      if (!other.getType().isEmpty()) {
+        type_ = other.type_;
+        bitField0_ |= 0x00000400;
+        onChanged();
+      }
+      if (!other.getParentId().isEmpty()) {
+        parentId_ = other.parentId_;
+        bitField0_ |= 0x00000800;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -933,6 +1019,16 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000200;
               break;
             } // case 82
+            case 90: {
+              type_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              parentId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -952,10 +1048,6 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object id_ = "";
     /**
-     * <pre>
-     * Files.Id
-     * </pre>
-     *
      * <code>string id = 1 [json_name = "id"];</code>
      * @return The id.
      */
@@ -972,10 +1064,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * Files.Id
-     * </pre>
-     *
      * <code>string id = 1 [json_name = "id"];</code>
      * @return The bytes for id.
      */
@@ -993,10 +1081,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * Files.Id
-     * </pre>
-     *
      * <code>string id = 1 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
@@ -1010,10 +1094,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * Files.Id
-     * </pre>
-     *
      * <code>string id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
@@ -1024,10 +1104,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * Files.Id
-     * </pre>
-     *
      * <code>string id = 1 [json_name = "id"];</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
@@ -1044,10 +1120,6 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object ownerId_ = "";
     /**
-     * <pre>
-     * Files.Owner_Id
-     * </pre>
-     *
      * <code>string owner_id = 2 [json_name = "ownerId"];</code>
      * @return The ownerId.
      */
@@ -1064,10 +1136,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * Files.Owner_Id
-     * </pre>
-     *
      * <code>string owner_id = 2 [json_name = "ownerId"];</code>
      * @return The bytes for ownerId.
      */
@@ -1085,10 +1153,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * Files.Owner_Id
-     * </pre>
-     *
      * <code>string owner_id = 2 [json_name = "ownerId"];</code>
      * @param value The ownerId to set.
      * @return This builder for chaining.
@@ -1102,10 +1166,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * Files.Owner_Id
-     * </pre>
-     *
      * <code>string owner_id = 2 [json_name = "ownerId"];</code>
      * @return This builder for chaining.
      */
@@ -1116,10 +1176,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * Files.Owner_Id
-     * </pre>
-     *
      * <code>string owner_id = 2 [json_name = "ownerId"];</code>
      * @param value The bytes for ownerId to set.
      * @return This builder for chaining.
@@ -1344,10 +1400,6 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object shareId_ = "";
     /**
-     * <pre>
-     * nullable UUID – present only if public
-     * </pre>
-     *
      * <code>string share_id = 7 [json_name = "shareId"];</code>
      * @return The shareId.
      */
@@ -1364,10 +1416,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * nullable UUID – present only if public
-     * </pre>
-     *
      * <code>string share_id = 7 [json_name = "shareId"];</code>
      * @return The bytes for shareId.
      */
@@ -1385,10 +1433,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * nullable UUID – present only if public
-     * </pre>
-     *
      * <code>string share_id = 7 [json_name = "shareId"];</code>
      * @param value The shareId to set.
      * @return This builder for chaining.
@@ -1402,10 +1446,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * nullable UUID – present only if public
-     * </pre>
-     *
      * <code>string share_id = 7 [json_name = "shareId"];</code>
      * @return This builder for chaining.
      */
@@ -1416,10 +1456,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * nullable UUID – present only if public
-     * </pre>
-     *
      * <code>string share_id = 7 [json_name = "shareId"];</code>
      * @param value The bytes for shareId to set.
      * @return This builder for chaining.
@@ -1680,10 +1716,6 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> deletedAtBuilder_;
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
      * @return Whether the deletedAt field is set.
      */
@@ -1691,10 +1723,6 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000200) != 0);
     }
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
      * @return The deletedAt.
      */
@@ -1706,10 +1734,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
      */
     public Builder setDeletedAt(com.google.protobuf.Timestamp value) {
@@ -1726,10 +1750,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
      */
     public Builder setDeletedAt(
@@ -1744,10 +1764,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
      */
     public Builder mergeDeletedAt(com.google.protobuf.Timestamp value) {
@@ -1769,10 +1785,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
      */
     public Builder clearDeletedAt() {
@@ -1786,10 +1798,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getDeletedAtBuilder() {
@@ -1798,10 +1806,6 @@ private static final long serialVersionUID = 0L;
       return getDeletedAtFieldBuilder().getBuilder();
     }
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getDeletedAtOrBuilder() {
@@ -1813,10 +1817,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * optional
-     * </pre>
-     *
      * <code>.google.protobuf.Timestamp deleted_at = 10 [json_name = "deletedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
@@ -1831,6 +1831,190 @@ private static final long serialVersionUID = 0L;
         deletedAt_ = null;
       }
       return deletedAtBuilder_;
+    }
+
+    private java.lang.Object type_ = "";
+    /**
+     * <pre>
+     * "file" or "folder"
+     * </pre>
+     *
+     * <code>string type = 11 [json_name = "type"];</code>
+     * @return The type.
+     */
+    public java.lang.String getType() {
+      java.lang.Object ref = type_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        type_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * "file" or "folder"
+     * </pre>
+     *
+     * <code>string type = 11 [json_name = "type"];</code>
+     * @return The bytes for type.
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
+      java.lang.Object ref = type_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        type_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * "file" or "folder"
+     * </pre>
+     *
+     * <code>string type = 11 [json_name = "type"];</code>
+     * @param value The type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setType(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      type_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * "file" or "folder"
+     * </pre>
+     *
+     * <code>string type = 11 [json_name = "type"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearType() {
+      type_ = getDefaultInstance().getType();
+      bitField0_ = (bitField0_ & ~0x00000400);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * "file" or "folder"
+     * </pre>
+     *
+     * <code>string type = 11 [json_name = "type"];</code>
+     * @param value The bytes for type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      type_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object parentId_ = "";
+    /**
+     * <pre>
+     * null = root
+     * </pre>
+     *
+     * <code>string parent_id = 12 [json_name = "parentId"];</code>
+     * @return The parentId.
+     */
+    public java.lang.String getParentId() {
+      java.lang.Object ref = parentId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        parentId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * null = root
+     * </pre>
+     *
+     * <code>string parent_id = 12 [json_name = "parentId"];</code>
+     * @return The bytes for parentId.
+     */
+    public com.google.protobuf.ByteString
+        getParentIdBytes() {
+      java.lang.Object ref = parentId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        parentId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * null = root
+     * </pre>
+     *
+     * <code>string parent_id = 12 [json_name = "parentId"];</code>
+     * @param value The parentId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setParentId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      parentId_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * null = root
+     * </pre>
+     *
+     * <code>string parent_id = 12 [json_name = "parentId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearParentId() {
+      parentId_ = getDefaultInstance().getParentId();
+      bitField0_ = (bitField0_ & ~0x00000800);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * null = root
+     * </pre>
+     *
+     * <code>string parent_id = 12 [json_name = "parentId"];</code>
+     * @param value The bytes for parentId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setParentIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      parentId_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:file.v1.FileMetadata)

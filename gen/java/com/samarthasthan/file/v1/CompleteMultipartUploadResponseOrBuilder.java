@@ -10,28 +10,16 @@ public interface CompleteMultipartUploadResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <pre>
-   * fully populated metadata row
-   * </pre>
-   *
    * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
    * @return Whether the file field is set.
    */
   boolean hasFile();
   /**
-   * <pre>
-   * fully populated metadata row
-   * </pre>
-   *
    * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
    * @return The file.
    */
   com.samarthasthan.file.v1.FileMetadata getFile();
   /**
-   * <pre>
-   * fully populated metadata row
-   * </pre>
-   *
    * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
    */
   com.samarthasthan.file.v1.FileMetadataOrBuilder getFileOrBuilder();

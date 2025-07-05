@@ -46,10 +46,6 @@ private static final long serialVersionUID = 0L;
   public static final int FILE_FIELD_NUMBER = 1;
   private com.samarthasthan.file.v1.FileMetadata file_;
   /**
-   * <pre>
-   * fully populated metadata row
-   * </pre>
-   *
    * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
    * @return Whether the file field is set.
    */
@@ -58,10 +54,6 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <pre>
-   * fully populated metadata row
-   * </pre>
-   *
    * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
    * @return The file.
    */
@@ -70,10 +62,6 @@ private static final long serialVersionUID = 0L;
     return file_ == null ? com.samarthasthan.file.v1.FileMetadata.getDefaultInstance() : file_;
   }
   /**
-   * <pre>
-   * fully populated metadata row
-   * </pre>
-   *
    * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
    */
   @java.lang.Override
@@ -400,10 +388,6 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.samarthasthan.file.v1.FileMetadata, com.samarthasthan.file.v1.FileMetadata.Builder, com.samarthasthan.file.v1.FileMetadataOrBuilder> fileBuilder_;
     /**
-     * <pre>
-     * fully populated metadata row
-     * </pre>
-     *
      * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
      * @return Whether the file field is set.
      */
@@ -411,10 +395,6 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <pre>
-     * fully populated metadata row
-     * </pre>
-     *
      * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
      * @return The file.
      */
@@ -426,10 +406,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * fully populated metadata row
-     * </pre>
-     *
      * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
      */
     public Builder setFile(com.samarthasthan.file.v1.FileMetadata value) {
@@ -446,10 +422,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * fully populated metadata row
-     * </pre>
-     *
      * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
      */
     public Builder setFile(
@@ -464,10 +436,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * fully populated metadata row
-     * </pre>
-     *
      * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
      */
     public Builder mergeFile(com.samarthasthan.file.v1.FileMetadata value) {
@@ -489,10 +457,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * fully populated metadata row
-     * </pre>
-     *
      * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
      */
     public Builder clearFile() {
@@ -506,10 +470,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * fully populated metadata row
-     * </pre>
-     *
      * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
      */
     public com.samarthasthan.file.v1.FileMetadata.Builder getFileBuilder() {
@@ -518,10 +478,6 @@ private static final long serialVersionUID = 0L;
       return getFileFieldBuilder().getBuilder();
     }
     /**
-     * <pre>
-     * fully populated metadata row
-     * </pre>
-     *
      * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
      */
     public com.samarthasthan.file.v1.FileMetadataOrBuilder getFileOrBuilder() {
@@ -533,10 +489,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * fully populated metadata row
-     * </pre>
-     *
      * <code>.file.v1.FileMetadata file = 1 [json_name = "file"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<

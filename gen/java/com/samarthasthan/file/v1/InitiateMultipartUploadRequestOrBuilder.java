@@ -22,19 +22,11 @@ public interface InitiateMultipartUploadRequestOrBuilder extends
       getNameBytes();
 
   /**
-   * <pre>
-   * optional
-   * </pre>
-   *
    * <code>string content_type = 2 [json_name = "contentType"];</code>
    * @return The contentType.
    */
   java.lang.String getContentType();
   /**
-   * <pre>
-   * optional
-   * </pre>
-   *
    * <code>string content_type = 2 [json_name = "contentType"];</code>
    * @return The bytes for contentType.
    */
@@ -42,10 +34,6 @@ public interface InitiateMultipartUploadRequestOrBuilder extends
       getContentTypeBytes();
 
   /**
-   * <pre>
-   * bytes
-   * </pre>
-   *
    * <code>int64 size = 3 [json_name = "size", (.buf.validate.field) = { ... }</code>
    * @return The size.
    */

@@ -6,10 +6,6 @@
 package com.samarthasthan.file.v1;
 
 /**
- * <pre>
- * ===== 2. Presign part =====================================================
- * </pre>
- *
  * Protobuf type {@code file.v1.GetPresignedUploadPartURLRequest}
  */
 public final class GetPresignedUploadPartURLRequest extends
@@ -100,10 +96,6 @@ private static final long serialVersionUID = 0L;
   public static final int EXPIRES_SECS_FIELD_NUMBER = 3;
   private int expiresSecs_ = 0;
   /**
-   * <pre>
-   * e.g. 900 = 15 min
-   * </pre>
-   *
    * <code>int32 expires_secs = 3 [json_name = "expiresSecs", (.buf.validate.field) = { ... }</code>
    * @return The expiresSecs.
    */
@@ -291,10 +283,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * ===== 2. Presign part =====================================================
-   * </pre>
-   *
    * Protobuf type {@code file.v1.GetPresignedUploadPartURLRequest}
    */
   public static final class Builder extends
@@ -562,10 +550,6 @@ private static final long serialVersionUID = 0L;
 
     private int expiresSecs_ ;
     /**
-     * <pre>
-     * e.g. 900 = 15 min
-     * </pre>
-     *
      * <code>int32 expires_secs = 3 [json_name = "expiresSecs", (.buf.validate.field) = { ... }</code>
      * @return The expiresSecs.
      */
@@ -574,10 +558,6 @@ private static final long serialVersionUID = 0L;
       return expiresSecs_;
     }
     /**
-     * <pre>
-     * e.g. 900 = 15 min
-     * </pre>
-     *
      * <code>int32 expires_secs = 3 [json_name = "expiresSecs", (.buf.validate.field) = { ... }</code>
      * @param value The expiresSecs to set.
      * @return This builder for chaining.
@@ -590,10 +570,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * e.g. 900 = 15 min
-     * </pre>
-     *
      * <code>int32 expires_secs = 3 [json_name = "expiresSecs", (.buf.validate.field) = { ... }</code>
      * @return This builder for chaining.
      */

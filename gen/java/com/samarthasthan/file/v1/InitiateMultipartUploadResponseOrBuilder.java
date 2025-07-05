@@ -10,19 +10,11 @@ public interface InitiateMultipartUploadResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <pre>
-   * UUID – primary key in Files table
-   * </pre>
-   *
    * <code>string file_id = 1 [json_name = "fileId"];</code>
    * @return The fileId.
    */
   java.lang.String getFileId();
   /**
-   * <pre>
-   * UUID – primary key in Files table
-   * </pre>
-   *
    * <code>string file_id = 1 [json_name = "fileId"];</code>
    * @return The bytes for fileId.
    */
@@ -30,19 +22,11 @@ public interface InitiateMultipartUploadResponseOrBuilder extends
       getFileIdBytes();
 
   /**
-   * <pre>
-   * S3 multipart UploadID
-   * </pre>
-   *
    * <code>string upload_id = 2 [json_name = "uploadId"];</code>
    * @return The uploadId.
    */
   java.lang.String getUploadId();
   /**
-   * <pre>
-   * S3 multipart UploadID
-   * </pre>
-   *
    * <code>string upload_id = 2 [json_name = "uploadId"];</code>
    * @return The bytes for uploadId.
    */
@@ -50,22 +34,26 @@ public interface InitiateMultipartUploadResponseOrBuilder extends
       getUploadIdBytes();
 
   /**
-   * <pre>
-   * S3 object key chosen by the server
-   * </pre>
-   *
    * <code>string key = 3 [json_name = "key"];</code>
    * @return The key.
    */
   java.lang.String getKey();
   /**
-   * <pre>
-   * S3 object key chosen by the server
-   * </pre>
-   *
    * <code>string key = 3 [json_name = "key"];</code>
    * @return The bytes for key.
    */
   com.google.protobuf.ByteString
       getKeyBytes();
+
+  /**
+   * <code>string parent_id = 4 [json_name = "parentId"];</code>
+   * @return The parentId.
+   */
+  java.lang.String getParentId();
+  /**
+   * <code>string parent_id = 4 [json_name = "parentId"];</code>
+   * @return The bytes for parentId.
+   */
+  com.google.protobuf.ByteString
+      getParentIdBytes();
 }

@@ -6,10 +6,6 @@
 package com.samarthasthan.file.v1;
 
 /**
- * <pre>
- * ===== 3. Complete upload ==================================================
- * </pre>
- *
  * Protobuf type {@code file.v1.CompleteMultipartUploadRequest}
  */
 public final class CompleteMultipartUploadRequest extends
@@ -298,10 +294,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * ===== 3. Complete upload ==================================================
-   * </pre>
-   *
    * Protobuf type {@code file.v1.CompleteMultipartUploadRequest}
    */
   public static final class Builder extends
