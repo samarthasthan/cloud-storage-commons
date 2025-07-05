@@ -13,6 +13,15 @@ service FileService {
   rpc CompleteMultipartUpload (CompleteMultipartUploadRequest) returns (CompleteMultipartUploadResponse);
   rpc AbortMultipartUpload (AbortMultipartUploadRequest) returns (AbortMultipartUploadResponse);
   rpc CreateFolder(CreateFolderRequest) returns (CreateFolderResponse);
+  rpc ListFilesByParent (ListFilesByParentRequest) returns (ListFilesByParentResponse);
+}
+
+message ListFilesByParentRequest {
+  string parent_id = 1; // optional, empty string = root
+}
+
+message ListFilesByParentResponse {
+  repeated FileMetadata files = 1;
 }
 
 message CreateFolderRequest {
