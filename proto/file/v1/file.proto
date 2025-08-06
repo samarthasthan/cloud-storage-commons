@@ -98,5 +98,6 @@ message FileMetadata {
   google.protobuf.Timestamp deleted_at = 10;
   string type         = 11; // "file" or "folder"
   string parent_id    = 12; // blank / "" = root
+  bool is_favorite    = 13;
 }
 

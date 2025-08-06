@@ -765,6 +765,7 @@ type FileMetadata struct {
 	DeletedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
 	Type          string                 `protobuf:"bytes,11,opt,name=type,proto3" json:"type,omitempty"`                         // "file" or "folder"
 	ParentId      string                 `protobuf:"bytes,12,opt,name=parent_id,json=parentId,proto3" json:"parent_id,omitempty"` // blank / "" = root
+	IsFavorite    bool                   `protobuf:"varint,13,opt,name=is_favorite,json=isFavorite,proto3" json:"is_favorite,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -883,6 +884,13 @@ func (x *FileMetadata) GetParentId() string {
 	return ""
 }
 
+func (x *FileMetadata) GetIsFavorite() bool {
+	if x != nil {
+		return x.IsFavorite
+	}
+	return false
+}
+
 var File_file_v1_file_proto protoreflect.FileDescriptor
 
 const file_file_v1_file_proto_rawDesc = "" +
@@ -932,7 +940,7 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x04file\x18\x01 \x01(\v2\x15.file.v1.FileMetadataR\x04file\"C\n" +
 	"\x1bAbortMultipartUploadRequest\x12$\n" +
 	"\tupload_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\buploadId\"\x1e\n" +
-	"\x1cAbortMultipartUploadResponse\"\x9e\x03\n" +
+	"\x1cAbortMultipartUploadResponse\"\xbf\x03\n" +
 	"\fFileMetadata\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x19\n" +
 	"\bowner_id\x18\x02 \x01(\tR\aownerId\x12\x12\n" +
@@ -949,7 +957,9 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"deleted_at\x18\n" +
 	" \x01(\v2\x1a.google.protobuf.TimestampR\tdeletedAt\x12\x12\n" +
 	"\x04type\x18\v \x01(\tR\x04type\x12\x1b\n" +
-	"\tparent_id\x18\f \x01(\tR\bparentId2\xeb\x04\n" +
+	"\tparent_id\x18\f \x01(\tR\bparentId\x12\x1f\n" +
+	"\vis_favorite\x18\r \x01(\bR\n" +
+	"isFavorite2\xeb\x04\n" +
 	"\vFileService\x12l\n" +
 	"\x17InitiateMultipartUpload\x12'.file.v1.InitiateMultipartUploadRequest\x1a(.file.v1.InitiateMultipartUploadResponse\x12r\n" +
 	"\x19GetPresignedUploadPartURL\x12).file.v1.GetPresignedUploadPartURLRequest\x1a*.file.v1.GetPresignedUploadPartURLResponse\x12l\n" +

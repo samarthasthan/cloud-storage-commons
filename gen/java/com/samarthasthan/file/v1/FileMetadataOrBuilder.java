@@ -177,4 +177,10 @@ public interface FileMetadataOrBuilder extends
    */
   com.google.protobuf.ByteString
       getParentIdBytes();
+
+  /**
+   * <code>bool is_favorite = 13 [json_name = "isFavorite"];</code>
+   * @return The isFavorite.
+   */
+  boolean getIsFavorite();
 }

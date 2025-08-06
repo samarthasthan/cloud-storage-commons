@@ -451,6 +451,17 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int IS_FAVORITE_FIELD_NUMBER = 13;
+  private boolean isFavorite_ = false;
+  /**
+   * <code>bool is_favorite = 13 [json_name = "isFavorite"];</code>
+   * @return The isFavorite.
+   */
+  @java.lang.Override
+  public boolean getIsFavorite() {
+    return isFavorite_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -500,6 +511,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(parentId_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 12, parentId_);
+    }
+    if (isFavorite_ != false) {
+      output.writeBool(13, isFavorite_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -551,6 +565,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(parentId_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(12, parentId_);
     }
+    if (isFavorite_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(13, isFavorite_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -599,6 +617,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getType())) return false;
     if (!getParentId()
         .equals(other.getParentId())) return false;
+    if (getIsFavorite()
+        != other.getIsFavorite()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -642,6 +662,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getType().hashCode();
     hash = (37 * hash) + PARENT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getParentId().hashCode();
+    hash = (37 * hash) + IS_FAVORITE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsFavorite());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -805,6 +828,7 @@ private static final long serialVersionUID = 0L;
       }
       type_ = "";
       parentId_ = "";
+      isFavorite_ = false;
       return this;
     }
 
@@ -884,6 +908,9 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000800) != 0)) {
         result.parentId_ = parentId_;
       }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.isFavorite_ = isFavorite_;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -948,6 +975,9 @@ private static final long serialVersionUID = 0L;
         parentId_ = other.parentId_;
         bitField0_ |= 0x00000800;
         onChanged();
+      }
+      if (other.getIsFavorite() != false) {
+        setIsFavorite(other.getIsFavorite());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1041,6 +1071,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000800;
               break;
             } // case 98
+            case 104: {
+              isFavorite_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2057,6 +2092,38 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       parentId_ = value;
       bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+
+    private boolean isFavorite_ ;
+    /**
+     * <code>bool is_favorite = 13 [json_name = "isFavorite"];</code>
+     * @return The isFavorite.
+     */
+    @java.lang.Override
+    public boolean getIsFavorite() {
+      return isFavorite_;
+    }
+    /**
+     * <code>bool is_favorite = 13 [json_name = "isFavorite"];</code>
+     * @param value The isFavorite to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsFavorite(boolean value) {
+
+      isFavorite_ = value;
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool is_favorite = 13 [json_name = "isFavorite"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsFavorite() {
+      bitField0_ = (bitField0_ & ~0x00001000);
+      isFavorite_ = false;
       onChanged();
       return this;
     }

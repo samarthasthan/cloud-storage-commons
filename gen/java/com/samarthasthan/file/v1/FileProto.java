@@ -145,7 +145,7 @@ public final class FileProto {
       "\n\004file\030\001 \001(\0132\025.file.v1.FileMetadataR\004fil" +
       "e\"C\n\033AbortMultipartUploadRequest\022$\n\tuplo" +
       "ad_id\030\001 \001(\tB\007\272H\004r\002\020\001R\010uploadId\"\036\n\034AbortM" +
-      "ultipartUploadResponse\"\236\003\n\014FileMetadata\022" +
+      "ultipartUploadResponse\"\277\003\n\014FileMetadata\022" +
       "\016\n\002id\030\001 \001(\tR\002id\022\031\n\010owner_id\030\002 \001(\tR\007owner" +
       "Id\022\022\n\004name\030\003 \001(\tR\004name\022!\n\014content_type\030\004" +
       " \001(\tR\013contentType\022\022\n\004size\030\005 \001(\003R\004size\022\033\n" +
@@ -155,28 +155,28 @@ public final class FileProto {
       "ted_at\030\t \001(\0132\032.google.protobuf.Timestamp" +
       "R\tupdatedAt\0229\n\ndeleted_at\030\n \001(\0132\032.google" +
       ".protobuf.TimestampR\tdeletedAt\022\022\n\004type\030\013" +
-      " \001(\tR\004type\022\033\n\tparent_id\030\014 \001(\tR\010parentId2" +
-      "\353\004\n\013FileService\022l\n\027InitiateMultipartUplo" +
-      "ad\022\'.file.v1.InitiateMultipartUploadRequ" +
-      "est\032(.file.v1.InitiateMultipartUploadRes" +
-      "ponse\022r\n\031GetPresignedUploadPartURL\022).fil" +
-      "e.v1.GetPresignedUploadPartURLRequest\032*." +
-      "file.v1.GetPresignedUploadPartURLRespons" +
-      "e\022l\n\027CompleteMultipartUpload\022\'.file.v1.C" +
-      "ompleteMultipartUploadRequest\032(.file.v1." +
-      "CompleteMultipartUploadResponse\022c\n\024Abort" +
-      "MultipartUpload\022$.file.v1.AbortMultipart" +
-      "UploadRequest\032%.file.v1.AbortMultipartUp" +
-      "loadResponse\022K\n\014CreateFolder\022\034.file.v1.C" +
-      "reateFolderRequest\032\035.file.v1.CreateFolde" +
-      "rResponse\022Z\n\021ListFilesByParent\022!.file.v1" +
-      ".ListFilesByParentRequest\032\".file.v1.List" +
-      "FilesByParentResponseB\251\001\n\031com.samarthast" +
-      "han.file.v1B\tFileProtoP\001ZDgithub.com/sam" +
-      "arthasthan/cloud-storage-commons/gen/go/" +
-      "file/v1;filev1\242\002\003FXX\252\002\007File.V1\312\002\007File\\V1" +
-      "\342\002\023File\\V1\\GPBMetadata\352\002\010File::V1b\006proto" +
-      "3"
+      " \001(\tR\004type\022\033\n\tparent_id\030\014 \001(\tR\010parentId\022" +
+      "\037\n\013is_favorite\030\r \001(\010R\nisFavorite2\353\004\n\013Fil" +
+      "eService\022l\n\027InitiateMultipartUpload\022\'.fi" +
+      "le.v1.InitiateMultipartUploadRequest\032(.f" +
+      "ile.v1.InitiateMultipartUploadResponse\022r" +
+      "\n\031GetPresignedUploadPartURL\022).file.v1.Ge" +
+      "tPresignedUploadPartURLRequest\032*.file.v1" +
+      ".GetPresignedUploadPartURLResponse\022l\n\027Co" +
+      "mpleteMultipartUpload\022\'.file.v1.Complete" +
+      "MultipartUploadRequest\032(.file.v1.Complet" +
+      "eMultipartUploadResponse\022c\n\024AbortMultipa" +
+      "rtUpload\022$.file.v1.AbortMultipartUploadR" +
+      "equest\032%.file.v1.AbortMultipartUploadRes" +
+      "ponse\022K\n\014CreateFolder\022\034.file.v1.CreateFo" +
+      "lderRequest\032\035.file.v1.CreateFolderRespon" +
+      "se\022Z\n\021ListFilesByParent\022!.file.v1.ListFi" +
+      "lesByParentRequest\032\".file.v1.ListFilesBy" +
+      "ParentResponseB\251\001\n\031com.samarthasthan.fil" +
+      "e.v1B\tFileProtoP\001ZDgithub.com/samarthast" +
+      "han/cloud-storage-commons/gen/go/file/v1" +
+      ";filev1\242\002\003FXX\252\002\007File.V1\312\002\007File\\V1\342\002\023File" +
+      "\\V1\\GPBMetadata\352\002\010File::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -273,7 +273,7 @@ public final class FileProto {
     internal_static_file_v1_FileMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_FileMetadata_descriptor,
-        new java.lang.String[] { "Id", "OwnerId", "Name", "ContentType", "Size", "IsPublic", "ShareId", "CreatedAt", "UpdatedAt", "DeletedAt", "Type", "ParentId", });
+        new java.lang.String[] { "Id", "OwnerId", "Name", "ContentType", "Size", "IsPublic", "ShareId", "CreatedAt", "UpdatedAt", "DeletedAt", "Type", "ParentId", "IsFavorite", });
     descriptor.resolveAllFeaturesImmutable();
     com.google.protobuf.TimestampProto.getDescriptor();
     build.buf.validate.ValidateProto.getDescriptor();

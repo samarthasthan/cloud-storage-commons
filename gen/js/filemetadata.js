@@ -82,7 +82,8 @@ createdAt: (f = msg.getCreatedAt()) && proto.google.protobuf.Timestamp.toObject(
 updatedAt: (f = msg.getUpdatedAt()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f),
 deletedAt: (f = msg.getDeletedAt()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f),
 type: jspb.Message.getFieldWithDefault(msg, 11, ""),
-parentId: jspb.Message.getFieldWithDefault(msg, 12, "")
+parentId: jspb.Message.getFieldWithDefault(msg, 12, ""),
+isFavorite: jspb.Message.getBooleanFieldWithDefault(msg, 13, false)
   };
 
   if (includeInstance) {
@@ -169,6 +170,10 @@ proto.file.v1.FileMetadata.deserializeBinaryFromReader = function(msg, reader) {
     case 12:
       var value = /** @type {string} */ (reader.readString());
       msg.setParentId(value);
+      break;
+    case 13:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsFavorite(value);
       break;
     default:
       reader.skipField();
@@ -283,6 +288,13 @@ proto.file.v1.FileMetadata.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       12,
+      f
+    );
+  }
+  f = message.getIsFavorite();
+  if (f) {
+    writer.writeBool(
+      13,
       f
     );
   }
@@ -559,6 +571,24 @@ proto.file.v1.FileMetadata.prototype.getParentId = function() {
  */
 proto.file.v1.FileMetadata.prototype.setParentId = function(value) {
   return jspb.Message.setProto3StringField(this, 12, value);
+};
+
+
+/**
+ * optional bool is_favorite = 13;
+ * @return {boolean}
+ */
+proto.file.v1.FileMetadata.prototype.getIsFavorite = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 13, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.file.v1.FileMetadata} returns this
+ */
+proto.file.v1.FileMetadata.prototype.setIsFavorite = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 13, value);
 };
 
 
