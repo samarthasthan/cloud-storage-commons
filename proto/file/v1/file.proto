@@ -14,6 +14,9 @@ service FileService {
   rpc AbortMultipartUpload (AbortMultipartUploadRequest) returns (AbortMultipartUploadResponse);
   rpc CreateFolder(CreateFolderRequest) returns (CreateFolderResponse);
   rpc ListFilesByParent (ListFilesByParentRequest) returns (ListFilesByParentResponse);
+  rpc ToggleFavorite(ToggleFavoriteRequest) returns (ToggleFavoriteResponse);
+  rpc DeleteFile(DeleteFileRequest) returns (DeleteFileResponse);
+  rpc Rename(RenameRequest) returns (RenameResponse);
 }
 
 message PathSegment {
@@ -84,6 +87,31 @@ message AbortMultipartUploadRequest {
 }
 
 message AbortMultipartUploadResponse {}
+
+message ToggleFavoriteRequest {
+   string id           = 1;
+}
+
+message ToggleFavoriteResponse {
+   bool is_success = 1;
+}
+
+message DeleteFileRequest {
+  string id           = 1;
+}
+
+message DeleteFileResponse {
+   bool is_success = 1;
+}
+
+message RenameRequest {
+  string id           = 1;
+}
+
+message RenameResponse {
+   bool is_success = 1;
+}
+
 
 message FileMetadata {
   string id           = 1;

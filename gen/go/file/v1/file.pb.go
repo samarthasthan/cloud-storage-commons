@@ -751,6 +751,270 @@ func (*AbortMultipartUploadResponse) Descriptor() ([]byte, []int) {
 	return file_file_v1_file_proto_rawDescGZIP(), []int{13}
 }
 
+type ToggleFavoriteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToggleFavoriteRequest) Reset() {
+	*x = ToggleFavoriteRequest{}
+	mi := &file_file_v1_file_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToggleFavoriteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToggleFavoriteRequest) ProtoMessage() {}
+
+func (x *ToggleFavoriteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToggleFavoriteRequest.ProtoReflect.Descriptor instead.
+func (*ToggleFavoriteRequest) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *ToggleFavoriteRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type ToggleFavoriteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	IsSuccess     bool                   `protobuf:"varint,1,opt,name=is_success,json=isSuccess,proto3" json:"is_success,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToggleFavoriteResponse) Reset() {
+	*x = ToggleFavoriteResponse{}
+	mi := &file_file_v1_file_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToggleFavoriteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToggleFavoriteResponse) ProtoMessage() {}
+
+func (x *ToggleFavoriteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToggleFavoriteResponse.ProtoReflect.Descriptor instead.
+func (*ToggleFavoriteResponse) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *ToggleFavoriteResponse) GetIsSuccess() bool {
+	if x != nil {
+		return x.IsSuccess
+	}
+	return false
+}
+
+type DeleteFileRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteFileRequest) Reset() {
+	*x = DeleteFileRequest{}
+	mi := &file_file_v1_file_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteFileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteFileRequest) ProtoMessage() {}
+
+func (x *DeleteFileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteFileRequest.ProtoReflect.Descriptor instead.
+func (*DeleteFileRequest) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *DeleteFileRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type DeleteFileResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	IsSuccess     bool                   `protobuf:"varint,1,opt,name=is_success,json=isSuccess,proto3" json:"is_success,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteFileResponse) Reset() {
+	*x = DeleteFileResponse{}
+	mi := &file_file_v1_file_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteFileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteFileResponse) ProtoMessage() {}
+
+func (x *DeleteFileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteFileResponse.ProtoReflect.Descriptor instead.
+func (*DeleteFileResponse) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *DeleteFileResponse) GetIsSuccess() bool {
+	if x != nil {
+		return x.IsSuccess
+	}
+	return false
+}
+
+type RenameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RenameRequest) Reset() {
+	*x = RenameRequest{}
+	mi := &file_file_v1_file_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RenameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RenameRequest) ProtoMessage() {}
+
+func (x *RenameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RenameRequest.ProtoReflect.Descriptor instead.
+func (*RenameRequest) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *RenameRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type RenameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	IsSuccess     bool                   `protobuf:"varint,1,opt,name=is_success,json=isSuccess,proto3" json:"is_success,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RenameResponse) Reset() {
+	*x = RenameResponse{}
+	mi := &file_file_v1_file_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RenameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RenameResponse) ProtoMessage() {}
+
+func (x *RenameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RenameResponse.ProtoReflect.Descriptor instead.
+func (*RenameResponse) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *RenameResponse) GetIsSuccess() bool {
+	if x != nil {
+		return x.IsSuccess
+	}
+	return false
+}
+
 type FileMetadata struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -772,7 +1036,7 @@ type FileMetadata struct {
 
 func (x *FileMetadata) Reset() {
 	*x = FileMetadata{}
-	mi := &file_file_v1_file_proto_msgTypes[14]
+	mi := &file_file_v1_file_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -784,7 +1048,7 @@ func (x *FileMetadata) String() string {
 func (*FileMetadata) ProtoMessage() {}
 
 func (x *FileMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[14]
+	mi := &file_file_v1_file_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -797,7 +1061,7 @@ func (x *FileMetadata) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FileMetadata.ProtoReflect.Descriptor instead.
 func (*FileMetadata) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{14}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *FileMetadata) GetId() string {
@@ -940,7 +1204,22 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x04file\x18\x01 \x01(\v2\x15.file.v1.FileMetadataR\x04file\"C\n" +
 	"\x1bAbortMultipartUploadRequest\x12$\n" +
 	"\tupload_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\buploadId\"\x1e\n" +
-	"\x1cAbortMultipartUploadResponse\"\xbf\x03\n" +
+	"\x1cAbortMultipartUploadResponse\"'\n" +
+	"\x15ToggleFavoriteRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"7\n" +
+	"\x16ToggleFavoriteResponse\x12\x1d\n" +
+	"\n" +
+	"is_success\x18\x01 \x01(\bR\tisSuccess\"#\n" +
+	"\x11DeleteFileRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"3\n" +
+	"\x12DeleteFileResponse\x12\x1d\n" +
+	"\n" +
+	"is_success\x18\x01 \x01(\bR\tisSuccess\"\x1f\n" +
+	"\rRenameRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"/\n" +
+	"\x0eRenameResponse\x12\x1d\n" +
+	"\n" +
+	"is_success\x18\x01 \x01(\bR\tisSuccess\"\xbf\x03\n" +
 	"\fFileMetadata\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x19\n" +
 	"\bowner_id\x18\x02 \x01(\tR\aownerId\x12\x12\n" +
@@ -959,14 +1238,18 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x04type\x18\v \x01(\tR\x04type\x12\x1b\n" +
 	"\tparent_id\x18\f \x01(\tR\bparentId\x12\x1f\n" +
 	"\vis_favorite\x18\r \x01(\bR\n" +
-	"isFavorite2\xeb\x04\n" +
+	"isFavorite2\xc0\x06\n" +
 	"\vFileService\x12l\n" +
 	"\x17InitiateMultipartUpload\x12'.file.v1.InitiateMultipartUploadRequest\x1a(.file.v1.InitiateMultipartUploadResponse\x12r\n" +
 	"\x19GetPresignedUploadPartURL\x12).file.v1.GetPresignedUploadPartURLRequest\x1a*.file.v1.GetPresignedUploadPartURLResponse\x12l\n" +
 	"\x17CompleteMultipartUpload\x12'.file.v1.CompleteMultipartUploadRequest\x1a(.file.v1.CompleteMultipartUploadResponse\x12c\n" +
 	"\x14AbortMultipartUpload\x12$.file.v1.AbortMultipartUploadRequest\x1a%.file.v1.AbortMultipartUploadResponse\x12K\n" +
 	"\fCreateFolder\x12\x1c.file.v1.CreateFolderRequest\x1a\x1d.file.v1.CreateFolderResponse\x12Z\n" +
-	"\x11ListFilesByParent\x12!.file.v1.ListFilesByParentRequest\x1a\".file.v1.ListFilesByParentResponseB\xa9\x01\n" +
+	"\x11ListFilesByParent\x12!.file.v1.ListFilesByParentRequest\x1a\".file.v1.ListFilesByParentResponse\x12Q\n" +
+	"\x0eToggleFavorite\x12\x1e.file.v1.ToggleFavoriteRequest\x1a\x1f.file.v1.ToggleFavoriteResponse\x12E\n" +
+	"\n" +
+	"DeleteFile\x12\x1a.file.v1.DeleteFileRequest\x1a\x1b.file.v1.DeleteFileResponse\x129\n" +
+	"\x06Rename\x12\x16.file.v1.RenameRequest\x1a\x17.file.v1.RenameResponseB\xa9\x01\n" +
 	"\x19com.samarthasthan.file.v1B\tFileProtoP\x01ZDgithub.com/samarthasthan/cloud-storage-commons/gen/go/file/v1;filev1\xa2\x02\x03FXX\xaa\x02\aFile.V1\xca\x02\aFile\\V1\xe2\x02\x13File\\V1\\GPBMetadata\xea\x02\bFile::V1b\x06proto3"
 
 var (
@@ -981,7 +1264,7 @@ func file_file_v1_file_proto_rawDescGZIP() []byte {
 	return file_file_v1_file_proto_rawDescData
 }
 
-var file_file_v1_file_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_file_v1_file_proto_msgTypes = make([]protoimpl.MessageInfo, 21)
 var file_file_v1_file_proto_goTypes = []any{
 	(*PathSegment)(nil),                       // 0: file.v1.PathSegment
 	(*ListFilesByParentRequest)(nil),          // 1: file.v1.ListFilesByParentRequest
@@ -997,32 +1280,44 @@ var file_file_v1_file_proto_goTypes = []any{
 	(*CompleteMultipartUploadResponse)(nil),   // 11: file.v1.CompleteMultipartUploadResponse
 	(*AbortMultipartUploadRequest)(nil),       // 12: file.v1.AbortMultipartUploadRequest
 	(*AbortMultipartUploadResponse)(nil),      // 13: file.v1.AbortMultipartUploadResponse
-	(*FileMetadata)(nil),                      // 14: file.v1.FileMetadata
-	(*timestamppb.Timestamp)(nil),             // 15: google.protobuf.Timestamp
+	(*ToggleFavoriteRequest)(nil),             // 14: file.v1.ToggleFavoriteRequest
+	(*ToggleFavoriteResponse)(nil),            // 15: file.v1.ToggleFavoriteResponse
+	(*DeleteFileRequest)(nil),                 // 16: file.v1.DeleteFileRequest
+	(*DeleteFileResponse)(nil),                // 17: file.v1.DeleteFileResponse
+	(*RenameRequest)(nil),                     // 18: file.v1.RenameRequest
+	(*RenameResponse)(nil),                    // 19: file.v1.RenameResponse
+	(*FileMetadata)(nil),                      // 20: file.v1.FileMetadata
+	(*timestamppb.Timestamp)(nil),             // 21: google.protobuf.Timestamp
 }
 var file_file_v1_file_proto_depIdxs = []int32{
 	0,  // 0: file.v1.ListFilesByParentResponse.path:type_name -> file.v1.PathSegment
-	14, // 1: file.v1.ListFilesByParentResponse.files:type_name -> file.v1.FileMetadata
-	14, // 2: file.v1.CreateFolderResponse.folder:type_name -> file.v1.FileMetadata
+	20, // 1: file.v1.ListFilesByParentResponse.files:type_name -> file.v1.FileMetadata
+	20, // 2: file.v1.CreateFolderResponse.folder:type_name -> file.v1.FileMetadata
 	10, // 3: file.v1.CompleteMultipartUploadRequest.parts:type_name -> file.v1.CompletedPart
-	14, // 4: file.v1.CompleteMultipartUploadResponse.file:type_name -> file.v1.FileMetadata
-	15, // 5: file.v1.FileMetadata.created_at:type_name -> google.protobuf.Timestamp
-	15, // 6: file.v1.FileMetadata.updated_at:type_name -> google.protobuf.Timestamp
-	15, // 7: file.v1.FileMetadata.deleted_at:type_name -> google.protobuf.Timestamp
+	20, // 4: file.v1.CompleteMultipartUploadResponse.file:type_name -> file.v1.FileMetadata
+	21, // 5: file.v1.FileMetadata.created_at:type_name -> google.protobuf.Timestamp
+	21, // 6: file.v1.FileMetadata.updated_at:type_name -> google.protobuf.Timestamp
+	21, // 7: file.v1.FileMetadata.deleted_at:type_name -> google.protobuf.Timestamp
 	5,  // 8: file.v1.FileService.InitiateMultipartUpload:input_type -> file.v1.InitiateMultipartUploadRequest
 	7,  // 9: file.v1.FileService.GetPresignedUploadPartURL:input_type -> file.v1.GetPresignedUploadPartURLRequest
 	9,  // 10: file.v1.FileService.CompleteMultipartUpload:input_type -> file.v1.CompleteMultipartUploadRequest
 	12, // 11: file.v1.FileService.AbortMultipartUpload:input_type -> file.v1.AbortMultipartUploadRequest
 	3,  // 12: file.v1.FileService.CreateFolder:input_type -> file.v1.CreateFolderRequest
 	1,  // 13: file.v1.FileService.ListFilesByParent:input_type -> file.v1.ListFilesByParentRequest
-	6,  // 14: file.v1.FileService.InitiateMultipartUpload:output_type -> file.v1.InitiateMultipartUploadResponse
-	8,  // 15: file.v1.FileService.GetPresignedUploadPartURL:output_type -> file.v1.GetPresignedUploadPartURLResponse
-	11, // 16: file.v1.FileService.CompleteMultipartUpload:output_type -> file.v1.CompleteMultipartUploadResponse
-	13, // 17: file.v1.FileService.AbortMultipartUpload:output_type -> file.v1.AbortMultipartUploadResponse
-	4,  // 18: file.v1.FileService.CreateFolder:output_type -> file.v1.CreateFolderResponse
-	2,  // 19: file.v1.FileService.ListFilesByParent:output_type -> file.v1.ListFilesByParentResponse
-	14, // [14:20] is the sub-list for method output_type
-	8,  // [8:14] is the sub-list for method input_type
+	14, // 14: file.v1.FileService.ToggleFavorite:input_type -> file.v1.ToggleFavoriteRequest
+	16, // 15: file.v1.FileService.DeleteFile:input_type -> file.v1.DeleteFileRequest
+	18, // 16: file.v1.FileService.Rename:input_type -> file.v1.RenameRequest
+	6,  // 17: file.v1.FileService.InitiateMultipartUpload:output_type -> file.v1.InitiateMultipartUploadResponse
+	8,  // 18: file.v1.FileService.GetPresignedUploadPartURL:output_type -> file.v1.GetPresignedUploadPartURLResponse
+	11, // 19: file.v1.FileService.CompleteMultipartUpload:output_type -> file.v1.CompleteMultipartUploadResponse
+	13, // 20: file.v1.FileService.AbortMultipartUpload:output_type -> file.v1.AbortMultipartUploadResponse
+	4,  // 21: file.v1.FileService.CreateFolder:output_type -> file.v1.CreateFolderResponse
+	2,  // 22: file.v1.FileService.ListFilesByParent:output_type -> file.v1.ListFilesByParentResponse
+	15, // 23: file.v1.FileService.ToggleFavorite:output_type -> file.v1.ToggleFavoriteResponse
+	17, // 24: file.v1.FileService.DeleteFile:output_type -> file.v1.DeleteFileResponse
+	19, // 25: file.v1.FileService.Rename:output_type -> file.v1.RenameResponse
+	17, // [17:26] is the sub-list for method output_type
+	8,  // [8:17] is the sub-list for method input_type
 	8,  // [8:8] is the sub-list for extension type_name
 	8,  // [8:8] is the sub-list for extension extendee
 	0,  // [0:8] is the sub-list for field type_name
@@ -1039,7 +1334,7 @@ func file_file_v1_file_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_file_v1_file_proto_rawDesc), len(file_file_v1_file_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   15,
+			NumMessages:   21,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

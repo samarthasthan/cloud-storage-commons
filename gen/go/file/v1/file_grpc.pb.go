@@ -25,6 +25,9 @@ const (
 	FileService_AbortMultipartUpload_FullMethodName      = "/file.v1.FileService/AbortMultipartUpload"
 	FileService_CreateFolder_FullMethodName              = "/file.v1.FileService/CreateFolder"
 	FileService_ListFilesByParent_FullMethodName         = "/file.v1.FileService/ListFilesByParent"
+	FileService_ToggleFavorite_FullMethodName            = "/file.v1.FileService/ToggleFavorite"
+	FileService_DeleteFile_FullMethodName                = "/file.v1.FileService/DeleteFile"
+	FileService_Rename_FullMethodName                    = "/file.v1.FileService/Rename"
 )
 
 // FileServiceClient is the client API for FileService service.
@@ -37,6 +40,9 @@ type FileServiceClient interface {
 	AbortMultipartUpload(ctx context.Context, in *AbortMultipartUploadRequest, opts ...grpc.CallOption) (*AbortMultipartUploadResponse, error)
 	CreateFolder(ctx context.Context, in *CreateFolderRequest, opts ...grpc.CallOption) (*CreateFolderResponse, error)
 	ListFilesByParent(ctx context.Context, in *ListFilesByParentRequest, opts ...grpc.CallOption) (*ListFilesByParentResponse, error)
+	ToggleFavorite(ctx context.Context, in *ToggleFavoriteRequest, opts ...grpc.CallOption) (*ToggleFavoriteResponse, error)
+	DeleteFile(ctx context.Context, in *DeleteFileRequest, opts ...grpc.CallOption) (*DeleteFileResponse, error)
+	Rename(ctx context.Context, in *RenameRequest, opts ...grpc.CallOption) (*RenameResponse, error)
 }
 
 type fileServiceClient struct {
@@ -107,6 +113,36 @@ func (c *fileServiceClient) ListFilesByParent(ctx context.Context, in *ListFiles
 	return out, nil
 }
 
+func (c *fileServiceClient) ToggleFavorite(ctx context.Context, in *ToggleFavoriteRequest, opts ...grpc.CallOption) (*ToggleFavoriteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToggleFavoriteResponse)
+	err := c.cc.Invoke(ctx, FileService_ToggleFavorite_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileServiceClient) DeleteFile(ctx context.Context, in *DeleteFileRequest, opts ...grpc.CallOption) (*DeleteFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteFileResponse)
+	err := c.cc.Invoke(ctx, FileService_DeleteFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileServiceClient) Rename(ctx context.Context, in *RenameRequest, opts ...grpc.CallOption) (*RenameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RenameResponse)
+	err := c.cc.Invoke(ctx, FileService_Rename_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileServiceServer is the server API for FileService service.
 // All implementations must embed UnimplementedFileServiceServer
 // for forward compatibility.
@@ -117,6 +153,9 @@ type FileServiceServer interface {
 	AbortMultipartUpload(context.Context, *AbortMultipartUploadRequest) (*AbortMultipartUploadResponse, error)
 	CreateFolder(context.Context, *CreateFolderRequest) (*CreateFolderResponse, error)
 	ListFilesByParent(context.Context, *ListFilesByParentRequest) (*ListFilesByParentResponse, error)
+	ToggleFavorite(context.Context, *ToggleFavoriteRequest) (*ToggleFavoriteResponse, error)
+	DeleteFile(context.Context, *DeleteFileRequest) (*DeleteFileResponse, error)
+	Rename(context.Context, *RenameRequest) (*RenameResponse, error)
 	mustEmbedUnimplementedFileServiceServer()
 }
 
@@ -144,6 +183,15 @@ func (UnimplementedFileServiceServer) CreateFolder(context.Context, *CreateFolde
 }
 func (UnimplementedFileServiceServer) ListFilesByParent(context.Context, *ListFilesByParentRequest) (*ListFilesByParentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListFilesByParent not implemented")
+}
+func (UnimplementedFileServiceServer) ToggleFavorite(context.Context, *ToggleFavoriteRequest) (*ToggleFavoriteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ToggleFavorite not implemented")
+}
+func (UnimplementedFileServiceServer) DeleteFile(context.Context, *DeleteFileRequest) (*DeleteFileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteFile not implemented")
+}
+func (UnimplementedFileServiceServer) Rename(context.Context, *RenameRequest) (*RenameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Rename not implemented")
 }
 func (UnimplementedFileServiceServer) mustEmbedUnimplementedFileServiceServer() {}
 func (UnimplementedFileServiceServer) testEmbeddedByValue()                     {}
@@ -274,6 +322,60 @@ func _FileService_ListFilesByParent_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_ToggleFavorite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToggleFavoriteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).ToggleFavorite(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_ToggleFavorite_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).ToggleFavorite(ctx, req.(*ToggleFavoriteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileService_DeleteFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).DeleteFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_DeleteFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).DeleteFile(ctx, req.(*DeleteFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileService_Rename_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RenameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).Rename(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_Rename_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).Rename(ctx, req.(*RenameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FileService_ServiceDesc is the grpc.ServiceDesc for FileService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -304,6 +406,18 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListFilesByParent",
 			Handler:    _FileService_ListFilesByParent_Handler,
+		},
+		{
+			MethodName: "ToggleFavorite",
+			Handler:    _FileService_ToggleFavorite_Handler,
+		},
+		{
+			MethodName: "DeleteFile",
+			Handler:    _FileService_DeleteFile_Handler,
+		},
+		{
+			MethodName: "Rename",
+			Handler:    _FileService_Rename_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
