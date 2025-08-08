@@ -31,7 +31,7 @@ const (
 	FileService_MarkAsIsPublic_FullMethodName            = "/file.v1.FileService/MarkAsIsPublic"
 	FileService_MarkAsNotIsPublic_FullMethodName         = "/file.v1.FileService/MarkAsNotIsPublic"
 	FileService_AddAccessEmail_FullMethodName            = "/file.v1.FileService/AddAccessEmail"
-	FileService_GetAccessEmails_FullMethodName           = "/file.v1.FileService/GetAccessEmails"
+	FileService_GetAccessStatus_FullMethodName           = "/file.v1.FileService/GetAccessStatus"
 	FileService_RemoveSingleAccessEmail_FullMethodName   = "/file.v1.FileService/RemoveSingleAccessEmail"
 	FileService_RemoveAllAccessEmails_FullMethodName     = "/file.v1.FileService/RemoveAllAccessEmails"
 )
@@ -52,7 +52,7 @@ type FileServiceClient interface {
 	MarkAsIsPublic(ctx context.Context, in *MarkAsIsPublicRequest, opts ...grpc.CallOption) (*MarkAsIsPublicResponse, error)
 	MarkAsNotIsPublic(ctx context.Context, in *MarkAsNotIsPublicRequest, opts ...grpc.CallOption) (*MarkAsNotIsPublicResponse, error)
 	AddAccessEmail(ctx context.Context, in *AddAccessEmailRequest, opts ...grpc.CallOption) (*AddAccessEmailResponse, error)
-	GetAccessEmails(ctx context.Context, in *GetAccessEmailsRequest, opts ...grpc.CallOption) (*GetAccessEmailsResponse, error)
+	GetAccessStatus(ctx context.Context, in *GetAccessStatusRequest, opts ...grpc.CallOption) (*GetAccessStatusResponse, error)
 	RemoveSingleAccessEmail(ctx context.Context, in *RemoveSingleAccessEmailRequest, opts ...grpc.CallOption) (*RemoveSingleAccessEmailResponse, error)
 	RemoveAllAccessEmails(ctx context.Context, in *RemoveAllAccessEmailsRequest, opts ...grpc.CallOption) (*RemoveAllAccessEmailsResponse, error)
 }
@@ -185,10 +185,10 @@ func (c *fileServiceClient) AddAccessEmail(ctx context.Context, in *AddAccessEma
 	return out, nil
 }
 
-func (c *fileServiceClient) GetAccessEmails(ctx context.Context, in *GetAccessEmailsRequest, opts ...grpc.CallOption) (*GetAccessEmailsResponse, error) {
+func (c *fileServiceClient) GetAccessStatus(ctx context.Context, in *GetAccessStatusRequest, opts ...grpc.CallOption) (*GetAccessStatusResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAccessEmailsResponse)
-	err := c.cc.Invoke(ctx, FileService_GetAccessEmails_FullMethodName, in, out, cOpts...)
+	out := new(GetAccessStatusResponse)
+	err := c.cc.Invoke(ctx, FileService_GetAccessStatus_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -231,7 +231,7 @@ type FileServiceServer interface {
 	MarkAsIsPublic(context.Context, *MarkAsIsPublicRequest) (*MarkAsIsPublicResponse, error)
 	MarkAsNotIsPublic(context.Context, *MarkAsNotIsPublicRequest) (*MarkAsNotIsPublicResponse, error)
 	AddAccessEmail(context.Context, *AddAccessEmailRequest) (*AddAccessEmailResponse, error)
-	GetAccessEmails(context.Context, *GetAccessEmailsRequest) (*GetAccessEmailsResponse, error)
+	GetAccessStatus(context.Context, *GetAccessStatusRequest) (*GetAccessStatusResponse, error)
 	RemoveSingleAccessEmail(context.Context, *RemoveSingleAccessEmailRequest) (*RemoveSingleAccessEmailResponse, error)
 	RemoveAllAccessEmails(context.Context, *RemoveAllAccessEmailsRequest) (*RemoveAllAccessEmailsResponse, error)
 	mustEmbedUnimplementedFileServiceServer()
@@ -280,8 +280,8 @@ func (UnimplementedFileServiceServer) MarkAsNotIsPublic(context.Context, *MarkAs
 func (UnimplementedFileServiceServer) AddAccessEmail(context.Context, *AddAccessEmailRequest) (*AddAccessEmailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddAccessEmail not implemented")
 }
-func (UnimplementedFileServiceServer) GetAccessEmails(context.Context, *GetAccessEmailsRequest) (*GetAccessEmailsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAccessEmails not implemented")
+func (UnimplementedFileServiceServer) GetAccessStatus(context.Context, *GetAccessStatusRequest) (*GetAccessStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAccessStatus not implemented")
 }
 func (UnimplementedFileServiceServer) RemoveSingleAccessEmail(context.Context, *RemoveSingleAccessEmailRequest) (*RemoveSingleAccessEmailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveSingleAccessEmail not implemented")
@@ -526,20 +526,20 @@ func _FileService_AddAccessEmail_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FileService_GetAccessEmails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAccessEmailsRequest)
+func _FileService_GetAccessStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccessStatusRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FileServiceServer).GetAccessEmails(ctx, in)
+		return srv.(FileServiceServer).GetAccessStatus(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: FileService_GetAccessEmails_FullMethodName,
+		FullMethod: FileService_GetAccessStatus_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).GetAccessEmails(ctx, req.(*GetAccessEmailsRequest))
+		return srv.(FileServiceServer).GetAccessStatus(ctx, req.(*GetAccessStatusRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -636,8 +636,8 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _FileService_AddAccessEmail_Handler,
 		},
 		{
-			MethodName: "GetAccessEmails",
-			Handler:    _FileService_GetAccessEmails_Handler,
+			MethodName: "GetAccessStatus",
+			Handler:    _FileService_GetAccessStatus_Handler,
 		},
 		{
 			MethodName: "RemoveSingleAccessEmail",

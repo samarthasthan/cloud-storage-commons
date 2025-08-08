@@ -20,7 +20,7 @@ service FileService {
   rpc MarkAsIsPublic(MarkAsIsPublicRequest) returns (MarkAsIsPublicResponse);
   rpc MarkAsNotIsPublic(MarkAsNotIsPublicRequest) returns (MarkAsNotIsPublicResponse);
   rpc AddAccessEmail(AddAccessEmailRequest) returns (AddAccessEmailResponse);
-  rpc GetAccessEmails(GetAccessEmailsRequest) returns (GetAccessEmailsResponse);
+  rpc GetAccessStatus(GetAccessStatusRequest) returns (GetAccessStatusResponse);
   rpc RemoveSingleAccessEmail(RemoveSingleAccessEmailRequest) returns (RemoveSingleAccessEmailResponse);
   rpc RemoveAllAccessEmails(RemoveAllAccessEmailsRequest) returns (RemoveAllAccessEmailsResponse);
 }
@@ -162,12 +162,13 @@ message RemoveAllAccessEmailsResponse {
    bool is_success = 1;
 }
 
-message GetAccessEmailsRequest {
+message GetAccessStatusRequest {
   string id = 1;
 }
 
-message GetAccessEmailsResponse {
+message GetAccessStatusResponse {
   repeated string emails = 1;
+  bool is_public = 2;
 }
 
 

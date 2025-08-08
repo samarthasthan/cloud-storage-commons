@@ -1487,27 +1487,27 @@ func (x *RemoveAllAccessEmailsResponse) GetIsSuccess() bool {
 	return false
 }
 
-type GetAccessEmailsRequest struct {
+type GetAccessStatusRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetAccessEmailsRequest) Reset() {
-	*x = GetAccessEmailsRequest{}
+func (x *GetAccessStatusRequest) Reset() {
+	*x = GetAccessStatusRequest{}
 	mi := &file_file_v1_file_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAccessEmailsRequest) String() string {
+func (x *GetAccessStatusRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAccessEmailsRequest) ProtoMessage() {}
+func (*GetAccessStatusRequest) ProtoMessage() {}
 
-func (x *GetAccessEmailsRequest) ProtoReflect() protoreflect.Message {
+func (x *GetAccessStatusRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_file_v1_file_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1519,39 +1519,40 @@ func (x *GetAccessEmailsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAccessEmailsRequest.ProtoReflect.Descriptor instead.
-func (*GetAccessEmailsRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAccessStatusRequest.ProtoReflect.Descriptor instead.
+func (*GetAccessStatusRequest) Descriptor() ([]byte, []int) {
 	return file_file_v1_file_proto_rawDescGZIP(), []int{30}
 }
 
-func (x *GetAccessEmailsRequest) GetId() string {
+func (x *GetAccessStatusRequest) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-type GetAccessEmailsResponse struct {
+type GetAccessStatusResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Emails        []string               `protobuf:"bytes,1,rep,name=emails,proto3" json:"emails,omitempty"`
+	IsPublic      bool                   `protobuf:"varint,2,opt,name=is_public,json=isPublic,proto3" json:"is_public,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetAccessEmailsResponse) Reset() {
-	*x = GetAccessEmailsResponse{}
+func (x *GetAccessStatusResponse) Reset() {
+	*x = GetAccessStatusResponse{}
 	mi := &file_file_v1_file_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAccessEmailsResponse) String() string {
+func (x *GetAccessStatusResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAccessEmailsResponse) ProtoMessage() {}
+func (*GetAccessStatusResponse) ProtoMessage() {}
 
-func (x *GetAccessEmailsResponse) ProtoReflect() protoreflect.Message {
+func (x *GetAccessStatusResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_file_v1_file_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1563,16 +1564,23 @@ func (x *GetAccessEmailsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAccessEmailsResponse.ProtoReflect.Descriptor instead.
-func (*GetAccessEmailsResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAccessStatusResponse.ProtoReflect.Descriptor instead.
+func (*GetAccessStatusResponse) Descriptor() ([]byte, []int) {
 	return file_file_v1_file_proto_rawDescGZIP(), []int{31}
 }
 
-func (x *GetAccessEmailsResponse) GetEmails() []string {
+func (x *GetAccessStatusResponse) GetEmails() []string {
 	if x != nil {
 		return x.Emails
 	}
 	return nil
+}
+
+func (x *GetAccessStatusResponse) GetIsPublic() bool {
+	if x != nil {
+		return x.IsPublic
+	}
+	return false
 }
 
 type FileMetadata struct {
@@ -1809,10 +1817,11 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x1dRemoveAllAccessEmailsResponse\x12\x1d\n" +
 	"\n" +
 	"is_success\x18\x01 \x01(\bR\tisSuccess\"(\n" +
-	"\x16GetAccessEmailsRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"1\n" +
-	"\x17GetAccessEmailsResponse\x12\x16\n" +
-	"\x06emails\x18\x01 \x03(\tR\x06emails\"\xbf\x03\n" +
+	"\x16GetAccessStatusRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"N\n" +
+	"\x17GetAccessStatusResponse\x12\x16\n" +
+	"\x06emails\x18\x01 \x03(\tR\x06emails\x12\x1b\n" +
+	"\tis_public\x18\x02 \x01(\bR\bisPublic\"\xbf\x03\n" +
 	"\fFileMetadata\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x19\n" +
 	"\bowner_id\x18\x02 \x01(\tR\aownerId\x12\x12\n" +
@@ -1847,7 +1856,7 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x0eMarkAsIsPublic\x12\x1e.file.v1.MarkAsIsPublicRequest\x1a\x1f.file.v1.MarkAsIsPublicResponse\x12Z\n" +
 	"\x11MarkAsNotIsPublic\x12!.file.v1.MarkAsNotIsPublicRequest\x1a\".file.v1.MarkAsNotIsPublicResponse\x12Q\n" +
 	"\x0eAddAccessEmail\x12\x1e.file.v1.AddAccessEmailRequest\x1a\x1f.file.v1.AddAccessEmailResponse\x12T\n" +
-	"\x0fGetAccessEmails\x12\x1f.file.v1.GetAccessEmailsRequest\x1a .file.v1.GetAccessEmailsResponse\x12l\n" +
+	"\x0fGetAccessStatus\x12\x1f.file.v1.GetAccessStatusRequest\x1a .file.v1.GetAccessStatusResponse\x12l\n" +
 	"\x17RemoveSingleAccessEmail\x12'.file.v1.RemoveSingleAccessEmailRequest\x1a(.file.v1.RemoveSingleAccessEmailResponse\x12f\n" +
 	"\x15RemoveAllAccessEmails\x12%.file.v1.RemoveAllAccessEmailsRequest\x1a&.file.v1.RemoveAllAccessEmailsResponseB\xa9\x01\n" +
 	"\x19com.samarthasthan.file.v1B\tFileProtoP\x01ZDgithub.com/samarthasthan/cloud-storage-commons/gen/go/file/v1;filev1\xa2\x02\x03FXX\xaa\x02\aFile.V1\xca\x02\aFile\\V1\xe2\x02\x13File\\V1\\GPBMetadata\xea\x02\bFile::V1b\x06proto3"
@@ -1896,8 +1905,8 @@ var file_file_v1_file_proto_goTypes = []any{
 	(*RemoveSingleAccessEmailResponse)(nil),   // 27: file.v1.RemoveSingleAccessEmailResponse
 	(*RemoveAllAccessEmailsRequest)(nil),      // 28: file.v1.RemoveAllAccessEmailsRequest
 	(*RemoveAllAccessEmailsResponse)(nil),     // 29: file.v1.RemoveAllAccessEmailsResponse
-	(*GetAccessEmailsRequest)(nil),            // 30: file.v1.GetAccessEmailsRequest
-	(*GetAccessEmailsResponse)(nil),           // 31: file.v1.GetAccessEmailsResponse
+	(*GetAccessStatusRequest)(nil),            // 30: file.v1.GetAccessStatusRequest
+	(*GetAccessStatusResponse)(nil),           // 31: file.v1.GetAccessStatusResponse
 	(*FileMetadata)(nil),                      // 32: file.v1.FileMetadata
 	(*timestamppb.Timestamp)(nil),             // 33: google.protobuf.Timestamp
 }
@@ -1922,7 +1931,7 @@ var file_file_v1_file_proto_depIdxs = []int32{
 	20, // 17: file.v1.FileService.MarkAsIsPublic:input_type -> file.v1.MarkAsIsPublicRequest
 	22, // 18: file.v1.FileService.MarkAsNotIsPublic:input_type -> file.v1.MarkAsNotIsPublicRequest
 	24, // 19: file.v1.FileService.AddAccessEmail:input_type -> file.v1.AddAccessEmailRequest
-	30, // 20: file.v1.FileService.GetAccessEmails:input_type -> file.v1.GetAccessEmailsRequest
+	30, // 20: file.v1.FileService.GetAccessStatus:input_type -> file.v1.GetAccessStatusRequest
 	26, // 21: file.v1.FileService.RemoveSingleAccessEmail:input_type -> file.v1.RemoveSingleAccessEmailRequest
 	28, // 22: file.v1.FileService.RemoveAllAccessEmails:input_type -> file.v1.RemoveAllAccessEmailsRequest
 	6,  // 23: file.v1.FileService.InitiateMultipartUpload:output_type -> file.v1.InitiateMultipartUploadResponse
@@ -1937,7 +1946,7 @@ var file_file_v1_file_proto_depIdxs = []int32{
 	21, // 32: file.v1.FileService.MarkAsIsPublic:output_type -> file.v1.MarkAsIsPublicResponse
 	23, // 33: file.v1.FileService.MarkAsNotIsPublic:output_type -> file.v1.MarkAsNotIsPublicResponse
 	25, // 34: file.v1.FileService.AddAccessEmail:output_type -> file.v1.AddAccessEmailResponse
-	31, // 35: file.v1.FileService.GetAccessEmails:output_type -> file.v1.GetAccessEmailsResponse
+	31, // 35: file.v1.FileService.GetAccessStatus:output_type -> file.v1.GetAccessStatusResponse
 	27, // 36: file.v1.FileService.RemoveSingleAccessEmail:output_type -> file.v1.RemoveSingleAccessEmailResponse
 	29, // 37: file.v1.FileService.RemoveAllAccessEmails:output_type -> file.v1.RemoveAllAccessEmailsResponse
 	23, // [23:38] is the sub-list for method output_type
