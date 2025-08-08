@@ -1015,6 +1015,206 @@ func (x *RenameResponse) GetIsSuccess() bool {
 	return false
 }
 
+type MarkAsIsPublicRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkAsIsPublicRequest) Reset() {
+	*x = MarkAsIsPublicRequest{}
+	mi := &file_file_v1_file_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkAsIsPublicRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkAsIsPublicRequest) ProtoMessage() {}
+
+func (x *MarkAsIsPublicRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkAsIsPublicRequest.ProtoReflect.Descriptor instead.
+func (*MarkAsIsPublicRequest) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *MarkAsIsPublicRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type MarkAsIsPublicResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	IsSuccess     bool                   `protobuf:"varint,1,opt,name=is_success,json=isSuccess,proto3" json:"is_success,omitempty"`
+	Url           string                 `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkAsIsPublicResponse) Reset() {
+	*x = MarkAsIsPublicResponse{}
+	mi := &file_file_v1_file_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkAsIsPublicResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkAsIsPublicResponse) ProtoMessage() {}
+
+func (x *MarkAsIsPublicResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkAsIsPublicResponse.ProtoReflect.Descriptor instead.
+func (*MarkAsIsPublicResponse) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *MarkAsIsPublicResponse) GetIsSuccess() bool {
+	if x != nil {
+		return x.IsSuccess
+	}
+	return false
+}
+
+func (x *MarkAsIsPublicResponse) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
+type AddAccessEmailRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Email         []string               `protobuf:"bytes,2,rep,name=email,proto3" json:"email,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddAccessEmailRequest) Reset() {
+	*x = AddAccessEmailRequest{}
+	mi := &file_file_v1_file_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddAccessEmailRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddAccessEmailRequest) ProtoMessage() {}
+
+func (x *AddAccessEmailRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddAccessEmailRequest.ProtoReflect.Descriptor instead.
+func (*AddAccessEmailRequest) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *AddAccessEmailRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *AddAccessEmailRequest) GetEmail() []string {
+	if x != nil {
+		return x.Email
+	}
+	return nil
+}
+
+type AddAccessEmailResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	IsSuccess     bool                   `protobuf:"varint,1,opt,name=is_success,json=isSuccess,proto3" json:"is_success,omitempty"`
+	Url           string                 `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddAccessEmailResponse) Reset() {
+	*x = AddAccessEmailResponse{}
+	mi := &file_file_v1_file_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddAccessEmailResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddAccessEmailResponse) ProtoMessage() {}
+
+func (x *AddAccessEmailResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddAccessEmailResponse.ProtoReflect.Descriptor instead.
+func (*AddAccessEmailResponse) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *AddAccessEmailResponse) GetIsSuccess() bool {
+	if x != nil {
+		return x.IsSuccess
+	}
+	return false
+}
+
+func (x *AddAccessEmailResponse) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
 type FileMetadata struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -1036,7 +1236,7 @@ type FileMetadata struct {
 
 func (x *FileMetadata) Reset() {
 	*x = FileMetadata{}
-	mi := &file_file_v1_file_proto_msgTypes[20]
+	mi := &file_file_v1_file_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1048,7 +1248,7 @@ func (x *FileMetadata) String() string {
 func (*FileMetadata) ProtoMessage() {}
 
 func (x *FileMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[20]
+	mi := &file_file_v1_file_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1061,7 +1261,7 @@ func (x *FileMetadata) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FileMetadata.ProtoReflect.Descriptor instead.
 func (*FileMetadata) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{20}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *FileMetadata) GetId() string {
@@ -1219,7 +1419,20 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"/\n" +
 	"\x0eRenameResponse\x12\x1d\n" +
 	"\n" +
-	"is_success\x18\x01 \x01(\bR\tisSuccess\"\xbf\x03\n" +
+	"is_success\x18\x01 \x01(\bR\tisSuccess\"'\n" +
+	"\x15MarkAsIsPublicRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"I\n" +
+	"\x16MarkAsIsPublicResponse\x12\x1d\n" +
+	"\n" +
+	"is_success\x18\x01 \x01(\bR\tisSuccess\x12\x10\n" +
+	"\x03url\x18\x02 \x01(\tR\x03url\"=\n" +
+	"\x15AddAccessEmailRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
+	"\x05email\x18\x02 \x03(\tR\x05email\"I\n" +
+	"\x16AddAccessEmailResponse\x12\x1d\n" +
+	"\n" +
+	"is_success\x18\x01 \x01(\bR\tisSuccess\x12\x10\n" +
+	"\x03url\x18\x02 \x01(\tR\x03url\"\xbf\x03\n" +
 	"\fFileMetadata\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x19\n" +
 	"\bowner_id\x18\x02 \x01(\tR\aownerId\x12\x12\n" +
@@ -1238,7 +1451,7 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x04type\x18\v \x01(\tR\x04type\x12\x1b\n" +
 	"\tparent_id\x18\f \x01(\tR\bparentId\x12\x1f\n" +
 	"\vis_favorite\x18\r \x01(\bR\n" +
-	"isFavorite2\xc0\x06\n" +
+	"isFavorite2\xe6\a\n" +
 	"\vFileService\x12l\n" +
 	"\x17InitiateMultipartUpload\x12'.file.v1.InitiateMultipartUploadRequest\x1a(.file.v1.InitiateMultipartUploadResponse\x12r\n" +
 	"\x19GetPresignedUploadPartURL\x12).file.v1.GetPresignedUploadPartURLRequest\x1a*.file.v1.GetPresignedUploadPartURLResponse\x12l\n" +
@@ -1249,7 +1462,9 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x0eToggleFavorite\x12\x1e.file.v1.ToggleFavoriteRequest\x1a\x1f.file.v1.ToggleFavoriteResponse\x12E\n" +
 	"\n" +
 	"DeleteFile\x12\x1a.file.v1.DeleteFileRequest\x1a\x1b.file.v1.DeleteFileResponse\x129\n" +
-	"\x06Rename\x12\x16.file.v1.RenameRequest\x1a\x17.file.v1.RenameResponseB\xa9\x01\n" +
+	"\x06Rename\x12\x16.file.v1.RenameRequest\x1a\x17.file.v1.RenameResponse\x12Q\n" +
+	"\x0eMarkAsIsPublic\x12\x1e.file.v1.MarkAsIsPublicRequest\x1a\x1f.file.v1.MarkAsIsPublicResponse\x12Q\n" +
+	"\x0eAddAccessEmail\x12\x1e.file.v1.AddAccessEmailRequest\x1a\x1f.file.v1.AddAccessEmailResponseB\xa9\x01\n" +
 	"\x19com.samarthasthan.file.v1B\tFileProtoP\x01ZDgithub.com/samarthasthan/cloud-storage-commons/gen/go/file/v1;filev1\xa2\x02\x03FXX\xaa\x02\aFile.V1\xca\x02\aFile\\V1\xe2\x02\x13File\\V1\\GPBMetadata\xea\x02\bFile::V1b\x06proto3"
 
 var (
@@ -1264,7 +1479,7 @@ func file_file_v1_file_proto_rawDescGZIP() []byte {
 	return file_file_v1_file_proto_rawDescData
 }
 
-var file_file_v1_file_proto_msgTypes = make([]protoimpl.MessageInfo, 21)
+var file_file_v1_file_proto_msgTypes = make([]protoimpl.MessageInfo, 25)
 var file_file_v1_file_proto_goTypes = []any{
 	(*PathSegment)(nil),                       // 0: file.v1.PathSegment
 	(*ListFilesByParentRequest)(nil),          // 1: file.v1.ListFilesByParentRequest
@@ -1286,18 +1501,22 @@ var file_file_v1_file_proto_goTypes = []any{
 	(*DeleteFileResponse)(nil),                // 17: file.v1.DeleteFileResponse
 	(*RenameRequest)(nil),                     // 18: file.v1.RenameRequest
 	(*RenameResponse)(nil),                    // 19: file.v1.RenameResponse
-	(*FileMetadata)(nil),                      // 20: file.v1.FileMetadata
-	(*timestamppb.Timestamp)(nil),             // 21: google.protobuf.Timestamp
+	(*MarkAsIsPublicRequest)(nil),             // 20: file.v1.MarkAsIsPublicRequest
+	(*MarkAsIsPublicResponse)(nil),            // 21: file.v1.MarkAsIsPublicResponse
+	(*AddAccessEmailRequest)(nil),             // 22: file.v1.AddAccessEmailRequest
+	(*AddAccessEmailResponse)(nil),            // 23: file.v1.AddAccessEmailResponse
+	(*FileMetadata)(nil),                      // 24: file.v1.FileMetadata
+	(*timestamppb.Timestamp)(nil),             // 25: google.protobuf.Timestamp
 }
 var file_file_v1_file_proto_depIdxs = []int32{
 	0,  // 0: file.v1.ListFilesByParentResponse.path:type_name -> file.v1.PathSegment
-	20, // 1: file.v1.ListFilesByParentResponse.files:type_name -> file.v1.FileMetadata
-	20, // 2: file.v1.CreateFolderResponse.folder:type_name -> file.v1.FileMetadata
+	24, // 1: file.v1.ListFilesByParentResponse.files:type_name -> file.v1.FileMetadata
+	24, // 2: file.v1.CreateFolderResponse.folder:type_name -> file.v1.FileMetadata
 	10, // 3: file.v1.CompleteMultipartUploadRequest.parts:type_name -> file.v1.CompletedPart
-	20, // 4: file.v1.CompleteMultipartUploadResponse.file:type_name -> file.v1.FileMetadata
-	21, // 5: file.v1.FileMetadata.created_at:type_name -> google.protobuf.Timestamp
-	21, // 6: file.v1.FileMetadata.updated_at:type_name -> google.protobuf.Timestamp
-	21, // 7: file.v1.FileMetadata.deleted_at:type_name -> google.protobuf.Timestamp
+	24, // 4: file.v1.CompleteMultipartUploadResponse.file:type_name -> file.v1.FileMetadata
+	25, // 5: file.v1.FileMetadata.created_at:type_name -> google.protobuf.Timestamp
+	25, // 6: file.v1.FileMetadata.updated_at:type_name -> google.protobuf.Timestamp
+	25, // 7: file.v1.FileMetadata.deleted_at:type_name -> google.protobuf.Timestamp
 	5,  // 8: file.v1.FileService.InitiateMultipartUpload:input_type -> file.v1.InitiateMultipartUploadRequest
 	7,  // 9: file.v1.FileService.GetPresignedUploadPartURL:input_type -> file.v1.GetPresignedUploadPartURLRequest
 	9,  // 10: file.v1.FileService.CompleteMultipartUpload:input_type -> file.v1.CompleteMultipartUploadRequest
@@ -1307,17 +1526,21 @@ var file_file_v1_file_proto_depIdxs = []int32{
 	14, // 14: file.v1.FileService.ToggleFavorite:input_type -> file.v1.ToggleFavoriteRequest
 	16, // 15: file.v1.FileService.DeleteFile:input_type -> file.v1.DeleteFileRequest
 	18, // 16: file.v1.FileService.Rename:input_type -> file.v1.RenameRequest
-	6,  // 17: file.v1.FileService.InitiateMultipartUpload:output_type -> file.v1.InitiateMultipartUploadResponse
-	8,  // 18: file.v1.FileService.GetPresignedUploadPartURL:output_type -> file.v1.GetPresignedUploadPartURLResponse
-	11, // 19: file.v1.FileService.CompleteMultipartUpload:output_type -> file.v1.CompleteMultipartUploadResponse
-	13, // 20: file.v1.FileService.AbortMultipartUpload:output_type -> file.v1.AbortMultipartUploadResponse
-	4,  // 21: file.v1.FileService.CreateFolder:output_type -> file.v1.CreateFolderResponse
-	2,  // 22: file.v1.FileService.ListFilesByParent:output_type -> file.v1.ListFilesByParentResponse
-	15, // 23: file.v1.FileService.ToggleFavorite:output_type -> file.v1.ToggleFavoriteResponse
-	17, // 24: file.v1.FileService.DeleteFile:output_type -> file.v1.DeleteFileResponse
-	19, // 25: file.v1.FileService.Rename:output_type -> file.v1.RenameResponse
-	17, // [17:26] is the sub-list for method output_type
-	8,  // [8:17] is the sub-list for method input_type
+	20, // 17: file.v1.FileService.MarkAsIsPublic:input_type -> file.v1.MarkAsIsPublicRequest
+	22, // 18: file.v1.FileService.AddAccessEmail:input_type -> file.v1.AddAccessEmailRequest
+	6,  // 19: file.v1.FileService.InitiateMultipartUpload:output_type -> file.v1.InitiateMultipartUploadResponse
+	8,  // 20: file.v1.FileService.GetPresignedUploadPartURL:output_type -> file.v1.GetPresignedUploadPartURLResponse
+	11, // 21: file.v1.FileService.CompleteMultipartUpload:output_type -> file.v1.CompleteMultipartUploadResponse
+	13, // 22: file.v1.FileService.AbortMultipartUpload:output_type -> file.v1.AbortMultipartUploadResponse
+	4,  // 23: file.v1.FileService.CreateFolder:output_type -> file.v1.CreateFolderResponse
+	2,  // 24: file.v1.FileService.ListFilesByParent:output_type -> file.v1.ListFilesByParentResponse
+	15, // 25: file.v1.FileService.ToggleFavorite:output_type -> file.v1.ToggleFavoriteResponse
+	17, // 26: file.v1.FileService.DeleteFile:output_type -> file.v1.DeleteFileResponse
+	19, // 27: file.v1.FileService.Rename:output_type -> file.v1.RenameResponse
+	21, // 28: file.v1.FileService.MarkAsIsPublic:output_type -> file.v1.MarkAsIsPublicResponse
+	23, // 29: file.v1.FileService.AddAccessEmail:output_type -> file.v1.AddAccessEmailResponse
+	19, // [19:30] is the sub-list for method output_type
+	8,  // [8:19] is the sub-list for method input_type
 	8,  // [8:8] is the sub-list for extension type_name
 	8,  // [8:8] is the sub-list for extension extendee
 	0,  // [0:8] is the sub-list for field type_name
@@ -1334,7 +1557,7 @@ func file_file_v1_file_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_file_v1_file_proto_rawDesc), len(file_file_v1_file_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   21,
+			NumMessages:   25,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

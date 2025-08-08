@@ -17,6 +17,8 @@ service FileService {
   rpc ToggleFavorite(ToggleFavoriteRequest) returns (ToggleFavoriteResponse);
   rpc DeleteFile(DeleteFileRequest) returns (DeleteFileResponse);
   rpc Rename(RenameRequest) returns (RenameResponse);
+  rpc MarkAsIsPublic(MarkAsIsPublicRequest) returns (MarkAsIsPublicResponse);
+  rpc AddAccessEmail(AddAccessEmailRequest) returns (AddAccessEmailResponse);
 }
 
 message PathSegment {
@@ -111,6 +113,26 @@ message RenameRequest {
 message RenameResponse {
    bool is_success = 1;
 }
+
+message MarkAsIsPublicRequest {
+  string id           = 1;
+}
+
+message MarkAsIsPublicResponse {
+   bool is_success = 1;
+   string url = 2;
+}
+
+message AddAccessEmailRequest {
+  string id           = 1;
+  repeated string email = 2;
+}
+
+message AddAccessEmailResponse {
+   bool is_success = 1;
+   string url = 2;
+}
+
 
 
 message FileMetadata {

@@ -28,6 +28,8 @@ const (
 	FileService_ToggleFavorite_FullMethodName            = "/file.v1.FileService/ToggleFavorite"
 	FileService_DeleteFile_FullMethodName                = "/file.v1.FileService/DeleteFile"
 	FileService_Rename_FullMethodName                    = "/file.v1.FileService/Rename"
+	FileService_MarkAsIsPublic_FullMethodName            = "/file.v1.FileService/MarkAsIsPublic"
+	FileService_AddAccessEmail_FullMethodName            = "/file.v1.FileService/AddAccessEmail"
 )
 
 // FileServiceClient is the client API for FileService service.
@@ -43,6 +45,8 @@ type FileServiceClient interface {
 	ToggleFavorite(ctx context.Context, in *ToggleFavoriteRequest, opts ...grpc.CallOption) (*ToggleFavoriteResponse, error)
 	DeleteFile(ctx context.Context, in *DeleteFileRequest, opts ...grpc.CallOption) (*DeleteFileResponse, error)
 	Rename(ctx context.Context, in *RenameRequest, opts ...grpc.CallOption) (*RenameResponse, error)
+	MarkAsIsPublic(ctx context.Context, in *MarkAsIsPublicRequest, opts ...grpc.CallOption) (*MarkAsIsPublicResponse, error)
+	AddAccessEmail(ctx context.Context, in *AddAccessEmailRequest, opts ...grpc.CallOption) (*AddAccessEmailResponse, error)
 }
 
 type fileServiceClient struct {
@@ -143,6 +147,26 @@ func (c *fileServiceClient) Rename(ctx context.Context, in *RenameRequest, opts 
 	return out, nil
 }
 
+func (c *fileServiceClient) MarkAsIsPublic(ctx context.Context, in *MarkAsIsPublicRequest, opts ...grpc.CallOption) (*MarkAsIsPublicResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MarkAsIsPublicResponse)
+	err := c.cc.Invoke(ctx, FileService_MarkAsIsPublic_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileServiceClient) AddAccessEmail(ctx context.Context, in *AddAccessEmailRequest, opts ...grpc.CallOption) (*AddAccessEmailResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddAccessEmailResponse)
+	err := c.cc.Invoke(ctx, FileService_AddAccessEmail_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileServiceServer is the server API for FileService service.
 // All implementations must embed UnimplementedFileServiceServer
 // for forward compatibility.
@@ -156,6 +180,8 @@ type FileServiceServer interface {
 	ToggleFavorite(context.Context, *ToggleFavoriteRequest) (*ToggleFavoriteResponse, error)
 	DeleteFile(context.Context, *DeleteFileRequest) (*DeleteFileResponse, error)
 	Rename(context.Context, *RenameRequest) (*RenameResponse, error)
+	MarkAsIsPublic(context.Context, *MarkAsIsPublicRequest) (*MarkAsIsPublicResponse, error)
+	AddAccessEmail(context.Context, *AddAccessEmailRequest) (*AddAccessEmailResponse, error)
 	mustEmbedUnimplementedFileServiceServer()
 }
 
@@ -192,6 +218,12 @@ func (UnimplementedFileServiceServer) DeleteFile(context.Context, *DeleteFileReq
 }
 func (UnimplementedFileServiceServer) Rename(context.Context, *RenameRequest) (*RenameResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Rename not implemented")
+}
+func (UnimplementedFileServiceServer) MarkAsIsPublic(context.Context, *MarkAsIsPublicRequest) (*MarkAsIsPublicResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MarkAsIsPublic not implemented")
+}
+func (UnimplementedFileServiceServer) AddAccessEmail(context.Context, *AddAccessEmailRequest) (*AddAccessEmailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddAccessEmail not implemented")
 }
 func (UnimplementedFileServiceServer) mustEmbedUnimplementedFileServiceServer() {}
 func (UnimplementedFileServiceServer) testEmbeddedByValue()                     {}
@@ -376,6 +408,42 @@ func _FileService_Rename_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_MarkAsIsPublic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MarkAsIsPublicRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).MarkAsIsPublic(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_MarkAsIsPublic_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).MarkAsIsPublic(ctx, req.(*MarkAsIsPublicRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileService_AddAccessEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAccessEmailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).AddAccessEmail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_AddAccessEmail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).AddAccessEmail(ctx, req.(*AddAccessEmailRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FileService_ServiceDesc is the grpc.ServiceDesc for FileService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -418,6 +486,14 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Rename",
 			Handler:    _FileService_Rename_Handler,
+		},
+		{
+			MethodName: "MarkAsIsPublic",
+			Handler:    _FileService_MarkAsIsPublic_Handler,
+		},
+		{
+			MethodName: "AddAccessEmail",
+			Handler:    _FileService_AddAccessEmail_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
