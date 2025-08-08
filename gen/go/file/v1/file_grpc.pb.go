@@ -32,6 +32,7 @@ const (
 	FileService_MarkAsNotIsPublic_FullMethodName         = "/file.v1.FileService/MarkAsNotIsPublic"
 	FileService_AddAccessEmail_FullMethodName            = "/file.v1.FileService/AddAccessEmail"
 	FileService_RemoveSingleAccessEmail_FullMethodName   = "/file.v1.FileService/RemoveSingleAccessEmail"
+	FileService_RemoveAllAccessEmails_FullMethodName     = "/file.v1.FileService/RemoveAllAccessEmails"
 )
 
 // FileServiceClient is the client API for FileService service.
@@ -51,6 +52,7 @@ type FileServiceClient interface {
 	MarkAsNotIsPublic(ctx context.Context, in *MarkAsNotIsPublicRequest, opts ...grpc.CallOption) (*MarkAsNotIsPublicResponse, error)
 	AddAccessEmail(ctx context.Context, in *AddAccessEmailRequest, opts ...grpc.CallOption) (*AddAccessEmailResponse, error)
 	RemoveSingleAccessEmail(ctx context.Context, in *RemoveSingleAccessEmailRequest, opts ...grpc.CallOption) (*RemoveSingleAccessEmailResponse, error)
+	RemoveAllAccessEmails(ctx context.Context, in *RemoveAllAccessEmailsRequest, opts ...grpc.CallOption) (*RemoveAllAccessEmailsResponse, error)
 }
 
 type fileServiceClient struct {
@@ -191,6 +193,16 @@ func (c *fileServiceClient) RemoveSingleAccessEmail(ctx context.Context, in *Rem
 	return out, nil
 }
 
+func (c *fileServiceClient) RemoveAllAccessEmails(ctx context.Context, in *RemoveAllAccessEmailsRequest, opts ...grpc.CallOption) (*RemoveAllAccessEmailsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveAllAccessEmailsResponse)
+	err := c.cc.Invoke(ctx, FileService_RemoveAllAccessEmails_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileServiceServer is the server API for FileService service.
 // All implementations must embed UnimplementedFileServiceServer
 // for forward compatibility.
@@ -208,6 +220,7 @@ type FileServiceServer interface {
 	MarkAsNotIsPublic(context.Context, *MarkAsNotIsPublicRequest) (*MarkAsNotIsPublicResponse, error)
 	AddAccessEmail(context.Context, *AddAccessEmailRequest) (*AddAccessEmailResponse, error)
 	RemoveSingleAccessEmail(context.Context, *RemoveSingleAccessEmailRequest) (*RemoveSingleAccessEmailResponse, error)
+	RemoveAllAccessEmails(context.Context, *RemoveAllAccessEmailsRequest) (*RemoveAllAccessEmailsResponse, error)
 	mustEmbedUnimplementedFileServiceServer()
 }
 
@@ -256,6 +269,9 @@ func (UnimplementedFileServiceServer) AddAccessEmail(context.Context, *AddAccess
 }
 func (UnimplementedFileServiceServer) RemoveSingleAccessEmail(context.Context, *RemoveSingleAccessEmailRequest) (*RemoveSingleAccessEmailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveSingleAccessEmail not implemented")
+}
+func (UnimplementedFileServiceServer) RemoveAllAccessEmails(context.Context, *RemoveAllAccessEmailsRequest) (*RemoveAllAccessEmailsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveAllAccessEmails not implemented")
 }
 func (UnimplementedFileServiceServer) mustEmbedUnimplementedFileServiceServer() {}
 func (UnimplementedFileServiceServer) testEmbeddedByValue()                     {}
@@ -512,6 +528,24 @@ func _FileService_RemoveSingleAccessEmail_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_RemoveAllAccessEmails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveAllAccessEmailsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).RemoveAllAccessEmails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_RemoveAllAccessEmails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).RemoveAllAccessEmails(ctx, req.(*RemoveAllAccessEmailsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FileService_ServiceDesc is the grpc.ServiceDesc for FileService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -570,6 +604,10 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RemoveSingleAccessEmail",
 			Handler:    _FileService_RemoveSingleAccessEmail_Handler,
+		},
+		{
+			MethodName: "RemoveAllAccessEmails",
+			Handler:    _FileService_RemoveAllAccessEmails_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

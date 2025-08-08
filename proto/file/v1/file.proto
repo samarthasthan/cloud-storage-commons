@@ -21,6 +21,7 @@ service FileService {
   rpc MarkAsNotIsPublic(MarkAsNotIsPublicRequest) returns (MarkAsNotIsPublicResponse);
   rpc AddAccessEmail(AddAccessEmailRequest) returns (AddAccessEmailResponse);
   rpc RemoveSingleAccessEmail(RemoveSingleAccessEmailRequest) returns (RemoveSingleAccessEmailResponse);
+  rpc RemoveAllAccessEmails(RemoveAllAccessEmailsRequest) returns (RemoveAllAccessEmailsResponse);
 }
 
 message PathSegment {
@@ -149,6 +150,14 @@ message RemoveSingleAccessEmailRequest {
 }
 
 message RemoveSingleAccessEmailResponse {
+   bool is_success = 1;
+}
+
+message RemoveAllAccessEmailsRequest {
+  string id           = 1;
+}
+
+message RemoveAllAccessEmailsResponse {
    bool is_success = 1;
 }
 
