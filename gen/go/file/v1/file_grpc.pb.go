@@ -29,7 +29,9 @@ const (
 	FileService_DeleteFile_FullMethodName                = "/file.v1.FileService/DeleteFile"
 	FileService_Rename_FullMethodName                    = "/file.v1.FileService/Rename"
 	FileService_MarkAsIsPublic_FullMethodName            = "/file.v1.FileService/MarkAsIsPublic"
+	FileService_MarkAsNotIsPublic_FullMethodName         = "/file.v1.FileService/MarkAsNotIsPublic"
 	FileService_AddAccessEmail_FullMethodName            = "/file.v1.FileService/AddAccessEmail"
+	FileService_RemoveSingleAccessEmail_FullMethodName   = "/file.v1.FileService/RemoveSingleAccessEmail"
 )
 
 // FileServiceClient is the client API for FileService service.
@@ -46,7 +48,9 @@ type FileServiceClient interface {
 	DeleteFile(ctx context.Context, in *DeleteFileRequest, opts ...grpc.CallOption) (*DeleteFileResponse, error)
 	Rename(ctx context.Context, in *RenameRequest, opts ...grpc.CallOption) (*RenameResponse, error)
 	MarkAsIsPublic(ctx context.Context, in *MarkAsIsPublicRequest, opts ...grpc.CallOption) (*MarkAsIsPublicResponse, error)
+	MarkAsNotIsPublic(ctx context.Context, in *MarkAsNotIsPublicRequest, opts ...grpc.CallOption) (*MarkAsNotIsPublicResponse, error)
 	AddAccessEmail(ctx context.Context, in *AddAccessEmailRequest, opts ...grpc.CallOption) (*AddAccessEmailResponse, error)
+	RemoveSingleAccessEmail(ctx context.Context, in *RemoveSingleAccessEmailRequest, opts ...grpc.CallOption) (*RemoveSingleAccessEmailResponse, error)
 }
 
 type fileServiceClient struct {
@@ -157,10 +161,30 @@ func (c *fileServiceClient) MarkAsIsPublic(ctx context.Context, in *MarkAsIsPubl
 	return out, nil
 }
 
+func (c *fileServiceClient) MarkAsNotIsPublic(ctx context.Context, in *MarkAsNotIsPublicRequest, opts ...grpc.CallOption) (*MarkAsNotIsPublicResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MarkAsNotIsPublicResponse)
+	err := c.cc.Invoke(ctx, FileService_MarkAsNotIsPublic_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *fileServiceClient) AddAccessEmail(ctx context.Context, in *AddAccessEmailRequest, opts ...grpc.CallOption) (*AddAccessEmailResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddAccessEmailResponse)
 	err := c.cc.Invoke(ctx, FileService_AddAccessEmail_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileServiceClient) RemoveSingleAccessEmail(ctx context.Context, in *RemoveSingleAccessEmailRequest, opts ...grpc.CallOption) (*RemoveSingleAccessEmailResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveSingleAccessEmailResponse)
+	err := c.cc.Invoke(ctx, FileService_RemoveSingleAccessEmail_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -181,7 +205,9 @@ type FileServiceServer interface {
 	DeleteFile(context.Context, *DeleteFileRequest) (*DeleteFileResponse, error)
 	Rename(context.Context, *RenameRequest) (*RenameResponse, error)
 	MarkAsIsPublic(context.Context, *MarkAsIsPublicRequest) (*MarkAsIsPublicResponse, error)
+	MarkAsNotIsPublic(context.Context, *MarkAsNotIsPublicRequest) (*MarkAsNotIsPublicResponse, error)
 	AddAccessEmail(context.Context, *AddAccessEmailRequest) (*AddAccessEmailResponse, error)
+	RemoveSingleAccessEmail(context.Context, *RemoveSingleAccessEmailRequest) (*RemoveSingleAccessEmailResponse, error)
 	mustEmbedUnimplementedFileServiceServer()
 }
 
@@ -222,8 +248,14 @@ func (UnimplementedFileServiceServer) Rename(context.Context, *RenameRequest) (*
 func (UnimplementedFileServiceServer) MarkAsIsPublic(context.Context, *MarkAsIsPublicRequest) (*MarkAsIsPublicResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method MarkAsIsPublic not implemented")
 }
+func (UnimplementedFileServiceServer) MarkAsNotIsPublic(context.Context, *MarkAsNotIsPublicRequest) (*MarkAsNotIsPublicResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MarkAsNotIsPublic not implemented")
+}
 func (UnimplementedFileServiceServer) AddAccessEmail(context.Context, *AddAccessEmailRequest) (*AddAccessEmailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddAccessEmail not implemented")
+}
+func (UnimplementedFileServiceServer) RemoveSingleAccessEmail(context.Context, *RemoveSingleAccessEmailRequest) (*RemoveSingleAccessEmailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveSingleAccessEmail not implemented")
 }
 func (UnimplementedFileServiceServer) mustEmbedUnimplementedFileServiceServer() {}
 func (UnimplementedFileServiceServer) testEmbeddedByValue()                     {}
@@ -426,6 +458,24 @@ func _FileService_MarkAsIsPublic_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_MarkAsNotIsPublic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MarkAsNotIsPublicRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).MarkAsNotIsPublic(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_MarkAsNotIsPublic_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).MarkAsNotIsPublic(ctx, req.(*MarkAsNotIsPublicRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FileService_AddAccessEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddAccessEmailRequest)
 	if err := dec(in); err != nil {
@@ -440,6 +490,24 @@ func _FileService_AddAccessEmail_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FileServiceServer).AddAccessEmail(ctx, req.(*AddAccessEmailRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileService_RemoveSingleAccessEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveSingleAccessEmailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).RemoveSingleAccessEmail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_RemoveSingleAccessEmail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).RemoveSingleAccessEmail(ctx, req.(*RemoveSingleAccessEmailRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -492,8 +560,16 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _FileService_MarkAsIsPublic_Handler,
 		},
 		{
+			MethodName: "MarkAsNotIsPublic",
+			Handler:    _FileService_MarkAsNotIsPublic_Handler,
+		},
+		{
 			MethodName: "AddAccessEmail",
 			Handler:    _FileService_AddAccessEmail_Handler,
+		},
+		{
+			MethodName: "RemoveSingleAccessEmail",
+			Handler:    _FileService_RemoveSingleAccessEmail_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

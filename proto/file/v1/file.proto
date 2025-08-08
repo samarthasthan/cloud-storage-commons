@@ -18,7 +18,9 @@ service FileService {
   rpc DeleteFile(DeleteFileRequest) returns (DeleteFileResponse);
   rpc Rename(RenameRequest) returns (RenameResponse);
   rpc MarkAsIsPublic(MarkAsIsPublicRequest) returns (MarkAsIsPublicResponse);
+  rpc MarkAsNotIsPublic(MarkAsNotIsPublicRequest) returns (MarkAsNotIsPublicResponse);
   rpc AddAccessEmail(AddAccessEmailRequest) returns (AddAccessEmailResponse);
+  rpc RemoveSingleAccessEmail(RemoveSingleAccessEmailRequest) returns (RemoveSingleAccessEmailResponse);
 }
 
 message PathSegment {
@@ -123,6 +125,14 @@ message MarkAsIsPublicResponse {
    string url = 2;
 }
 
+message MarkAsNotIsPublicRequest {
+  string id           = 1;
+}
+
+message MarkAsNotIsPublicResponse {
+   bool is_success = 1;
+}
+
 message AddAccessEmailRequest {
   string id           = 1;
   repeated string email = 2;
@@ -131,6 +141,15 @@ message AddAccessEmailRequest {
 message AddAccessEmailResponse {
    bool is_success = 1;
    string url = 2;
+}
+
+message RemoveSingleAccessEmailRequest {
+  string id           = 1;
+  string email = 2;
+}
+
+message RemoveSingleAccessEmailResponse {
+   bool is_success = 1;
 }
 
 

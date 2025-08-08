@@ -136,6 +136,16 @@ public final class FileProto {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_file_v1_MarkAsIsPublicResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_file_v1_MarkAsNotIsPublicRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_file_v1_MarkAsNotIsPublicRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_file_v1_MarkAsNotIsPublicResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_file_v1_MarkAsNotIsPublicResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_file_v1_AddAccessEmailRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -145,6 +155,16 @@ public final class FileProto {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_file_v1_AddAccessEmailResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_file_v1_RemoveSingleAccessEmailRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_file_v1_RemoveSingleAccessEmailRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_file_v1_RemoveSingleAccessEmailResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_file_v1_RemoveSingleAccessEmailResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_file_v1_FileMetadata_descriptor;
   static final 
@@ -205,51 +225,62 @@ public final class FileProto {
       "\010R\tisSuccess\"\'\n\025MarkAsIsPublicRequest\022\016\n" +
       "\002id\030\001 \001(\tR\002id\"I\n\026MarkAsIsPublicResponse\022" +
       "\035\n\nis_success\030\001 \001(\010R\tisSuccess\022\020\n\003url\030\002 " +
-      "\001(\tR\003url\"=\n\025AddAccessEmailRequest\022\016\n\002id\030" +
-      "\001 \001(\tR\002id\022\024\n\005email\030\002 \003(\tR\005email\"I\n\026AddAc" +
-      "cessEmailResponse\022\035\n\nis_success\030\001 \001(\010R\ti" +
-      "sSuccess\022\020\n\003url\030\002 \001(\tR\003url\"\277\003\n\014FileMetad" +
-      "ata\022\016\n\002id\030\001 \001(\tR\002id\022\031\n\010owner_id\030\002 \001(\tR\007o" +
-      "wnerId\022\022\n\004name\030\003 \001(\tR\004name\022!\n\014content_ty" +
-      "pe\030\004 \001(\tR\013contentType\022\022\n\004size\030\005 \001(\003R\004siz" +
-      "e\022\033\n\tis_public\030\006 \001(\010R\010isPublic\022\031\n\010share_" +
-      "id\030\007 \001(\tR\007shareId\0229\n\ncreated_at\030\010 \001(\0132\032." +
-      "google.protobuf.TimestampR\tcreatedAt\0229\n\n" +
-      "updated_at\030\t \001(\0132\032.google.protobuf.Times" +
-      "tampR\tupdatedAt\0229\n\ndeleted_at\030\n \001(\0132\032.go" +
-      "ogle.protobuf.TimestampR\tdeletedAt\022\022\n\004ty" +
-      "pe\030\013 \001(\tR\004type\022\033\n\tparent_id\030\014 \001(\tR\010paren" +
-      "tId\022\037\n\013is_favorite\030\r \001(\010R\nisFavorite2\346\007\n" +
-      "\013FileService\022l\n\027InitiateMultipartUpload\022" +
-      "\'.file.v1.InitiateMultipartUploadRequest" +
-      "\032(.file.v1.InitiateMultipartUploadRespon" +
-      "se\022r\n\031GetPresignedUploadPartURL\022).file.v" +
-      "1.GetPresignedUploadPartURLRequest\032*.fil" +
-      "e.v1.GetPresignedUploadPartURLResponse\022l" +
-      "\n\027CompleteMultipartUpload\022\'.file.v1.Comp" +
-      "leteMultipartUploadRequest\032(.file.v1.Com" +
-      "pleteMultipartUploadResponse\022c\n\024AbortMul" +
-      "tipartUpload\022$.file.v1.AbortMultipartUpl" +
-      "oadRequest\032%.file.v1.AbortMultipartUploa" +
-      "dResponse\022K\n\014CreateFolder\022\034.file.v1.Crea" +
-      "teFolderRequest\032\035.file.v1.CreateFolderRe" +
-      "sponse\022Z\n\021ListFilesByParent\022!.file.v1.Li" +
-      "stFilesByParentRequest\032\".file.v1.ListFil" +
-      "esByParentResponse\022Q\n\016ToggleFavorite\022\036.f" +
-      "ile.v1.ToggleFavoriteRequest\032\037.file.v1.T" +
-      "oggleFavoriteResponse\022E\n\nDeleteFile\022\032.fi" +
-      "le.v1.DeleteFileRequest\032\033.file.v1.Delete" +
-      "FileResponse\0229\n\006Rename\022\026.file.v1.RenameR" +
-      "equest\032\027.file.v1.RenameResponse\022Q\n\016MarkA" +
-      "sIsPublic\022\036.file.v1.MarkAsIsPublicReques" +
-      "t\032\037.file.v1.MarkAsIsPublicResponse\022Q\n\016Ad" +
-      "dAccessEmail\022\036.file.v1.AddAccessEmailReq" +
-      "uest\032\037.file.v1.AddAccessEmailResponseB\251\001" +
-      "\n\031com.samarthasthan.file.v1B\tFileProtoP\001" +
-      "ZDgithub.com/samarthasthan/cloud-storage" +
-      "-commons/gen/go/file/v1;filev1\242\002\003FXX\252\002\007F" +
-      "ile.V1\312\002\007File\\V1\342\002\023File\\V1\\GPBMetadata\352\002" +
-      "\010File::V1b\006proto3"
+      "\001(\tR\003url\"*\n\030MarkAsNotIsPublicRequest\022\016\n\002" +
+      "id\030\001 \001(\tR\002id\":\n\031MarkAsNotIsPublicRespons" +
+      "e\022\035\n\nis_success\030\001 \001(\010R\tisSuccess\"=\n\025AddA" +
+      "ccessEmailRequest\022\016\n\002id\030\001 \001(\tR\002id\022\024\n\005ema" +
+      "il\030\002 \003(\tR\005email\"I\n\026AddAccessEmailRespons" +
+      "e\022\035\n\nis_success\030\001 \001(\010R\tisSuccess\022\020\n\003url\030" +
+      "\002 \001(\tR\003url\"F\n\036RemoveSingleAccessEmailReq" +
+      "uest\022\016\n\002id\030\001 \001(\tR\002id\022\024\n\005email\030\002 \001(\tR\005ema" +
+      "il\"@\n\037RemoveSingleAccessEmailResponse\022\035\n" +
+      "\nis_success\030\001 \001(\010R\tisSuccess\"\277\003\n\014FileMet" +
+      "adata\022\016\n\002id\030\001 \001(\tR\002id\022\031\n\010owner_id\030\002 \001(\tR" +
+      "\007ownerId\022\022\n\004name\030\003 \001(\tR\004name\022!\n\014content_" +
+      "type\030\004 \001(\tR\013contentType\022\022\n\004size\030\005 \001(\003R\004s" +
+      "ize\022\033\n\tis_public\030\006 \001(\010R\010isPublic\022\031\n\010shar" +
+      "e_id\030\007 \001(\tR\007shareId\0229\n\ncreated_at\030\010 \001(\0132" +
+      "\032.google.protobuf.TimestampR\tcreatedAt\0229" +
+      "\n\nupdated_at\030\t \001(\0132\032.google.protobuf.Tim" +
+      "estampR\tupdatedAt\0229\n\ndeleted_at\030\n \001(\0132\032." +
+      "google.protobuf.TimestampR\tdeletedAt\022\022\n\004" +
+      "type\030\013 \001(\tR\004type\022\033\n\tparent_id\030\014 \001(\tR\010par" +
+      "entId\022\037\n\013is_favorite\030\r \001(\010R\nisFavorite2\260" +
+      "\t\n\013FileService\022l\n\027InitiateMultipartUploa" +
+      "d\022\'.file.v1.InitiateMultipartUploadReque" +
+      "st\032(.file.v1.InitiateMultipartUploadResp" +
+      "onse\022r\n\031GetPresignedUploadPartURL\022).file" +
+      ".v1.GetPresignedUploadPartURLRequest\032*.f" +
+      "ile.v1.GetPresignedUploadPartURLResponse" +
+      "\022l\n\027CompleteMultipartUpload\022\'.file.v1.Co" +
+      "mpleteMultipartUploadRequest\032(.file.v1.C" +
+      "ompleteMultipartUploadResponse\022c\n\024AbortM" +
+      "ultipartUpload\022$.file.v1.AbortMultipartU" +
+      "ploadRequest\032%.file.v1.AbortMultipartUpl" +
+      "oadResponse\022K\n\014CreateFolder\022\034.file.v1.Cr" +
+      "eateFolderRequest\032\035.file.v1.CreateFolder" +
+      "Response\022Z\n\021ListFilesByParent\022!.file.v1." +
+      "ListFilesByParentRequest\032\".file.v1.ListF" +
+      "ilesByParentResponse\022Q\n\016ToggleFavorite\022\036" +
+      ".file.v1.ToggleFavoriteRequest\032\037.file.v1" +
+      ".ToggleFavoriteResponse\022E\n\nDeleteFile\022\032." +
+      "file.v1.DeleteFileRequest\032\033.file.v1.Dele" +
+      "teFileResponse\0229\n\006Rename\022\026.file.v1.Renam" +
+      "eRequest\032\027.file.v1.RenameResponse\022Q\n\016Mar" +
+      "kAsIsPublic\022\036.file.v1.MarkAsIsPublicRequ" +
+      "est\032\037.file.v1.MarkAsIsPublicResponse\022Z\n\021" +
+      "MarkAsNotIsPublic\022!.file.v1.MarkAsNotIsP" +
+      "ublicRequest\032\".file.v1.MarkAsNotIsPublic" +
+      "Response\022Q\n\016AddAccessEmail\022\036.file.v1.Add" +
+      "AccessEmailRequest\032\037.file.v1.AddAccessEm" +
+      "ailResponse\022l\n\027RemoveSingleAccessEmail\022\'" +
+      ".file.v1.RemoveSingleAccessEmailRequest\032" +
+      "(.file.v1.RemoveSingleAccessEmailRespons" +
+      "eB\251\001\n\031com.samarthasthan.file.v1B\tFilePro" +
+      "toP\001ZDgithub.com/samarthasthan/cloud-sto" +
+      "rage-commons/gen/go/file/v1;filev1\242\002\003FXX" +
+      "\252\002\007File.V1\312\002\007File\\V1\342\002\023File\\V1\\GPBMetada" +
+      "ta\352\002\010File::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -389,20 +420,44 @@ public final class FileProto {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_MarkAsIsPublicResponse_descriptor,
         new java.lang.String[] { "IsSuccess", "Url", });
-    internal_static_file_v1_AddAccessEmailRequest_descriptor =
+    internal_static_file_v1_MarkAsNotIsPublicRequest_descriptor =
       getDescriptor().getMessageTypes().get(22);
+    internal_static_file_v1_MarkAsNotIsPublicRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_file_v1_MarkAsNotIsPublicRequest_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_file_v1_MarkAsNotIsPublicResponse_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_file_v1_MarkAsNotIsPublicResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_file_v1_MarkAsNotIsPublicResponse_descriptor,
+        new java.lang.String[] { "IsSuccess", });
+    internal_static_file_v1_AddAccessEmailRequest_descriptor =
+      getDescriptor().getMessageTypes().get(24);
     internal_static_file_v1_AddAccessEmailRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_AddAccessEmailRequest_descriptor,
         new java.lang.String[] { "Id", "Email", });
     internal_static_file_v1_AddAccessEmailResponse_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_file_v1_AddAccessEmailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_AddAccessEmailResponse_descriptor,
         new java.lang.String[] { "IsSuccess", "Url", });
+    internal_static_file_v1_RemoveSingleAccessEmailRequest_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_file_v1_RemoveSingleAccessEmailRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_file_v1_RemoveSingleAccessEmailRequest_descriptor,
+        new java.lang.String[] { "Id", "Email", });
+    internal_static_file_v1_RemoveSingleAccessEmailResponse_descriptor =
+      getDescriptor().getMessageTypes().get(27);
+    internal_static_file_v1_RemoveSingleAccessEmailResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_file_v1_RemoveSingleAccessEmailResponse_descriptor,
+        new java.lang.String[] { "IsSuccess", });
     internal_static_file_v1_FileMetadata_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_file_v1_FileMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_FileMetadata_descriptor,
