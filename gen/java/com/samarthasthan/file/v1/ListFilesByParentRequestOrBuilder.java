@@ -58,4 +58,40 @@ public interface ListFilesByParentRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPageTokenBytes();
+
+  /**
+   * <code>string type = 4 [json_name = "type"];</code>
+   * @return The type.
+   */
+  java.lang.String getType();
+  /**
+   * <code>string type = 4 [json_name = "type"];</code>
+   * @return The bytes for type.
+   */
+  com.google.protobuf.ByteString
+      getTypeBytes();
+
+  /**
+   * <code>string sort_by = 5 [json_name = "sortBy"];</code>
+   * @return The sortBy.
+   */
+  java.lang.String getSortBy();
+  /**
+   * <code>string sort_by = 5 [json_name = "sortBy"];</code>
+   * @return The bytes for sortBy.
+   */
+  com.google.protobuf.ByteString
+      getSortByBytes();
+
+  /**
+   * <code>string state = 6 [json_name = "state"];</code>
+   * @return The state.
+   */
+  java.lang.String getState();
+  /**
+   * <code>string state = 6 [json_name = "state"];</code>
+   * @return The bytes for state.
+   */
+  com.google.protobuf.ByteString
+      getStateBytes();
 }

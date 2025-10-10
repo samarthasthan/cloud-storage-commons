@@ -34,6 +34,9 @@ message ListFilesByParentRequest {
   string parent_id   = 1;    // "" = root
   int32  page_size   = 2;    // optional, default 50, max 100
   string page_token  = 3;    // opaque offset (base-10 string)
+  string type        = 4;
+  string sort_by     = 5;
+  string state       = 6;
 }
 
 message ListFilesByParentResponse {

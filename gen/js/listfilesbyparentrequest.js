@@ -72,7 +72,10 @@ proto.file.v1.ListFilesByParentRequest.toObject = function(includeInstance, msg)
   var f, obj = {
 parentId: jspb.Message.getFieldWithDefault(msg, 1, ""),
 pageSize: jspb.Message.getFieldWithDefault(msg, 2, 0),
-pageToken: jspb.Message.getFieldWithDefault(msg, 3, "")
+pageToken: jspb.Message.getFieldWithDefault(msg, 3, ""),
+type: jspb.Message.getFieldWithDefault(msg, 4, ""),
+sortBy: jspb.Message.getFieldWithDefault(msg, 5, ""),
+state: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -121,6 +124,18 @@ proto.file.v1.ListFilesByParentRequest.deserializeBinaryFromReader = function(ms
       var value = /** @type {string} */ (reader.readString());
       msg.setPageToken(value);
       break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setType(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSortBy(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setState(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -168,6 +183,27 @@ proto.file.v1.ListFilesByParentRequest.serializeBinaryToWriter = function(messag
   if (f.length > 0) {
     writer.writeString(
       3,
+      f
+    );
+  }
+  f = message.getType();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getSortBy();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+  f = message.getState();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
       f
     );
   }
@@ -225,6 +261,60 @@ proto.file.v1.ListFilesByParentRequest.prototype.getPageToken = function() {
  */
 proto.file.v1.ListFilesByParentRequest.prototype.setPageToken = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string type = 4;
+ * @return {string}
+ */
+proto.file.v1.ListFilesByParentRequest.prototype.getType = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.file.v1.ListFilesByParentRequest} returns this
+ */
+proto.file.v1.ListFilesByParentRequest.prototype.setType = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional string sort_by = 5;
+ * @return {string}
+ */
+proto.file.v1.ListFilesByParentRequest.prototype.getSortBy = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.file.v1.ListFilesByParentRequest} returns this
+ */
+proto.file.v1.ListFilesByParentRequest.prototype.setSortBy = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string state = 6;
+ * @return {string}
+ */
+proto.file.v1.ListFilesByParentRequest.prototype.getState = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.file.v1.ListFilesByParentRequest} returns this
+ */
+proto.file.v1.ListFilesByParentRequest.prototype.setState = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 

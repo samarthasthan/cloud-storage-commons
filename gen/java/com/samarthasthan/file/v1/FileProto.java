@@ -202,116 +202,117 @@ public final class FileProto {
       "\n\022file/v1/file.proto\022\007file.v1\032\037google/pr" +
       "otobuf/timestamp.proto\032\033buf/validate/val" +
       "idate.proto\"1\n\013PathSegment\022\016\n\002id\030\001 \001(\tR\002" +
-      "id\022\022\n\004name\030\002 \001(\tR\004name\"s\n\030ListFilesByPar" +
-      "entRequest\022\033\n\tparent_id\030\001 \001(\tR\010parentId\022" +
-      "\033\n\tpage_size\030\002 \001(\005R\010pageSize\022\035\n\npage_tok" +
-      "en\030\003 \001(\tR\tpageToken\"\232\001\n\031ListFilesByParen" +
-      "tResponse\022(\n\004path\030\001 \003(\0132\024.file.v1.PathSe" +
-      "gmentR\004path\022+\n\005files\030\002 \003(\0132\025.file.v1.Fil" +
-      "eMetadataR\005files\022&\n\017next_page_token\030\003 \001(" +
-      "\tR\rnextPageToken\"O\n\023CreateFolderRequest\022" +
-      "\033\n\004name\030\001 \001(\tB\007\272H\004r\002\020\001R\004name\022\033\n\tparent_i" +
-      "d\030\002 \001(\tR\010parentId\"E\n\024CreateFolderRespons" +
-      "e\022-\n\006folder\030\001 \001(\0132\025.file.v1.FileMetadata" +
-      "R\006folder\"\232\001\n\036InitiateMultipartUploadRequ" +
-      "est\022\033\n\004name\030\001 \001(\tB\007\272H\004r\002\020\001R\004name\022!\n\014cont" +
-      "ent_type\030\002 \001(\tR\013contentType\022\033\n\004size\030\003 \001(" +
-      "\003B\007\272H\004\"\002 \000R\004size\022\033\n\tparent_id\030\004 \001(\tR\010par" +
-      "entId\"i\n\037InitiateMultipartUploadResponse" +
-      "\022\027\n\007file_id\030\001 \001(\tR\006fileId\022\033\n\tupload_id\030\002" +
-      " \001(\tR\010uploadId\022\020\n\003key\030\003 \001(\tR\003key\"\236\001\n Get" +
-      "PresignedUploadPartURLRequest\022$\n\tupload_" +
-      "id\030\001 \001(\tB\007\272H\004r\002\020\001R\010uploadId\022(\n\013part_numb" +
-      "er\030\002 \001(\005B\007\272H\004\032\002 \000R\npartNumber\022*\n\014expires" +
-      "_secs\030\003 \001(\005B\007\272H\004\032\002 \000R\013expiresSecs\"H\n!Get" +
-      "PresignedUploadPartURLResponse\022#\n\rpresig" +
-      "ned_url\030\001 \001(\tR\014presignedUrl\"~\n\036CompleteM" +
-      "ultipartUploadRequest\022$\n\tupload_id\030\001 \001(\t" +
-      "B\007\272H\004r\002\020\001R\010uploadId\0226\n\005parts\030\002 \003(\0132\026.fil" +
-      "e.v1.CompletedPartB\010\272H\005\222\001\002\010\001R\005parts\"V\n\rC" +
-      "ompletedPart\022(\n\013part_number\030\001 \001(\005B\007\272H\004\032\002" +
-      " \000R\npartNumber\022\033\n\004etag\030\002 \001(\tB\007\272H\004r\002\020\001R\004e" +
-      "tag\"L\n\037CompleteMultipartUploadResponse\022)" +
-      "\n\004file\030\001 \001(\0132\025.file.v1.FileMetadataR\004fil" +
-      "e\"C\n\033AbortMultipartUploadRequest\022$\n\tuplo" +
-      "ad_id\030\001 \001(\tB\007\272H\004r\002\020\001R\010uploadId\"\036\n\034AbortM" +
-      "ultipartUploadResponse\"\'\n\025ToggleFavorite" +
-      "Request\022\016\n\002id\030\001 \001(\tR\002id\"7\n\026ToggleFavorit" +
+      "id\022\022\n\004name\030\002 \001(\tR\004name\"\266\001\n\030ListFilesByPa" +
+      "rentRequest\022\033\n\tparent_id\030\001 \001(\tR\010parentId" +
+      "\022\033\n\tpage_size\030\002 \001(\005R\010pageSize\022\035\n\npage_to" +
+      "ken\030\003 \001(\tR\tpageToken\022\022\n\004type\030\004 \001(\tR\004type" +
+      "\022\027\n\007sort_by\030\005 \001(\tR\006sortBy\022\024\n\005state\030\006 \001(\t" +
+      "R\005state\"\232\001\n\031ListFilesByParentResponse\022(\n" +
+      "\004path\030\001 \003(\0132\024.file.v1.PathSegmentR\004path\022" +
+      "+\n\005files\030\002 \003(\0132\025.file.v1.FileMetadataR\005f" +
+      "iles\022&\n\017next_page_token\030\003 \001(\tR\rnextPageT" +
+      "oken\"O\n\023CreateFolderRequest\022\033\n\004name\030\001 \001(" +
+      "\tB\007\272H\004r\002\020\001R\004name\022\033\n\tparent_id\030\002 \001(\tR\010par" +
+      "entId\"E\n\024CreateFolderResponse\022-\n\006folder\030" +
+      "\001 \001(\0132\025.file.v1.FileMetadataR\006folder\"\232\001\n" +
+      "\036InitiateMultipartUploadRequest\022\033\n\004name\030" +
+      "\001 \001(\tB\007\272H\004r\002\020\001R\004name\022!\n\014content_type\030\002 \001" +
+      "(\tR\013contentType\022\033\n\004size\030\003 \001(\003B\007\272H\004\"\002 \000R\004" +
+      "size\022\033\n\tparent_id\030\004 \001(\tR\010parentId\"i\n\037Ini" +
+      "tiateMultipartUploadResponse\022\027\n\007file_id\030" +
+      "\001 \001(\tR\006fileId\022\033\n\tupload_id\030\002 \001(\tR\010upload" +
+      "Id\022\020\n\003key\030\003 \001(\tR\003key\"\236\001\n GetPresignedUpl" +
+      "oadPartURLRequest\022$\n\tupload_id\030\001 \001(\tB\007\272H" +
+      "\004r\002\020\001R\010uploadId\022(\n\013part_number\030\002 \001(\005B\007\272H" +
+      "\004\032\002 \000R\npartNumber\022*\n\014expires_secs\030\003 \001(\005B" +
+      "\007\272H\004\032\002 \000R\013expiresSecs\"H\n!GetPresignedUpl" +
+      "oadPartURLResponse\022#\n\rpresigned_url\030\001 \001(" +
+      "\tR\014presignedUrl\"~\n\036CompleteMultipartUplo" +
+      "adRequest\022$\n\tupload_id\030\001 \001(\tB\007\272H\004r\002\020\001R\010u" +
+      "ploadId\0226\n\005parts\030\002 \003(\0132\026.file.v1.Complet" +
+      "edPartB\010\272H\005\222\001\002\010\001R\005parts\"V\n\rCompletedPart" +
+      "\022(\n\013part_number\030\001 \001(\005B\007\272H\004\032\002 \000R\npartNumb" +
+      "er\022\033\n\004etag\030\002 \001(\tB\007\272H\004r\002\020\001R\004etag\"L\n\037Compl" +
+      "eteMultipartUploadResponse\022)\n\004file\030\001 \001(\013" +
+      "2\025.file.v1.FileMetadataR\004file\"C\n\033AbortMu" +
+      "ltipartUploadRequest\022$\n\tupload_id\030\001 \001(\tB" +
+      "\007\272H\004r\002\020\001R\010uploadId\"\036\n\034AbortMultipartUplo" +
+      "adResponse\"\'\n\025ToggleFavoriteRequest\022\016\n\002i" +
+      "d\030\001 \001(\tR\002id\"7\n\026ToggleFavoriteResponse\022\035\n" +
+      "\nis_success\030\001 \001(\010R\tisSuccess\"#\n\021DeleteFi" +
+      "leRequest\022\016\n\002id\030\001 \001(\tR\002id\"3\n\022DeleteFileR" +
+      "esponse\022\035\n\nis_success\030\001 \001(\010R\tisSuccess\"\037" +
+      "\n\rRenameRequest\022\016\n\002id\030\001 \001(\tR\002id\"/\n\016Renam" +
       "eResponse\022\035\n\nis_success\030\001 \001(\010R\tisSuccess" +
-      "\"#\n\021DeleteFileRequest\022\016\n\002id\030\001 \001(\tR\002id\"3\n" +
-      "\022DeleteFileResponse\022\035\n\nis_success\030\001 \001(\010R" +
-      "\tisSuccess\"\037\n\rRenameRequest\022\016\n\002id\030\001 \001(\tR" +
-      "\002id\"/\n\016RenameResponse\022\035\n\nis_success\030\001 \001(" +
-      "\010R\tisSuccess\"\'\n\025MarkAsIsPublicRequest\022\016\n" +
-      "\002id\030\001 \001(\tR\002id\"I\n\026MarkAsIsPublicResponse\022" +
-      "\035\n\nis_success\030\001 \001(\010R\tisSuccess\022\020\n\003url\030\002 " +
-      "\001(\tR\003url\"*\n\030MarkAsNotIsPublicRequest\022\016\n\002" +
-      "id\030\001 \001(\tR\002id\":\n\031MarkAsNotIsPublicRespons" +
-      "e\022\035\n\nis_success\030\001 \001(\010R\tisSuccess\"=\n\025AddA" +
-      "ccessEmailRequest\022\016\n\002id\030\001 \001(\tR\002id\022\024\n\005ema" +
-      "il\030\002 \003(\tR\005email\"I\n\026AddAccessEmailRespons" +
-      "e\022\035\n\nis_success\030\001 \001(\010R\tisSuccess\022\020\n\003url\030" +
-      "\002 \001(\tR\003url\"F\n\036RemoveSingleAccessEmailReq" +
-      "uest\022\016\n\002id\030\001 \001(\tR\002id\022\024\n\005email\030\002 \001(\tR\005ema" +
-      "il\"@\n\037RemoveSingleAccessEmailResponse\022\035\n" +
-      "\nis_success\030\001 \001(\010R\tisSuccess\".\n\034RemoveAl" +
-      "lAccessEmailsRequest\022\016\n\002id\030\001 \001(\tR\002id\">\n\035" +
-      "RemoveAllAccessEmailsResponse\022\035\n\nis_succ" +
-      "ess\030\001 \001(\010R\tisSuccess\"(\n\026GetAccessStatusR" +
-      "equest\022\016\n\002id\030\001 \001(\tR\002id\"N\n\027GetAccessStatu" +
-      "sResponse\022\026\n\006emails\030\001 \003(\tR\006emails\022\033\n\tis_" +
-      "public\030\002 \001(\010R\010isPublic\"\277\003\n\014FileMetadata\022" +
-      "\016\n\002id\030\001 \001(\tR\002id\022\031\n\010owner_id\030\002 \001(\tR\007owner" +
-      "Id\022\022\n\004name\030\003 \001(\tR\004name\022!\n\014content_type\030\004" +
-      " \001(\tR\013contentType\022\022\n\004size\030\005 \001(\003R\004size\022\033\n" +
-      "\tis_public\030\006 \001(\010R\010isPublic\022\031\n\010share_id\030\007" +
-      " \001(\tR\007shareId\0229\n\ncreated_at\030\010 \001(\0132\032.goog" +
-      "le.protobuf.TimestampR\tcreatedAt\0229\n\nupda" +
-      "ted_at\030\t \001(\0132\032.google.protobuf.Timestamp" +
-      "R\tupdatedAt\0229\n\ndeleted_at\030\n \001(\0132\032.google" +
-      ".protobuf.TimestampR\tdeletedAt\022\022\n\004type\030\013" +
-      " \001(\tR\004type\022\033\n\tparent_id\030\014 \001(\tR\010parentId\022" +
-      "\037\n\013is_favorite\030\r \001(\010R\nisFavorite2\356\n\n\013Fil" +
-      "eService\022l\n\027InitiateMultipartUpload\022\'.fi" +
-      "le.v1.InitiateMultipartUploadRequest\032(.f" +
-      "ile.v1.InitiateMultipartUploadResponse\022r" +
-      "\n\031GetPresignedUploadPartURL\022).file.v1.Ge" +
-      "tPresignedUploadPartURLRequest\032*.file.v1" +
-      ".GetPresignedUploadPartURLResponse\022l\n\027Co" +
-      "mpleteMultipartUpload\022\'.file.v1.Complete" +
-      "MultipartUploadRequest\032(.file.v1.Complet" +
-      "eMultipartUploadResponse\022c\n\024AbortMultipa" +
-      "rtUpload\022$.file.v1.AbortMultipartUploadR" +
-      "equest\032%.file.v1.AbortMultipartUploadRes" +
-      "ponse\022K\n\014CreateFolder\022\034.file.v1.CreateFo" +
-      "lderRequest\032\035.file.v1.CreateFolderRespon" +
-      "se\022Z\n\021ListFilesByParent\022!.file.v1.ListFi" +
-      "lesByParentRequest\032\".file.v1.ListFilesBy" +
-      "ParentResponse\022Q\n\016ToggleFavorite\022\036.file." +
-      "v1.ToggleFavoriteRequest\032\037.file.v1.Toggl" +
-      "eFavoriteResponse\022E\n\nDeleteFile\022\032.file.v" +
-      "1.DeleteFileRequest\032\033.file.v1.DeleteFile" +
-      "Response\0229\n\006Rename\022\026.file.v1.RenameReque" +
-      "st\032\027.file.v1.RenameResponse\022Q\n\016MarkAsIsP" +
-      "ublic\022\036.file.v1.MarkAsIsPublicRequest\032\037." +
-      "file.v1.MarkAsIsPublicResponse\022Z\n\021MarkAs" +
-      "NotIsPublic\022!.file.v1.MarkAsNotIsPublicR" +
-      "equest\032\".file.v1.MarkAsNotIsPublicRespon" +
-      "se\022Q\n\016AddAccessEmail\022\036.file.v1.AddAccess" +
-      "EmailRequest\032\037.file.v1.AddAccessEmailRes" +
-      "ponse\022T\n\017GetAccessStatus\022\037.file.v1.GetAc" +
-      "cessStatusRequest\032 .file.v1.GetAccessSta" +
-      "tusResponse\022l\n\027RemoveSingleAccessEmail\022\'" +
-      ".file.v1.RemoveSingleAccessEmailRequest\032" +
-      "(.file.v1.RemoveSingleAccessEmailRespons" +
-      "e\022f\n\025RemoveAllAccessEmails\022%.file.v1.Rem" +
-      "oveAllAccessEmailsRequest\032&.file.v1.Remo" +
-      "veAllAccessEmailsResponseB\251\001\n\031com.samart" +
-      "hasthan.file.v1B\tFileProtoP\001ZDgithub.com" +
-      "/samarthasthan/cloud-storage-commons/gen" +
-      "/go/file/v1;filev1\242\002\003FXX\252\002\007File.V1\312\002\007Fil" +
-      "e\\V1\342\002\023File\\V1\\GPBMetadata\352\002\010File::V1b\006p" +
-      "roto3"
+      "\"\'\n\025MarkAsIsPublicRequest\022\016\n\002id\030\001 \001(\tR\002i" +
+      "d\"I\n\026MarkAsIsPublicResponse\022\035\n\nis_succes" +
+      "s\030\001 \001(\010R\tisSuccess\022\020\n\003url\030\002 \001(\tR\003url\"*\n\030" +
+      "MarkAsNotIsPublicRequest\022\016\n\002id\030\001 \001(\tR\002id" +
+      "\":\n\031MarkAsNotIsPublicResponse\022\035\n\nis_succ" +
+      "ess\030\001 \001(\010R\tisSuccess\"=\n\025AddAccessEmailRe" +
+      "quest\022\016\n\002id\030\001 \001(\tR\002id\022\024\n\005email\030\002 \003(\tR\005em" +
+      "ail\"I\n\026AddAccessEmailResponse\022\035\n\nis_succ" +
+      "ess\030\001 \001(\010R\tisSuccess\022\020\n\003url\030\002 \001(\tR\003url\"F" +
+      "\n\036RemoveSingleAccessEmailRequest\022\016\n\002id\030\001" +
+      " \001(\tR\002id\022\024\n\005email\030\002 \001(\tR\005email\"@\n\037Remove" +
+      "SingleAccessEmailResponse\022\035\n\nis_success\030" +
+      "\001 \001(\010R\tisSuccess\".\n\034RemoveAllAccessEmail" +
+      "sRequest\022\016\n\002id\030\001 \001(\tR\002id\">\n\035RemoveAllAcc" +
+      "essEmailsResponse\022\035\n\nis_success\030\001 \001(\010R\ti" +
+      "sSuccess\"(\n\026GetAccessStatusRequest\022\016\n\002id" +
+      "\030\001 \001(\tR\002id\"N\n\027GetAccessStatusResponse\022\026\n" +
+      "\006emails\030\001 \003(\tR\006emails\022\033\n\tis_public\030\002 \001(\010" +
+      "R\010isPublic\"\277\003\n\014FileMetadata\022\016\n\002id\030\001 \001(\tR" +
+      "\002id\022\031\n\010owner_id\030\002 \001(\tR\007ownerId\022\022\n\004name\030\003" +
+      " \001(\tR\004name\022!\n\014content_type\030\004 \001(\tR\013conten" +
+      "tType\022\022\n\004size\030\005 \001(\003R\004size\022\033\n\tis_public\030\006" +
+      " \001(\010R\010isPublic\022\031\n\010share_id\030\007 \001(\tR\007shareI" +
+      "d\0229\n\ncreated_at\030\010 \001(\0132\032.google.protobuf." +
+      "TimestampR\tcreatedAt\0229\n\nupdated_at\030\t \001(\013" +
+      "2\032.google.protobuf.TimestampR\tupdatedAt\022" +
+      "9\n\ndeleted_at\030\n \001(\0132\032.google.protobuf.Ti" +
+      "mestampR\tdeletedAt\022\022\n\004type\030\013 \001(\tR\004type\022\033" +
+      "\n\tparent_id\030\014 \001(\tR\010parentId\022\037\n\013is_favori" +
+      "te\030\r \001(\010R\nisFavorite2\356\n\n\013FileService\022l\n\027" +
+      "InitiateMultipartUpload\022\'.file.v1.Initia" +
+      "teMultipartUploadRequest\032(.file.v1.Initi" +
+      "ateMultipartUploadResponse\022r\n\031GetPresign" +
+      "edUploadPartURL\022).file.v1.GetPresignedUp" +
+      "loadPartURLRequest\032*.file.v1.GetPresigne" +
+      "dUploadPartURLResponse\022l\n\027CompleteMultip" +
+      "artUpload\022\'.file.v1.CompleteMultipartUpl" +
+      "oadRequest\032(.file.v1.CompleteMultipartUp" +
+      "loadResponse\022c\n\024AbortMultipartUpload\022$.f" +
+      "ile.v1.AbortMultipartUploadRequest\032%.fil" +
+      "e.v1.AbortMultipartUploadResponse\022K\n\014Cre" +
+      "ateFolder\022\034.file.v1.CreateFolderRequest\032" +
+      "\035.file.v1.CreateFolderResponse\022Z\n\021ListFi" +
+      "lesByParent\022!.file.v1.ListFilesByParentR" +
+      "equest\032\".file.v1.ListFilesByParentRespon" +
+      "se\022Q\n\016ToggleFavorite\022\036.file.v1.ToggleFav" +
+      "oriteRequest\032\037.file.v1.ToggleFavoriteRes" +
+      "ponse\022E\n\nDeleteFile\022\032.file.v1.DeleteFile" +
+      "Request\032\033.file.v1.DeleteFileResponse\0229\n\006" +
+      "Rename\022\026.file.v1.RenameRequest\032\027.file.v1" +
+      ".RenameResponse\022Q\n\016MarkAsIsPublic\022\036.file" +
+      ".v1.MarkAsIsPublicRequest\032\037.file.v1.Mark" +
+      "AsIsPublicResponse\022Z\n\021MarkAsNotIsPublic\022" +
+      "!.file.v1.MarkAsNotIsPublicRequest\032\".fil" +
+      "e.v1.MarkAsNotIsPublicResponse\022Q\n\016AddAcc" +
+      "essEmail\022\036.file.v1.AddAccessEmailRequest" +
+      "\032\037.file.v1.AddAccessEmailResponse\022T\n\017Get" +
+      "AccessStatus\022\037.file.v1.GetAccessStatusRe" +
+      "quest\032 .file.v1.GetAccessStatusResponse\022" +
+      "l\n\027RemoveSingleAccessEmail\022\'.file.v1.Rem" +
+      "oveSingleAccessEmailRequest\032(.file.v1.Re" +
+      "moveSingleAccessEmailResponse\022f\n\025RemoveA" +
+      "llAccessEmails\022%.file.v1.RemoveAllAccess" +
+      "EmailsRequest\032&.file.v1.RemoveAllAccessE" +
+      "mailsResponseB\251\001\n\031com.samarthasthan.file" +
+      ".v1B\tFileProtoP\001ZDgithub.com/samarthasth" +
+      "an/cloud-storage-commons/gen/go/file/v1;" +
+      "filev1\242\002\003FXX\252\002\007File.V1\312\002\007File\\V1\342\002\023File\\" +
+      "V1\\GPBMetadata\352\002\010File::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -330,7 +331,7 @@ public final class FileProto {
     internal_static_file_v1_ListFilesByParentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_ListFilesByParentRequest_descriptor,
-        new java.lang.String[] { "ParentId", "PageSize", "PageToken", });
+        new java.lang.String[] { "ParentId", "PageSize", "PageToken", "Type", "SortBy", "State", });
     internal_static_file_v1_ListFilesByParentResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_file_v1_ListFilesByParentResponse_fieldAccessorTable = new
