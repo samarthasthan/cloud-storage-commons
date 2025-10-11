@@ -27,6 +27,7 @@ const (
 	FileService_ListFilesByParent_FullMethodName         = "/file.v1.FileService/ListFilesByParent"
 	FileService_ToggleFavorite_FullMethodName            = "/file.v1.FileService/ToggleFavorite"
 	FileService_DeleteFile_FullMethodName                = "/file.v1.FileService/DeleteFile"
+	FileService_RestoreFile_FullMethodName               = "/file.v1.FileService/RestoreFile"
 	FileService_Rename_FullMethodName                    = "/file.v1.FileService/Rename"
 	FileService_MarkAsIsPublic_FullMethodName            = "/file.v1.FileService/MarkAsIsPublic"
 	FileService_MarkAsNotIsPublic_FullMethodName         = "/file.v1.FileService/MarkAsNotIsPublic"
@@ -48,6 +49,7 @@ type FileServiceClient interface {
 	ListFilesByParent(ctx context.Context, in *ListFilesByParentRequest, opts ...grpc.CallOption) (*ListFilesByParentResponse, error)
 	ToggleFavorite(ctx context.Context, in *ToggleFavoriteRequest, opts ...grpc.CallOption) (*ToggleFavoriteResponse, error)
 	DeleteFile(ctx context.Context, in *DeleteFileRequest, opts ...grpc.CallOption) (*DeleteFileResponse, error)
+	RestoreFile(ctx context.Context, in *RestoreFileRequest, opts ...grpc.CallOption) (*RestoreFileResponse, error)
 	Rename(ctx context.Context, in *RenameRequest, opts ...grpc.CallOption) (*RenameResponse, error)
 	MarkAsIsPublic(ctx context.Context, in *MarkAsIsPublicRequest, opts ...grpc.CallOption) (*MarkAsIsPublicResponse, error)
 	MarkAsNotIsPublic(ctx context.Context, in *MarkAsNotIsPublicRequest, opts ...grpc.CallOption) (*MarkAsNotIsPublicResponse, error)
@@ -145,6 +147,16 @@ func (c *fileServiceClient) DeleteFile(ctx context.Context, in *DeleteFileReques
 	return out, nil
 }
 
+func (c *fileServiceClient) RestoreFile(ctx context.Context, in *RestoreFileRequest, opts ...grpc.CallOption) (*RestoreFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RestoreFileResponse)
+	err := c.cc.Invoke(ctx, FileService_RestoreFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *fileServiceClient) Rename(ctx context.Context, in *RenameRequest, opts ...grpc.CallOption) (*RenameResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RenameResponse)
@@ -227,6 +239,7 @@ type FileServiceServer interface {
 	ListFilesByParent(context.Context, *ListFilesByParentRequest) (*ListFilesByParentResponse, error)
 	ToggleFavorite(context.Context, *ToggleFavoriteRequest) (*ToggleFavoriteResponse, error)
 	DeleteFile(context.Context, *DeleteFileRequest) (*DeleteFileResponse, error)
+	RestoreFile(context.Context, *RestoreFileRequest) (*RestoreFileResponse, error)
 	Rename(context.Context, *RenameRequest) (*RenameResponse, error)
 	MarkAsIsPublic(context.Context, *MarkAsIsPublicRequest) (*MarkAsIsPublicResponse, error)
 	MarkAsNotIsPublic(context.Context, *MarkAsNotIsPublicRequest) (*MarkAsNotIsPublicResponse, error)
@@ -267,6 +280,9 @@ func (UnimplementedFileServiceServer) ToggleFavorite(context.Context, *ToggleFav
 }
 func (UnimplementedFileServiceServer) DeleteFile(context.Context, *DeleteFileRequest) (*DeleteFileResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteFile not implemented")
+}
+func (UnimplementedFileServiceServer) RestoreFile(context.Context, *RestoreFileRequest) (*RestoreFileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RestoreFile not implemented")
 }
 func (UnimplementedFileServiceServer) Rename(context.Context, *RenameRequest) (*RenameResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Rename not implemented")
@@ -454,6 +470,24 @@ func _FileService_DeleteFile_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_RestoreFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RestoreFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).RestoreFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_RestoreFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).RestoreFile(ctx, req.(*RestoreFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FileService_Rename_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RenameRequest)
 	if err := dec(in); err != nil {
@@ -618,6 +652,10 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteFile",
 			Handler:    _FileService_DeleteFile_Handler,
+		},
+		{
+			MethodName: "RestoreFile",
+			Handler:    _FileService_RestoreFile_Handler,
 		},
 		{
 			MethodName: "Rename",

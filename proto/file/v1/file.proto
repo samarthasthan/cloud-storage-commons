@@ -16,6 +16,7 @@ service FileService {
   rpc ListFilesByParent (ListFilesByParentRequest) returns (ListFilesByParentResponse);
   rpc ToggleFavorite(ToggleFavoriteRequest) returns (ToggleFavoriteResponse);
   rpc DeleteFile(DeleteFileRequest) returns (DeleteFileResponse);
+  rpc RestoreFile(RestoreFileRequest) returns (RestoreFileResponse);
   rpc Rename(RenameRequest) returns (RenameResponse);
   rpc MarkAsIsPublic(MarkAsIsPublicRequest) returns (MarkAsIsPublicResponse);
   rpc MarkAsNotIsPublic(MarkAsNotIsPublicRequest) returns (MarkAsNotIsPublicResponse);
@@ -110,6 +111,14 @@ message DeleteFileRequest {
 }
 
 message DeleteFileResponse {
+   bool is_success = 1;
+}
+
+message RestoreFileRequest {
+  string id           = 1;
+}
+
+message RestoreFileResponse {
    bool is_success = 1;
 }
 
