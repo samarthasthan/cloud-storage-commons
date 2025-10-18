@@ -36,6 +36,7 @@ const (
 	FileService_RemoveSingleAccessEmail_FullMethodName   = "/file.v1.FileService/RemoveSingleAccessEmail"
 	FileService_RemoveAllAccessEmails_FullMethodName     = "/file.v1.FileService/RemoveAllAccessEmails"
 	FileService_GetAccountSize_FullMethodName            = "/file.v1.FileService/GetAccountSize"
+	FileService_PermanentlyDeleteFile_FullMethodName     = "/file.v1.FileService/PermanentlyDeleteFile"
 )
 
 // FileServiceClient is the client API for FileService service.
@@ -59,6 +60,7 @@ type FileServiceClient interface {
 	RemoveSingleAccessEmail(ctx context.Context, in *RemoveSingleAccessEmailRequest, opts ...grpc.CallOption) (*RemoveSingleAccessEmailResponse, error)
 	RemoveAllAccessEmails(ctx context.Context, in *RemoveAllAccessEmailsRequest, opts ...grpc.CallOption) (*RemoveAllAccessEmailsResponse, error)
 	GetAccountSize(ctx context.Context, in *GetAccountSizeRequest, opts ...grpc.CallOption) (*GetAccountSizeResponse, error)
+	PermanentlyDeleteFile(ctx context.Context, in *PermanentlyDeleteFileRequest, opts ...grpc.CallOption) (*PermanentlyDeleteFileResponse, error)
 }
 
 type fileServiceClient struct {
@@ -239,6 +241,16 @@ func (c *fileServiceClient) GetAccountSize(ctx context.Context, in *GetAccountSi
 	return out, nil
 }
 
+func (c *fileServiceClient) PermanentlyDeleteFile(ctx context.Context, in *PermanentlyDeleteFileRequest, opts ...grpc.CallOption) (*PermanentlyDeleteFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PermanentlyDeleteFileResponse)
+	err := c.cc.Invoke(ctx, FileService_PermanentlyDeleteFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileServiceServer is the server API for FileService service.
 // All implementations must embed UnimplementedFileServiceServer
 // for forward compatibility.
@@ -260,6 +272,7 @@ type FileServiceServer interface {
 	RemoveSingleAccessEmail(context.Context, *RemoveSingleAccessEmailRequest) (*RemoveSingleAccessEmailResponse, error)
 	RemoveAllAccessEmails(context.Context, *RemoveAllAccessEmailsRequest) (*RemoveAllAccessEmailsResponse, error)
 	GetAccountSize(context.Context, *GetAccountSizeRequest) (*GetAccountSizeResponse, error)
+	PermanentlyDeleteFile(context.Context, *PermanentlyDeleteFileRequest) (*PermanentlyDeleteFileResponse, error)
 	mustEmbedUnimplementedFileServiceServer()
 }
 
@@ -320,6 +333,9 @@ func (UnimplementedFileServiceServer) RemoveAllAccessEmails(context.Context, *Re
 }
 func (UnimplementedFileServiceServer) GetAccountSize(context.Context, *GetAccountSizeRequest) (*GetAccountSizeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAccountSize not implemented")
+}
+func (UnimplementedFileServiceServer) PermanentlyDeleteFile(context.Context, *PermanentlyDeleteFileRequest) (*PermanentlyDeleteFileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PermanentlyDeleteFile not implemented")
 }
 func (UnimplementedFileServiceServer) mustEmbedUnimplementedFileServiceServer() {}
 func (UnimplementedFileServiceServer) testEmbeddedByValue()                     {}
@@ -648,6 +664,24 @@ func _FileService_GetAccountSize_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_PermanentlyDeleteFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PermanentlyDeleteFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).PermanentlyDeleteFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_PermanentlyDeleteFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).PermanentlyDeleteFile(ctx, req.(*PermanentlyDeleteFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FileService_ServiceDesc is the grpc.ServiceDesc for FileService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -722,6 +756,10 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAccountSize",
 			Handler:    _FileService_GetAccountSize_Handler,
+		},
+		{
+			MethodName: "PermanentlyDeleteFile",
+			Handler:    _FileService_PermanentlyDeleteFile_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

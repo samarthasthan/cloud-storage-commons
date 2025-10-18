@@ -25,7 +25,14 @@ service FileService {
   rpc RemoveSingleAccessEmail(RemoveSingleAccessEmailRequest) returns (RemoveSingleAccessEmailResponse);
   rpc RemoveAllAccessEmails(RemoveAllAccessEmailsRequest) returns (RemoveAllAccessEmailsResponse);
   rpc GetAccountSize(GetAccountSizeRequest) returns (GetAccountSizeResponse);
+  rpc PermanentlyDeleteFile(PermanentlyDeleteFileRequest) returns (PermanentlyDeleteFileResponse);
 }
+
+message PermanentlyDeleteFileRequest {
+  string id = 1;
+}
+
+message PermanentlyDeleteFileResponse {}
 
 message GetAccountSizeRequest {}
 

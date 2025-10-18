@@ -23,6 +23,86 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type PermanentlyDeleteFileRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PermanentlyDeleteFileRequest) Reset() {
+	*x = PermanentlyDeleteFileRequest{}
+	mi := &file_file_v1_file_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PermanentlyDeleteFileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PermanentlyDeleteFileRequest) ProtoMessage() {}
+
+func (x *PermanentlyDeleteFileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PermanentlyDeleteFileRequest.ProtoReflect.Descriptor instead.
+func (*PermanentlyDeleteFileRequest) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *PermanentlyDeleteFileRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type PermanentlyDeleteFileResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PermanentlyDeleteFileResponse) Reset() {
+	*x = PermanentlyDeleteFileResponse{}
+	mi := &file_file_v1_file_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PermanentlyDeleteFileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PermanentlyDeleteFileResponse) ProtoMessage() {}
+
+func (x *PermanentlyDeleteFileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PermanentlyDeleteFileResponse.ProtoReflect.Descriptor instead.
+func (*PermanentlyDeleteFileResponse) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{1}
+}
+
 type GetAccountSizeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -31,7 +111,7 @@ type GetAccountSizeRequest struct {
 
 func (x *GetAccountSizeRequest) Reset() {
 	*x = GetAccountSizeRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[0]
+	mi := &file_file_v1_file_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +123,7 @@ func (x *GetAccountSizeRequest) String() string {
 func (*GetAccountSizeRequest) ProtoMessage() {}
 
 func (x *GetAccountSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[0]
+	mi := &file_file_v1_file_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +136,7 @@ func (x *GetAccountSizeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccountSizeRequest.ProtoReflect.Descriptor instead.
 func (*GetAccountSizeRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{0}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{2}
 }
 
 type GetAccountSizeResponse struct {
@@ -70,7 +150,7 @@ type GetAccountSizeResponse struct {
 
 func (x *GetAccountSizeResponse) Reset() {
 	*x = GetAccountSizeResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[1]
+	mi := &file_file_v1_file_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -82,7 +162,7 @@ func (x *GetAccountSizeResponse) String() string {
 func (*GetAccountSizeResponse) ProtoMessage() {}
 
 func (x *GetAccountSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[1]
+	mi := &file_file_v1_file_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -95,7 +175,7 @@ func (x *GetAccountSizeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccountSizeResponse.ProtoReflect.Descriptor instead.
 func (*GetAccountSizeResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{1}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetAccountSizeResponse) GetPlan() string {
@@ -129,7 +209,7 @@ type PathSegment struct {
 
 func (x *PathSegment) Reset() {
 	*x = PathSegment{}
-	mi := &file_file_v1_file_proto_msgTypes[2]
+	mi := &file_file_v1_file_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -141,7 +221,7 @@ func (x *PathSegment) String() string {
 func (*PathSegment) ProtoMessage() {}
 
 func (x *PathSegment) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[2]
+	mi := &file_file_v1_file_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -154,7 +234,7 @@ func (x *PathSegment) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PathSegment.ProtoReflect.Descriptor instead.
 func (*PathSegment) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{2}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *PathSegment) GetId() string {
@@ -185,7 +265,7 @@ type ListFilesByParentRequest struct {
 
 func (x *ListFilesByParentRequest) Reset() {
 	*x = ListFilesByParentRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[3]
+	mi := &file_file_v1_file_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -197,7 +277,7 @@ func (x *ListFilesByParentRequest) String() string {
 func (*ListFilesByParentRequest) ProtoMessage() {}
 
 func (x *ListFilesByParentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[3]
+	mi := &file_file_v1_file_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -210,7 +290,7 @@ func (x *ListFilesByParentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListFilesByParentRequest.ProtoReflect.Descriptor instead.
 func (*ListFilesByParentRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{3}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ListFilesByParentRequest) GetParentId() string {
@@ -266,7 +346,7 @@ type ListFilesByParentResponse struct {
 
 func (x *ListFilesByParentResponse) Reset() {
 	*x = ListFilesByParentResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[4]
+	mi := &file_file_v1_file_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -278,7 +358,7 @@ func (x *ListFilesByParentResponse) String() string {
 func (*ListFilesByParentResponse) ProtoMessage() {}
 
 func (x *ListFilesByParentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[4]
+	mi := &file_file_v1_file_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -291,7 +371,7 @@ func (x *ListFilesByParentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListFilesByParentResponse.ProtoReflect.Descriptor instead.
 func (*ListFilesByParentResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{4}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ListFilesByParentResponse) GetPath() []*PathSegment {
@@ -325,7 +405,7 @@ type CreateFolderRequest struct {
 
 func (x *CreateFolderRequest) Reset() {
 	*x = CreateFolderRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[5]
+	mi := &file_file_v1_file_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -337,7 +417,7 @@ func (x *CreateFolderRequest) String() string {
 func (*CreateFolderRequest) ProtoMessage() {}
 
 func (x *CreateFolderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[5]
+	mi := &file_file_v1_file_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -350,7 +430,7 @@ func (x *CreateFolderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateFolderRequest.ProtoReflect.Descriptor instead.
 func (*CreateFolderRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{5}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CreateFolderRequest) GetName() string {
@@ -376,7 +456,7 @@ type CreateFolderResponse struct {
 
 func (x *CreateFolderResponse) Reset() {
 	*x = CreateFolderResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[6]
+	mi := &file_file_v1_file_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -388,7 +468,7 @@ func (x *CreateFolderResponse) String() string {
 func (*CreateFolderResponse) ProtoMessage() {}
 
 func (x *CreateFolderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[6]
+	mi := &file_file_v1_file_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -401,7 +481,7 @@ func (x *CreateFolderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateFolderResponse.ProtoReflect.Descriptor instead.
 func (*CreateFolderResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{6}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CreateFolderResponse) GetFolder() *FileMetadata {
@@ -423,7 +503,7 @@ type InitiateMultipartUploadRequest struct {
 
 func (x *InitiateMultipartUploadRequest) Reset() {
 	*x = InitiateMultipartUploadRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[7]
+	mi := &file_file_v1_file_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -435,7 +515,7 @@ func (x *InitiateMultipartUploadRequest) String() string {
 func (*InitiateMultipartUploadRequest) ProtoMessage() {}
 
 func (x *InitiateMultipartUploadRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[7]
+	mi := &file_file_v1_file_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -448,7 +528,7 @@ func (x *InitiateMultipartUploadRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InitiateMultipartUploadRequest.ProtoReflect.Descriptor instead.
 func (*InitiateMultipartUploadRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{7}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *InitiateMultipartUploadRequest) GetName() string {
@@ -490,7 +570,7 @@ type InitiateMultipartUploadResponse struct {
 
 func (x *InitiateMultipartUploadResponse) Reset() {
 	*x = InitiateMultipartUploadResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[8]
+	mi := &file_file_v1_file_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -502,7 +582,7 @@ func (x *InitiateMultipartUploadResponse) String() string {
 func (*InitiateMultipartUploadResponse) ProtoMessage() {}
 
 func (x *InitiateMultipartUploadResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[8]
+	mi := &file_file_v1_file_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -515,7 +595,7 @@ func (x *InitiateMultipartUploadResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InitiateMultipartUploadResponse.ProtoReflect.Descriptor instead.
 func (*InitiateMultipartUploadResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{8}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *InitiateMultipartUploadResponse) GetFileId() string {
@@ -550,7 +630,7 @@ type GetPresignedUploadPartURLRequest struct {
 
 func (x *GetPresignedUploadPartURLRequest) Reset() {
 	*x = GetPresignedUploadPartURLRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[9]
+	mi := &file_file_v1_file_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -562,7 +642,7 @@ func (x *GetPresignedUploadPartURLRequest) String() string {
 func (*GetPresignedUploadPartURLRequest) ProtoMessage() {}
 
 func (x *GetPresignedUploadPartURLRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[9]
+	mi := &file_file_v1_file_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -575,7 +655,7 @@ func (x *GetPresignedUploadPartURLRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPresignedUploadPartURLRequest.ProtoReflect.Descriptor instead.
 func (*GetPresignedUploadPartURLRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{9}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetPresignedUploadPartURLRequest) GetUploadId() string {
@@ -608,7 +688,7 @@ type GetPresignedUploadPartURLResponse struct {
 
 func (x *GetPresignedUploadPartURLResponse) Reset() {
 	*x = GetPresignedUploadPartURLResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[10]
+	mi := &file_file_v1_file_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -620,7 +700,7 @@ func (x *GetPresignedUploadPartURLResponse) String() string {
 func (*GetPresignedUploadPartURLResponse) ProtoMessage() {}
 
 func (x *GetPresignedUploadPartURLResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[10]
+	mi := &file_file_v1_file_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -633,7 +713,7 @@ func (x *GetPresignedUploadPartURLResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetPresignedUploadPartURLResponse.ProtoReflect.Descriptor instead.
 func (*GetPresignedUploadPartURLResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{10}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetPresignedUploadPartURLResponse) GetPresignedUrl() string {
@@ -653,7 +733,7 @@ type CompleteMultipartUploadRequest struct {
 
 func (x *CompleteMultipartUploadRequest) Reset() {
 	*x = CompleteMultipartUploadRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[11]
+	mi := &file_file_v1_file_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -665,7 +745,7 @@ func (x *CompleteMultipartUploadRequest) String() string {
 func (*CompleteMultipartUploadRequest) ProtoMessage() {}
 
 func (x *CompleteMultipartUploadRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[11]
+	mi := &file_file_v1_file_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -678,7 +758,7 @@ func (x *CompleteMultipartUploadRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompleteMultipartUploadRequest.ProtoReflect.Descriptor instead.
 func (*CompleteMultipartUploadRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{11}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CompleteMultipartUploadRequest) GetUploadId() string {
@@ -705,7 +785,7 @@ type CompletedPart struct {
 
 func (x *CompletedPart) Reset() {
 	*x = CompletedPart{}
-	mi := &file_file_v1_file_proto_msgTypes[12]
+	mi := &file_file_v1_file_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -717,7 +797,7 @@ func (x *CompletedPart) String() string {
 func (*CompletedPart) ProtoMessage() {}
 
 func (x *CompletedPart) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[12]
+	mi := &file_file_v1_file_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -730,7 +810,7 @@ func (x *CompletedPart) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompletedPart.ProtoReflect.Descriptor instead.
 func (*CompletedPart) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{12}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CompletedPart) GetPartNumber() int32 {
@@ -756,7 +836,7 @@ type CompleteMultipartUploadResponse struct {
 
 func (x *CompleteMultipartUploadResponse) Reset() {
 	*x = CompleteMultipartUploadResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[13]
+	mi := &file_file_v1_file_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -768,7 +848,7 @@ func (x *CompleteMultipartUploadResponse) String() string {
 func (*CompleteMultipartUploadResponse) ProtoMessage() {}
 
 func (x *CompleteMultipartUploadResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[13]
+	mi := &file_file_v1_file_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -781,7 +861,7 @@ func (x *CompleteMultipartUploadResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompleteMultipartUploadResponse.ProtoReflect.Descriptor instead.
 func (*CompleteMultipartUploadResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{13}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CompleteMultipartUploadResponse) GetFile() *FileMetadata {
@@ -800,7 +880,7 @@ type AbortMultipartUploadRequest struct {
 
 func (x *AbortMultipartUploadRequest) Reset() {
 	*x = AbortMultipartUploadRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[14]
+	mi := &file_file_v1_file_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -812,7 +892,7 @@ func (x *AbortMultipartUploadRequest) String() string {
 func (*AbortMultipartUploadRequest) ProtoMessage() {}
 
 func (x *AbortMultipartUploadRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[14]
+	mi := &file_file_v1_file_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -825,7 +905,7 @@ func (x *AbortMultipartUploadRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AbortMultipartUploadRequest.ProtoReflect.Descriptor instead.
 func (*AbortMultipartUploadRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{14}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *AbortMultipartUploadRequest) GetUploadId() string {
@@ -843,7 +923,7 @@ type AbortMultipartUploadResponse struct {
 
 func (x *AbortMultipartUploadResponse) Reset() {
 	*x = AbortMultipartUploadResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[15]
+	mi := &file_file_v1_file_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -855,7 +935,7 @@ func (x *AbortMultipartUploadResponse) String() string {
 func (*AbortMultipartUploadResponse) ProtoMessage() {}
 
 func (x *AbortMultipartUploadResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[15]
+	mi := &file_file_v1_file_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -868,7 +948,7 @@ func (x *AbortMultipartUploadResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AbortMultipartUploadResponse.ProtoReflect.Descriptor instead.
 func (*AbortMultipartUploadResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{15}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{17}
 }
 
 type ToggleFavoriteRequest struct {
@@ -880,7 +960,7 @@ type ToggleFavoriteRequest struct {
 
 func (x *ToggleFavoriteRequest) Reset() {
 	*x = ToggleFavoriteRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[16]
+	mi := &file_file_v1_file_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -892,7 +972,7 @@ func (x *ToggleFavoriteRequest) String() string {
 func (*ToggleFavoriteRequest) ProtoMessage() {}
 
 func (x *ToggleFavoriteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[16]
+	mi := &file_file_v1_file_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -905,7 +985,7 @@ func (x *ToggleFavoriteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToggleFavoriteRequest.ProtoReflect.Descriptor instead.
 func (*ToggleFavoriteRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{16}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *ToggleFavoriteRequest) GetId() string {
@@ -924,7 +1004,7 @@ type ToggleFavoriteResponse struct {
 
 func (x *ToggleFavoriteResponse) Reset() {
 	*x = ToggleFavoriteResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[17]
+	mi := &file_file_v1_file_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -936,7 +1016,7 @@ func (x *ToggleFavoriteResponse) String() string {
 func (*ToggleFavoriteResponse) ProtoMessage() {}
 
 func (x *ToggleFavoriteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[17]
+	mi := &file_file_v1_file_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -949,7 +1029,7 @@ func (x *ToggleFavoriteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToggleFavoriteResponse.ProtoReflect.Descriptor instead.
 func (*ToggleFavoriteResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{17}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *ToggleFavoriteResponse) GetIsSuccess() bool {
@@ -968,7 +1048,7 @@ type DeleteFileRequest struct {
 
 func (x *DeleteFileRequest) Reset() {
 	*x = DeleteFileRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[18]
+	mi := &file_file_v1_file_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -980,7 +1060,7 @@ func (x *DeleteFileRequest) String() string {
 func (*DeleteFileRequest) ProtoMessage() {}
 
 func (x *DeleteFileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[18]
+	mi := &file_file_v1_file_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -993,7 +1073,7 @@ func (x *DeleteFileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteFileRequest.ProtoReflect.Descriptor instead.
 func (*DeleteFileRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{18}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *DeleteFileRequest) GetId() string {
@@ -1012,7 +1092,7 @@ type DeleteFileResponse struct {
 
 func (x *DeleteFileResponse) Reset() {
 	*x = DeleteFileResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[19]
+	mi := &file_file_v1_file_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1024,7 +1104,7 @@ func (x *DeleteFileResponse) String() string {
 func (*DeleteFileResponse) ProtoMessage() {}
 
 func (x *DeleteFileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[19]
+	mi := &file_file_v1_file_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1037,7 +1117,7 @@ func (x *DeleteFileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteFileResponse.ProtoReflect.Descriptor instead.
 func (*DeleteFileResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{19}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *DeleteFileResponse) GetIsSuccess() bool {
@@ -1056,7 +1136,7 @@ type RestoreFileRequest struct {
 
 func (x *RestoreFileRequest) Reset() {
 	*x = RestoreFileRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[20]
+	mi := &file_file_v1_file_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1068,7 +1148,7 @@ func (x *RestoreFileRequest) String() string {
 func (*RestoreFileRequest) ProtoMessage() {}
 
 func (x *RestoreFileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[20]
+	mi := &file_file_v1_file_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1081,7 +1161,7 @@ func (x *RestoreFileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestoreFileRequest.ProtoReflect.Descriptor instead.
 func (*RestoreFileRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{20}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *RestoreFileRequest) GetId() string {
@@ -1100,7 +1180,7 @@ type RestoreFileResponse struct {
 
 func (x *RestoreFileResponse) Reset() {
 	*x = RestoreFileResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[21]
+	mi := &file_file_v1_file_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1112,7 +1192,7 @@ func (x *RestoreFileResponse) String() string {
 func (*RestoreFileResponse) ProtoMessage() {}
 
 func (x *RestoreFileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[21]
+	mi := &file_file_v1_file_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1125,7 +1205,7 @@ func (x *RestoreFileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestoreFileResponse.ProtoReflect.Descriptor instead.
 func (*RestoreFileResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{21}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *RestoreFileResponse) GetIsSuccess() bool {
@@ -1144,7 +1224,7 @@ type RenameRequest struct {
 
 func (x *RenameRequest) Reset() {
 	*x = RenameRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[22]
+	mi := &file_file_v1_file_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1156,7 +1236,7 @@ func (x *RenameRequest) String() string {
 func (*RenameRequest) ProtoMessage() {}
 
 func (x *RenameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[22]
+	mi := &file_file_v1_file_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1169,7 +1249,7 @@ func (x *RenameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RenameRequest.ProtoReflect.Descriptor instead.
 func (*RenameRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{22}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *RenameRequest) GetId() string {
@@ -1188,7 +1268,7 @@ type RenameResponse struct {
 
 func (x *RenameResponse) Reset() {
 	*x = RenameResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[23]
+	mi := &file_file_v1_file_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1200,7 +1280,7 @@ func (x *RenameResponse) String() string {
 func (*RenameResponse) ProtoMessage() {}
 
 func (x *RenameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[23]
+	mi := &file_file_v1_file_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1213,7 +1293,7 @@ func (x *RenameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RenameResponse.ProtoReflect.Descriptor instead.
 func (*RenameResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{23}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *RenameResponse) GetIsSuccess() bool {
@@ -1232,7 +1312,7 @@ type MarkAsIsPublicRequest struct {
 
 func (x *MarkAsIsPublicRequest) Reset() {
 	*x = MarkAsIsPublicRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[24]
+	mi := &file_file_v1_file_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1244,7 +1324,7 @@ func (x *MarkAsIsPublicRequest) String() string {
 func (*MarkAsIsPublicRequest) ProtoMessage() {}
 
 func (x *MarkAsIsPublicRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[24]
+	mi := &file_file_v1_file_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1257,7 +1337,7 @@ func (x *MarkAsIsPublicRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MarkAsIsPublicRequest.ProtoReflect.Descriptor instead.
 func (*MarkAsIsPublicRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{24}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *MarkAsIsPublicRequest) GetId() string {
@@ -1277,7 +1357,7 @@ type MarkAsIsPublicResponse struct {
 
 func (x *MarkAsIsPublicResponse) Reset() {
 	*x = MarkAsIsPublicResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[25]
+	mi := &file_file_v1_file_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1289,7 +1369,7 @@ func (x *MarkAsIsPublicResponse) String() string {
 func (*MarkAsIsPublicResponse) ProtoMessage() {}
 
 func (x *MarkAsIsPublicResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[25]
+	mi := &file_file_v1_file_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1302,7 +1382,7 @@ func (x *MarkAsIsPublicResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MarkAsIsPublicResponse.ProtoReflect.Descriptor instead.
 func (*MarkAsIsPublicResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{25}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *MarkAsIsPublicResponse) GetIsSuccess() bool {
@@ -1328,7 +1408,7 @@ type MarkAsNotIsPublicRequest struct {
 
 func (x *MarkAsNotIsPublicRequest) Reset() {
 	*x = MarkAsNotIsPublicRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[26]
+	mi := &file_file_v1_file_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1340,7 +1420,7 @@ func (x *MarkAsNotIsPublicRequest) String() string {
 func (*MarkAsNotIsPublicRequest) ProtoMessage() {}
 
 func (x *MarkAsNotIsPublicRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[26]
+	mi := &file_file_v1_file_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1353,7 +1433,7 @@ func (x *MarkAsNotIsPublicRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MarkAsNotIsPublicRequest.ProtoReflect.Descriptor instead.
 func (*MarkAsNotIsPublicRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{26}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *MarkAsNotIsPublicRequest) GetId() string {
@@ -1372,7 +1452,7 @@ type MarkAsNotIsPublicResponse struct {
 
 func (x *MarkAsNotIsPublicResponse) Reset() {
 	*x = MarkAsNotIsPublicResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[27]
+	mi := &file_file_v1_file_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1384,7 +1464,7 @@ func (x *MarkAsNotIsPublicResponse) String() string {
 func (*MarkAsNotIsPublicResponse) ProtoMessage() {}
 
 func (x *MarkAsNotIsPublicResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[27]
+	mi := &file_file_v1_file_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1397,7 +1477,7 @@ func (x *MarkAsNotIsPublicResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MarkAsNotIsPublicResponse.ProtoReflect.Descriptor instead.
 func (*MarkAsNotIsPublicResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{27}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *MarkAsNotIsPublicResponse) GetIsSuccess() bool {
@@ -1417,7 +1497,7 @@ type AddAccessEmailRequest struct {
 
 func (x *AddAccessEmailRequest) Reset() {
 	*x = AddAccessEmailRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[28]
+	mi := &file_file_v1_file_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1429,7 +1509,7 @@ func (x *AddAccessEmailRequest) String() string {
 func (*AddAccessEmailRequest) ProtoMessage() {}
 
 func (x *AddAccessEmailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[28]
+	mi := &file_file_v1_file_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1442,7 +1522,7 @@ func (x *AddAccessEmailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAccessEmailRequest.ProtoReflect.Descriptor instead.
 func (*AddAccessEmailRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{28}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *AddAccessEmailRequest) GetId() string {
@@ -1469,7 +1549,7 @@ type AddAccessEmailResponse struct {
 
 func (x *AddAccessEmailResponse) Reset() {
 	*x = AddAccessEmailResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[29]
+	mi := &file_file_v1_file_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1481,7 +1561,7 @@ func (x *AddAccessEmailResponse) String() string {
 func (*AddAccessEmailResponse) ProtoMessage() {}
 
 func (x *AddAccessEmailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[29]
+	mi := &file_file_v1_file_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1494,7 +1574,7 @@ func (x *AddAccessEmailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAccessEmailResponse.ProtoReflect.Descriptor instead.
 func (*AddAccessEmailResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{29}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *AddAccessEmailResponse) GetIsSuccess() bool {
@@ -1521,7 +1601,7 @@ type RemoveSingleAccessEmailRequest struct {
 
 func (x *RemoveSingleAccessEmailRequest) Reset() {
 	*x = RemoveSingleAccessEmailRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[30]
+	mi := &file_file_v1_file_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1533,7 +1613,7 @@ func (x *RemoveSingleAccessEmailRequest) String() string {
 func (*RemoveSingleAccessEmailRequest) ProtoMessage() {}
 
 func (x *RemoveSingleAccessEmailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[30]
+	mi := &file_file_v1_file_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1546,7 +1626,7 @@ func (x *RemoveSingleAccessEmailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveSingleAccessEmailRequest.ProtoReflect.Descriptor instead.
 func (*RemoveSingleAccessEmailRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{30}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *RemoveSingleAccessEmailRequest) GetId() string {
@@ -1572,7 +1652,7 @@ type RemoveSingleAccessEmailResponse struct {
 
 func (x *RemoveSingleAccessEmailResponse) Reset() {
 	*x = RemoveSingleAccessEmailResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[31]
+	mi := &file_file_v1_file_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1584,7 +1664,7 @@ func (x *RemoveSingleAccessEmailResponse) String() string {
 func (*RemoveSingleAccessEmailResponse) ProtoMessage() {}
 
 func (x *RemoveSingleAccessEmailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[31]
+	mi := &file_file_v1_file_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1597,7 +1677,7 @@ func (x *RemoveSingleAccessEmailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveSingleAccessEmailResponse.ProtoReflect.Descriptor instead.
 func (*RemoveSingleAccessEmailResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{31}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *RemoveSingleAccessEmailResponse) GetIsSuccess() bool {
@@ -1616,7 +1696,7 @@ type RemoveAllAccessEmailsRequest struct {
 
 func (x *RemoveAllAccessEmailsRequest) Reset() {
 	*x = RemoveAllAccessEmailsRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[32]
+	mi := &file_file_v1_file_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1628,7 +1708,7 @@ func (x *RemoveAllAccessEmailsRequest) String() string {
 func (*RemoveAllAccessEmailsRequest) ProtoMessage() {}
 
 func (x *RemoveAllAccessEmailsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[32]
+	mi := &file_file_v1_file_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1641,7 +1721,7 @@ func (x *RemoveAllAccessEmailsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveAllAccessEmailsRequest.ProtoReflect.Descriptor instead.
 func (*RemoveAllAccessEmailsRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{32}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *RemoveAllAccessEmailsRequest) GetId() string {
@@ -1660,7 +1740,7 @@ type RemoveAllAccessEmailsResponse struct {
 
 func (x *RemoveAllAccessEmailsResponse) Reset() {
 	*x = RemoveAllAccessEmailsResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[33]
+	mi := &file_file_v1_file_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1672,7 +1752,7 @@ func (x *RemoveAllAccessEmailsResponse) String() string {
 func (*RemoveAllAccessEmailsResponse) ProtoMessage() {}
 
 func (x *RemoveAllAccessEmailsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[33]
+	mi := &file_file_v1_file_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1685,7 +1765,7 @@ func (x *RemoveAllAccessEmailsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveAllAccessEmailsResponse.ProtoReflect.Descriptor instead.
 func (*RemoveAllAccessEmailsResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{33}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *RemoveAllAccessEmailsResponse) GetIsSuccess() bool {
@@ -1704,7 +1784,7 @@ type GetAccessStatusRequest struct {
 
 func (x *GetAccessStatusRequest) Reset() {
 	*x = GetAccessStatusRequest{}
-	mi := &file_file_v1_file_proto_msgTypes[34]
+	mi := &file_file_v1_file_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1716,7 +1796,7 @@ func (x *GetAccessStatusRequest) String() string {
 func (*GetAccessStatusRequest) ProtoMessage() {}
 
 func (x *GetAccessStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[34]
+	mi := &file_file_v1_file_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1729,7 +1809,7 @@ func (x *GetAccessStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccessStatusRequest.ProtoReflect.Descriptor instead.
 func (*GetAccessStatusRequest) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{34}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *GetAccessStatusRequest) GetId() string {
@@ -1749,7 +1829,7 @@ type GetAccessStatusResponse struct {
 
 func (x *GetAccessStatusResponse) Reset() {
 	*x = GetAccessStatusResponse{}
-	mi := &file_file_v1_file_proto_msgTypes[35]
+	mi := &file_file_v1_file_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1761,7 +1841,7 @@ func (x *GetAccessStatusResponse) String() string {
 func (*GetAccessStatusResponse) ProtoMessage() {}
 
 func (x *GetAccessStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[35]
+	mi := &file_file_v1_file_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1774,7 +1854,7 @@ func (x *GetAccessStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccessStatusResponse.ProtoReflect.Descriptor instead.
 func (*GetAccessStatusResponse) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{35}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *GetAccessStatusResponse) GetEmails() []string {
@@ -1812,7 +1892,7 @@ type FileMetadata struct {
 
 func (x *FileMetadata) Reset() {
 	*x = FileMetadata{}
-	mi := &file_file_v1_file_proto_msgTypes[36]
+	mi := &file_file_v1_file_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1824,7 +1904,7 @@ func (x *FileMetadata) String() string {
 func (*FileMetadata) ProtoMessage() {}
 
 func (x *FileMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_file_v1_file_proto_msgTypes[36]
+	mi := &file_file_v1_file_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1837,7 +1917,7 @@ func (x *FileMetadata) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FileMetadata.ProtoReflect.Descriptor instead.
 func (*FileMetadata) Descriptor() ([]byte, []int) {
-	return file_file_v1_file_proto_rawDescGZIP(), []int{36}
+	return file_file_v1_file_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *FileMetadata) GetId() string {
@@ -1935,7 +2015,10 @@ var File_file_v1_file_proto protoreflect.FileDescriptor
 
 const file_file_v1_file_proto_rawDesc = "" +
 	"\n" +
-	"\x12file/v1/file.proto\x12\afile.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bbuf/validate/validate.proto\"\x17\n" +
+	"\x12file/v1/file.proto\x12\afile.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bbuf/validate/validate.proto\".\n" +
+	"\x1cPermanentlyDeleteFileRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"\x1f\n" +
+	"\x1dPermanentlyDeleteFileResponse\"\x17\n" +
 	"\x15GetAccountSizeRequest\"t\n" +
 	"\x16GetAccountSizeResponse\x12\x12\n" +
 	"\x04plan\x18\x01 \x01(\tR\x04plan\x12!\n" +
@@ -2061,7 +2144,7 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x04type\x18\v \x01(\tR\x04type\x12\x1b\n" +
 	"\tparent_id\x18\f \x01(\tR\bparentId\x12\x1f\n" +
 	"\vis_favorite\x18\r \x01(\bR\n" +
-	"isFavorite2\x8b\f\n" +
+	"isFavorite2\xf3\f\n" +
 	"\vFileService\x12l\n" +
 	"\x17InitiateMultipartUpload\x12'.file.v1.InitiateMultipartUploadRequest\x1a(.file.v1.InitiateMultipartUploadResponse\x12r\n" +
 	"\x19GetPresignedUploadPartURL\x12).file.v1.GetPresignedUploadPartURLRequest\x1a*.file.v1.GetPresignedUploadPartURLResponse\x12l\n" +
@@ -2080,7 +2163,8 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x0fGetAccessStatus\x12\x1f.file.v1.GetAccessStatusRequest\x1a .file.v1.GetAccessStatusResponse\x12l\n" +
 	"\x17RemoveSingleAccessEmail\x12'.file.v1.RemoveSingleAccessEmailRequest\x1a(.file.v1.RemoveSingleAccessEmailResponse\x12f\n" +
 	"\x15RemoveAllAccessEmails\x12%.file.v1.RemoveAllAccessEmailsRequest\x1a&.file.v1.RemoveAllAccessEmailsResponse\x12Q\n" +
-	"\x0eGetAccountSize\x12\x1e.file.v1.GetAccountSizeRequest\x1a\x1f.file.v1.GetAccountSizeResponseB\xa9\x01\n" +
+	"\x0eGetAccountSize\x12\x1e.file.v1.GetAccountSizeRequest\x1a\x1f.file.v1.GetAccountSizeResponse\x12f\n" +
+	"\x15PermanentlyDeleteFile\x12%.file.v1.PermanentlyDeleteFileRequest\x1a&.file.v1.PermanentlyDeleteFileResponseB\xa9\x01\n" +
 	"\x19com.samarthasthan.file.v1B\tFileProtoP\x01ZDgithub.com/samarthasthan/cloud-storage-commons/gen/go/file/v1;filev1\xa2\x02\x03FXX\xaa\x02\aFile.V1\xca\x02\aFile\\V1\xe2\x02\x13File\\V1\\GPBMetadata\xea\x02\bFile::V1b\x06proto3"
 
 var (
@@ -2095,92 +2179,96 @@ func file_file_v1_file_proto_rawDescGZIP() []byte {
 	return file_file_v1_file_proto_rawDescData
 }
 
-var file_file_v1_file_proto_msgTypes = make([]protoimpl.MessageInfo, 37)
+var file_file_v1_file_proto_msgTypes = make([]protoimpl.MessageInfo, 39)
 var file_file_v1_file_proto_goTypes = []any{
-	(*GetAccountSizeRequest)(nil),             // 0: file.v1.GetAccountSizeRequest
-	(*GetAccountSizeResponse)(nil),            // 1: file.v1.GetAccountSizeResponse
-	(*PathSegment)(nil),                       // 2: file.v1.PathSegment
-	(*ListFilesByParentRequest)(nil),          // 3: file.v1.ListFilesByParentRequest
-	(*ListFilesByParentResponse)(nil),         // 4: file.v1.ListFilesByParentResponse
-	(*CreateFolderRequest)(nil),               // 5: file.v1.CreateFolderRequest
-	(*CreateFolderResponse)(nil),              // 6: file.v1.CreateFolderResponse
-	(*InitiateMultipartUploadRequest)(nil),    // 7: file.v1.InitiateMultipartUploadRequest
-	(*InitiateMultipartUploadResponse)(nil),   // 8: file.v1.InitiateMultipartUploadResponse
-	(*GetPresignedUploadPartURLRequest)(nil),  // 9: file.v1.GetPresignedUploadPartURLRequest
-	(*GetPresignedUploadPartURLResponse)(nil), // 10: file.v1.GetPresignedUploadPartURLResponse
-	(*CompleteMultipartUploadRequest)(nil),    // 11: file.v1.CompleteMultipartUploadRequest
-	(*CompletedPart)(nil),                     // 12: file.v1.CompletedPart
-	(*CompleteMultipartUploadResponse)(nil),   // 13: file.v1.CompleteMultipartUploadResponse
-	(*AbortMultipartUploadRequest)(nil),       // 14: file.v1.AbortMultipartUploadRequest
-	(*AbortMultipartUploadResponse)(nil),      // 15: file.v1.AbortMultipartUploadResponse
-	(*ToggleFavoriteRequest)(nil),             // 16: file.v1.ToggleFavoriteRequest
-	(*ToggleFavoriteResponse)(nil),            // 17: file.v1.ToggleFavoriteResponse
-	(*DeleteFileRequest)(nil),                 // 18: file.v1.DeleteFileRequest
-	(*DeleteFileResponse)(nil),                // 19: file.v1.DeleteFileResponse
-	(*RestoreFileRequest)(nil),                // 20: file.v1.RestoreFileRequest
-	(*RestoreFileResponse)(nil),               // 21: file.v1.RestoreFileResponse
-	(*RenameRequest)(nil),                     // 22: file.v1.RenameRequest
-	(*RenameResponse)(nil),                    // 23: file.v1.RenameResponse
-	(*MarkAsIsPublicRequest)(nil),             // 24: file.v1.MarkAsIsPublicRequest
-	(*MarkAsIsPublicResponse)(nil),            // 25: file.v1.MarkAsIsPublicResponse
-	(*MarkAsNotIsPublicRequest)(nil),          // 26: file.v1.MarkAsNotIsPublicRequest
-	(*MarkAsNotIsPublicResponse)(nil),         // 27: file.v1.MarkAsNotIsPublicResponse
-	(*AddAccessEmailRequest)(nil),             // 28: file.v1.AddAccessEmailRequest
-	(*AddAccessEmailResponse)(nil),            // 29: file.v1.AddAccessEmailResponse
-	(*RemoveSingleAccessEmailRequest)(nil),    // 30: file.v1.RemoveSingleAccessEmailRequest
-	(*RemoveSingleAccessEmailResponse)(nil),   // 31: file.v1.RemoveSingleAccessEmailResponse
-	(*RemoveAllAccessEmailsRequest)(nil),      // 32: file.v1.RemoveAllAccessEmailsRequest
-	(*RemoveAllAccessEmailsResponse)(nil),     // 33: file.v1.RemoveAllAccessEmailsResponse
-	(*GetAccessStatusRequest)(nil),            // 34: file.v1.GetAccessStatusRequest
-	(*GetAccessStatusResponse)(nil),           // 35: file.v1.GetAccessStatusResponse
-	(*FileMetadata)(nil),                      // 36: file.v1.FileMetadata
-	(*timestamppb.Timestamp)(nil),             // 37: google.protobuf.Timestamp
+	(*PermanentlyDeleteFileRequest)(nil),      // 0: file.v1.PermanentlyDeleteFileRequest
+	(*PermanentlyDeleteFileResponse)(nil),     // 1: file.v1.PermanentlyDeleteFileResponse
+	(*GetAccountSizeRequest)(nil),             // 2: file.v1.GetAccountSizeRequest
+	(*GetAccountSizeResponse)(nil),            // 3: file.v1.GetAccountSizeResponse
+	(*PathSegment)(nil),                       // 4: file.v1.PathSegment
+	(*ListFilesByParentRequest)(nil),          // 5: file.v1.ListFilesByParentRequest
+	(*ListFilesByParentResponse)(nil),         // 6: file.v1.ListFilesByParentResponse
+	(*CreateFolderRequest)(nil),               // 7: file.v1.CreateFolderRequest
+	(*CreateFolderResponse)(nil),              // 8: file.v1.CreateFolderResponse
+	(*InitiateMultipartUploadRequest)(nil),    // 9: file.v1.InitiateMultipartUploadRequest
+	(*InitiateMultipartUploadResponse)(nil),   // 10: file.v1.InitiateMultipartUploadResponse
+	(*GetPresignedUploadPartURLRequest)(nil),  // 11: file.v1.GetPresignedUploadPartURLRequest
+	(*GetPresignedUploadPartURLResponse)(nil), // 12: file.v1.GetPresignedUploadPartURLResponse
+	(*CompleteMultipartUploadRequest)(nil),    // 13: file.v1.CompleteMultipartUploadRequest
+	(*CompletedPart)(nil),                     // 14: file.v1.CompletedPart
+	(*CompleteMultipartUploadResponse)(nil),   // 15: file.v1.CompleteMultipartUploadResponse
+	(*AbortMultipartUploadRequest)(nil),       // 16: file.v1.AbortMultipartUploadRequest
+	(*AbortMultipartUploadResponse)(nil),      // 17: file.v1.AbortMultipartUploadResponse
+	(*ToggleFavoriteRequest)(nil),             // 18: file.v1.ToggleFavoriteRequest
+	(*ToggleFavoriteResponse)(nil),            // 19: file.v1.ToggleFavoriteResponse
+	(*DeleteFileRequest)(nil),                 // 20: file.v1.DeleteFileRequest
+	(*DeleteFileResponse)(nil),                // 21: file.v1.DeleteFileResponse
+	(*RestoreFileRequest)(nil),                // 22: file.v1.RestoreFileRequest
+	(*RestoreFileResponse)(nil),               // 23: file.v1.RestoreFileResponse
+	(*RenameRequest)(nil),                     // 24: file.v1.RenameRequest
+	(*RenameResponse)(nil),                    // 25: file.v1.RenameResponse
+	(*MarkAsIsPublicRequest)(nil),             // 26: file.v1.MarkAsIsPublicRequest
+	(*MarkAsIsPublicResponse)(nil),            // 27: file.v1.MarkAsIsPublicResponse
+	(*MarkAsNotIsPublicRequest)(nil),          // 28: file.v1.MarkAsNotIsPublicRequest
+	(*MarkAsNotIsPublicResponse)(nil),         // 29: file.v1.MarkAsNotIsPublicResponse
+	(*AddAccessEmailRequest)(nil),             // 30: file.v1.AddAccessEmailRequest
+	(*AddAccessEmailResponse)(nil),            // 31: file.v1.AddAccessEmailResponse
+	(*RemoveSingleAccessEmailRequest)(nil),    // 32: file.v1.RemoveSingleAccessEmailRequest
+	(*RemoveSingleAccessEmailResponse)(nil),   // 33: file.v1.RemoveSingleAccessEmailResponse
+	(*RemoveAllAccessEmailsRequest)(nil),      // 34: file.v1.RemoveAllAccessEmailsRequest
+	(*RemoveAllAccessEmailsResponse)(nil),     // 35: file.v1.RemoveAllAccessEmailsResponse
+	(*GetAccessStatusRequest)(nil),            // 36: file.v1.GetAccessStatusRequest
+	(*GetAccessStatusResponse)(nil),           // 37: file.v1.GetAccessStatusResponse
+	(*FileMetadata)(nil),                      // 38: file.v1.FileMetadata
+	(*timestamppb.Timestamp)(nil),             // 39: google.protobuf.Timestamp
 }
 var file_file_v1_file_proto_depIdxs = []int32{
-	2,  // 0: file.v1.ListFilesByParentResponse.path:type_name -> file.v1.PathSegment
-	36, // 1: file.v1.ListFilesByParentResponse.files:type_name -> file.v1.FileMetadata
-	36, // 2: file.v1.CreateFolderResponse.folder:type_name -> file.v1.FileMetadata
-	12, // 3: file.v1.CompleteMultipartUploadRequest.parts:type_name -> file.v1.CompletedPart
-	36, // 4: file.v1.CompleteMultipartUploadResponse.file:type_name -> file.v1.FileMetadata
-	37, // 5: file.v1.FileMetadata.created_at:type_name -> google.protobuf.Timestamp
-	37, // 6: file.v1.FileMetadata.updated_at:type_name -> google.protobuf.Timestamp
-	37, // 7: file.v1.FileMetadata.deleted_at:type_name -> google.protobuf.Timestamp
-	7,  // 8: file.v1.FileService.InitiateMultipartUpload:input_type -> file.v1.InitiateMultipartUploadRequest
-	9,  // 9: file.v1.FileService.GetPresignedUploadPartURL:input_type -> file.v1.GetPresignedUploadPartURLRequest
-	11, // 10: file.v1.FileService.CompleteMultipartUpload:input_type -> file.v1.CompleteMultipartUploadRequest
-	14, // 11: file.v1.FileService.AbortMultipartUpload:input_type -> file.v1.AbortMultipartUploadRequest
-	5,  // 12: file.v1.FileService.CreateFolder:input_type -> file.v1.CreateFolderRequest
-	3,  // 13: file.v1.FileService.ListFilesByParent:input_type -> file.v1.ListFilesByParentRequest
-	16, // 14: file.v1.FileService.ToggleFavorite:input_type -> file.v1.ToggleFavoriteRequest
-	18, // 15: file.v1.FileService.DeleteFile:input_type -> file.v1.DeleteFileRequest
-	20, // 16: file.v1.FileService.RestoreFile:input_type -> file.v1.RestoreFileRequest
-	22, // 17: file.v1.FileService.Rename:input_type -> file.v1.RenameRequest
-	24, // 18: file.v1.FileService.MarkAsIsPublic:input_type -> file.v1.MarkAsIsPublicRequest
-	26, // 19: file.v1.FileService.MarkAsNotIsPublic:input_type -> file.v1.MarkAsNotIsPublicRequest
-	28, // 20: file.v1.FileService.AddAccessEmail:input_type -> file.v1.AddAccessEmailRequest
-	34, // 21: file.v1.FileService.GetAccessStatus:input_type -> file.v1.GetAccessStatusRequest
-	30, // 22: file.v1.FileService.RemoveSingleAccessEmail:input_type -> file.v1.RemoveSingleAccessEmailRequest
-	32, // 23: file.v1.FileService.RemoveAllAccessEmails:input_type -> file.v1.RemoveAllAccessEmailsRequest
-	0,  // 24: file.v1.FileService.GetAccountSize:input_type -> file.v1.GetAccountSizeRequest
-	8,  // 25: file.v1.FileService.InitiateMultipartUpload:output_type -> file.v1.InitiateMultipartUploadResponse
-	10, // 26: file.v1.FileService.GetPresignedUploadPartURL:output_type -> file.v1.GetPresignedUploadPartURLResponse
-	13, // 27: file.v1.FileService.CompleteMultipartUpload:output_type -> file.v1.CompleteMultipartUploadResponse
-	15, // 28: file.v1.FileService.AbortMultipartUpload:output_type -> file.v1.AbortMultipartUploadResponse
-	6,  // 29: file.v1.FileService.CreateFolder:output_type -> file.v1.CreateFolderResponse
-	4,  // 30: file.v1.FileService.ListFilesByParent:output_type -> file.v1.ListFilesByParentResponse
-	17, // 31: file.v1.FileService.ToggleFavorite:output_type -> file.v1.ToggleFavoriteResponse
-	19, // 32: file.v1.FileService.DeleteFile:output_type -> file.v1.DeleteFileResponse
-	21, // 33: file.v1.FileService.RestoreFile:output_type -> file.v1.RestoreFileResponse
-	23, // 34: file.v1.FileService.Rename:output_type -> file.v1.RenameResponse
-	25, // 35: file.v1.FileService.MarkAsIsPublic:output_type -> file.v1.MarkAsIsPublicResponse
-	27, // 36: file.v1.FileService.MarkAsNotIsPublic:output_type -> file.v1.MarkAsNotIsPublicResponse
-	29, // 37: file.v1.FileService.AddAccessEmail:output_type -> file.v1.AddAccessEmailResponse
-	35, // 38: file.v1.FileService.GetAccessStatus:output_type -> file.v1.GetAccessStatusResponse
-	31, // 39: file.v1.FileService.RemoveSingleAccessEmail:output_type -> file.v1.RemoveSingleAccessEmailResponse
-	33, // 40: file.v1.FileService.RemoveAllAccessEmails:output_type -> file.v1.RemoveAllAccessEmailsResponse
-	1,  // 41: file.v1.FileService.GetAccountSize:output_type -> file.v1.GetAccountSizeResponse
-	25, // [25:42] is the sub-list for method output_type
-	8,  // [8:25] is the sub-list for method input_type
+	4,  // 0: file.v1.ListFilesByParentResponse.path:type_name -> file.v1.PathSegment
+	38, // 1: file.v1.ListFilesByParentResponse.files:type_name -> file.v1.FileMetadata
+	38, // 2: file.v1.CreateFolderResponse.folder:type_name -> file.v1.FileMetadata
+	14, // 3: file.v1.CompleteMultipartUploadRequest.parts:type_name -> file.v1.CompletedPart
+	38, // 4: file.v1.CompleteMultipartUploadResponse.file:type_name -> file.v1.FileMetadata
+	39, // 5: file.v1.FileMetadata.created_at:type_name -> google.protobuf.Timestamp
+	39, // 6: file.v1.FileMetadata.updated_at:type_name -> google.protobuf.Timestamp
+	39, // 7: file.v1.FileMetadata.deleted_at:type_name -> google.protobuf.Timestamp
+	9,  // 8: file.v1.FileService.InitiateMultipartUpload:input_type -> file.v1.InitiateMultipartUploadRequest
+	11, // 9: file.v1.FileService.GetPresignedUploadPartURL:input_type -> file.v1.GetPresignedUploadPartURLRequest
+	13, // 10: file.v1.FileService.CompleteMultipartUpload:input_type -> file.v1.CompleteMultipartUploadRequest
+	16, // 11: file.v1.FileService.AbortMultipartUpload:input_type -> file.v1.AbortMultipartUploadRequest
+	7,  // 12: file.v1.FileService.CreateFolder:input_type -> file.v1.CreateFolderRequest
+	5,  // 13: file.v1.FileService.ListFilesByParent:input_type -> file.v1.ListFilesByParentRequest
+	18, // 14: file.v1.FileService.ToggleFavorite:input_type -> file.v1.ToggleFavoriteRequest
+	20, // 15: file.v1.FileService.DeleteFile:input_type -> file.v1.DeleteFileRequest
+	22, // 16: file.v1.FileService.RestoreFile:input_type -> file.v1.RestoreFileRequest
+	24, // 17: file.v1.FileService.Rename:input_type -> file.v1.RenameRequest
+	26, // 18: file.v1.FileService.MarkAsIsPublic:input_type -> file.v1.MarkAsIsPublicRequest
+	28, // 19: file.v1.FileService.MarkAsNotIsPublic:input_type -> file.v1.MarkAsNotIsPublicRequest
+	30, // 20: file.v1.FileService.AddAccessEmail:input_type -> file.v1.AddAccessEmailRequest
+	36, // 21: file.v1.FileService.GetAccessStatus:input_type -> file.v1.GetAccessStatusRequest
+	32, // 22: file.v1.FileService.RemoveSingleAccessEmail:input_type -> file.v1.RemoveSingleAccessEmailRequest
+	34, // 23: file.v1.FileService.RemoveAllAccessEmails:input_type -> file.v1.RemoveAllAccessEmailsRequest
+	2,  // 24: file.v1.FileService.GetAccountSize:input_type -> file.v1.GetAccountSizeRequest
+	0,  // 25: file.v1.FileService.PermanentlyDeleteFile:input_type -> file.v1.PermanentlyDeleteFileRequest
+	10, // 26: file.v1.FileService.InitiateMultipartUpload:output_type -> file.v1.InitiateMultipartUploadResponse
+	12, // 27: file.v1.FileService.GetPresignedUploadPartURL:output_type -> file.v1.GetPresignedUploadPartURLResponse
+	15, // 28: file.v1.FileService.CompleteMultipartUpload:output_type -> file.v1.CompleteMultipartUploadResponse
+	17, // 29: file.v1.FileService.AbortMultipartUpload:output_type -> file.v1.AbortMultipartUploadResponse
+	8,  // 30: file.v1.FileService.CreateFolder:output_type -> file.v1.CreateFolderResponse
+	6,  // 31: file.v1.FileService.ListFilesByParent:output_type -> file.v1.ListFilesByParentResponse
+	19, // 32: file.v1.FileService.ToggleFavorite:output_type -> file.v1.ToggleFavoriteResponse
+	21, // 33: file.v1.FileService.DeleteFile:output_type -> file.v1.DeleteFileResponse
+	23, // 34: file.v1.FileService.RestoreFile:output_type -> file.v1.RestoreFileResponse
+	25, // 35: file.v1.FileService.Rename:output_type -> file.v1.RenameResponse
+	27, // 36: file.v1.FileService.MarkAsIsPublic:output_type -> file.v1.MarkAsIsPublicResponse
+	29, // 37: file.v1.FileService.MarkAsNotIsPublic:output_type -> file.v1.MarkAsNotIsPublicResponse
+	31, // 38: file.v1.FileService.AddAccessEmail:output_type -> file.v1.AddAccessEmailResponse
+	37, // 39: file.v1.FileService.GetAccessStatus:output_type -> file.v1.GetAccessStatusResponse
+	33, // 40: file.v1.FileService.RemoveSingleAccessEmail:output_type -> file.v1.RemoveSingleAccessEmailResponse
+	35, // 41: file.v1.FileService.RemoveAllAccessEmails:output_type -> file.v1.RemoveAllAccessEmailsResponse
+	3,  // 42: file.v1.FileService.GetAccountSize:output_type -> file.v1.GetAccountSizeResponse
+	1,  // 43: file.v1.FileService.PermanentlyDeleteFile:output_type -> file.v1.PermanentlyDeleteFileResponse
+	26, // [26:44] is the sub-list for method output_type
+	8,  // [8:26] is the sub-list for method input_type
 	8,  // [8:8] is the sub-list for extension type_name
 	8,  // [8:8] is the sub-list for extension extendee
 	0,  // [0:8] is the sub-list for field type_name
@@ -2197,7 +2285,7 @@ func file_file_v1_file_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_file_v1_file_proto_rawDesc), len(file_file_v1_file_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   37,
+			NumMessages:   39,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
