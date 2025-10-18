@@ -26,6 +26,17 @@ service FileService {
   rpc RemoveAllAccessEmails(RemoveAllAccessEmailsRequest) returns (RemoveAllAccessEmailsResponse);
   rpc GetAccountSize(GetAccountSizeRequest) returns (GetAccountSizeResponse);
   rpc PermanentlyDeleteFile(PermanentlyDeleteFileRequest) returns (PermanentlyDeleteFileResponse);
+  rpc ViewFile(ViewFileRequest) returns (ViewFileResponse);
+}
+
+message ViewFileRequest {
+   string id = 1;
+}
+
+message ViewFileResponse {
+  string thumbnail = 2;
+  FileMetadata metadata = 3;
+  bool allowed = 4;
 }
 
 message PermanentlyDeleteFileRequest {
@@ -33,6 +44,7 @@ message PermanentlyDeleteFileRequest {
 }
 
 message PermanentlyDeleteFileResponse {}
+
 
 message GetAccountSizeRequest {}
 
