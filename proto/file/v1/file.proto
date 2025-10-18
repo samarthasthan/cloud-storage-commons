@@ -24,6 +24,15 @@ service FileService {
   rpc GetAccessStatus(GetAccessStatusRequest) returns (GetAccessStatusResponse);
   rpc RemoveSingleAccessEmail(RemoveSingleAccessEmailRequest) returns (RemoveSingleAccessEmailResponse);
   rpc RemoveAllAccessEmails(RemoveAllAccessEmailsRequest) returns (RemoveAllAccessEmailsResponse);
+  rpc GetAccountSize(GetAccountSizeRequest) returns (GetAccountSizeResponse);
+}
+
+message GetAccountSizeRequest {}
+
+message GetAccountSizeResponse {
+  string plan = 1;
+  int64  current_size = 2;
+  int64  capacity_size = 3;
 }
 
 message PathSegment {
