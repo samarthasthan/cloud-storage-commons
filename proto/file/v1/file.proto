@@ -27,6 +27,16 @@ service FileService {
   rpc GetAccountSize(GetAccountSizeRequest) returns (GetAccountSizeResponse);
   rpc PermanentlyDeleteFile(PermanentlyDeleteFileRequest) returns (PermanentlyDeleteFileResponse);
   rpc ViewFile(ViewFileRequest) returns (ViewFileResponse);
+  rpc DownloadFile(DownloadFileRequest) returns (DownloadFileResponse);
+}
+
+message DownloadFileRequest {
+   string id = 1;
+}
+
+message DownloadFileResponse {
+  string presigned_url = 1;
+  bool allowed = 2;
 }
 
 message ViewFileRequest {
