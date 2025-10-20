@@ -44,7 +44,6 @@ message ViewFileRequest {
 }
 
 message ViewFileResponse {
-  string thumbnail = 2;
   FileMetadata metadata = 3;
   bool allowed = 4;
 }

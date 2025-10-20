@@ -10,18 +10,6 @@ public interface ViewFileResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string thumbnail = 2 [json_name = "thumbnail"];</code>
-   * @return The thumbnail.
-   */
-  java.lang.String getThumbnail();
-  /**
-   * <code>string thumbnail = 2 [json_name = "thumbnail"];</code>
-   * @return The bytes for thumbnail.
-   */
-  com.google.protobuf.ByteString
-      getThumbnailBytes();
-
-  /**
    * <code>.file.v1.FileMetadata metadata = 3 [json_name = "metadata"];</code>
    * @return Whether the metadata field is set.
    */

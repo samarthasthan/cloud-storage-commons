@@ -27,7 +27,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ViewFileResponse() {
-    thumbnail_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -44,45 +43,6 @@ private static final long serialVersionUID = 0L;
   }
 
   private int bitField0_;
-  public static final int THUMBNAIL_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object thumbnail_ = "";
-  /**
-   * <code>string thumbnail = 2 [json_name = "thumbnail"];</code>
-   * @return The thumbnail.
-   */
-  @java.lang.Override
-  public java.lang.String getThumbnail() {
-    java.lang.Object ref = thumbnail_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      thumbnail_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string thumbnail = 2 [json_name = "thumbnail"];</code>
-   * @return The bytes for thumbnail.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getThumbnailBytes() {
-    java.lang.Object ref = thumbnail_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      thumbnail_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   public static final int METADATA_FIELD_NUMBER = 3;
   private com.samarthasthan.file.v1.FileMetadata metadata_;
   /**
@@ -134,9 +94,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(thumbnail_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 2, thumbnail_);
-    }
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(3, getMetadata());
     }
@@ -152,9 +109,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(thumbnail_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, thumbnail_);
-    }
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getMetadata());
@@ -178,8 +132,6 @@ private static final long serialVersionUID = 0L;
     }
     com.samarthasthan.file.v1.ViewFileResponse other = (com.samarthasthan.file.v1.ViewFileResponse) obj;
 
-    if (!getThumbnail()
-        .equals(other.getThumbnail())) return false;
     if (hasMetadata() != other.hasMetadata()) return false;
     if (hasMetadata()) {
       if (!getMetadata()
@@ -198,8 +150,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + THUMBNAIL_FIELD_NUMBER;
-    hash = (53 * hash) + getThumbnail().hashCode();
     if (hasMetadata()) {
       hash = (37 * hash) + METADATA_FIELD_NUMBER;
       hash = (53 * hash) + getMetadata().hashCode();
@@ -344,7 +294,6 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      thumbnail_ = "";
       metadata_ = null;
       if (metadataBuilder_ != null) {
         metadataBuilder_.dispose();
@@ -384,17 +333,14 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial0(com.samarthasthan.file.v1.ViewFileResponse result) {
       int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.thumbnail_ = thumbnail_;
-      }
       int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (((from_bitField0_ & 0x00000001) != 0)) {
         result.metadata_ = metadataBuilder_ == null
             ? metadata_
             : metadataBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.allowed_ = allowed_;
       }
       result.bitField0_ |= to_bitField0_;
@@ -412,11 +358,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.samarthasthan.file.v1.ViewFileResponse other) {
       if (other == com.samarthasthan.file.v1.ViewFileResponse.getDefaultInstance()) return this;
-      if (!other.getThumbnail().isEmpty()) {
-        thumbnail_ = other.thumbnail_;
-        bitField0_ |= 0x00000001;
-        onChanged();
-      }
       if (other.hasMetadata()) {
         mergeMetadata(other.getMetadata());
       }
@@ -449,21 +390,16 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 18: {
-              thumbnail_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 18
             case 26: {
               input.readMessage(
                   getMetadataFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             } // case 26
             case 32: {
               allowed_ = input.readBool();
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             } // case 32
             default: {
@@ -483,78 +419,6 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object thumbnail_ = "";
-    /**
-     * <code>string thumbnail = 2 [json_name = "thumbnail"];</code>
-     * @return The thumbnail.
-     */
-    public java.lang.String getThumbnail() {
-      java.lang.Object ref = thumbnail_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        thumbnail_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string thumbnail = 2 [json_name = "thumbnail"];</code>
-     * @return The bytes for thumbnail.
-     */
-    public com.google.protobuf.ByteString
-        getThumbnailBytes() {
-      java.lang.Object ref = thumbnail_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        thumbnail_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string thumbnail = 2 [json_name = "thumbnail"];</code>
-     * @param value The thumbnail to set.
-     * @return This builder for chaining.
-     */
-    public Builder setThumbnail(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      thumbnail_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string thumbnail = 2 [json_name = "thumbnail"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearThumbnail() {
-      thumbnail_ = getDefaultInstance().getThumbnail();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string thumbnail = 2 [json_name = "thumbnail"];</code>
-     * @param value The bytes for thumbnail to set.
-     * @return This builder for chaining.
-     */
-    public Builder setThumbnailBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      thumbnail_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-
     private com.samarthasthan.file.v1.FileMetadata metadata_;
     private com.google.protobuf.SingleFieldBuilder<
         com.samarthasthan.file.v1.FileMetadata, com.samarthasthan.file.v1.FileMetadata.Builder, com.samarthasthan.file.v1.FileMetadataOrBuilder> metadataBuilder_;
@@ -563,7 +427,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metadata field is set.
      */
     public boolean hasMetadata() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.file.v1.FileMetadata metadata = 3 [json_name = "metadata"];</code>
@@ -588,7 +452,7 @@ private static final long serialVersionUID = 0L;
       } else {
         metadataBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -602,7 +466,7 @@ private static final long serialVersionUID = 0L;
       } else {
         metadataBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -611,7 +475,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetadata(com.samarthasthan.file.v1.FileMetadata value) {
       if (metadataBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
+        if (((bitField0_ & 0x00000001) != 0) &&
           metadata_ != null &&
           metadata_ != com.samarthasthan.file.v1.FileMetadata.getDefaultInstance()) {
           getMetadataBuilder().mergeFrom(value);
@@ -622,7 +486,7 @@ private static final long serialVersionUID = 0L;
         metadataBuilder_.mergeFrom(value);
       }
       if (metadata_ != null) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       return this;
@@ -631,7 +495,7 @@ private static final long serialVersionUID = 0L;
      * <code>.file.v1.FileMetadata metadata = 3 [json_name = "metadata"];</code>
      */
     public Builder clearMetadata() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000001);
       metadata_ = null;
       if (metadataBuilder_ != null) {
         metadataBuilder_.dispose();
@@ -644,7 +508,7 @@ private static final long serialVersionUID = 0L;
      * <code>.file.v1.FileMetadata metadata = 3 [json_name = "metadata"];</code>
      */
     public com.samarthasthan.file.v1.FileMetadata.Builder getMetadataBuilder() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMetadataFieldBuilder().getBuilder();
     }
@@ -693,7 +557,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowed(boolean value) {
 
       allowed_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -702,7 +566,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowed() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000002);
       allowed_ = false;
       onChanged();
       return this;

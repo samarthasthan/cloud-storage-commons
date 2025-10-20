@@ -165,7 +165,6 @@ func (x *ViewFileRequest) GetId() string {
 
 type ViewFileResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Thumbnail     string                 `protobuf:"bytes,2,opt,name=thumbnail,proto3" json:"thumbnail,omitempty"`
 	Metadata      *FileMetadata          `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
 	Allowed       bool                   `protobuf:"varint,4,opt,name=allowed,proto3" json:"allowed,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -200,13 +199,6 @@ func (x *ViewFileResponse) ProtoReflect() protoreflect.Message {
 // Deprecated: Use ViewFileResponse.ProtoReflect.Descriptor instead.
 func (*ViewFileResponse) Descriptor() ([]byte, []int) {
 	return file_file_v1_file_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *ViewFileResponse) GetThumbnail() string {
-	if x != nil {
-		return x.Thumbnail
-	}
-	return ""
 }
 
 func (x *ViewFileResponse) GetMetadata() *FileMetadata {
@@ -2322,9 +2314,8 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\rpresigned_url\x18\x01 \x01(\tR\fpresignedUrl\x12\x18\n" +
 	"\aallowed\x18\x02 \x01(\bR\aallowed\"!\n" +
 	"\x0fViewFileRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"}\n" +
-	"\x10ViewFileResponse\x12\x1c\n" +
-	"\tthumbnail\x18\x02 \x01(\tR\tthumbnail\x121\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"_\n" +
+	"\x10ViewFileResponse\x121\n" +
 	"\bmetadata\x18\x03 \x01(\v2\x15.file.v1.FileMetadataR\bmetadata\x12\x18\n" +
 	"\aallowed\x18\x04 \x01(\bR\aallowed\".\n" +
 	"\x1cPermanentlyDeleteFileRequest\x12\x0e\n" +

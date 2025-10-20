@@ -71,7 +71,6 @@ proto.file.v1.ViewFileResponse.prototype.toObject = function(opt_includeInstance
  */
 proto.file.v1.ViewFileResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-thumbnail: jspb.Message.getFieldWithDefault(msg, 2, ""),
 metadata: (f = msg.getMetadata()) && proto.file.v1.FileMetadata.toObject(includeInstance, f),
 allowed: jspb.Message.getBooleanFieldWithDefault(msg, 4, false)
   };
@@ -110,10 +109,6 @@ proto.file.v1.ViewFileResponse.deserializeBinaryFromReader = function(msg, reade
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setThumbnail(value);
-      break;
     case 3:
       var value = new proto.file.v1.FileMetadata;
       reader.readMessage(value,proto.file.v1.FileMetadata.deserializeBinaryFromReader);
@@ -152,13 +147,6 @@ proto.file.v1.ViewFileResponse.prototype.serializeBinary = function() {
  */
 proto.file.v1.ViewFileResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getThumbnail();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getMetadata();
   if (f != null) {
     writer.writeMessage(
@@ -174,24 +162,6 @@ proto.file.v1.ViewFileResponse.serializeBinaryToWriter = function(message, write
       f
     );
   }
-};
-
-
-/**
- * optional string thumbnail = 2;
- * @return {string}
- */
-proto.file.v1.ViewFileResponse.prototype.getThumbnail = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.file.v1.ViewFileResponse} returns this
- */
-proto.file.v1.ViewFileResponse.prototype.setThumbnail = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
