@@ -22,16 +22,16 @@ public interface ThumbnailOrBuilder extends
       getIdBytes();
 
   /**
-   * <code>string lable = 2 [json_name = "lable"];</code>
-   * @return The lable.
+   * <code>string label = 2 [json_name = "label"];</code>
+   * @return The label.
    */
-  java.lang.String getLable();
+  java.lang.String getLabel();
   /**
-   * <code>string lable = 2 [json_name = "lable"];</code>
-   * @return The bytes for lable.
+   * <code>string label = 2 [json_name = "label"];</code>
+   * @return The bytes for label.
    */
   com.google.protobuf.ByteString
-      getLableBytes();
+      getLabelBytes();
 
   /**
    * <code>int32 width = 3 [json_name = "width"];</code>

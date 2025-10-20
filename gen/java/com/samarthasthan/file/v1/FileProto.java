@@ -345,8 +345,8 @@ public final class FileProto {
       "pe\022\033\n\tparent_id\030\014 \001(\tR\010parentId\022\037\n\013is_fa" +
       "vorite\030\r \001(\010R\nisFavorite\0222\n\nthumbnails\030\016" +
       " \003(\0132\022.file.v1.ThumbnailR\nthumbnails\"\235\001\n" +
-      "\tThumbnail\022\016\n\002id\030\001 \001(\tR\002id\022\024\n\005lable\030\002 \001(" +
-      "\tR\005lable\022\024\n\005width\030\003 \001(\005R\005width\022\026\n\006height" +
+      "\tThumbnail\022\016\n\002id\030\001 \001(\tR\002id\022\024\n\005label\030\002 \001(" +
+      "\tR\005label\022\024\n\005width\030\003 \001(\005R\005width\022\026\n\006height" +
       "\030\004 \001(\005R\006height\022\026\n\006format\030\005 \001(\tR\006format\022\022" +
       "\n\004size\030\006 \001(\005R\004size\022\020\n\003url\030\010 \001(\tR\003url2\201\016\n" +
       "\013FileService\022l\n\027InitiateMultipartUpload\022" +
@@ -669,7 +669,7 @@ public final class FileProto {
     internal_static_file_v1_Thumbnail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_Thumbnail_descriptor,
-        new java.lang.String[] { "Id", "Lable", "Width", "Height", "Format", "Size", "Url", });
+        new java.lang.String[] { "Id", "Label", "Width", "Height", "Format", "Size", "Url", });
     descriptor.resolveAllFeaturesImmutable();
     com.google.protobuf.TimestampProto.getDescriptor();
     build.buf.validate.ValidateProto.getDescriptor();

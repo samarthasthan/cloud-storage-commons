@@ -28,7 +28,7 @@ private static final long serialVersionUID = 0L;
   }
   private Thumbnail() {
     id_ = "";
-    lable_ = "";
+    label_ = "";
     format_ = "";
     url_ = "";
   }
@@ -85,39 +85,39 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int LABLE_FIELD_NUMBER = 2;
+  public static final int LABEL_FIELD_NUMBER = 2;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object lable_ = "";
+  private volatile java.lang.Object label_ = "";
   /**
-   * <code>string lable = 2 [json_name = "lable"];</code>
-   * @return The lable.
+   * <code>string label = 2 [json_name = "label"];</code>
+   * @return The label.
    */
   @java.lang.Override
-  public java.lang.String getLable() {
-    java.lang.Object ref = lable_;
+  public java.lang.String getLabel() {
+    java.lang.Object ref = label_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      lable_ = s;
+      label_ = s;
       return s;
     }
   }
   /**
-   * <code>string lable = 2 [json_name = "lable"];</code>
-   * @return The bytes for lable.
+   * <code>string label = 2 [json_name = "label"];</code>
+   * @return The bytes for label.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getLableBytes() {
-    java.lang.Object ref = lable_;
+      getLabelBytes() {
+    java.lang.Object ref = label_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      lable_ = b;
+      label_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -252,8 +252,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(lable_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 2, lable_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(label_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 2, label_);
     }
     if (width_ != 0) {
       output.writeInt32(3, width_);
@@ -282,8 +282,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(lable_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, lable_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(label_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, label_);
     }
     if (width_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -320,8 +320,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getId()
         .equals(other.getId())) return false;
-    if (!getLable()
-        .equals(other.getLable())) return false;
+    if (!getLabel()
+        .equals(other.getLabel())) return false;
     if (getWidth()
         != other.getWidth()) return false;
     if (getHeight()
@@ -345,8 +345,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
-    hash = (37 * hash) + LABLE_FIELD_NUMBER;
-    hash = (53 * hash) + getLable().hashCode();
+    hash = (37 * hash) + LABEL_FIELD_NUMBER;
+    hash = (53 * hash) + getLabel().hashCode();
     hash = (37 * hash) + WIDTH_FIELD_NUMBER;
     hash = (53 * hash) + getWidth();
     hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
@@ -489,7 +489,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       id_ = "";
-      lable_ = "";
+      label_ = "";
       width_ = 0;
       height_ = 0;
       format_ = "";
@@ -532,7 +532,7 @@ private static final long serialVersionUID = 0L;
         result.id_ = id_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.lable_ = lable_;
+        result.label_ = label_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.width_ = width_;
@@ -568,8 +568,8 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000001;
         onChanged();
       }
-      if (!other.getLable().isEmpty()) {
-        lable_ = other.lable_;
+      if (!other.getLabel().isEmpty()) {
+        label_ = other.label_;
         bitField0_ |= 0x00000002;
         onChanged();
       }
@@ -624,7 +624,7 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 10
             case 18: {
-              lable_ = input.readStringRequireUtf8();
+              label_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000002;
               break;
             } // case 18
@@ -742,73 +742,73 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object lable_ = "";
+    private java.lang.Object label_ = "";
     /**
-     * <code>string lable = 2 [json_name = "lable"];</code>
-     * @return The lable.
+     * <code>string label = 2 [json_name = "label"];</code>
+     * @return The label.
      */
-    public java.lang.String getLable() {
-      java.lang.Object ref = lable_;
+    public java.lang.String getLabel() {
+      java.lang.Object ref = label_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        lable_ = s;
+        label_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string lable = 2 [json_name = "lable"];</code>
-     * @return The bytes for lable.
+     * <code>string label = 2 [json_name = "label"];</code>
+     * @return The bytes for label.
      */
     public com.google.protobuf.ByteString
-        getLableBytes() {
-      java.lang.Object ref = lable_;
+        getLabelBytes() {
+      java.lang.Object ref = label_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        lable_ = b;
+        label_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string lable = 2 [json_name = "lable"];</code>
-     * @param value The lable to set.
+     * <code>string label = 2 [json_name = "label"];</code>
+     * @param value The label to set.
      * @return This builder for chaining.
      */
-    public Builder setLable(
+    public Builder setLabel(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      lable_ = value;
+      label_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>string lable = 2 [json_name = "lable"];</code>
+     * <code>string label = 2 [json_name = "label"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearLable() {
-      lable_ = getDefaultInstance().getLable();
+    public Builder clearLabel() {
+      label_ = getDefaultInstance().getLabel();
       bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
-     * <code>string lable = 2 [json_name = "lable"];</code>
-     * @param value The bytes for lable to set.
+     * <code>string label = 2 [json_name = "label"];</code>
+     * @param value The bytes for label to set.
      * @return This builder for chaining.
      */
-    public Builder setLableBytes(
+    public Builder setLabelBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      lable_ = value;
+      label_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;

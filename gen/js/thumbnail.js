@@ -71,7 +71,7 @@ proto.file.v1.Thumbnail.prototype.toObject = function(opt_includeInstance) {
 proto.file.v1.Thumbnail.toObject = function(includeInstance, msg) {
   var f, obj = {
 id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-lable: jspb.Message.getFieldWithDefault(msg, 2, ""),
+label: jspb.Message.getFieldWithDefault(msg, 2, ""),
 width: jspb.Message.getFieldWithDefault(msg, 3, 0),
 height: jspb.Message.getFieldWithDefault(msg, 4, 0),
 format: jspb.Message.getFieldWithDefault(msg, 5, ""),
@@ -119,7 +119,7 @@ proto.file.v1.Thumbnail.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setLable(value);
+      msg.setLabel(value);
       break;
     case 3:
       var value = /** @type {number} */ (reader.readInt32());
@@ -177,7 +177,7 @@ proto.file.v1.Thumbnail.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getLable();
+  f = message.getLabel();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -241,10 +241,10 @@ proto.file.v1.Thumbnail.prototype.setId = function(value) {
 
 
 /**
- * optional string lable = 2;
+ * optional string label = 2;
  * @return {string}
  */
-proto.file.v1.Thumbnail.prototype.getLable = function() {
+proto.file.v1.Thumbnail.prototype.getLabel = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -253,7 +253,7 @@ proto.file.v1.Thumbnail.prototype.getLable = function() {
  * @param {string} value
  * @return {!proto.file.v1.Thumbnail} returns this
  */
-proto.file.v1.Thumbnail.prototype.setLable = function(value) {
+proto.file.v1.Thumbnail.prototype.setLabel = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 

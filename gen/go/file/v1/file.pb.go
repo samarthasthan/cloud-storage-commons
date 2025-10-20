@@ -2222,7 +2222,7 @@ func (x *FileMetadata) GetThumbnails() []*Thumbnail {
 type Thumbnail struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Lable         string                 `protobuf:"bytes,2,opt,name=lable,proto3" json:"lable,omitempty"`
+	Label         string                 `protobuf:"bytes,2,opt,name=label,proto3" json:"label,omitempty"`
 	Width         int32                  `protobuf:"varint,3,opt,name=width,proto3" json:"width,omitempty"`
 	Height        int32                  `protobuf:"varint,4,opt,name=height,proto3" json:"height,omitempty"`
 	Format        string                 `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty"`
@@ -2269,9 +2269,9 @@ func (x *Thumbnail) GetId() string {
 	return ""
 }
 
-func (x *Thumbnail) GetLable() string {
+func (x *Thumbnail) GetLabel() string {
 	if x != nil {
-		return x.Lable
+		return x.Label
 	}
 	return ""
 }
@@ -2461,7 +2461,7 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"thumbnails\"\x9d\x01\n" +
 	"\tThumbnail\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
-	"\x05lable\x18\x02 \x01(\tR\x05lable\x12\x14\n" +
+	"\x05label\x18\x02 \x01(\tR\x05label\x12\x14\n" +
 	"\x05width\x18\x03 \x01(\x05R\x05width\x12\x16\n" +
 	"\x06height\x18\x04 \x01(\x05R\x06height\x12\x16\n" +
 	"\x06format\x18\x05 \x01(\tR\x06format\x12\x12\n" +
