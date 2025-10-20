@@ -64,8 +64,14 @@ public interface ThumbnailOrBuilder extends
   int getSize();
 
   /**
-   * <code>int32 created_at = 7 [json_name = "createdAt"];</code>
-   * @return The createdAt.
+   * <code>string url = 8 [json_name = "url"];</code>
+   * @return The url.
    */
-  int getCreatedAt();
+  java.lang.String getUrl();
+  /**
+   * <code>string url = 8 [json_name = "url"];</code>
+   * @return The bytes for url.
+   */
+  com.google.protobuf.ByteString
+      getUrlBytes();
 }

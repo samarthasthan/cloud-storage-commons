@@ -76,7 +76,7 @@ width: jspb.Message.getFieldWithDefault(msg, 3, 0),
 height: jspb.Message.getFieldWithDefault(msg, 4, 0),
 format: jspb.Message.getFieldWithDefault(msg, 5, ""),
 size: jspb.Message.getFieldWithDefault(msg, 6, 0),
-createdAt: jspb.Message.getFieldWithDefault(msg, 7, 0)
+url: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
 
   if (includeInstance) {
@@ -137,9 +137,9 @@ proto.file.v1.Thumbnail.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSize(value);
       break;
-    case 7:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setCreatedAt(value);
+    case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUrl(value);
       break;
     default:
       reader.skipField();
@@ -212,10 +212,10 @@ proto.file.v1.Thumbnail.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCreatedAt();
-  if (f !== 0) {
-    writer.writeInt32(
-      7,
+  f = message.getUrl();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
       f
     );
   }
@@ -331,20 +331,20 @@ proto.file.v1.Thumbnail.prototype.setSize = function(value) {
 
 
 /**
- * optional int32 created_at = 7;
- * @return {number}
+ * optional string url = 8;
+ * @return {string}
  */
-proto.file.v1.Thumbnail.prototype.getCreatedAt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+proto.file.v1.Thumbnail.prototype.getUrl = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.file.v1.Thumbnail} returns this
  */
-proto.file.v1.Thumbnail.prototype.setCreatedAt = function(value) {
-  return jspb.Message.setProto3IntField(this, 7, value);
+proto.file.v1.Thumbnail.prototype.setUrl = function(value) {
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 

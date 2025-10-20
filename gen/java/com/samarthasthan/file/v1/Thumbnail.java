@@ -30,6 +30,7 @@ private static final long serialVersionUID = 0L;
     id_ = "";
     lable_ = "";
     format_ = "";
+    url_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -195,15 +196,43 @@ private static final long serialVersionUID = 0L;
     return size_;
   }
 
-  public static final int CREATED_AT_FIELD_NUMBER = 7;
-  private int createdAt_ = 0;
+  public static final int URL_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object url_ = "";
   /**
-   * <code>int32 created_at = 7 [json_name = "createdAt"];</code>
-   * @return The createdAt.
+   * <code>string url = 8 [json_name = "url"];</code>
+   * @return The url.
    */
   @java.lang.Override
-  public int getCreatedAt() {
-    return createdAt_;
+  public java.lang.String getUrl() {
+    java.lang.Object ref = url_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      url_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string url = 8 [json_name = "url"];</code>
+   * @return The bytes for url.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUrlBytes() {
+    java.lang.Object ref = url_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      url_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -238,8 +267,8 @@ private static final long serialVersionUID = 0L;
     if (size_ != 0) {
       output.writeInt32(6, size_);
     }
-    if (createdAt_ != 0) {
-      output.writeInt32(7, createdAt_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(url_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 8, url_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -271,9 +300,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(6, size_);
     }
-    if (createdAt_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(7, createdAt_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(url_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(8, url_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -302,8 +330,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFormat())) return false;
     if (getSize()
         != other.getSize()) return false;
-    if (getCreatedAt()
-        != other.getCreatedAt()) return false;
+    if (!getUrl()
+        .equals(other.getUrl())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -327,8 +355,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFormat().hashCode();
     hash = (37 * hash) + SIZE_FIELD_NUMBER;
     hash = (53 * hash) + getSize();
-    hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
-    hash = (53 * hash) + getCreatedAt();
+    hash = (37 * hash) + URL_FIELD_NUMBER;
+    hash = (53 * hash) + getUrl().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -466,7 +494,7 @@ private static final long serialVersionUID = 0L;
       height_ = 0;
       format_ = "";
       size_ = 0;
-      createdAt_ = 0;
+      url_ = "";
       return this;
     }
 
@@ -519,7 +547,7 @@ private static final long serialVersionUID = 0L;
         result.size_ = size_;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.createdAt_ = createdAt_;
+        result.url_ = url_;
       }
     }
 
@@ -559,8 +587,10 @@ private static final long serialVersionUID = 0L;
       if (other.getSize() != 0) {
         setSize(other.getSize());
       }
-      if (other.getCreatedAt() != 0) {
-        setCreatedAt(other.getCreatedAt());
+      if (!other.getUrl().isEmpty()) {
+        url_ = other.url_;
+        bitField0_ |= 0x00000040;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -618,11 +648,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000020;
               break;
             } // case 48
-            case 56: {
-              createdAt_ = input.readInt32();
+            case 66: {
+              url_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000040;
               break;
-            } // case 56
+            } // case 66
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -952,34 +982,74 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int createdAt_ ;
+    private java.lang.Object url_ = "";
     /**
-     * <code>int32 created_at = 7 [json_name = "createdAt"];</code>
-     * @return The createdAt.
+     * <code>string url = 8 [json_name = "url"];</code>
+     * @return The url.
      */
-    @java.lang.Override
-    public int getCreatedAt() {
-      return createdAt_;
+    public java.lang.String getUrl() {
+      java.lang.Object ref = url_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        url_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int32 created_at = 7 [json_name = "createdAt"];</code>
-     * @param value The createdAt to set.
+     * <code>string url = 8 [json_name = "url"];</code>
+     * @return The bytes for url.
+     */
+    public com.google.protobuf.ByteString
+        getUrlBytes() {
+      java.lang.Object ref = url_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        url_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string url = 8 [json_name = "url"];</code>
+     * @param value The url to set.
      * @return This builder for chaining.
      */
-    public Builder setCreatedAt(int value) {
-
-      createdAt_ = value;
+    public Builder setUrl(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      url_ = value;
       bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 created_at = 7 [json_name = "createdAt"];</code>
+     * <code>string url = 8 [json_name = "url"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearCreatedAt() {
+    public Builder clearUrl() {
+      url_ = getDefaultInstance().getUrl();
       bitField0_ = (bitField0_ & ~0x00000040);
-      createdAt_ = 0;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string url = 8 [json_name = "url"];</code>
+     * @param value The bytes for url to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      url_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }

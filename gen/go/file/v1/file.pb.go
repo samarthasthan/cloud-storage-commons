@@ -2227,7 +2227,7 @@ type Thumbnail struct {
 	Height        int32                  `protobuf:"varint,4,opt,name=height,proto3" json:"height,omitempty"`
 	Format        string                 `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty"`
 	Size          int32                  `protobuf:"varint,6,opt,name=size,proto3" json:"size,omitempty"`
-	CreatedAt     int32                  `protobuf:"varint,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	Url           string                 `protobuf:"bytes,8,opt,name=url,proto3" json:"url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2304,11 +2304,11 @@ func (x *Thumbnail) GetSize() int32 {
 	return 0
 }
 
-func (x *Thumbnail) GetCreatedAt() int32 {
+func (x *Thumbnail) GetUrl() string {
 	if x != nil {
-		return x.CreatedAt
+		return x.Url
 	}
-	return 0
+	return ""
 }
 
 var File_file_v1_file_proto protoreflect.FileDescriptor
@@ -2458,16 +2458,15 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"isFavorite\x122\n" +
 	"\n" +
 	"thumbnails\x18\x0e \x03(\v2\x12.file.v1.ThumbnailR\n" +
-	"thumbnails\"\xaa\x01\n" +
+	"thumbnails\"\x9d\x01\n" +
 	"\tThumbnail\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05lable\x18\x02 \x01(\tR\x05lable\x12\x14\n" +
 	"\x05width\x18\x03 \x01(\x05R\x05width\x12\x16\n" +
 	"\x06height\x18\x04 \x01(\x05R\x06height\x12\x16\n" +
 	"\x06format\x18\x05 \x01(\tR\x06format\x12\x12\n" +
-	"\x04size\x18\x06 \x01(\x05R\x04size\x12\x1d\n" +
-	"\n" +
-	"created_at\x18\a \x01(\x05R\tcreatedAt2\x81\x0e\n" +
+	"\x04size\x18\x06 \x01(\x05R\x04size\x12\x10\n" +
+	"\x03url\x18\b \x01(\tR\x03url2\x81\x0e\n" +
 	"\vFileService\x12l\n" +
 	"\x17InitiateMultipartUpload\x12'.file.v1.InitiateMultipartUploadRequest\x1a(.file.v1.InitiateMultipartUploadResponse\x12r\n" +
 	"\x19GetPresignedUploadPartURL\x12).file.v1.GetPresignedUploadPartURLRequest\x1a*.file.v1.GetPresignedUploadPartURLResponse\x12l\n" +

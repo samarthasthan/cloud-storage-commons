@@ -246,5 +246,5 @@ message Thumbnail {
   int32 height  = 4;
   string format = 5;
   int32 size = 6;
-  int32 created_at = 7;
+  string url = 8;
 }
