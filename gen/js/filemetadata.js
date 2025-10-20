@@ -16,6 +16,7 @@ goog.provide('proto.file.v1.FileMetadata');
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
+goog.require('proto.file.v1.Thumbnail');
 goog.require('proto.google.protobuf.Timestamp');
 
 /**
@@ -29,7 +30,7 @@ goog.require('proto.google.protobuf.Timestamp');
  * @constructor
  */
 proto.file.v1.FileMetadata = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.file.v1.FileMetadata.repeatedFields_, null);
 };
 goog.inherits(proto.file.v1.FileMetadata, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -39,6 +40,13 @@ if (goog.DEBUG && !COMPILED) {
    */
   proto.file.v1.FileMetadata.displayName = 'proto.file.v1.FileMetadata';
 }
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.file.v1.FileMetadata.repeatedFields_ = [14];
 
 
 
@@ -83,7 +91,9 @@ updatedAt: (f = msg.getUpdatedAt()) && proto.google.protobuf.Timestamp.toObject(
 deletedAt: (f = msg.getDeletedAt()) && proto.google.protobuf.Timestamp.toObject(includeInstance, f),
 type: jspb.Message.getFieldWithDefault(msg, 11, ""),
 parentId: jspb.Message.getFieldWithDefault(msg, 12, ""),
-isFavorite: jspb.Message.getBooleanFieldWithDefault(msg, 13, false)
+isFavorite: jspb.Message.getBooleanFieldWithDefault(msg, 13, false),
+thumbnailsList: jspb.Message.toObjectList(msg.getThumbnailsList(),
+    proto.file.v1.Thumbnail.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -174,6 +184,11 @@ proto.file.v1.FileMetadata.deserializeBinaryFromReader = function(msg, reader) {
     case 13:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsFavorite(value);
+      break;
+    case 14:
+      var value = new proto.file.v1.Thumbnail;
+      reader.readMessage(value,proto.file.v1.Thumbnail.deserializeBinaryFromReader);
+      msg.addThumbnails(value);
       break;
     default:
       reader.skipField();
@@ -296,6 +311,14 @@ proto.file.v1.FileMetadata.serializeBinaryToWriter = function(message, writer) {
     writer.writeBool(
       13,
       f
+    );
+  }
+  f = message.getThumbnailsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      14,
+      f,
+      proto.file.v1.Thumbnail.serializeBinaryToWriter
     );
   }
 };
@@ -589,6 +612,44 @@ proto.file.v1.FileMetadata.prototype.getIsFavorite = function() {
  */
 proto.file.v1.FileMetadata.prototype.setIsFavorite = function(value) {
   return jspb.Message.setProto3BooleanField(this, 13, value);
+};
+
+
+/**
+ * repeated Thumbnail thumbnails = 14;
+ * @return {!Array<!proto.file.v1.Thumbnail>}
+ */
+proto.file.v1.FileMetadata.prototype.getThumbnailsList = function() {
+  return /** @type{!Array<!proto.file.v1.Thumbnail>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.file.v1.Thumbnail, 14));
+};
+
+
+/**
+ * @param {!Array<!proto.file.v1.Thumbnail>} value
+ * @return {!proto.file.v1.FileMetadata} returns this
+*/
+proto.file.v1.FileMetadata.prototype.setThumbnailsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 14, value);
+};
+
+
+/**
+ * @param {!proto.file.v1.Thumbnail=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.file.v1.Thumbnail}
+ */
+proto.file.v1.FileMetadata.prototype.addThumbnails = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 14, opt_value, proto.file.v1.Thumbnail, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.file.v1.FileMetadata} returns this
+ */
+proto.file.v1.FileMetadata.prototype.clearThumbnailsList = function() {
+  return this.setThumbnailsList([]);
 };
 
 

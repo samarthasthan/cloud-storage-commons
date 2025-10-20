@@ -183,4 +183,28 @@ public interface FileMetadataOrBuilder extends
    * @return The isFavorite.
    */
   boolean getIsFavorite();
+
+  /**
+   * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+   */
+  java.util.List<com.samarthasthan.file.v1.Thumbnail> 
+      getThumbnailsList();
+  /**
+   * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+   */
+  com.samarthasthan.file.v1.Thumbnail getThumbnails(int index);
+  /**
+   * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+   */
+  int getThumbnailsCount();
+  /**
+   * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+   */
+  java.util.List<? extends com.samarthasthan.file.v1.ThumbnailOrBuilder> 
+      getThumbnailsOrBuilderList();
+  /**
+   * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+   */
+  com.samarthasthan.file.v1.ThumbnailOrBuilder getThumbnailsOrBuilder(
+      int index);
 }

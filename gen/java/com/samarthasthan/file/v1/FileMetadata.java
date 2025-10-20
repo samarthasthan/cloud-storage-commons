@@ -34,6 +34,7 @@ private static final long serialVersionUID = 0L;
     shareId_ = "";
     type_ = "";
     parentId_ = "";
+    thumbnails_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -462,6 +463,47 @@ private static final long serialVersionUID = 0L;
     return isFavorite_;
   }
 
+  public static final int THUMBNAILS_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
+  private java.util.List<com.samarthasthan.file.v1.Thumbnail> thumbnails_;
+  /**
+   * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.samarthasthan.file.v1.Thumbnail> getThumbnailsList() {
+    return thumbnails_;
+  }
+  /**
+   * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.samarthasthan.file.v1.ThumbnailOrBuilder> 
+      getThumbnailsOrBuilderList() {
+    return thumbnails_;
+  }
+  /**
+   * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+   */
+  @java.lang.Override
+  public int getThumbnailsCount() {
+    return thumbnails_.size();
+  }
+  /**
+   * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+   */
+  @java.lang.Override
+  public com.samarthasthan.file.v1.Thumbnail getThumbnails(int index) {
+    return thumbnails_.get(index);
+  }
+  /**
+   * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+   */
+  @java.lang.Override
+  public com.samarthasthan.file.v1.ThumbnailOrBuilder getThumbnailsOrBuilder(
+      int index) {
+    return thumbnails_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -514,6 +556,9 @@ private static final long serialVersionUID = 0L;
     }
     if (isFavorite_ != false) {
       output.writeBool(13, isFavorite_);
+    }
+    for (int i = 0; i < thumbnails_.size(); i++) {
+      output.writeMessage(14, thumbnails_.get(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -569,6 +614,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(13, isFavorite_);
     }
+    for (int i = 0; i < thumbnails_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(14, thumbnails_.get(i));
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -619,6 +668,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getParentId())) return false;
     if (getIsFavorite()
         != other.getIsFavorite()) return false;
+    if (!getThumbnailsList()
+        .equals(other.getThumbnailsList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -665,6 +716,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + IS_FAVORITE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIsFavorite());
+    if (getThumbnailsCount() > 0) {
+      hash = (37 * hash) + THUMBNAILS_FIELD_NUMBER;
+      hash = (53 * hash) + getThumbnailsList().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -798,6 +853,7 @@ private static final long serialVersionUID = 0L;
         getCreatedAtFieldBuilder();
         getUpdatedAtFieldBuilder();
         getDeletedAtFieldBuilder();
+        getThumbnailsFieldBuilder();
       }
     }
     @java.lang.Override
@@ -829,6 +885,13 @@ private static final long serialVersionUID = 0L;
       type_ = "";
       parentId_ = "";
       isFavorite_ = false;
+      if (thumbnailsBuilder_ == null) {
+        thumbnails_ = java.util.Collections.emptyList();
+      } else {
+        thumbnails_ = null;
+        thumbnailsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00002000);
       return this;
     }
 
@@ -855,9 +918,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.samarthasthan.file.v1.FileMetadata buildPartial() {
       com.samarthasthan.file.v1.FileMetadata result = new com.samarthasthan.file.v1.FileMetadata(this);
+      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.samarthasthan.file.v1.FileMetadata result) {
+      if (thumbnailsBuilder_ == null) {
+        if (((bitField0_ & 0x00002000) != 0)) {
+          thumbnails_ = java.util.Collections.unmodifiableList(thumbnails_);
+          bitField0_ = (bitField0_ & ~0x00002000);
+        }
+        result.thumbnails_ = thumbnails_;
+      } else {
+        result.thumbnails_ = thumbnailsBuilder_.build();
+      }
     }
 
     private void buildPartial0(com.samarthasthan.file.v1.FileMetadata result) {
@@ -979,6 +1055,32 @@ private static final long serialVersionUID = 0L;
       if (other.getIsFavorite() != false) {
         setIsFavorite(other.getIsFavorite());
       }
+      if (thumbnailsBuilder_ == null) {
+        if (!other.thumbnails_.isEmpty()) {
+          if (thumbnails_.isEmpty()) {
+            thumbnails_ = other.thumbnails_;
+            bitField0_ = (bitField0_ & ~0x00002000);
+          } else {
+            ensureThumbnailsIsMutable();
+            thumbnails_.addAll(other.thumbnails_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.thumbnails_.isEmpty()) {
+          if (thumbnailsBuilder_.isEmpty()) {
+            thumbnailsBuilder_.dispose();
+            thumbnailsBuilder_ = null;
+            thumbnails_ = other.thumbnails_;
+            bitField0_ = (bitField0_ & ~0x00002000);
+            thumbnailsBuilder_ = 
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 getThumbnailsFieldBuilder() : null;
+          } else {
+            thumbnailsBuilder_.addAllMessages(other.thumbnails_);
+          }
+        }
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -1076,6 +1178,19 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00001000;
               break;
             } // case 104
+            case 114: {
+              com.samarthasthan.file.v1.Thumbnail m =
+                  input.readMessage(
+                      com.samarthasthan.file.v1.Thumbnail.parser(),
+                      extensionRegistry);
+              if (thumbnailsBuilder_ == null) {
+                ensureThumbnailsIsMutable();
+                thumbnails_.add(m);
+              } else {
+                thumbnailsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 114
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2126,6 +2241,246 @@ private static final long serialVersionUID = 0L;
       isFavorite_ = false;
       onChanged();
       return this;
+    }
+
+    private java.util.List<com.samarthasthan.file.v1.Thumbnail> thumbnails_ =
+      java.util.Collections.emptyList();
+    private void ensureThumbnailsIsMutable() {
+      if (!((bitField0_ & 0x00002000) != 0)) {
+        thumbnails_ = new java.util.ArrayList<com.samarthasthan.file.v1.Thumbnail>(thumbnails_);
+        bitField0_ |= 0x00002000;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.samarthasthan.file.v1.Thumbnail, com.samarthasthan.file.v1.Thumbnail.Builder, com.samarthasthan.file.v1.ThumbnailOrBuilder> thumbnailsBuilder_;
+
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public java.util.List<com.samarthasthan.file.v1.Thumbnail> getThumbnailsList() {
+      if (thumbnailsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(thumbnails_);
+      } else {
+        return thumbnailsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public int getThumbnailsCount() {
+      if (thumbnailsBuilder_ == null) {
+        return thumbnails_.size();
+      } else {
+        return thumbnailsBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public com.samarthasthan.file.v1.Thumbnail getThumbnails(int index) {
+      if (thumbnailsBuilder_ == null) {
+        return thumbnails_.get(index);
+      } else {
+        return thumbnailsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public Builder setThumbnails(
+        int index, com.samarthasthan.file.v1.Thumbnail value) {
+      if (thumbnailsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureThumbnailsIsMutable();
+        thumbnails_.set(index, value);
+        onChanged();
+      } else {
+        thumbnailsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public Builder setThumbnails(
+        int index, com.samarthasthan.file.v1.Thumbnail.Builder builderForValue) {
+      if (thumbnailsBuilder_ == null) {
+        ensureThumbnailsIsMutable();
+        thumbnails_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        thumbnailsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public Builder addThumbnails(com.samarthasthan.file.v1.Thumbnail value) {
+      if (thumbnailsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureThumbnailsIsMutable();
+        thumbnails_.add(value);
+        onChanged();
+      } else {
+        thumbnailsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public Builder addThumbnails(
+        int index, com.samarthasthan.file.v1.Thumbnail value) {
+      if (thumbnailsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureThumbnailsIsMutable();
+        thumbnails_.add(index, value);
+        onChanged();
+      } else {
+        thumbnailsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public Builder addThumbnails(
+        com.samarthasthan.file.v1.Thumbnail.Builder builderForValue) {
+      if (thumbnailsBuilder_ == null) {
+        ensureThumbnailsIsMutable();
+        thumbnails_.add(builderForValue.build());
+        onChanged();
+      } else {
+        thumbnailsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public Builder addThumbnails(
+        int index, com.samarthasthan.file.v1.Thumbnail.Builder builderForValue) {
+      if (thumbnailsBuilder_ == null) {
+        ensureThumbnailsIsMutable();
+        thumbnails_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        thumbnailsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public Builder addAllThumbnails(
+        java.lang.Iterable<? extends com.samarthasthan.file.v1.Thumbnail> values) {
+      if (thumbnailsBuilder_ == null) {
+        ensureThumbnailsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, thumbnails_);
+        onChanged();
+      } else {
+        thumbnailsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public Builder clearThumbnails() {
+      if (thumbnailsBuilder_ == null) {
+        thumbnails_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00002000);
+        onChanged();
+      } else {
+        thumbnailsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public Builder removeThumbnails(int index) {
+      if (thumbnailsBuilder_ == null) {
+        ensureThumbnailsIsMutable();
+        thumbnails_.remove(index);
+        onChanged();
+      } else {
+        thumbnailsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public com.samarthasthan.file.v1.Thumbnail.Builder getThumbnailsBuilder(
+        int index) {
+      return getThumbnailsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public com.samarthasthan.file.v1.ThumbnailOrBuilder getThumbnailsOrBuilder(
+        int index) {
+      if (thumbnailsBuilder_ == null) {
+        return thumbnails_.get(index);  } else {
+        return thumbnailsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public java.util.List<? extends com.samarthasthan.file.v1.ThumbnailOrBuilder> 
+         getThumbnailsOrBuilderList() {
+      if (thumbnailsBuilder_ != null) {
+        return thumbnailsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(thumbnails_);
+      }
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public com.samarthasthan.file.v1.Thumbnail.Builder addThumbnailsBuilder() {
+      return getThumbnailsFieldBuilder().addBuilder(
+          com.samarthasthan.file.v1.Thumbnail.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public com.samarthasthan.file.v1.Thumbnail.Builder addThumbnailsBuilder(
+        int index) {
+      return getThumbnailsFieldBuilder().addBuilder(
+          index, com.samarthasthan.file.v1.Thumbnail.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .file.v1.Thumbnail thumbnails = 14 [json_name = "thumbnails"];</code>
+     */
+    public java.util.List<com.samarthasthan.file.v1.Thumbnail.Builder> 
+         getThumbnailsBuilderList() {
+      return getThumbnailsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.samarthasthan.file.v1.Thumbnail, com.samarthasthan.file.v1.Thumbnail.Builder, com.samarthasthan.file.v1.ThumbnailOrBuilder> 
+        getThumbnailsFieldBuilder() {
+      if (thumbnailsBuilder_ == null) {
+        thumbnailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.samarthasthan.file.v1.Thumbnail, com.samarthasthan.file.v1.Thumbnail.Builder, com.samarthasthan.file.v1.ThumbnailOrBuilder>(
+                thumbnails_,
+                ((bitField0_ & 0x00002000) != 0),
+                getParentForChildren(),
+                isClean());
+        thumbnails_ = null;
+      }
+      return thumbnailsBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:file.v1.FileMetadata)

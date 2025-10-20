@@ -240,6 +240,11 @@ public final class FileProto {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_file_v1_FileMetadata_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_file_v1_Thumbnail_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_file_v1_Thumbnail_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -327,7 +332,7 @@ public final class FileProto {
       "\010R\tisSuccess\"(\n\026GetAccessStatusRequest\022\016" +
       "\n\002id\030\001 \001(\tR\002id\"N\n\027GetAccessStatusRespons" +
       "e\022\026\n\006emails\030\001 \003(\tR\006emails\022\033\n\tis_public\030\002" +
-      " \001(\010R\010isPublic\"\277\003\n\014FileMetadata\022\016\n\002id\030\001 " +
+      " \001(\010R\010isPublic\"\363\003\n\014FileMetadata\022\016\n\002id\030\001 " +
       "\001(\tR\002id\022\031\n\010owner_id\030\002 \001(\tR\007ownerId\022\022\n\004na" +
       "me\030\003 \001(\tR\004name\022!\n\014content_type\030\004 \001(\tR\013co" +
       "ntentType\022\022\n\004size\030\005 \001(\003R\004size\022\033\n\tis_publ" +
@@ -338,56 +343,62 @@ public final class FileProto {
       "dAt\0229\n\ndeleted_at\030\n \001(\0132\032.google.protobu" +
       "f.TimestampR\tdeletedAt\022\022\n\004type\030\013 \001(\tR\004ty" +
       "pe\022\033\n\tparent_id\030\014 \001(\tR\010parentId\022\037\n\013is_fa" +
-      "vorite\030\r \001(\010R\nisFavorite2\201\016\n\013FileService" +
-      "\022l\n\027InitiateMultipartUpload\022\'.file.v1.In" +
-      "itiateMultipartUploadRequest\032(.file.v1.I" +
-      "nitiateMultipartUploadResponse\022r\n\031GetPre" +
-      "signedUploadPartURL\022).file.v1.GetPresign" +
-      "edUploadPartURLRequest\032*.file.v1.GetPres" +
-      "ignedUploadPartURLResponse\022l\n\027CompleteMu" +
-      "ltipartUpload\022\'.file.v1.CompleteMultipar" +
-      "tUploadRequest\032(.file.v1.CompleteMultipa" +
-      "rtUploadResponse\022c\n\024AbortMultipartUpload" +
-      "\022$.file.v1.AbortMultipartUploadRequest\032%" +
-      ".file.v1.AbortMultipartUploadResponse\022K\n" +
-      "\014CreateFolder\022\034.file.v1.CreateFolderRequ" +
-      "est\032\035.file.v1.CreateFolderResponse\022Z\n\021Li" +
-      "stFilesByParent\022!.file.v1.ListFilesByPar" +
-      "entRequest\032\".file.v1.ListFilesByParentRe" +
-      "sponse\022Q\n\016ToggleFavorite\022\036.file.v1.Toggl" +
-      "eFavoriteRequest\032\037.file.v1.ToggleFavorit" +
-      "eResponse\022E\n\nDeleteFile\022\032.file.v1.Delete" +
-      "FileRequest\032\033.file.v1.DeleteFileResponse" +
-      "\022H\n\013RestoreFile\022\033.file.v1.RestoreFileReq" +
-      "uest\032\034.file.v1.RestoreFileResponse\0229\n\006Re" +
-      "name\022\026.file.v1.RenameRequest\032\027.file.v1.R" +
-      "enameResponse\022Q\n\016MarkAsIsPublic\022\036.file.v" +
-      "1.MarkAsIsPublicRequest\032\037.file.v1.MarkAs" +
-      "IsPublicResponse\022Z\n\021MarkAsNotIsPublic\022!." +
-      "file.v1.MarkAsNotIsPublicRequest\032\".file." +
-      "v1.MarkAsNotIsPublicResponse\022Q\n\016AddAcces" +
-      "sEmail\022\036.file.v1.AddAccessEmailRequest\032\037" +
-      ".file.v1.AddAccessEmailResponse\022T\n\017GetAc" +
-      "cessStatus\022\037.file.v1.GetAccessStatusRequ" +
-      "est\032 .file.v1.GetAccessStatusResponse\022l\n" +
-      "\027RemoveSingleAccessEmail\022\'.file.v1.Remov" +
-      "eSingleAccessEmailRequest\032(.file.v1.Remo" +
-      "veSingleAccessEmailResponse\022f\n\025RemoveAll" +
-      "AccessEmails\022%.file.v1.RemoveAllAccessEm" +
-      "ailsRequest\032&.file.v1.RemoveAllAccessEma" +
-      "ilsResponse\022Q\n\016GetAccountSize\022\036.file.v1." +
-      "GetAccountSizeRequest\032\037.file.v1.GetAccou" +
-      "ntSizeResponse\022f\n\025PermanentlyDeleteFile\022" +
-      "%.file.v1.PermanentlyDeleteFileRequest\032&" +
-      ".file.v1.PermanentlyDeleteFileResponse\022?" +
-      "\n\010ViewFile\022\030.file.v1.ViewFileRequest\032\031.f" +
-      "ile.v1.ViewFileResponse\022K\n\014DownloadFile\022" +
-      "\034.file.v1.DownloadFileRequest\032\035.file.v1." +
-      "DownloadFileResponseB\251\001\n\031com.samarthasth" +
-      "an.file.v1B\tFileProtoP\001ZDgithub.com/sama" +
-      "rthasthan/cloud-storage-commons/gen/go/f" +
-      "ile/v1;filev1\242\002\003FXX\252\002\007File.V1\312\002\007File\\V1\342" +
-      "\002\023File\\V1\\GPBMetadata\352\002\010File::V1b\006proto3"
+      "vorite\030\r \001(\010R\nisFavorite\0222\n\nthumbnails\030\016" +
+      " \003(\0132\022.file.v1.ThumbnailR\nthumbnails\"\252\001\n" +
+      "\tThumbnail\022\016\n\002id\030\001 \001(\tR\002id\022\024\n\005lable\030\002 \001(" +
+      "\tR\005lable\022\024\n\005width\030\003 \001(\005R\005width\022\026\n\006height" +
+      "\030\004 \001(\005R\006height\022\026\n\006format\030\005 \001(\tR\006format\022\022" +
+      "\n\004size\030\006 \001(\005R\004size\022\035\n\ncreated_at\030\007 \001(\005R\t" +
+      "createdAt2\201\016\n\013FileService\022l\n\027InitiateMul" +
+      "tipartUpload\022\'.file.v1.InitiateMultipart" +
+      "UploadRequest\032(.file.v1.InitiateMultipar" +
+      "tUploadResponse\022r\n\031GetPresignedUploadPar" +
+      "tURL\022).file.v1.GetPresignedUploadPartURL" +
+      "Request\032*.file.v1.GetPresignedUploadPart" +
+      "URLResponse\022l\n\027CompleteMultipartUpload\022\'" +
+      ".file.v1.CompleteMultipartUploadRequest\032" +
+      "(.file.v1.CompleteMultipartUploadRespons" +
+      "e\022c\n\024AbortMultipartUpload\022$.file.v1.Abor" +
+      "tMultipartUploadRequest\032%.file.v1.AbortM" +
+      "ultipartUploadResponse\022K\n\014CreateFolder\022\034" +
+      ".file.v1.CreateFolderRequest\032\035.file.v1.C" +
+      "reateFolderResponse\022Z\n\021ListFilesByParent" +
+      "\022!.file.v1.ListFilesByParentRequest\032\".fi" +
+      "le.v1.ListFilesByParentResponse\022Q\n\016Toggl" +
+      "eFavorite\022\036.file.v1.ToggleFavoriteReques" +
+      "t\032\037.file.v1.ToggleFavoriteResponse\022E\n\nDe" +
+      "leteFile\022\032.file.v1.DeleteFileRequest\032\033.f" +
+      "ile.v1.DeleteFileResponse\022H\n\013RestoreFile" +
+      "\022\033.file.v1.RestoreFileRequest\032\034.file.v1." +
+      "RestoreFileResponse\0229\n\006Rename\022\026.file.v1." +
+      "RenameRequest\032\027.file.v1.RenameResponse\022Q" +
+      "\n\016MarkAsIsPublic\022\036.file.v1.MarkAsIsPubli" +
+      "cRequest\032\037.file.v1.MarkAsIsPublicRespons" +
+      "e\022Z\n\021MarkAsNotIsPublic\022!.file.v1.MarkAsN" +
+      "otIsPublicRequest\032\".file.v1.MarkAsNotIsP" +
+      "ublicResponse\022Q\n\016AddAccessEmail\022\036.file.v" +
+      "1.AddAccessEmailRequest\032\037.file.v1.AddAcc" +
+      "essEmailResponse\022T\n\017GetAccessStatus\022\037.fi" +
+      "le.v1.GetAccessStatusRequest\032 .file.v1.G" +
+      "etAccessStatusResponse\022l\n\027RemoveSingleAc" +
+      "cessEmail\022\'.file.v1.RemoveSingleAccessEm" +
+      "ailRequest\032(.file.v1.RemoveSingleAccessE" +
+      "mailResponse\022f\n\025RemoveAllAccessEmails\022%." +
+      "file.v1.RemoveAllAccessEmailsRequest\032&.f" +
+      "ile.v1.RemoveAllAccessEmailsResponse\022Q\n\016" +
+      "GetAccountSize\022\036.file.v1.GetAccountSizeR" +
+      "equest\032\037.file.v1.GetAccountSizeResponse\022" +
+      "f\n\025PermanentlyDeleteFile\022%.file.v1.Perma" +
+      "nentlyDeleteFileRequest\032&.file.v1.Perman" +
+      "entlyDeleteFileResponse\022?\n\010ViewFile\022\030.fi" +
+      "le.v1.ViewFileRequest\032\031.file.v1.ViewFile" +
+      "Response\022K\n\014DownloadFile\022\034.file.v1.Downl" +
+      "oadFileRequest\032\035.file.v1.DownloadFileRes" +
+      "ponseB\251\001\n\031com.samarthasthan.file.v1B\tFil" +
+      "eProtoP\001ZDgithub.com/samarthasthan/cloud" +
+      "-storage-commons/gen/go/file/v1;filev1\242\002" +
+      "\003FXX\252\002\007File.V1\312\002\007File\\V1\342\002\023File\\V1\\GPBMe" +
+      "tadata\352\002\010File::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -652,7 +663,13 @@ public final class FileProto {
     internal_static_file_v1_FileMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_FileMetadata_descriptor,
-        new java.lang.String[] { "Id", "OwnerId", "Name", "ContentType", "Size", "IsPublic", "ShareId", "CreatedAt", "UpdatedAt", "DeletedAt", "Type", "ParentId", "IsFavorite", });
+        new java.lang.String[] { "Id", "OwnerId", "Name", "ContentType", "Size", "IsPublic", "ShareId", "CreatedAt", "UpdatedAt", "DeletedAt", "Type", "ParentId", "IsFavorite", "Thumbnails", });
+    internal_static_file_v1_Thumbnail_descriptor =
+      getDescriptor().getMessageTypes().get(43);
+    internal_static_file_v1_Thumbnail_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_file_v1_Thumbnail_descriptor,
+        new java.lang.String[] { "Id", "Lable", "Width", "Height", "Format", "Size", "CreatedAt", });
     descriptor.resolveAllFeaturesImmutable();
     com.google.protobuf.TimestampProto.getDescriptor();
     build.buf.validate.ValidateProto.getDescriptor();

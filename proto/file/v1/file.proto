@@ -236,5 +236,15 @@ message FileMetadata {
   string type         = 11; // "file" or "folder"
   string parent_id    = 12; // blank / "" = root
   bool is_favorite    = 13;
+  repeated Thumbnail thumbnails = 14;
 }
 
+message Thumbnail {
+  string id = 1;
+  string lable = 2;
+  int32 width = 3;
+  int32 height  = 4;
+  string format = 5;
+  int32 size = 6;
+  int32 created_at = 7;
+}
