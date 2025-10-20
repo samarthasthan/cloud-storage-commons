@@ -71,6 +71,8 @@ proto.file.v1.ViewFileResponse.prototype.toObject = function(opt_includeInstance
  */
 proto.file.v1.ViewFileResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
+loadable: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+url: jspb.Message.getFieldWithDefault(msg, 2, ""),
 metadata: (f = msg.getMetadata()) && proto.file.v1.FileMetadata.toObject(includeInstance, f),
 allowed: jspb.Message.getBooleanFieldWithDefault(msg, 4, false)
   };
@@ -109,6 +111,14 @@ proto.file.v1.ViewFileResponse.deserializeBinaryFromReader = function(msg, reade
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setLoadable(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUrl(value);
+      break;
     case 3:
       var value = new proto.file.v1.FileMetadata;
       reader.readMessage(value,proto.file.v1.FileMetadata.deserializeBinaryFromReader);
@@ -147,6 +157,20 @@ proto.file.v1.ViewFileResponse.prototype.serializeBinary = function() {
  */
 proto.file.v1.ViewFileResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getLoadable();
+  if (f) {
+    writer.writeBool(
+      1,
+      f
+    );
+  }
+  f = message.getUrl();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
   f = message.getMetadata();
   if (f != null) {
     writer.writeMessage(
@@ -162,6 +186,42 @@ proto.file.v1.ViewFileResponse.serializeBinaryToWriter = function(message, write
       f
     );
   }
+};
+
+
+/**
+ * optional bool loadable = 1;
+ * @return {boolean}
+ */
+proto.file.v1.ViewFileResponse.prototype.getLoadable = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.file.v1.ViewFileResponse} returns this
+ */
+proto.file.v1.ViewFileResponse.prototype.setLoadable = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 1, value);
+};
+
+
+/**
+ * optional string url = 2;
+ * @return {string}
+ */
+proto.file.v1.ViewFileResponse.prototype.getUrl = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.file.v1.ViewFileResponse} returns this
+ */
+proto.file.v1.ViewFileResponse.prototype.setUrl = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

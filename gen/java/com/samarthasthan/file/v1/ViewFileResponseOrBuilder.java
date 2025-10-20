@@ -10,6 +10,24 @@ public interface ViewFileResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <code>bool loadable = 1 [json_name = "loadable"];</code>
+   * @return The loadable.
+   */
+  boolean getLoadable();
+
+  /**
+   * <code>string url = 2 [json_name = "url"];</code>
+   * @return The url.
+   */
+  java.lang.String getUrl();
+  /**
+   * <code>string url = 2 [json_name = "url"];</code>
+   * @return The bytes for url.
+   */
+  com.google.protobuf.ByteString
+      getUrlBytes();
+
+  /**
    * <code>.file.v1.FileMetadata metadata = 3 [json_name = "metadata"];</code>
    * @return Whether the metadata field is set.
    */

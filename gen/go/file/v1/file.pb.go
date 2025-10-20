@@ -165,6 +165,8 @@ func (x *ViewFileRequest) GetId() string {
 
 type ViewFileResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Loadable      bool                   `protobuf:"varint,1,opt,name=loadable,proto3" json:"loadable,omitempty"`
+	Url           string                 `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
 	Metadata      *FileMetadata          `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
 	Allowed       bool                   `protobuf:"varint,4,opt,name=allowed,proto3" json:"allowed,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -199,6 +201,20 @@ func (x *ViewFileResponse) ProtoReflect() protoreflect.Message {
 // Deprecated: Use ViewFileResponse.ProtoReflect.Descriptor instead.
 func (*ViewFileResponse) Descriptor() ([]byte, []int) {
 	return file_file_v1_file_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *ViewFileResponse) GetLoadable() bool {
+	if x != nil {
+		return x.Loadable
+	}
+	return false
+}
+
+func (x *ViewFileResponse) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
 }
 
 func (x *ViewFileResponse) GetMetadata() *FileMetadata {
@@ -2314,8 +2330,10 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\rpresigned_url\x18\x01 \x01(\tR\fpresignedUrl\x12\x18\n" +
 	"\aallowed\x18\x02 \x01(\bR\aallowed\"!\n" +
 	"\x0fViewFileRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"_\n" +
-	"\x10ViewFileResponse\x121\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"\x8d\x01\n" +
+	"\x10ViewFileResponse\x12\x1a\n" +
+	"\bloadable\x18\x01 \x01(\bR\bloadable\x12\x10\n" +
+	"\x03url\x18\x02 \x01(\tR\x03url\x121\n" +
 	"\bmetadata\x18\x03 \x01(\v2\x15.file.v1.FileMetadataR\bmetadata\x12\x18\n" +
 	"\aallowed\x18\x04 \x01(\bR\aallowed\".\n" +
 	"\x1cPermanentlyDeleteFileRequest\x12\x0e\n" +

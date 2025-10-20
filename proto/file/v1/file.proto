@@ -44,6 +44,8 @@ message ViewFileRequest {
 }
 
 message ViewFileResponse {
+  bool loadable = 1;
+  string url = 2;
   FileMetadata metadata = 3;
   bool allowed = 4;
 }
