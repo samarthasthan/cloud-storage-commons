@@ -185,13 +185,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NSFW_SCORE_FIELD_NUMBER = 6;
-  private long nsfwScore_ = 0L;
+  private float nsfwScore_ = 0F;
   /**
-   * <code>int64 nsfw_score = 6 [json_name = "nsfwScore"];</code>
+   * <code>float nsfw_score = 6 [json_name = "nsfwScore"];</code>
    * @return The nsfwScore.
    */
   @java.lang.Override
-  public long getNsfwScore() {
+  public float getNsfwScore() {
     return nsfwScore_;
   }
 
@@ -224,8 +224,8 @@ private static final long serialVersionUID = 0L;
     if (isNsfwChecked_ != false) {
       output.writeBool(5, isNsfwChecked_);
     }
-    if (nsfwScore_ != 0L) {
-      output.writeInt64(6, nsfwScore_);
+    if (java.lang.Float.floatToRawIntBits(nsfwScore_) != 0) {
+      output.writeFloat(6, nsfwScore_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -253,9 +253,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, isNsfwChecked_);
     }
-    if (nsfwScore_ != 0L) {
+    if (java.lang.Float.floatToRawIntBits(nsfwScore_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, nsfwScore_);
+        .computeFloatSize(6, nsfwScore_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -282,8 +282,9 @@ private static final long serialVersionUID = 0L;
         .equals(other.getParentId())) return false;
     if (getIsNsfwChecked()
         != other.getIsNsfwChecked()) return false;
-    if (getNsfwScore()
-        != other.getNsfwScore()) return false;
+    if (java.lang.Float.floatToIntBits(getNsfwScore())
+        != java.lang.Float.floatToIntBits(
+            other.getNsfwScore())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -308,7 +309,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIsNsfwChecked());
     hash = (37 * hash) + NSFW_SCORE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getNsfwScore());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -446,7 +447,7 @@ private static final long serialVersionUID = 0L;
       size_ = 0L;
       parentId_ = "";
       isNsfwChecked_ = false;
-      nsfwScore_ = 0L;
+      nsfwScore_ = 0F;
       return this;
     }
 
@@ -533,7 +534,7 @@ private static final long serialVersionUID = 0L;
       if (other.getIsNsfwChecked() != false) {
         setIsNsfwChecked(other.getIsNsfwChecked());
       }
-      if (other.getNsfwScore() != 0L) {
+      if (other.getNsfwScore() != 0F) {
         setNsfwScore(other.getNsfwScore());
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -587,11 +588,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000010;
               break;
             } // case 40
-            case 48: {
-              nsfwScore_ = input.readInt64();
+            case 53: {
+              nsfwScore_ = input.readFloat();
               bitField0_ |= 0x00000020;
               break;
-            } // case 48
+            } // case 53
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -889,21 +890,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long nsfwScore_ ;
+    private float nsfwScore_ ;
     /**
-     * <code>int64 nsfw_score = 6 [json_name = "nsfwScore"];</code>
+     * <code>float nsfw_score = 6 [json_name = "nsfwScore"];</code>
      * @return The nsfwScore.
      */
     @java.lang.Override
-    public long getNsfwScore() {
+    public float getNsfwScore() {
       return nsfwScore_;
     }
     /**
-     * <code>int64 nsfw_score = 6 [json_name = "nsfwScore"];</code>
+     * <code>float nsfw_score = 6 [json_name = "nsfwScore"];</code>
      * @param value The nsfwScore to set.
      * @return This builder for chaining.
      */
-    public Builder setNsfwScore(long value) {
+    public Builder setNsfwScore(float value) {
 
       nsfwScore_ = value;
       bitField0_ |= 0x00000020;
@@ -911,12 +912,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 nsfw_score = 6 [json_name = "nsfwScore"];</code>
+     * <code>float nsfw_score = 6 [json_name = "nsfwScore"];</code>
      * @return This builder for chaining.
      */
     public Builder clearNsfwScore() {
       bitField0_ = (bitField0_ & ~0x00000020);
-      nsfwScore_ = 0L;
+      nsfwScore_ = 0F;
       onChanged();
       return this;
     }

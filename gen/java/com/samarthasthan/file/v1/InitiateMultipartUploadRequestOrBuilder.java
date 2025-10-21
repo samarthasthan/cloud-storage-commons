@@ -58,8 +58,8 @@ public interface InitiateMultipartUploadRequestOrBuilder extends
   boolean getIsNsfwChecked();
 
   /**
-   * <code>int64 nsfw_score = 6 [json_name = "nsfwScore"];</code>
+   * <code>float nsfw_score = 6 [json_name = "nsfwScore"];</code>
    * @return The nsfwScore.
    */
-  long getNsfwScore();
+  float getNsfwScore();
 }

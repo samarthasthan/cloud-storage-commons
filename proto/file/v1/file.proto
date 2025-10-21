@@ -100,7 +100,7 @@ message InitiateMultipartUploadRequest {
   int64  size         = 3 [(buf.validate.field).int64.gt = 0];
   string parent_id    = 4;
   bool is_nsfw_checked = 5;
-  int64  nsfw_score = 6; 
+  float  nsfw_score = 6; 
 }
 
 message InitiateMultipartUploadResponse {

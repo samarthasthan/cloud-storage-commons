@@ -75,7 +75,7 @@ contentType: jspb.Message.getFieldWithDefault(msg, 2, ""),
 size: jspb.Message.getFieldWithDefault(msg, 3, 0),
 parentId: jspb.Message.getFieldWithDefault(msg, 4, ""),
 isNsfwChecked: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
-nsfwScore: jspb.Message.getFieldWithDefault(msg, 6, 0)
+nsfwScore: jspb.Message.getFloatingPointFieldWithDefault(msg, 6, 0.0)
   };
 
   if (includeInstance) {
@@ -133,7 +133,7 @@ proto.file.v1.InitiateMultipartUploadRequest.deserializeBinaryFromReader = funct
       msg.setIsNsfwChecked(value);
       break;
     case 6:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {number} */ (reader.readFloat());
       msg.setNsfwScore(value);
       break;
     default:
@@ -201,8 +201,8 @@ proto.file.v1.InitiateMultipartUploadRequest.serializeBinaryToWriter = function(
     );
   }
   f = message.getNsfwScore();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f !== 0.0) {
+    writer.writeFloat(
       6,
       f
     );
@@ -301,11 +301,11 @@ proto.file.v1.InitiateMultipartUploadRequest.prototype.setIsNsfwChecked = functi
 
 
 /**
- * optional int64 nsfw_score = 6;
+ * optional float nsfw_score = 6;
  * @return {number}
  */
 proto.file.v1.InitiateMultipartUploadRequest.prototype.getNsfwScore = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 6, 0.0));
 };
 
 
@@ -314,7 +314,7 @@ proto.file.v1.InitiateMultipartUploadRequest.prototype.getNsfwScore = function()
  * @return {!proto.file.v1.InitiateMultipartUploadRequest} returns this
  */
 proto.file.v1.InitiateMultipartUploadRequest.prototype.setNsfwScore = function(value) {
-  return jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3FloatField(this, 6, value);
 };
 
 
