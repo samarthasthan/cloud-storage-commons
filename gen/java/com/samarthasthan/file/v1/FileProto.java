@@ -287,7 +287,7 @@ public final class FileProto {
       "\022\033\n\004name\030\001 \001(\tB\007\272H\004r\002\020\001R\004name\022!\n\014content" +
       "_type\030\002 \001(\tR\013contentType\022\033\n\004size\030\003 \001(\003B\007" +
       "\272H\004\"\002 \000R\004size\022\033\n\tparent_id\030\004 \001(\tR\010parent" +
-      "Id\022&\n\017is_nsfw_checked\030\005 \001(\tR\risNsfwCheck" +
+      "Id\022&\n\017is_nsfw_checked\030\005 \001(\010R\risNsfwCheck" +
       "ed\022\035\n\nnsfw_score\030\006 \001(\003R\tnsfwScore\"i\n\037Ini" +
       "tiateMultipartUploadResponse\022\027\n\007file_id\030" +
       "\001 \001(\tR\006fileId\022\033\n\tupload_id\030\002 \001(\tR\010upload" +

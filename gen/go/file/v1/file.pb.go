@@ -705,7 +705,7 @@ type InitiateMultipartUploadRequest struct {
 	ContentType   string                 `protobuf:"bytes,2,opt,name=content_type,json=contentType,proto3" json:"content_type,omitempty"`
 	Size          int64                  `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
 	ParentId      string                 `protobuf:"bytes,4,opt,name=parent_id,json=parentId,proto3" json:"parent_id,omitempty"`
-	IsNsfwChecked string                 `protobuf:"bytes,5,opt,name=is_nsfw_checked,json=isNsfwChecked,proto3" json:"is_nsfw_checked,omitempty"`
+	IsNsfwChecked bool                   `protobuf:"varint,5,opt,name=is_nsfw_checked,json=isNsfwChecked,proto3" json:"is_nsfw_checked,omitempty"`
 	NsfwScore     int64                  `protobuf:"varint,6,opt,name=nsfw_score,json=nsfwScore,proto3" json:"nsfw_score,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -769,11 +769,11 @@ func (x *InitiateMultipartUploadRequest) GetParentId() string {
 	return ""
 }
 
-func (x *InitiateMultipartUploadRequest) GetIsNsfwChecked() string {
+func (x *InitiateMultipartUploadRequest) GetIsNsfwChecked() bool {
 	if x != nil {
 		return x.IsNsfwChecked
 	}
-	return ""
+	return false
 }
 
 func (x *InitiateMultipartUploadRequest) GetNsfwScore() int64 {
@@ -2385,7 +2385,7 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\fcontent_type\x18\x02 \x01(\tR\vcontentType\x12\x1b\n" +
 	"\x04size\x18\x03 \x01(\x03B\a\xbaH\x04\"\x02 \x00R\x04size\x12\x1b\n" +
 	"\tparent_id\x18\x04 \x01(\tR\bparentId\x12&\n" +
-	"\x0fis_nsfw_checked\x18\x05 \x01(\tR\risNsfwChecked\x12\x1d\n" +
+	"\x0fis_nsfw_checked\x18\x05 \x01(\bR\risNsfwChecked\x12\x1d\n" +
 	"\n" +
 	"nsfw_score\x18\x06 \x01(\x03R\tnsfwScore\"i\n" +
 	"\x1fInitiateMultipartUploadResponse\x12\x17\n" +

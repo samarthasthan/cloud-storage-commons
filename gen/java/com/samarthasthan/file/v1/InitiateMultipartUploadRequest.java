@@ -30,7 +30,6 @@ private static final long serialVersionUID = 0L;
     name_ = "";
     contentType_ = "";
     parentId_ = "";
-    isNsfwChecked_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -175,42 +174,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IS_NSFW_CHECKED_FIELD_NUMBER = 5;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object isNsfwChecked_ = "";
+  private boolean isNsfwChecked_ = false;
   /**
-   * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+   * <code>bool is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
    * @return The isNsfwChecked.
    */
   @java.lang.Override
-  public java.lang.String getIsNsfwChecked() {
-    java.lang.Object ref = isNsfwChecked_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      isNsfwChecked_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
-   * @return The bytes for isNsfwChecked.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getIsNsfwCheckedBytes() {
-    java.lang.Object ref = isNsfwChecked_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      isNsfwChecked_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public boolean getIsNsfwChecked() {
+    return isNsfwChecked_;
   }
 
   public static final int NSFW_SCORE_FIELD_NUMBER = 6;
@@ -250,8 +221,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(parentId_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 4, parentId_);
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(isNsfwChecked_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 5, isNsfwChecked_);
+    if (isNsfwChecked_ != false) {
+      output.writeBool(5, isNsfwChecked_);
     }
     if (nsfwScore_ != 0L) {
       output.writeInt64(6, nsfwScore_);
@@ -278,8 +249,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(parentId_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(4, parentId_);
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(isNsfwChecked_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(5, isNsfwChecked_);
+    if (isNsfwChecked_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(5, isNsfwChecked_);
     }
     if (nsfwScore_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
@@ -308,8 +280,8 @@ private static final long serialVersionUID = 0L;
         != other.getSize()) return false;
     if (!getParentId()
         .equals(other.getParentId())) return false;
-    if (!getIsNsfwChecked()
-        .equals(other.getIsNsfwChecked())) return false;
+    if (getIsNsfwChecked()
+        != other.getIsNsfwChecked()) return false;
     if (getNsfwScore()
         != other.getNsfwScore()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -333,7 +305,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PARENT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getParentId().hashCode();
     hash = (37 * hash) + IS_NSFW_CHECKED_FIELD_NUMBER;
-    hash = (53 * hash) + getIsNsfwChecked().hashCode();
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsNsfwChecked());
     hash = (37 * hash) + NSFW_SCORE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getNsfwScore());
@@ -472,7 +445,7 @@ private static final long serialVersionUID = 0L;
       contentType_ = "";
       size_ = 0L;
       parentId_ = "";
-      isNsfwChecked_ = "";
+      isNsfwChecked_ = false;
       nsfwScore_ = 0L;
       return this;
     }
@@ -557,10 +530,8 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000008;
         onChanged();
       }
-      if (!other.getIsNsfwChecked().isEmpty()) {
-        isNsfwChecked_ = other.isNsfwChecked_;
-        bitField0_ |= 0x00000010;
-        onChanged();
+      if (other.getIsNsfwChecked() != false) {
+        setIsNsfwChecked(other.getIsNsfwChecked());
       }
       if (other.getNsfwScore() != 0L) {
         setNsfwScore(other.getNsfwScore());
@@ -611,11 +582,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000008;
               break;
             } // case 34
-            case 42: {
-              isNsfwChecked_ = input.readStringRequireUtf8();
+            case 40: {
+              isNsfwChecked_ = input.readBool();
               bitField0_ |= 0x00000010;
               break;
-            } // case 42
+            } // case 40
             case 48: {
               nsfwScore_ = input.readInt64();
               bitField0_ |= 0x00000020;
@@ -886,74 +857,34 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object isNsfwChecked_ = "";
+    private boolean isNsfwChecked_ ;
     /**
-     * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+     * <code>bool is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
      * @return The isNsfwChecked.
      */
-    public java.lang.String getIsNsfwChecked() {
-      java.lang.Object ref = isNsfwChecked_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        isNsfwChecked_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public boolean getIsNsfwChecked() {
+      return isNsfwChecked_;
     }
     /**
-     * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
-     * @return The bytes for isNsfwChecked.
-     */
-    public com.google.protobuf.ByteString
-        getIsNsfwCheckedBytes() {
-      java.lang.Object ref = isNsfwChecked_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        isNsfwChecked_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+     * <code>bool is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
      * @param value The isNsfwChecked to set.
      * @return This builder for chaining.
      */
-    public Builder setIsNsfwChecked(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+    public Builder setIsNsfwChecked(boolean value) {
+
       isNsfwChecked_ = value;
       bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
-     * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+     * <code>bool is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
      * @return This builder for chaining.
      */
     public Builder clearIsNsfwChecked() {
-      isNsfwChecked_ = getDefaultInstance().getIsNsfwChecked();
       bitField0_ = (bitField0_ & ~0x00000010);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
-     * @param value The bytes for isNsfwChecked to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIsNsfwCheckedBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      isNsfwChecked_ = value;
-      bitField0_ |= 0x00000010;
+      isNsfwChecked_ = false;
       onChanged();
       return this;
     }
