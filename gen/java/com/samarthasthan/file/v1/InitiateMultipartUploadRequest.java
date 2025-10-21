@@ -30,6 +30,7 @@ private static final long serialVersionUID = 0L;
     name_ = "";
     contentType_ = "";
     parentId_ = "";
+    isNsfwChecked_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -173,6 +174,56 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int IS_NSFW_CHECKED_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object isNsfwChecked_ = "";
+  /**
+   * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+   * @return The isNsfwChecked.
+   */
+  @java.lang.Override
+  public java.lang.String getIsNsfwChecked() {
+    java.lang.Object ref = isNsfwChecked_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      isNsfwChecked_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+   * @return The bytes for isNsfwChecked.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIsNsfwCheckedBytes() {
+    java.lang.Object ref = isNsfwChecked_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      isNsfwChecked_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int NSFW_SCORE_FIELD_NUMBER = 6;
+  private long nsfwScore_ = 0L;
+  /**
+   * <code>int64 nsfw_score = 6 [json_name = "nsfwScore"];</code>
+   * @return The nsfwScore.
+   */
+  @java.lang.Override
+  public long getNsfwScore() {
+    return nsfwScore_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -199,6 +250,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(parentId_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 4, parentId_);
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(isNsfwChecked_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 5, isNsfwChecked_);
+    }
+    if (nsfwScore_ != 0L) {
+      output.writeInt64(6, nsfwScore_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -220,6 +277,13 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(parentId_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(4, parentId_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(isNsfwChecked_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(5, isNsfwChecked_);
+    }
+    if (nsfwScore_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(6, nsfwScore_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -244,6 +308,10 @@ private static final long serialVersionUID = 0L;
         != other.getSize()) return false;
     if (!getParentId()
         .equals(other.getParentId())) return false;
+    if (!getIsNsfwChecked()
+        .equals(other.getIsNsfwChecked())) return false;
+    if (getNsfwScore()
+        != other.getNsfwScore()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -264,6 +332,11 @@ private static final long serialVersionUID = 0L;
         getSize());
     hash = (37 * hash) + PARENT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getParentId().hashCode();
+    hash = (37 * hash) + IS_NSFW_CHECKED_FIELD_NUMBER;
+    hash = (53 * hash) + getIsNsfwChecked().hashCode();
+    hash = (37 * hash) + NSFW_SCORE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getNsfwScore());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -399,6 +472,8 @@ private static final long serialVersionUID = 0L;
       contentType_ = "";
       size_ = 0L;
       parentId_ = "";
+      isNsfwChecked_ = "";
+      nsfwScore_ = 0L;
       return this;
     }
 
@@ -444,6 +519,12 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.parentId_ = parentId_;
       }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.isNsfwChecked_ = isNsfwChecked_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.nsfwScore_ = nsfwScore_;
+      }
     }
 
     @java.lang.Override
@@ -475,6 +556,14 @@ private static final long serialVersionUID = 0L;
         parentId_ = other.parentId_;
         bitField0_ |= 0x00000008;
         onChanged();
+      }
+      if (!other.getIsNsfwChecked().isEmpty()) {
+        isNsfwChecked_ = other.isNsfwChecked_;
+        bitField0_ |= 0x00000010;
+        onChanged();
+      }
+      if (other.getNsfwScore() != 0L) {
+        setNsfwScore(other.getNsfwScore());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -522,6 +611,16 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000008;
               break;
             } // case 34
+            case 42: {
+              isNsfwChecked_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              nsfwScore_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -783,6 +882,110 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       parentId_ = value;
       bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object isNsfwChecked_ = "";
+    /**
+     * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+     * @return The isNsfwChecked.
+     */
+    public java.lang.String getIsNsfwChecked() {
+      java.lang.Object ref = isNsfwChecked_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        isNsfwChecked_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+     * @return The bytes for isNsfwChecked.
+     */
+    public com.google.protobuf.ByteString
+        getIsNsfwCheckedBytes() {
+      java.lang.Object ref = isNsfwChecked_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        isNsfwChecked_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+     * @param value The isNsfwChecked to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsNsfwChecked(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      isNsfwChecked_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsNsfwChecked() {
+      isNsfwChecked_ = getDefaultInstance().getIsNsfwChecked();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+     * @param value The bytes for isNsfwChecked to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsNsfwCheckedBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      isNsfwChecked_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
+    private long nsfwScore_ ;
+    /**
+     * <code>int64 nsfw_score = 6 [json_name = "nsfwScore"];</code>
+     * @return The nsfwScore.
+     */
+    @java.lang.Override
+    public long getNsfwScore() {
+      return nsfwScore_;
+    }
+    /**
+     * <code>int64 nsfw_score = 6 [json_name = "nsfwScore"];</code>
+     * @param value The nsfwScore to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNsfwScore(long value) {
+
+      nsfwScore_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 nsfw_score = 6 [json_name = "nsfwScore"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNsfwScore() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      nsfwScore_ = 0L;
       onChanged();
       return this;
     }

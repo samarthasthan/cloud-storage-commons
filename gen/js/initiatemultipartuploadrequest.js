@@ -73,7 +73,9 @@ proto.file.v1.InitiateMultipartUploadRequest.toObject = function(includeInstance
 name: jspb.Message.getFieldWithDefault(msg, 1, ""),
 contentType: jspb.Message.getFieldWithDefault(msg, 2, ""),
 size: jspb.Message.getFieldWithDefault(msg, 3, 0),
-parentId: jspb.Message.getFieldWithDefault(msg, 4, "")
+parentId: jspb.Message.getFieldWithDefault(msg, 4, ""),
+isNsfwChecked: jspb.Message.getFieldWithDefault(msg, 5, ""),
+nsfwScore: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -125,6 +127,14 @@ proto.file.v1.InitiateMultipartUploadRequest.deserializeBinaryFromReader = funct
     case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setParentId(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setIsNsfwChecked(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setNsfwScore(value);
       break;
     default:
       reader.skipField();
@@ -180,6 +190,20 @@ proto.file.v1.InitiateMultipartUploadRequest.serializeBinaryToWriter = function(
   if (f.length > 0) {
     writer.writeString(
       4,
+      f
+    );
+  }
+  f = message.getIsNsfwChecked();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+  f = message.getNsfwScore();
+  if (f !== 0) {
+    writer.writeInt64(
+      6,
       f
     );
   }
@@ -255,6 +279,42 @@ proto.file.v1.InitiateMultipartUploadRequest.prototype.getParentId = function() 
  */
 proto.file.v1.InitiateMultipartUploadRequest.prototype.setParentId = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional string is_nsfw_checked = 5;
+ * @return {string}
+ */
+proto.file.v1.InitiateMultipartUploadRequest.prototype.getIsNsfwChecked = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.file.v1.InitiateMultipartUploadRequest} returns this
+ */
+proto.file.v1.InitiateMultipartUploadRequest.prototype.setIsNsfwChecked = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional int64 nsfw_score = 6;
+ * @return {number}
+ */
+proto.file.v1.InitiateMultipartUploadRequest.prototype.getNsfwScore = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.file.v1.InitiateMultipartUploadRequest} returns this
+ */
+proto.file.v1.InitiateMultipartUploadRequest.prototype.setNsfwScore = function(value) {
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 

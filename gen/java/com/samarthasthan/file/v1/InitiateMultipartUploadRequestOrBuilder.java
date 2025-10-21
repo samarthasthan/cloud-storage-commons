@@ -50,4 +50,22 @@ public interface InitiateMultipartUploadRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getParentIdBytes();
+
+  /**
+   * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+   * @return The isNsfwChecked.
+   */
+  java.lang.String getIsNsfwChecked();
+  /**
+   * <code>string is_nsfw_checked = 5 [json_name = "isNsfwChecked"];</code>
+   * @return The bytes for isNsfwChecked.
+   */
+  com.google.protobuf.ByteString
+      getIsNsfwCheckedBytes();
+
+  /**
+   * <code>int64 nsfw_score = 6 [json_name = "nsfwScore"];</code>
+   * @return The nsfwScore.
+   */
+  long getNsfwScore();
 }
