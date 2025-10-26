@@ -2343,6 +2343,119 @@ func (x *Thumbnail) GetUrl() string {
 	return ""
 }
 
+type ReportFileRequest struct {
+	state  protoimpl.MessageState `protogen:"open.v1"`
+	FileId string                 `protobuf:"bytes,1,opt,name=file_id,json=fileId,proto3" json:"file_id,omitempty"`
+	// Use repeated field for allowed values (the correct syntax)
+	Category      string `protobuf:"bytes,2,opt,name=category,proto3" json:"category,omitempty"`
+	Description   string `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"` // optional extra context
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReportFileRequest) Reset() {
+	*x = ReportFileRequest{}
+	mi := &file_file_v1_file_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReportFileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReportFileRequest) ProtoMessage() {}
+
+func (x *ReportFileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReportFileRequest.ProtoReflect.Descriptor instead.
+func (*ReportFileRequest) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *ReportFileRequest) GetFileId() string {
+	if x != nil {
+		return x.FileId
+	}
+	return ""
+}
+
+func (x *ReportFileRequest) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+func (x *ReportFileRequest) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+type ReportFileResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"` // e.g. "Report submitted successfully" or "Already reported"
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReportFileResponse) Reset() {
+	*x = ReportFileResponse{}
+	mi := &file_file_v1_file_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReportFileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReportFileResponse) ProtoMessage() {}
+
+func (x *ReportFileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_file_v1_file_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReportFileResponse.ProtoReflect.Descriptor instead.
+func (*ReportFileResponse) Descriptor() ([]byte, []int) {
+	return file_file_v1_file_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *ReportFileResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *ReportFileResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 var File_file_v1_file_proto protoreflect.FileDescriptor
 
 const file_file_v1_file_proto_rawDesc = "" +
@@ -2504,7 +2617,15 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x06height\x18\x04 \x01(\x05R\x06height\x12\x16\n" +
 	"\x06format\x18\x05 \x01(\tR\x06format\x12\x12\n" +
 	"\x04size\x18\x06 \x01(\x05R\x04size\x12\x10\n" +
-	"\x03url\x18\b \x01(\tR\x03url2\x81\x0e\n" +
+	"\x03url\x18\b \x01(\tR\x03url\"\xc0\x01\n" +
+	"\x11ReportFileRequest\x12 \n" +
+	"\afile_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x06fileId\x12g\n" +
+	"\bcategory\x18\x02 \x01(\tBK\xbaHHrFR\x04NSFWR\aIllegalR\x04SpamR\x13Copyright ViolationR\n" +
+	"HarassmentR\aMalwareR\x05OtherR\bcategory\x12 \n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\"H\n" +
+	"\x12ReportFileResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage2\xc8\x0e\n" +
 	"\vFileService\x12l\n" +
 	"\x17InitiateMultipartUpload\x12'.file.v1.InitiateMultipartUploadRequest\x1a(.file.v1.InitiateMultipartUploadResponse\x12r\n" +
 	"\x19GetPresignedUploadPartURL\x12).file.v1.GetPresignedUploadPartURLRequest\x1a*.file.v1.GetPresignedUploadPartURLResponse\x12l\n" +
@@ -2526,7 +2647,9 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x0eGetAccountSize\x12\x1e.file.v1.GetAccountSizeRequest\x1a\x1f.file.v1.GetAccountSizeResponse\x12f\n" +
 	"\x15PermanentlyDeleteFile\x12%.file.v1.PermanentlyDeleteFileRequest\x1a&.file.v1.PermanentlyDeleteFileResponse\x12?\n" +
 	"\bViewFile\x12\x18.file.v1.ViewFileRequest\x1a\x19.file.v1.ViewFileResponse\x12K\n" +
-	"\fDownloadFile\x12\x1c.file.v1.DownloadFileRequest\x1a\x1d.file.v1.DownloadFileResponseB\xa9\x01\n" +
+	"\fDownloadFile\x12\x1c.file.v1.DownloadFileRequest\x1a\x1d.file.v1.DownloadFileResponse\x12E\n" +
+	"\n" +
+	"ReportFile\x12\x1a.file.v1.ReportFileRequest\x1a\x1b.file.v1.ReportFileResponseB\xa9\x01\n" +
 	"\x19com.samarthasthan.file.v1B\tFileProtoP\x01ZDgithub.com/samarthasthan/cloud-storage-commons/gen/go/file/v1;filev1\xa2\x02\x03FXX\xaa\x02\aFile.V1\xca\x02\aFile\\V1\xe2\x02\x13File\\V1\\GPBMetadata\xea\x02\bFile::V1b\x06proto3"
 
 var (
@@ -2541,7 +2664,7 @@ func file_file_v1_file_proto_rawDescGZIP() []byte {
 	return file_file_v1_file_proto_rawDescData
 }
 
-var file_file_v1_file_proto_msgTypes = make([]protoimpl.MessageInfo, 44)
+var file_file_v1_file_proto_msgTypes = make([]protoimpl.MessageInfo, 46)
 var file_file_v1_file_proto_goTypes = []any{
 	(*DownloadFileRequest)(nil),               // 0: file.v1.DownloadFileRequest
 	(*DownloadFileResponse)(nil),              // 1: file.v1.DownloadFileResponse
@@ -2587,7 +2710,9 @@ var file_file_v1_file_proto_goTypes = []any{
 	(*GetAccessStatusResponse)(nil),           // 41: file.v1.GetAccessStatusResponse
 	(*FileMetadata)(nil),                      // 42: file.v1.FileMetadata
 	(*Thumbnail)(nil),                         // 43: file.v1.Thumbnail
-	(*timestamppb.Timestamp)(nil),             // 44: google.protobuf.Timestamp
+	(*ReportFileRequest)(nil),                 // 44: file.v1.ReportFileRequest
+	(*ReportFileResponse)(nil),                // 45: file.v1.ReportFileResponse
+	(*timestamppb.Timestamp)(nil),             // 46: google.protobuf.Timestamp
 }
 var file_file_v1_file_proto_depIdxs = []int32{
 	42, // 0: file.v1.ViewFileResponse.metadata:type_name -> file.v1.FileMetadata
@@ -2596,9 +2721,9 @@ var file_file_v1_file_proto_depIdxs = []int32{
 	42, // 3: file.v1.CreateFolderResponse.folder:type_name -> file.v1.FileMetadata
 	18, // 4: file.v1.CompleteMultipartUploadRequest.parts:type_name -> file.v1.CompletedPart
 	42, // 5: file.v1.CompleteMultipartUploadResponse.file:type_name -> file.v1.FileMetadata
-	44, // 6: file.v1.FileMetadata.created_at:type_name -> google.protobuf.Timestamp
-	44, // 7: file.v1.FileMetadata.updated_at:type_name -> google.protobuf.Timestamp
-	44, // 8: file.v1.FileMetadata.deleted_at:type_name -> google.protobuf.Timestamp
+	46, // 6: file.v1.FileMetadata.created_at:type_name -> google.protobuf.Timestamp
+	46, // 7: file.v1.FileMetadata.updated_at:type_name -> google.protobuf.Timestamp
+	46, // 8: file.v1.FileMetadata.deleted_at:type_name -> google.protobuf.Timestamp
 	43, // 9: file.v1.FileMetadata.thumbnails:type_name -> file.v1.Thumbnail
 	13, // 10: file.v1.FileService.InitiateMultipartUpload:input_type -> file.v1.InitiateMultipartUploadRequest
 	15, // 11: file.v1.FileService.GetPresignedUploadPartURL:input_type -> file.v1.GetPresignedUploadPartURLRequest
@@ -2620,28 +2745,30 @@ var file_file_v1_file_proto_depIdxs = []int32{
 	4,  // 27: file.v1.FileService.PermanentlyDeleteFile:input_type -> file.v1.PermanentlyDeleteFileRequest
 	2,  // 28: file.v1.FileService.ViewFile:input_type -> file.v1.ViewFileRequest
 	0,  // 29: file.v1.FileService.DownloadFile:input_type -> file.v1.DownloadFileRequest
-	14, // 30: file.v1.FileService.InitiateMultipartUpload:output_type -> file.v1.InitiateMultipartUploadResponse
-	16, // 31: file.v1.FileService.GetPresignedUploadPartURL:output_type -> file.v1.GetPresignedUploadPartURLResponse
-	19, // 32: file.v1.FileService.CompleteMultipartUpload:output_type -> file.v1.CompleteMultipartUploadResponse
-	21, // 33: file.v1.FileService.AbortMultipartUpload:output_type -> file.v1.AbortMultipartUploadResponse
-	12, // 34: file.v1.FileService.CreateFolder:output_type -> file.v1.CreateFolderResponse
-	10, // 35: file.v1.FileService.ListFilesByParent:output_type -> file.v1.ListFilesByParentResponse
-	23, // 36: file.v1.FileService.ToggleFavorite:output_type -> file.v1.ToggleFavoriteResponse
-	25, // 37: file.v1.FileService.DeleteFile:output_type -> file.v1.DeleteFileResponse
-	27, // 38: file.v1.FileService.RestoreFile:output_type -> file.v1.RestoreFileResponse
-	29, // 39: file.v1.FileService.Rename:output_type -> file.v1.RenameResponse
-	31, // 40: file.v1.FileService.MarkAsIsPublic:output_type -> file.v1.MarkAsIsPublicResponse
-	33, // 41: file.v1.FileService.MarkAsNotIsPublic:output_type -> file.v1.MarkAsNotIsPublicResponse
-	35, // 42: file.v1.FileService.AddAccessEmail:output_type -> file.v1.AddAccessEmailResponse
-	41, // 43: file.v1.FileService.GetAccessStatus:output_type -> file.v1.GetAccessStatusResponse
-	37, // 44: file.v1.FileService.RemoveSingleAccessEmail:output_type -> file.v1.RemoveSingleAccessEmailResponse
-	39, // 45: file.v1.FileService.RemoveAllAccessEmails:output_type -> file.v1.RemoveAllAccessEmailsResponse
-	7,  // 46: file.v1.FileService.GetAccountSize:output_type -> file.v1.GetAccountSizeResponse
-	5,  // 47: file.v1.FileService.PermanentlyDeleteFile:output_type -> file.v1.PermanentlyDeleteFileResponse
-	3,  // 48: file.v1.FileService.ViewFile:output_type -> file.v1.ViewFileResponse
-	1,  // 49: file.v1.FileService.DownloadFile:output_type -> file.v1.DownloadFileResponse
-	30, // [30:50] is the sub-list for method output_type
-	10, // [10:30] is the sub-list for method input_type
+	44, // 30: file.v1.FileService.ReportFile:input_type -> file.v1.ReportFileRequest
+	14, // 31: file.v1.FileService.InitiateMultipartUpload:output_type -> file.v1.InitiateMultipartUploadResponse
+	16, // 32: file.v1.FileService.GetPresignedUploadPartURL:output_type -> file.v1.GetPresignedUploadPartURLResponse
+	19, // 33: file.v1.FileService.CompleteMultipartUpload:output_type -> file.v1.CompleteMultipartUploadResponse
+	21, // 34: file.v1.FileService.AbortMultipartUpload:output_type -> file.v1.AbortMultipartUploadResponse
+	12, // 35: file.v1.FileService.CreateFolder:output_type -> file.v1.CreateFolderResponse
+	10, // 36: file.v1.FileService.ListFilesByParent:output_type -> file.v1.ListFilesByParentResponse
+	23, // 37: file.v1.FileService.ToggleFavorite:output_type -> file.v1.ToggleFavoriteResponse
+	25, // 38: file.v1.FileService.DeleteFile:output_type -> file.v1.DeleteFileResponse
+	27, // 39: file.v1.FileService.RestoreFile:output_type -> file.v1.RestoreFileResponse
+	29, // 40: file.v1.FileService.Rename:output_type -> file.v1.RenameResponse
+	31, // 41: file.v1.FileService.MarkAsIsPublic:output_type -> file.v1.MarkAsIsPublicResponse
+	33, // 42: file.v1.FileService.MarkAsNotIsPublic:output_type -> file.v1.MarkAsNotIsPublicResponse
+	35, // 43: file.v1.FileService.AddAccessEmail:output_type -> file.v1.AddAccessEmailResponse
+	41, // 44: file.v1.FileService.GetAccessStatus:output_type -> file.v1.GetAccessStatusResponse
+	37, // 45: file.v1.FileService.RemoveSingleAccessEmail:output_type -> file.v1.RemoveSingleAccessEmailResponse
+	39, // 46: file.v1.FileService.RemoveAllAccessEmails:output_type -> file.v1.RemoveAllAccessEmailsResponse
+	7,  // 47: file.v1.FileService.GetAccountSize:output_type -> file.v1.GetAccountSizeResponse
+	5,  // 48: file.v1.FileService.PermanentlyDeleteFile:output_type -> file.v1.PermanentlyDeleteFileResponse
+	3,  // 49: file.v1.FileService.ViewFile:output_type -> file.v1.ViewFileResponse
+	1,  // 50: file.v1.FileService.DownloadFile:output_type -> file.v1.DownloadFileResponse
+	45, // 51: file.v1.FileService.ReportFile:output_type -> file.v1.ReportFileResponse
+	31, // [31:52] is the sub-list for method output_type
+	10, // [10:31] is the sub-list for method input_type
 	10, // [10:10] is the sub-list for extension type_name
 	10, // [10:10] is the sub-list for extension extendee
 	0,  // [0:10] is the sub-list for field type_name
@@ -2658,7 +2785,7 @@ func file_file_v1_file_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_file_v1_file_proto_rawDesc), len(file_file_v1_file_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   44,
+			NumMessages:   46,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

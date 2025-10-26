@@ -28,6 +28,8 @@ service FileService {
   rpc PermanentlyDeleteFile(PermanentlyDeleteFileRequest) returns (PermanentlyDeleteFileResponse);
   rpc ViewFile(ViewFileRequest) returns (ViewFileResponse);
   rpc DownloadFile(DownloadFileRequest) returns (DownloadFileResponse);
+
+  rpc ReportFile(ReportFileRequest) returns (ReportFileResponse);
 }
 
 message DownloadFileRequest {
@@ -252,3 +254,23 @@ message Thumbnail {
   int32 size = 6;
   string url = 8;
 }
+
+
+message ReportFileRequest {
+  string file_id = 1 [(buf.validate.field).string.min_len = 1];
+  
+  // Use repeated field for allowed values (the correct syntax)
+  string category = 2 [
+    (buf.validate.field).string = {
+      in: ["NSFW", "Illegal", "Spam", "Copyright Violation", "Harassment", "Malware", "Other"]
+    }
+  ];
+
+  string description = 3; // optional extra context
+}
+
+message ReportFileResponse {
+  bool success = 1;
+  string message = 2; // e.g. "Report submitted successfully" or "Already reported"
+}
+
