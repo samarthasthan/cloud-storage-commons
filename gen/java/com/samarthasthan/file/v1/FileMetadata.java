@@ -504,6 +504,17 @@ private static final long serialVersionUID = 0L;
     return thumbnails_.get(index);
   }
 
+  public static final int NSFW_SCORE_FIELD_NUMBER = 15;
+  private float nsfwScore_ = 0F;
+  /**
+   * <code>float nsfw_score = 15 [json_name = "nsfwScore"];</code>
+   * @return The nsfwScore.
+   */
+  @java.lang.Override
+  public float getNsfwScore() {
+    return nsfwScore_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -559,6 +570,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < thumbnails_.size(); i++) {
       output.writeMessage(14, thumbnails_.get(i));
+    }
+    if (java.lang.Float.floatToRawIntBits(nsfwScore_) != 0) {
+      output.writeFloat(15, nsfwScore_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -618,6 +632,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(14, thumbnails_.get(i));
     }
+    if (java.lang.Float.floatToRawIntBits(nsfwScore_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeFloatSize(15, nsfwScore_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -670,6 +688,9 @@ private static final long serialVersionUID = 0L;
         != other.getIsFavorite()) return false;
     if (!getThumbnailsList()
         .equals(other.getThumbnailsList())) return false;
+    if (java.lang.Float.floatToIntBits(getNsfwScore())
+        != java.lang.Float.floatToIntBits(
+            other.getNsfwScore())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -720,6 +741,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + THUMBNAILS_FIELD_NUMBER;
       hash = (53 * hash) + getThumbnailsList().hashCode();
     }
+    hash = (37 * hash) + NSFW_SCORE_FIELD_NUMBER;
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getNsfwScore());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -892,6 +916,7 @@ private static final long serialVersionUID = 0L;
         thumbnailsBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00002000);
+      nsfwScore_ = 0F;
       return this;
     }
 
@@ -987,6 +1012,9 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00001000) != 0)) {
         result.isFavorite_ = isFavorite_;
       }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.nsfwScore_ = nsfwScore_;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -1080,6 +1108,9 @@ private static final long serialVersionUID = 0L;
             thumbnailsBuilder_.addAllMessages(other.thumbnails_);
           }
         }
+      }
+      if (other.getNsfwScore() != 0F) {
+        setNsfwScore(other.getNsfwScore());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1191,6 +1222,11 @@ private static final long serialVersionUID = 0L;
               }
               break;
             } // case 114
+            case 125: {
+              nsfwScore_ = input.readFloat();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 125
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2481,6 +2517,38 @@ private static final long serialVersionUID = 0L;
         thumbnails_ = null;
       }
       return thumbnailsBuilder_;
+    }
+
+    private float nsfwScore_ ;
+    /**
+     * <code>float nsfw_score = 15 [json_name = "nsfwScore"];</code>
+     * @return The nsfwScore.
+     */
+    @java.lang.Override
+    public float getNsfwScore() {
+      return nsfwScore_;
+    }
+    /**
+     * <code>float nsfw_score = 15 [json_name = "nsfwScore"];</code>
+     * @param value The nsfwScore to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNsfwScore(float value) {
+
+      nsfwScore_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>float nsfw_score = 15 [json_name = "nsfwScore"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNsfwScore() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      nsfwScore_ = 0F;
+      onChanged();
+      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:file.v1.FileMetadata)

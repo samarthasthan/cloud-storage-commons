@@ -240,6 +240,7 @@ message FileMetadata {
   string parent_id    = 12; // blank / "" = root
   bool is_favorite    = 13;
   repeated Thumbnail thumbnails = 14;
+  float nsfw_score = 15;
 }
 
 message Thumbnail {

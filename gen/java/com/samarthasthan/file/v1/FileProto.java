@@ -334,7 +334,7 @@ public final class FileProto {
       "ess\030\001 \001(\010R\tisSuccess\"(\n\026GetAccessStatusR" +
       "equest\022\016\n\002id\030\001 \001(\tR\002id\"N\n\027GetAccessStatu" +
       "sResponse\022\026\n\006emails\030\001 \003(\tR\006emails\022\033\n\tis_" +
-      "public\030\002 \001(\010R\010isPublic\"\363\003\n\014FileMetadata\022" +
+      "public\030\002 \001(\010R\010isPublic\"\222\004\n\014FileMetadata\022" +
       "\016\n\002id\030\001 \001(\tR\002id\022\031\n\010owner_id\030\002 \001(\tR\007owner" +
       "Id\022\022\n\004name\030\003 \001(\tR\004name\022!\n\014content_type\030\004" +
       " \001(\tR\013contentType\022\022\n\004size\030\005 \001(\003R\004size\022\033\n" +
@@ -347,60 +347,61 @@ public final class FileProto {
       " \001(\tR\004type\022\033\n\tparent_id\030\014 \001(\tR\010parentId\022" +
       "\037\n\013is_favorite\030\r \001(\010R\nisFavorite\0222\n\nthum" +
       "bnails\030\016 \003(\0132\022.file.v1.ThumbnailR\nthumbn" +
-      "ails\"\235\001\n\tThumbnail\022\016\n\002id\030\001 \001(\tR\002id\022\024\n\005la" +
-      "bel\030\002 \001(\tR\005label\022\024\n\005width\030\003 \001(\005R\005width\022\026" +
-      "\n\006height\030\004 \001(\005R\006height\022\026\n\006format\030\005 \001(\tR\006" +
-      "format\022\022\n\004size\030\006 \001(\005R\004size\022\020\n\003url\030\010 \001(\tR" +
-      "\003url2\201\016\n\013FileService\022l\n\027InitiateMultipar" +
-      "tUpload\022\'.file.v1.InitiateMultipartUploa" +
-      "dRequest\032(.file.v1.InitiateMultipartUplo" +
-      "adResponse\022r\n\031GetPresignedUploadPartURL\022" +
-      ").file.v1.GetPresignedUploadPartURLReque" +
-      "st\032*.file.v1.GetPresignedUploadPartURLRe" +
-      "sponse\022l\n\027CompleteMultipartUpload\022\'.file" +
-      ".v1.CompleteMultipartUploadRequest\032(.fil" +
-      "e.v1.CompleteMultipartUploadResponse\022c\n\024" +
-      "AbortMultipartUpload\022$.file.v1.AbortMult" +
-      "ipartUploadRequest\032%.file.v1.AbortMultip" +
-      "artUploadResponse\022K\n\014CreateFolder\022\034.file" +
-      ".v1.CreateFolderRequest\032\035.file.v1.Create" +
-      "FolderResponse\022Z\n\021ListFilesByParent\022!.fi" +
-      "le.v1.ListFilesByParentRequest\032\".file.v1" +
-      ".ListFilesByParentResponse\022Q\n\016ToggleFavo" +
-      "rite\022\036.file.v1.ToggleFavoriteRequest\032\037.f" +
-      "ile.v1.ToggleFavoriteResponse\022E\n\nDeleteF" +
-      "ile\022\032.file.v1.DeleteFileRequest\032\033.file.v" +
-      "1.DeleteFileResponse\022H\n\013RestoreFile\022\033.fi" +
-      "le.v1.RestoreFileRequest\032\034.file.v1.Resto" +
-      "reFileResponse\0229\n\006Rename\022\026.file.v1.Renam" +
-      "eRequest\032\027.file.v1.RenameResponse\022Q\n\016Mar" +
-      "kAsIsPublic\022\036.file.v1.MarkAsIsPublicRequ" +
-      "est\032\037.file.v1.MarkAsIsPublicResponse\022Z\n\021" +
-      "MarkAsNotIsPublic\022!.file.v1.MarkAsNotIsP" +
-      "ublicRequest\032\".file.v1.MarkAsNotIsPublic" +
-      "Response\022Q\n\016AddAccessEmail\022\036.file.v1.Add" +
-      "AccessEmailRequest\032\037.file.v1.AddAccessEm" +
-      "ailResponse\022T\n\017GetAccessStatus\022\037.file.v1" +
-      ".GetAccessStatusRequest\032 .file.v1.GetAcc" +
-      "essStatusResponse\022l\n\027RemoveSingleAccessE" +
-      "mail\022\'.file.v1.RemoveSingleAccessEmailRe" +
-      "quest\032(.file.v1.RemoveSingleAccessEmailR" +
-      "esponse\022f\n\025RemoveAllAccessEmails\022%.file." +
-      "v1.RemoveAllAccessEmailsRequest\032&.file.v" +
-      "1.RemoveAllAccessEmailsResponse\022Q\n\016GetAc" +
-      "countSize\022\036.file.v1.GetAccountSizeReques" +
-      "t\032\037.file.v1.GetAccountSizeResponse\022f\n\025Pe" +
-      "rmanentlyDeleteFile\022%.file.v1.Permanentl" +
-      "yDeleteFileRequest\032&.file.v1.Permanently" +
-      "DeleteFileResponse\022?\n\010ViewFile\022\030.file.v1" +
-      ".ViewFileRequest\032\031.file.v1.ViewFileRespo" +
-      "nse\022K\n\014DownloadFile\022\034.file.v1.DownloadFi" +
-      "leRequest\032\035.file.v1.DownloadFileResponse" +
-      "B\251\001\n\031com.samarthasthan.file.v1B\tFileProt" +
-      "oP\001ZDgithub.com/samarthasthan/cloud-stor" +
-      "age-commons/gen/go/file/v1;filev1\242\002\003FXX\252" +
-      "\002\007File.V1\312\002\007File\\V1\342\002\023File\\V1\\GPBMetadat" +
-      "a\352\002\010File::V1b\006proto3"
+      "ails\022\035\n\nnsfw_score\030\017 \001(\002R\tnsfwScore\"\235\001\n\t" +
+      "Thumbnail\022\016\n\002id\030\001 \001(\tR\002id\022\024\n\005label\030\002 \001(\t" +
+      "R\005label\022\024\n\005width\030\003 \001(\005R\005width\022\026\n\006height\030" +
+      "\004 \001(\005R\006height\022\026\n\006format\030\005 \001(\tR\006format\022\022\n" +
+      "\004size\030\006 \001(\005R\004size\022\020\n\003url\030\010 \001(\tR\003url2\201\016\n\013" +
+      "FileService\022l\n\027InitiateMultipartUpload\022\'" +
+      ".file.v1.InitiateMultipartUploadRequest\032" +
+      "(.file.v1.InitiateMultipartUploadRespons" +
+      "e\022r\n\031GetPresignedUploadPartURL\022).file.v1" +
+      ".GetPresignedUploadPartURLRequest\032*.file" +
+      ".v1.GetPresignedUploadPartURLResponse\022l\n" +
+      "\027CompleteMultipartUpload\022\'.file.v1.Compl" +
+      "eteMultipartUploadRequest\032(.file.v1.Comp" +
+      "leteMultipartUploadResponse\022c\n\024AbortMult" +
+      "ipartUpload\022$.file.v1.AbortMultipartUplo" +
+      "adRequest\032%.file.v1.AbortMultipartUpload" +
+      "Response\022K\n\014CreateFolder\022\034.file.v1.Creat" +
+      "eFolderRequest\032\035.file.v1.CreateFolderRes" +
+      "ponse\022Z\n\021ListFilesByParent\022!.file.v1.Lis" +
+      "tFilesByParentRequest\032\".file.v1.ListFile" +
+      "sByParentResponse\022Q\n\016ToggleFavorite\022\036.fi" +
+      "le.v1.ToggleFavoriteRequest\032\037.file.v1.To" +
+      "ggleFavoriteResponse\022E\n\nDeleteFile\022\032.fil" +
+      "e.v1.DeleteFileRequest\032\033.file.v1.DeleteF" +
+      "ileResponse\022H\n\013RestoreFile\022\033.file.v1.Res" +
+      "toreFileRequest\032\034.file.v1.RestoreFileRes" +
+      "ponse\0229\n\006Rename\022\026.file.v1.RenameRequest\032" +
+      "\027.file.v1.RenameResponse\022Q\n\016MarkAsIsPubl" +
+      "ic\022\036.file.v1.MarkAsIsPublicRequest\032\037.fil" +
+      "e.v1.MarkAsIsPublicResponse\022Z\n\021MarkAsNot" +
+      "IsPublic\022!.file.v1.MarkAsNotIsPublicRequ" +
+      "est\032\".file.v1.MarkAsNotIsPublicResponse\022" +
+      "Q\n\016AddAccessEmail\022\036.file.v1.AddAccessEma" +
+      "ilRequest\032\037.file.v1.AddAccessEmailRespon" +
+      "se\022T\n\017GetAccessStatus\022\037.file.v1.GetAcces" +
+      "sStatusRequest\032 .file.v1.GetAccessStatus" +
+      "Response\022l\n\027RemoveSingleAccessEmail\022\'.fi" +
+      "le.v1.RemoveSingleAccessEmailRequest\032(.f" +
+      "ile.v1.RemoveSingleAccessEmailResponse\022f" +
+      "\n\025RemoveAllAccessEmails\022%.file.v1.Remove" +
+      "AllAccessEmailsRequest\032&.file.v1.RemoveA" +
+      "llAccessEmailsResponse\022Q\n\016GetAccountSize" +
+      "\022\036.file.v1.GetAccountSizeRequest\032\037.file." +
+      "v1.GetAccountSizeResponse\022f\n\025Permanently" +
+      "DeleteFile\022%.file.v1.PermanentlyDeleteFi" +
+      "leRequest\032&.file.v1.PermanentlyDeleteFil" +
+      "eResponse\022?\n\010ViewFile\022\030.file.v1.ViewFile" +
+      "Request\032\031.file.v1.ViewFileResponse\022K\n\014Do" +
+      "wnloadFile\022\034.file.v1.DownloadFileRequest" +
+      "\032\035.file.v1.DownloadFileResponseB\251\001\n\031com." +
+      "samarthasthan.file.v1B\tFileProtoP\001ZDgith" +
+      "ub.com/samarthasthan/cloud-storage-commo" +
+      "ns/gen/go/file/v1;filev1\242\002\003FXX\252\002\007File.V1" +
+      "\312\002\007File\\V1\342\002\023File\\V1\\GPBMetadata\352\002\010File:" +
+      ":V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -665,7 +666,7 @@ public final class FileProto {
     internal_static_file_v1_FileMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_file_v1_FileMetadata_descriptor,
-        new java.lang.String[] { "Id", "OwnerId", "Name", "ContentType", "Size", "IsPublic", "ShareId", "CreatedAt", "UpdatedAt", "DeletedAt", "Type", "ParentId", "IsFavorite", "Thumbnails", });
+        new java.lang.String[] { "Id", "OwnerId", "Name", "ContentType", "Size", "IsPublic", "ShareId", "CreatedAt", "UpdatedAt", "DeletedAt", "Type", "ParentId", "IsFavorite", "Thumbnails", "NsfwScore", });
     internal_static_file_v1_Thumbnail_descriptor =
       getDescriptor().getMessageTypes().get(43);
     internal_static_file_v1_Thumbnail_fieldAccessorTable = new

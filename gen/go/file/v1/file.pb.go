@@ -2111,6 +2111,7 @@ type FileMetadata struct {
 	ParentId      string                 `protobuf:"bytes,12,opt,name=parent_id,json=parentId,proto3" json:"parent_id,omitempty"` // blank / "" = root
 	IsFavorite    bool                   `protobuf:"varint,13,opt,name=is_favorite,json=isFavorite,proto3" json:"is_favorite,omitempty"`
 	Thumbnails    []*Thumbnail           `protobuf:"bytes,14,rep,name=thumbnails,proto3" json:"thumbnails,omitempty"`
+	NsfwScore     float32                `protobuf:"fixed32,15,opt,name=nsfw_score,json=nsfwScore,proto3" json:"nsfw_score,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2241,6 +2242,13 @@ func (x *FileMetadata) GetThumbnails() []*Thumbnail {
 		return x.Thumbnails
 	}
 	return nil
+}
+
+func (x *FileMetadata) GetNsfwScore() float32 {
+	if x != nil {
+		return x.NsfwScore
+	}
+	return 0
 }
 
 type Thumbnail struct {
@@ -2464,7 +2472,7 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"N\n" +
 	"\x17GetAccessStatusResponse\x12\x16\n" +
 	"\x06emails\x18\x01 \x03(\tR\x06emails\x12\x1b\n" +
-	"\tis_public\x18\x02 \x01(\bR\bisPublic\"\xf3\x03\n" +
+	"\tis_public\x18\x02 \x01(\bR\bisPublic\"\x92\x04\n" +
 	"\fFileMetadata\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x19\n" +
 	"\bowner_id\x18\x02 \x01(\tR\aownerId\x12\x12\n" +
@@ -2486,7 +2494,9 @@ const file_file_v1_file_proto_rawDesc = "" +
 	"isFavorite\x122\n" +
 	"\n" +
 	"thumbnails\x18\x0e \x03(\v2\x12.file.v1.ThumbnailR\n" +
-	"thumbnails\"\x9d\x01\n" +
+	"thumbnails\x12\x1d\n" +
+	"\n" +
+	"nsfw_score\x18\x0f \x01(\x02R\tnsfwScore\"\x9d\x01\n" +
 	"\tThumbnail\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05label\x18\x02 \x01(\tR\x05label\x12\x14\n" +

@@ -93,7 +93,8 @@ type: jspb.Message.getFieldWithDefault(msg, 11, ""),
 parentId: jspb.Message.getFieldWithDefault(msg, 12, ""),
 isFavorite: jspb.Message.getBooleanFieldWithDefault(msg, 13, false),
 thumbnailsList: jspb.Message.toObjectList(msg.getThumbnailsList(),
-    proto.file.v1.Thumbnail.toObject, includeInstance)
+    proto.file.v1.Thumbnail.toObject, includeInstance),
+nsfwScore: jspb.Message.getFloatingPointFieldWithDefault(msg, 15, 0.0)
   };
 
   if (includeInstance) {
@@ -189,6 +190,10 @@ proto.file.v1.FileMetadata.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.file.v1.Thumbnail;
       reader.readMessage(value,proto.file.v1.Thumbnail.deserializeBinaryFromReader);
       msg.addThumbnails(value);
+      break;
+    case 15:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setNsfwScore(value);
       break;
     default:
       reader.skipField();
@@ -319,6 +324,13 @@ proto.file.v1.FileMetadata.serializeBinaryToWriter = function(message, writer) {
       14,
       f,
       proto.file.v1.Thumbnail.serializeBinaryToWriter
+    );
+  }
+  f = message.getNsfwScore();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      15,
+      f
     );
   }
 };
@@ -650,6 +662,24 @@ proto.file.v1.FileMetadata.prototype.addThumbnails = function(opt_value, opt_ind
  */
 proto.file.v1.FileMetadata.prototype.clearThumbnailsList = function() {
   return this.setThumbnailsList([]);
+};
+
+
+/**
+ * optional float nsfw_score = 15;
+ * @return {number}
+ */
+proto.file.v1.FileMetadata.prototype.getNsfwScore = function() {
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 15, 0.0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.file.v1.FileMetadata} returns this
+ */
+proto.file.v1.FileMetadata.prototype.setNsfwScore = function(value) {
+  return jspb.Message.setProto3FloatField(this, 15, value);
 };
 
 

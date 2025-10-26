@@ -207,4 +207,10 @@ public interface FileMetadataOrBuilder extends
    */
   com.samarthasthan.file.v1.ThumbnailOrBuilder getThumbnailsOrBuilder(
       int index);
+
+  /**
+   * <code>float nsfw_score = 15 [json_name = "nsfwScore"];</code>
+   * @return The nsfwScore.
+   */
+  float getNsfwScore();
 }
