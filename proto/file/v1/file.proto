@@ -16,7 +16,9 @@ service FileService {
   rpc ListFilesByParent (ListFilesByParentRequest) returns (ListFilesByParentResponse);
   rpc ToggleFavorite(ToggleFavoriteRequest) returns (ToggleFavoriteResponse);
   rpc DeleteFile(DeleteFileRequest) returns (DeleteFileResponse);
+  rpc DeleteMultipleFile(DeleteMultipleFileRequest) returns (DeleteMultipleFileResponse);
   rpc RestoreFile(RestoreFileRequest) returns (RestoreFileResponse);
+  rpc RestoreMultipleFile(RestoreMultipleFileRequest) returns (RestoreMultipleFileResponse);
   rpc Rename(RenameRequest) returns (RenameResponse);
   rpc MarkAsIsPublic(MarkAsIsPublicRequest) returns (MarkAsIsPublicResponse);
   rpc MarkAsNotIsPublic(MarkAsNotIsPublicRequest) returns (MarkAsNotIsPublicResponse);
@@ -26,6 +28,7 @@ service FileService {
   rpc RemoveAllAccessEmails(RemoveAllAccessEmailsRequest) returns (RemoveAllAccessEmailsResponse);
   rpc GetAccountSize(GetAccountSizeRequest) returns (GetAccountSizeResponse);
   rpc PermanentlyDeleteFile(PermanentlyDeleteFileRequest) returns (PermanentlyDeleteFileResponse);
+  rpc PermanentlyDeleteMultipleFile(PermanentlyDeleteMultipleFileRequest) returns (PermanentlyDeleteMultipleFileResponse);
   rpc ViewFile(ViewFileRequest) returns (ViewFileResponse);
   rpc DownloadFile(DownloadFileRequest) returns (DownloadFileResponse);
 
@@ -57,6 +60,13 @@ message PermanentlyDeleteFileRequest {
 }
 
 message PermanentlyDeleteFileResponse {}
+
+
+message PermanentlyDeleteMultipleFileRequest {
+  repeated string id = 1;
+}
+
+message PermanentlyDeleteMultipleFileResponse {}
 
 
 message GetAccountSizeRequest {}
@@ -157,11 +167,27 @@ message DeleteFileResponse {
    bool is_success = 1;
 }
 
+message DeleteMultipleFileRequest {
+  repeated string id           = 1;
+}
+
+message DeleteMultipleFileResponse {
+   bool is_success = 1;
+}
+
 message RestoreFileRequest {
   string id           = 1;
 }
 
 message RestoreFileResponse {
+   bool is_success = 1;
+}
+
+message RestoreMultipleFileRequest {
+  repeated string id           = 1;
+}
+
+message RestoreMultipleFileResponse {
    bool is_success = 1;
 }
 

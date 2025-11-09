@@ -19,27 +19,30 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	FileService_InitiateMultipartUpload_FullMethodName   = "/file.v1.FileService/InitiateMultipartUpload"
-	FileService_GetPresignedUploadPartURL_FullMethodName = "/file.v1.FileService/GetPresignedUploadPartURL"
-	FileService_CompleteMultipartUpload_FullMethodName   = "/file.v1.FileService/CompleteMultipartUpload"
-	FileService_AbortMultipartUpload_FullMethodName      = "/file.v1.FileService/AbortMultipartUpload"
-	FileService_CreateFolder_FullMethodName              = "/file.v1.FileService/CreateFolder"
-	FileService_ListFilesByParent_FullMethodName         = "/file.v1.FileService/ListFilesByParent"
-	FileService_ToggleFavorite_FullMethodName            = "/file.v1.FileService/ToggleFavorite"
-	FileService_DeleteFile_FullMethodName                = "/file.v1.FileService/DeleteFile"
-	FileService_RestoreFile_FullMethodName               = "/file.v1.FileService/RestoreFile"
-	FileService_Rename_FullMethodName                    = "/file.v1.FileService/Rename"
-	FileService_MarkAsIsPublic_FullMethodName            = "/file.v1.FileService/MarkAsIsPublic"
-	FileService_MarkAsNotIsPublic_FullMethodName         = "/file.v1.FileService/MarkAsNotIsPublic"
-	FileService_AddAccessEmail_FullMethodName            = "/file.v1.FileService/AddAccessEmail"
-	FileService_GetAccessStatus_FullMethodName           = "/file.v1.FileService/GetAccessStatus"
-	FileService_RemoveSingleAccessEmail_FullMethodName   = "/file.v1.FileService/RemoveSingleAccessEmail"
-	FileService_RemoveAllAccessEmails_FullMethodName     = "/file.v1.FileService/RemoveAllAccessEmails"
-	FileService_GetAccountSize_FullMethodName            = "/file.v1.FileService/GetAccountSize"
-	FileService_PermanentlyDeleteFile_FullMethodName     = "/file.v1.FileService/PermanentlyDeleteFile"
-	FileService_ViewFile_FullMethodName                  = "/file.v1.FileService/ViewFile"
-	FileService_DownloadFile_FullMethodName              = "/file.v1.FileService/DownloadFile"
-	FileService_ReportFile_FullMethodName                = "/file.v1.FileService/ReportFile"
+	FileService_InitiateMultipartUpload_FullMethodName       = "/file.v1.FileService/InitiateMultipartUpload"
+	FileService_GetPresignedUploadPartURL_FullMethodName     = "/file.v1.FileService/GetPresignedUploadPartURL"
+	FileService_CompleteMultipartUpload_FullMethodName       = "/file.v1.FileService/CompleteMultipartUpload"
+	FileService_AbortMultipartUpload_FullMethodName          = "/file.v1.FileService/AbortMultipartUpload"
+	FileService_CreateFolder_FullMethodName                  = "/file.v1.FileService/CreateFolder"
+	FileService_ListFilesByParent_FullMethodName             = "/file.v1.FileService/ListFilesByParent"
+	FileService_ToggleFavorite_FullMethodName                = "/file.v1.FileService/ToggleFavorite"
+	FileService_DeleteFile_FullMethodName                    = "/file.v1.FileService/DeleteFile"
+	FileService_DeleteMultipleFile_FullMethodName            = "/file.v1.FileService/DeleteMultipleFile"
+	FileService_RestoreFile_FullMethodName                   = "/file.v1.FileService/RestoreFile"
+	FileService_RestoreMultipleFile_FullMethodName           = "/file.v1.FileService/RestoreMultipleFile"
+	FileService_Rename_FullMethodName                        = "/file.v1.FileService/Rename"
+	FileService_MarkAsIsPublic_FullMethodName                = "/file.v1.FileService/MarkAsIsPublic"
+	FileService_MarkAsNotIsPublic_FullMethodName             = "/file.v1.FileService/MarkAsNotIsPublic"
+	FileService_AddAccessEmail_FullMethodName                = "/file.v1.FileService/AddAccessEmail"
+	FileService_GetAccessStatus_FullMethodName               = "/file.v1.FileService/GetAccessStatus"
+	FileService_RemoveSingleAccessEmail_FullMethodName       = "/file.v1.FileService/RemoveSingleAccessEmail"
+	FileService_RemoveAllAccessEmails_FullMethodName         = "/file.v1.FileService/RemoveAllAccessEmails"
+	FileService_GetAccountSize_FullMethodName                = "/file.v1.FileService/GetAccountSize"
+	FileService_PermanentlyDeleteFile_FullMethodName         = "/file.v1.FileService/PermanentlyDeleteFile"
+	FileService_PermanentlyDeleteMultipleFile_FullMethodName = "/file.v1.FileService/PermanentlyDeleteMultipleFile"
+	FileService_ViewFile_FullMethodName                      = "/file.v1.FileService/ViewFile"
+	FileService_DownloadFile_FullMethodName                  = "/file.v1.FileService/DownloadFile"
+	FileService_ReportFile_FullMethodName                    = "/file.v1.FileService/ReportFile"
 )
 
 // FileServiceClient is the client API for FileService service.
@@ -54,7 +57,9 @@ type FileServiceClient interface {
 	ListFilesByParent(ctx context.Context, in *ListFilesByParentRequest, opts ...grpc.CallOption) (*ListFilesByParentResponse, error)
 	ToggleFavorite(ctx context.Context, in *ToggleFavoriteRequest, opts ...grpc.CallOption) (*ToggleFavoriteResponse, error)
 	DeleteFile(ctx context.Context, in *DeleteFileRequest, opts ...grpc.CallOption) (*DeleteFileResponse, error)
+	DeleteMultipleFile(ctx context.Context, in *DeleteMultipleFileRequest, opts ...grpc.CallOption) (*DeleteMultipleFileResponse, error)
 	RestoreFile(ctx context.Context, in *RestoreFileRequest, opts ...grpc.CallOption) (*RestoreFileResponse, error)
+	RestoreMultipleFile(ctx context.Context, in *RestoreMultipleFileRequest, opts ...grpc.CallOption) (*RestoreMultipleFileResponse, error)
 	Rename(ctx context.Context, in *RenameRequest, opts ...grpc.CallOption) (*RenameResponse, error)
 	MarkAsIsPublic(ctx context.Context, in *MarkAsIsPublicRequest, opts ...grpc.CallOption) (*MarkAsIsPublicResponse, error)
 	MarkAsNotIsPublic(ctx context.Context, in *MarkAsNotIsPublicRequest, opts ...grpc.CallOption) (*MarkAsNotIsPublicResponse, error)
@@ -64,6 +69,7 @@ type FileServiceClient interface {
 	RemoveAllAccessEmails(ctx context.Context, in *RemoveAllAccessEmailsRequest, opts ...grpc.CallOption) (*RemoveAllAccessEmailsResponse, error)
 	GetAccountSize(ctx context.Context, in *GetAccountSizeRequest, opts ...grpc.CallOption) (*GetAccountSizeResponse, error)
 	PermanentlyDeleteFile(ctx context.Context, in *PermanentlyDeleteFileRequest, opts ...grpc.CallOption) (*PermanentlyDeleteFileResponse, error)
+	PermanentlyDeleteMultipleFile(ctx context.Context, in *PermanentlyDeleteMultipleFileRequest, opts ...grpc.CallOption) (*PermanentlyDeleteMultipleFileResponse, error)
 	ViewFile(ctx context.Context, in *ViewFileRequest, opts ...grpc.CallOption) (*ViewFileResponse, error)
 	DownloadFile(ctx context.Context, in *DownloadFileRequest, opts ...grpc.CallOption) (*DownloadFileResponse, error)
 	ReportFile(ctx context.Context, in *ReportFileRequest, opts ...grpc.CallOption) (*ReportFileResponse, error)
@@ -157,10 +163,30 @@ func (c *fileServiceClient) DeleteFile(ctx context.Context, in *DeleteFileReques
 	return out, nil
 }
 
+func (c *fileServiceClient) DeleteMultipleFile(ctx context.Context, in *DeleteMultipleFileRequest, opts ...grpc.CallOption) (*DeleteMultipleFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteMultipleFileResponse)
+	err := c.cc.Invoke(ctx, FileService_DeleteMultipleFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *fileServiceClient) RestoreFile(ctx context.Context, in *RestoreFileRequest, opts ...grpc.CallOption) (*RestoreFileResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RestoreFileResponse)
 	err := c.cc.Invoke(ctx, FileService_RestoreFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileServiceClient) RestoreMultipleFile(ctx context.Context, in *RestoreMultipleFileRequest, opts ...grpc.CallOption) (*RestoreMultipleFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RestoreMultipleFileResponse)
+	err := c.cc.Invoke(ctx, FileService_RestoreMultipleFile_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -257,6 +283,16 @@ func (c *fileServiceClient) PermanentlyDeleteFile(ctx context.Context, in *Perma
 	return out, nil
 }
 
+func (c *fileServiceClient) PermanentlyDeleteMultipleFile(ctx context.Context, in *PermanentlyDeleteMultipleFileRequest, opts ...grpc.CallOption) (*PermanentlyDeleteMultipleFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PermanentlyDeleteMultipleFileResponse)
+	err := c.cc.Invoke(ctx, FileService_PermanentlyDeleteMultipleFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *fileServiceClient) ViewFile(ctx context.Context, in *ViewFileRequest, opts ...grpc.CallOption) (*ViewFileResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ViewFileResponse)
@@ -299,7 +335,9 @@ type FileServiceServer interface {
 	ListFilesByParent(context.Context, *ListFilesByParentRequest) (*ListFilesByParentResponse, error)
 	ToggleFavorite(context.Context, *ToggleFavoriteRequest) (*ToggleFavoriteResponse, error)
 	DeleteFile(context.Context, *DeleteFileRequest) (*DeleteFileResponse, error)
+	DeleteMultipleFile(context.Context, *DeleteMultipleFileRequest) (*DeleteMultipleFileResponse, error)
 	RestoreFile(context.Context, *RestoreFileRequest) (*RestoreFileResponse, error)
+	RestoreMultipleFile(context.Context, *RestoreMultipleFileRequest) (*RestoreMultipleFileResponse, error)
 	Rename(context.Context, *RenameRequest) (*RenameResponse, error)
 	MarkAsIsPublic(context.Context, *MarkAsIsPublicRequest) (*MarkAsIsPublicResponse, error)
 	MarkAsNotIsPublic(context.Context, *MarkAsNotIsPublicRequest) (*MarkAsNotIsPublicResponse, error)
@@ -309,6 +347,7 @@ type FileServiceServer interface {
 	RemoveAllAccessEmails(context.Context, *RemoveAllAccessEmailsRequest) (*RemoveAllAccessEmailsResponse, error)
 	GetAccountSize(context.Context, *GetAccountSizeRequest) (*GetAccountSizeResponse, error)
 	PermanentlyDeleteFile(context.Context, *PermanentlyDeleteFileRequest) (*PermanentlyDeleteFileResponse, error)
+	PermanentlyDeleteMultipleFile(context.Context, *PermanentlyDeleteMultipleFileRequest) (*PermanentlyDeleteMultipleFileResponse, error)
 	ViewFile(context.Context, *ViewFileRequest) (*ViewFileResponse, error)
 	DownloadFile(context.Context, *DownloadFileRequest) (*DownloadFileResponse, error)
 	ReportFile(context.Context, *ReportFileRequest) (*ReportFileResponse, error)
@@ -346,8 +385,14 @@ func (UnimplementedFileServiceServer) ToggleFavorite(context.Context, *ToggleFav
 func (UnimplementedFileServiceServer) DeleteFile(context.Context, *DeleteFileRequest) (*DeleteFileResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteFile not implemented")
 }
+func (UnimplementedFileServiceServer) DeleteMultipleFile(context.Context, *DeleteMultipleFileRequest) (*DeleteMultipleFileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteMultipleFile not implemented")
+}
 func (UnimplementedFileServiceServer) RestoreFile(context.Context, *RestoreFileRequest) (*RestoreFileResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RestoreFile not implemented")
+}
+func (UnimplementedFileServiceServer) RestoreMultipleFile(context.Context, *RestoreMultipleFileRequest) (*RestoreMultipleFileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RestoreMultipleFile not implemented")
 }
 func (UnimplementedFileServiceServer) Rename(context.Context, *RenameRequest) (*RenameResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Rename not implemented")
@@ -375,6 +420,9 @@ func (UnimplementedFileServiceServer) GetAccountSize(context.Context, *GetAccoun
 }
 func (UnimplementedFileServiceServer) PermanentlyDeleteFile(context.Context, *PermanentlyDeleteFileRequest) (*PermanentlyDeleteFileResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PermanentlyDeleteFile not implemented")
+}
+func (UnimplementedFileServiceServer) PermanentlyDeleteMultipleFile(context.Context, *PermanentlyDeleteMultipleFileRequest) (*PermanentlyDeleteMultipleFileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PermanentlyDeleteMultipleFile not implemented")
 }
 func (UnimplementedFileServiceServer) ViewFile(context.Context, *ViewFileRequest) (*ViewFileResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ViewFile not implemented")
@@ -550,6 +598,24 @@ func _FileService_DeleteFile_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_DeleteMultipleFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteMultipleFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).DeleteMultipleFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_DeleteMultipleFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).DeleteMultipleFile(ctx, req.(*DeleteMultipleFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FileService_RestoreFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RestoreFileRequest)
 	if err := dec(in); err != nil {
@@ -564,6 +630,24 @@ func _FileService_RestoreFile_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FileServiceServer).RestoreFile(ctx, req.(*RestoreFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileService_RestoreMultipleFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RestoreMultipleFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).RestoreMultipleFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_RestoreMultipleFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).RestoreMultipleFile(ctx, req.(*RestoreMultipleFileRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -730,6 +814,24 @@ func _FileService_PermanentlyDeleteFile_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_PermanentlyDeleteMultipleFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PermanentlyDeleteMultipleFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).PermanentlyDeleteMultipleFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_PermanentlyDeleteMultipleFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).PermanentlyDeleteMultipleFile(ctx, req.(*PermanentlyDeleteMultipleFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FileService_ViewFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ViewFileRequest)
 	if err := dec(in); err != nil {
@@ -824,8 +926,16 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _FileService_DeleteFile_Handler,
 		},
 		{
+			MethodName: "DeleteMultipleFile",
+			Handler:    _FileService_DeleteMultipleFile_Handler,
+		},
+		{
 			MethodName: "RestoreFile",
 			Handler:    _FileService_RestoreFile_Handler,
+		},
+		{
+			MethodName: "RestoreMultipleFile",
+			Handler:    _FileService_RestoreMultipleFile_Handler,
 		},
 		{
 			MethodName: "Rename",
@@ -862,6 +972,10 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "PermanentlyDeleteFile",
 			Handler:    _FileService_PermanentlyDeleteFile_Handler,
+		},
+		{
+			MethodName: "PermanentlyDeleteMultipleFile",
+			Handler:    _FileService_PermanentlyDeleteMultipleFile_Handler,
 		},
 		{
 			MethodName: "ViewFile",
