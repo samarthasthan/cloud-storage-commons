@@ -40,6 +40,7 @@ const (
 	FileService_GetAccountSize_FullMethodName                = "/file.v1.FileService/GetAccountSize"
 	FileService_PermanentlyDeleteFile_FullMethodName         = "/file.v1.FileService/PermanentlyDeleteFile"
 	FileService_PermanentlyDeleteMultipleFile_FullMethodName = "/file.v1.FileService/PermanentlyDeleteMultipleFile"
+	FileService_CleanBin_FullMethodName                      = "/file.v1.FileService/CleanBin"
 	FileService_ViewFile_FullMethodName                      = "/file.v1.FileService/ViewFile"
 	FileService_DownloadFile_FullMethodName                  = "/file.v1.FileService/DownloadFile"
 	FileService_ReportFile_FullMethodName                    = "/file.v1.FileService/ReportFile"
@@ -70,6 +71,7 @@ type FileServiceClient interface {
 	GetAccountSize(ctx context.Context, in *GetAccountSizeRequest, opts ...grpc.CallOption) (*GetAccountSizeResponse, error)
 	PermanentlyDeleteFile(ctx context.Context, in *PermanentlyDeleteFileRequest, opts ...grpc.CallOption) (*PermanentlyDeleteFileResponse, error)
 	PermanentlyDeleteMultipleFile(ctx context.Context, in *PermanentlyDeleteMultipleFileRequest, opts ...grpc.CallOption) (*PermanentlyDeleteMultipleFileResponse, error)
+	CleanBin(ctx context.Context, in *CleanBinRequest, opts ...grpc.CallOption) (*CleanBinResponse, error)
 	ViewFile(ctx context.Context, in *ViewFileRequest, opts ...grpc.CallOption) (*ViewFileResponse, error)
 	DownloadFile(ctx context.Context, in *DownloadFileRequest, opts ...grpc.CallOption) (*DownloadFileResponse, error)
 	ReportFile(ctx context.Context, in *ReportFileRequest, opts ...grpc.CallOption) (*ReportFileResponse, error)
@@ -293,6 +295,16 @@ func (c *fileServiceClient) PermanentlyDeleteMultipleFile(ctx context.Context, i
 	return out, nil
 }
 
+func (c *fileServiceClient) CleanBin(ctx context.Context, in *CleanBinRequest, opts ...grpc.CallOption) (*CleanBinResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CleanBinResponse)
+	err := c.cc.Invoke(ctx, FileService_CleanBin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *fileServiceClient) ViewFile(ctx context.Context, in *ViewFileRequest, opts ...grpc.CallOption) (*ViewFileResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ViewFileResponse)
@@ -348,6 +360,7 @@ type FileServiceServer interface {
 	GetAccountSize(context.Context, *GetAccountSizeRequest) (*GetAccountSizeResponse, error)
 	PermanentlyDeleteFile(context.Context, *PermanentlyDeleteFileRequest) (*PermanentlyDeleteFileResponse, error)
 	PermanentlyDeleteMultipleFile(context.Context, *PermanentlyDeleteMultipleFileRequest) (*PermanentlyDeleteMultipleFileResponse, error)
+	CleanBin(context.Context, *CleanBinRequest) (*CleanBinResponse, error)
 	ViewFile(context.Context, *ViewFileRequest) (*ViewFileResponse, error)
 	DownloadFile(context.Context, *DownloadFileRequest) (*DownloadFileResponse, error)
 	ReportFile(context.Context, *ReportFileRequest) (*ReportFileResponse, error)
@@ -423,6 +436,9 @@ func (UnimplementedFileServiceServer) PermanentlyDeleteFile(context.Context, *Pe
 }
 func (UnimplementedFileServiceServer) PermanentlyDeleteMultipleFile(context.Context, *PermanentlyDeleteMultipleFileRequest) (*PermanentlyDeleteMultipleFileResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PermanentlyDeleteMultipleFile not implemented")
+}
+func (UnimplementedFileServiceServer) CleanBin(context.Context, *CleanBinRequest) (*CleanBinResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CleanBin not implemented")
 }
 func (UnimplementedFileServiceServer) ViewFile(context.Context, *ViewFileRequest) (*ViewFileResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ViewFile not implemented")
@@ -832,6 +848,24 @@ func _FileService_PermanentlyDeleteMultipleFile_Handler(srv interface{}, ctx con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_CleanBin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CleanBinRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).CleanBin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileService_CleanBin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).CleanBin(ctx, req.(*CleanBinRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FileService_ViewFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ViewFileRequest)
 	if err := dec(in); err != nil {
@@ -976,6 +1010,10 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "PermanentlyDeleteMultipleFile",
 			Handler:    _FileService_PermanentlyDeleteMultipleFile_Handler,
+		},
+		{
+			MethodName: "CleanBin",
+			Handler:    _FileService_CleanBin_Handler,
 		},
 		{
 			MethodName: "ViewFile",

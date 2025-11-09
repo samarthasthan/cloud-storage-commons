@@ -29,11 +29,20 @@ service FileService {
   rpc GetAccountSize(GetAccountSizeRequest) returns (GetAccountSizeResponse);
   rpc PermanentlyDeleteFile(PermanentlyDeleteFileRequest) returns (PermanentlyDeleteFileResponse);
   rpc PermanentlyDeleteMultipleFile(PermanentlyDeleteMultipleFileRequest) returns (PermanentlyDeleteMultipleFileResponse);
+  rpc CleanBin(CleanBinRequest) returns (CleanBinResponse);
   rpc ViewFile(ViewFileRequest) returns (ViewFileResponse);
   rpc DownloadFile(DownloadFileRequest) returns (DownloadFileResponse);
 
   rpc ReportFile(ReportFileRequest) returns (ReportFileResponse);
 }
+
+message CleanBinRequest {
+}
+
+message CleanBinResponse{
+}
+
+
 
 message DownloadFileRequest {
    string id = 1;
